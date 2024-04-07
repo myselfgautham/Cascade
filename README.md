@@ -10,6 +10,10 @@
 
 <br>
 
+### :fire: Projects Under This Repository :atom:
+
+<br>
+
 ### :bridge_at_night: Dependencies Used :ice_cube:
 
 > C99 Required ( *Available On Most Systems* ) <br>
@@ -29,3 +33,26 @@
 | *Real Name* | **Unique ID**  | *Icon Assigned* |
 | ----------- | -------------- | --------------- |
 | *Gautham Krishna V* | *P0x0* | :electron: |
+
+<br>
+
+### :octocat: Commits History : Production :fire:
+| *Commit ID* | *Date Of Merge* | *Authorised By* | **Status** |
+| ----------- | --------------- | --------------- | ---------- |
+
+<br>
+
+### :scroll: To Keep In Mind :art:
+
+This *Repository And Code Assosiated With **Each And Every** Project Of This Repository* <br>
+Is Licensed Under **The GNU General Public Licesnse Revision 3** <br>
+**Please Note The Above Before Using A Project Part Of This Repository**
+
+<br>
+
+### Made With :heart: By
+
+> Gautham Krishna V <br>
+> For Little Kites State Camp 2024 <br>
+> E Mail -> gauthamkrishnav@icloud.com <br>
+> GitHub -> @myselfgautham <br>
