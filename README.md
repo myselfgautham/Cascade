@@ -39,6 +39,7 @@
 ### :octocat: Commits History : Production :fire:
 | *Commit ID* | *Date Of Merge* | *Authorised By* | **Status** |
 | ----------- | --------------- | --------------- | ---------- |
+| **Cx01** | *09/04/2024* | *P0x0* :electron: | **All Good** |
 
 <br>
 
