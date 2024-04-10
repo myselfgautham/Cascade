@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+
+body
+{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(#011d5b,white);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+    background: rgba(255, 255, 255, .1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
+}
+
+.header::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+    transition: .5s;
+}
+
+.header:hover::before
+{
+    left: 100%;
+}
+
+.logo
+{
+    color: #fff;
+    font-size: clamp(1rem, .8rem + 1vw, 2rem);
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-left: 0%;
+}
+
+.links
+{
+    white-space: nowrap;
+    position: relative;
+}
+
+.links a
+{
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.links a:hover
+{
+    color: #f00;
+}
+
+@media screen and (max-width: 830px)
+{
+    .header
+    {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .links a
+    {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }
+
+    .links
+    {
+        display: none;
+    }
+    .hamburgerMenu
+    {
+        margin-right: 18px;
+        text-decoration: none;
+        color: white;
+        display: block;
+        float: right;
+    }
+}
+
+@media screen and (min-width: 831px)
+{
+    .hamburgerMenu
+    {
+        display: none;
+    }
+    .links a
+    {
+        visibility: visible;
+    }
+}
+
+@keyframes typingAnimation
+{
+    from { width: 0% }
+    to { width: 100% }    
+}
+
+@keyframes cursorBlink
+{
+    from,to {border-color: transparent;}
+    50% {border-color: orange;}
+}
+
+.centeredText
+{
+    color: white;
+    display: flexbox;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.typingText
+{
+    font-size: 5vw;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid transparent;
+    letter-spacing: .15em;
+    transition-delay: 0ms;
+    animation: typingAnimation 3s steps(40 , end) , cursorBlink 3.5s;
+}
+
+@keyframes opacityShow
+{
+    form {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+.dynamicText
+{
+    font-size: 5vw;
+    opacity: 0%;
+    animation: opacityShow 2s steps(40,end);
+    animation-delay: 3.6s;
+    animation-fill-mode: forwards;
+}
