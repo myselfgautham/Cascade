@@ -10,7 +10,7 @@
 
 <br>
 
-### :fire: Projects Under This Repository :atom:
+### :sparkles: Projects Under This Repository :atom:
 
 <br>
 
