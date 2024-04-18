@@ -120,6 +120,7 @@ body
   }
   .navbar a 
   {
+    cursor: crosshair;
     display: block;
     margin: 1.5rem 0;
     text-align: center
