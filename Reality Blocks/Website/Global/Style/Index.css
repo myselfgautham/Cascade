@@ -122,6 +122,7 @@ body
   }
   .navbar a 
   {
+    animation: showText 1.50s steps(40,end);
     cursor: crosshair;
     display: block;
     margin: 1.5rem 0;
@@ -142,6 +143,7 @@ body
   }
   .nav-bg.active
   {
+    animation: showText 1.50s steps(40,end);
     display: block;
   }
 }
