@@ -13,3 +13,17 @@ function reloadPage()
 {
     window.location.reload()
 }
+
+// Text Hiding
+function hideText()
+{
+    var text = document.getElementById("textBox");
+    if (text.className === "centerText")
+    {
+        text.className = "hide";
+    }
+    else
+    {
+        text.className = "centerText";
+    }
+}
