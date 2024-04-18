@@ -15,9 +15,15 @@ website.template_folder = TEMPLATES
 website.static_folder = STATIC
 
 # Website Root
-@website.route("/")
+@website.route("/",methods = ["GET"])
 def serveHomePage():
-    return serveWebsite("Index.html")
+    return (
+        serveWebsite
+        (
+            "Index.html",
+            userState = "Console"
+        )
+    )
 
 # Launch Server
 if __name__ == "__main__":
