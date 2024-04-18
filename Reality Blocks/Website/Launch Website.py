@@ -4,8 +4,8 @@ from flask import url_for
 from flask import render_template as serveWebsite
 
 # Environment Variables
-STATIC: str = "../Global"
-TEMPLATES: str = "../Pages"
+STATIC: str = "./Global"
+TEMPLATES: str = "./Pages"
 
 # Application Defenition
 website = Flask(__name__)
