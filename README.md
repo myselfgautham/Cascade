@@ -5,7 +5,7 @@
 > :airplane: Project Count : 1 <br>
 > :bookmark_tabs: Lookup IDs : PD0x00 <br>
 > :clock1: Finished On : Working Right Now<br>
-> :desktop_computer: Hardware Refrence File : Logs -> Hardware.md <br>
+> :desktop_computer: Hardware Refrence File : Logs -> Hardware.txt <br>
 > :books: Created By : Gautham Krishna V
 
 <br>
