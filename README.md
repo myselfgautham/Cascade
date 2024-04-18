@@ -2,15 +2,16 @@
 <h1 align="center">:atom: Final Projects :octocat:
 
 ### :books: Project Details :atom:
-> :airplane: Project Count : <br>
-> :bookmark_tabs: Lookup IDs : <br>
-> :clock1: Finished On : <br>
-> :desktop_computer: Hardware Used : <br>
+> :airplane: Project Count : 1 <br>
+> :bookmark_tabs: Lookup IDs : PD0x00 <br>
+> :clock1: Finished On : Working Right Now<br>
+> :desktop_computer: Hardware Refrence File : Logs -> Hardware.txt <br>
 > :books: Created By : Gautham Krishna V
 
 <br>
 
 ### :sparkles: Projects Under This Repository :atom:
+> * :house_with_garden: Reality Blocks
 
 <br>
 
