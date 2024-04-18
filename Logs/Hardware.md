@@ -1,5 +1,4 @@
-<h1 align="center">:electron: Little Kites State Camp :dependabot:
-<h1 align="center">:atom: Hardware Components Used :octocat:
+<h1 align="right">:man_technologist: Hardware Components Used :desktop_computer:
 
 ### :bridge_at_night: Project I -> Reality Blocks :atom:
 > * Arduino UNO
