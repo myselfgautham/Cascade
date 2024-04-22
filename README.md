@@ -15,7 +15,7 @@
 
 <br>
 
-### :bridge_at_night: Dependencies Used :ice_cube:
+### :bridge_at_night: Dependencies Used :airplane:
 
 > C99 Required ( *Available On Most Systems* ) <br>
 > Python **3.9 Or Above** <br>
