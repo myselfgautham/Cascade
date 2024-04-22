@@ -1,18 +1,17 @@
-<h1 align="center">:electron: Little Kites State Camp :dependabot:
-<h1 align="center">:atom: Final Projects :octocat:
+<h1 align="center">:house_with_garden: Little Kites State Camp :earth_asia:
+<h1 align="center">:zap: Final Projects :snowflake:
 
 ### :books: Project Details :atom:
-> :airplane: Project Count : 1 <br>
-> :bookmark_tabs: Lookup IDs : PD0x00 <br>
+> :airplane: Project Count : - <br>
+> :bookmark_tabs: Lookup IDs : - <br>
 > :clock1: Finished On : Working Right Now<br>
-> :desktop_computer: Hardware Refrence File : Logs -> Hardware.md <br>
-> :card_file_box: Logs Folder : _**Logs**_ <br>
+> :desktop_computer: Hardware Refrence File : - <br>
+> :card_file_box: Logs Folder :  - <br>
 > :books: Created By : Gautham Krishna V
 
 <br>
 
 ### :sparkles: Projects Under This Repository :atom:
-> * :house_with_garden: Reality Blocks
 
 <br>
 
@@ -52,7 +51,7 @@ Is Licensed Under **The GNU General Public Licesnse Revision 3** <br>
 
 <br>
 
-### Made With :heart: By
+### Made With :gift_heart: By
 
 > Gautham Krishna V <br>
 > For Little Kites State Camp 2024 <br>
