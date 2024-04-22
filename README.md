@@ -5,7 +5,7 @@
 > :airplane: Project Count : - <br>
 > :bookmark_tabs: Lookup IDs : - <br>
 > :clock1: Finished On : Working Right Now<br>
-> :desktop_computer: Hardware Refrence File : - <br>
+> :desktop_computer: Hardware Reference File : - <br>
 > :card_file_box: Logs Folder :  - <br>
 > :books: Created By : Gautham Krishna V
 
@@ -38,7 +38,7 @@
 <br>
 
 ### :octocat: Commits History : Production :fire:
-| *Commit ID* | *Date Of Merge* | *Authorised By* | **Status** |
+| *Commit ID* | *Date Of Merge* | *Authorized By* | **Status** |
 | ----------- | --------------- | --------------- | ---------- |
 
 <br>
@@ -46,10 +46,10 @@
 ### :scroll: To Keep In Mind :art:
 
 This *Repository And Code Associated With **Each And Every** Project Of This Repository* <br>
-Is Licensed Under **The GNU General Public Licesnse Version 3** <br>
+Is Licensed Under **The GNU General Public License Version 3** <br>
 And The Disclosure Of Source<sup>**1**</sup> Is **Mandatory** Under **All Circumstances** <br>
 **Please Note The Above Before Using A Project Part Of This Repository** <br>
-<sup>**1**</sup> The Souce Hereby Refers To This Repository (Parent Repository)
+<sup>**1**</sup> The Source Hereby Refers To This Repository (Parent Repository)
 
 <br>
 
