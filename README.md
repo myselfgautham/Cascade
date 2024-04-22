@@ -45,9 +45,11 @@
 
 ### :scroll: To Keep In Mind :art:
 
-This *Repository And Code Assosiated With **Each And Every** Project Of This Repository* <br>
-Is Licensed Under **The GNU General Public Licesnse Revision 3** <br>
-**Please Note The Above Before Using A Project Part Of This Repository**
+This *Repository And Code Associated With **Each And Every** Project Of This Repository* <br>
+Is Licensed Under **The GNU General Public Licesnse Version 3** <br>
+And The Disclosure Of Source<sup>**1**</sup> Is **Mandatory** Under **All Circumstances** <br>
+**Please Note The Above Before Using A Project Part Of This Repository** <br>
+<sup>**1**</sup> The Souce Hereby Refers To This Repository (Parent Repository)
 
 <br>
 
