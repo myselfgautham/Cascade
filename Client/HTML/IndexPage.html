@@ -1,10 +1,10 @@
 {% extends "StaticPage.html" %}
 {% block Header %}
 <link rel="stylesheet" href="{{ url_for('static',filename='CSS/IndexPage.css') }}">
-<script src="{{ url_for('static',filename='JavaScript/IndexPage.js') }}"></script>
+<script src="{{ url_for('static',filename='JavaScript/CommonScripts.js') }}"></script>
 {% endblock %}
 {% block Icon %}
-<i class='bx bx-menu' id="menu-icon" onclick="hideText()"></i>
+<i class='bx bx-menu' id="menu-icon" onclick="hideText('text', 'text')"></i>
 {% endblock %}
 {% block content %}
 <div class="container">

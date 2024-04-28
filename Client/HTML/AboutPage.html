@@ -3,11 +3,11 @@
 <title>Simple | About</title>
 {% endblock %}
 {% block Header %}
-<script src="{{ url_for('static',filename='JavaScript/AboutPage.js') }}"></script>
+<script src="{{ url_for('static',filename='JavaScript/CommonScripts.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static',filename='CSS/AboutPage.css') }}">
 {% endblock %}
 {% block Icon %}
-<i class='bx bx-menu' id="menu-icon" onclick="hideText()"></i>
+<i class='bx bx-menu' id="menu-icon" onclick="hideText('text', 'wrapper')"></i>
 {% endblock %}
 {% block content %}
 <div class="wrapper" id="text">

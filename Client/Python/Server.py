@@ -21,21 +21,6 @@ def serveHomePage():
 def serveAboutPage():
     return Serve("AboutPage.html")
 
-# Website Services Page
-@application.route("/services")
-def serveServicesPage():
-    return Serve("ServicesPage.html")
-
-# Website Documentation
-@application.route("/help")
-def serveDocumentations():
-    return Serve("DocumentsPage.html")
-
-# Website Contacts Page
-@application.route("/contact")
-def serveContactPage():
-    return Serve("ContactsPage.html")
-
 # Execution Of Flask Application
 if __name__ == "__main__":
     application.run(debug=True,port=1920)
