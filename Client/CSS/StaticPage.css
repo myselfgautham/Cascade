@@ -195,3 +195,10 @@ body
     font-size: calc(7px + 1.10vw);
   }
 }
+
+/* Hidden Elements */
+.hidden
+{
+  display: none;
+  visibility: hidden !important;
+}

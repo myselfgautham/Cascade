@@ -1,1 +1,22 @@
 {% extends "StaticPage.html" %}
+{% block title %}
+<title>Simple | About</title>
+{% endblock %}
+{% block Header %}
+<script src="{{ url_for('static',filename='JavaScript/AboutPage.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static',filename='CSS/AboutPage.css') }}">
+{% endblock %}
+{% block Icon %}
+<i class='bx bx-menu' id="menu-icon" onclick="hideText()"></i>
+{% endblock %}
+{% block content %}
+<div class="wrapper" id="text">
+    <h1 class="heading">About Simple</h1>
+    <p class="text">
+        Simple Is A Project Aimed At Solving The Card Crisis
+        People Often Find It Difficult To Manage Multiple Cards
+        Not Only People But Also Enterprises Find It Challenging
+        Simple With Its Services Make This Task A Walk In The Park
+    </p>
+</div>
+{% endblock %}

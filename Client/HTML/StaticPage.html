@@ -7,23 +7,33 @@
     <!--Website Metadata-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Simple Card Unification System">
     <!--Website Title-->
+    {% block title %}
     <title>Simple</title>
+    {% endblock %}
     <!--Internal Cascading Style Sheets Linking-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/StaticPage.css') }}">
     <!--External CSS Libraries Inclusion-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!--Favicon Setup Code-->
     <link rel="icon" type="images-x/icon" href="{{ url_for('static',filename='Images/Favicon.png') }}">
+    <!--Jinja External CSS Block-->
+    {% block Header %}
+    {% endblock %}
+    <!--Google Fonts Preconnect-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <!--Main Website Body Element-->
 <body>
     <!--Header Element-->
     <header class="header">
         <!--Logo Element With Reload-->
-        <a onclick="reloadPage()" class="logo">Simple</a>
+        <a href="/" class="logo">Simple</a>
         <!--Hamburger Menu Icon-->
+        {% block Icon %}
         <i class='bx bx-menu' id="menu-icon"></i>
+        {% endblock %}
         <!--Navigation Bar Links-->
         <nav class="navbar">
             <a href="about">About</a>

@@ -1,9 +1,3 @@
-// Reload Function
-function reloadPage()
-{
-    window.location.reload();
-}
-
 // Hamburger Menu
 const menuIcon = document.querySelector('#menu-icon');
 const navbar = document.querySelector('.navbar');
