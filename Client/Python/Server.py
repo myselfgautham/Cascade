@@ -16,6 +16,11 @@ application.static_folder = STATIC
 def serveHomePage():
     return Serve("IndexPage.html")
 
+# Website About Page
+@application.route("/about")
+def serveAboutPage():
+    return Serve("AboutPage.html")
+
 # Execution Of Flask Application
 if __name__ == "__main__":
     application.run(debug=True,port=1920)
