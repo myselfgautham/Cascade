@@ -10,11 +10,11 @@
     <!--Website Title-->
     <title>Simple</title>
     <!--Internal Cascading Style Sheets Linking-->
-    <link rel="stylesheet" type="text/css" href="../CSS/IndexPage.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/IndexPage.css') }}">
     <!--External CSS Libraries Inclusion-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!--Favicon Setup Code-->
-    <link rel="icon" type="images-x/icon" href="../Images/Favicon.png">
+    <link rel="icon" type="images-x/icon" href="{{ url_for('static',filename='Images/Favicon.png') }}">
 </head>
 <!--Main Website Body Element-->
 <body>
@@ -38,9 +38,8 @@
     <!--Text On Incompatible Screens-->
     <div class="incompatible">
         <h1>Incompatible Device</h1>
-        <h1>Minimum Screen Width -> 251 Pixels</h1>
     </div>
     <!--JavaScript Code-->
-    <script src="../JavaScript/IndexPage.js"></script>
+    <script src="{{ url_for('static',filename='JavaScript/IndexPage.js') }}"></script>
 </body>
 </html>

@@ -191,7 +191,7 @@ body
     color: orange;
     display: block;
     visibility: visible;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
     font-size: calc(7px + 1.10vw);
   }
 }
