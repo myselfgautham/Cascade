@@ -1,0 +1,17 @@
+{% extends "StaticPage.html" %}
+{% block title %}
+<title>Page Not Found</title>
+{% endblock %}
+{% block Header %}
+<link rel="stylesheet" href="{{ url_for('static',filename='CSS/Error404.css') }}">
+<script src="{{ url_for('static',filename='JavaScript/CommonScripts.js') }}"></script>
+{% endblock %}
+{% block Icon %}
+<i class='bx bx-menu' id="menu-icon" onclick="hideText('TextBox', 'container')"></i>
+{% endblock %}
+{% block content %}
+<div class="container" id="TextBox">
+    <h1>Page Not Found</h1>
+    <a href="/">Go Back Home</a>
+</div>
+{% endblock %}

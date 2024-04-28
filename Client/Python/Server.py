@@ -21,6 +21,12 @@ def serveHomePage():
 def serveAboutPage():
     return Serve("AboutPage.html")
 
+# Handle 404 Error
+@application.errorhandler(404)
+def handle404Error(Error):
+    print(f"\nServer Error => {Error}\n")
+    return Serve("Error404.html")
+
 # Execution Of Flask Application
 if __name__ == "__main__":
     application.run(debug=True,port=1920)
