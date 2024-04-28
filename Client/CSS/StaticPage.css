@@ -175,7 +175,7 @@ body
 }
 
 /* Incompatible Screens */
-@media screen and (max-width: 250px)
+@media screen and (max-width: 277px)
 {
   /* Header And Divisions */
   .header,
