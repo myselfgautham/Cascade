@@ -4,7 +4,7 @@
 
 const char * INTERPRETER = "/usr/local/bin/python3.12";
 const char * PATH = "/home/megkvc/Documents/GitHub Projects/Little Kites State Camp/Client/Python/";
-const char * SCRIPT = "Server.py";
+const char * SCRIPT = "Website.py";
 
 int main(void)
 {
