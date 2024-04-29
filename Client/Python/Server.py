@@ -27,6 +27,11 @@ def handle404Error(Error):
     print(f"\nServer Error => {Error}\n")
     return Serve("Error404.html")
 
+# Website Console Page
+@application.route("/user")
+def serveConsolePage():
+    return Serve("ConsolePage.html")
+
 # Execution Of Flask Application
 if __name__ == "__main__":
     application.run(debug=True,port=1920)
