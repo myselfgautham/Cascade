@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple | Cookies</title>
+    <link rel="icon" type="images-x/icon" href="{{ url_for('static',filename='Images/Favicon.png') }}">
+    <script src="{{ url_for('static',filename='JavaScript/Cookies.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/AcceptCookies.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">This Website Uses Cookies</h1>
+        <p class="innerText">
+            This Website Uses Cookies To <br>
+            Store A Unique Identifier For Each Devices <br>
+            Which On Clear Deletes The Devices Login Information <br>
+            The Data Is Accessed Only Once To Verify The Device <br>
+            The Data Is Not Accessed Later During A Session <br>
+        </p>
+        <div class="buttons">
+            <button class="accept" onclick="cookiesAccepted()">Accept Cookies</button>
+            <button class="help" onclick="">Get Help</button>
+        </div>
+    </div>
+    <div class="incompatible">
+        <h1>Incompatible Device</h1>
+    </div>
+</body>
+</html>

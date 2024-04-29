@@ -7,3 +7,14 @@ menuIcon.addEventListener('click', () => {
     navbar.classList.toggle('active');
     navbg.classList.toggle('active');
 });
+
+// Cookies Check
+document.addEventListener("DOMContentLoaded", () => {
+    const negativeValue = [null,"null",false,"false"];
+    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
+    const member = negativeValue.includes(cookiesAccepted)
+    if (member === true)
+    {
+        window.location.href = "/";
+    }
+})

@@ -11,8 +11,13 @@ application = Flask(__name__)
 application.template_folder = TEMPLATES
 application.static_folder = STATIC
 
-# Website Home Page
+# Website Cookies Page
 @application.route("/")
+def acceptCookiesNotifier():
+    return Serve("AcceptCookies.html")
+
+# Website Home Page
+@application.route("/home")
 def serveHomePage():
     return Serve("IndexPage.html")
 
