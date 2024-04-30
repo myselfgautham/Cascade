@@ -1,0 +1,18 @@
+{% extends "StaticPage.html" %}
+{% block title %}
+<title>Simple | Account</title>
+{% endblock %}
+{% block Header %}
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{{ url_for('static',filename='CSS/LoginSignup.css') }}">
+{% endblock %}
+{% block Icon %}
+    <i class='bx bx-menu' id="menu-icon"></i>
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+    <form class="login">
+        <h1 id="message">Welcome Back</h1>
+    </form>
+</div>
+{% endblock %}

@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Cookie Already Set");
             console.log("UID : ",getCookie("uid"));
             console.log("Logged In : ",getCookie("userStatus"));
+            sendToFlask()
         }
     }
 })
@@ -46,7 +47,7 @@ async function getUID()
       }
       const data = await response.json();
       setCookie("uid",data.uid,128);
-      setCookie("userStatus","false",128);
+      setCookie("userStatus",false,128);
     }
     catch (error)
     {
@@ -82,4 +83,37 @@ function getCookie(cookieName)
         }
     }
     return "";
+}
+// Cookies As HashMap
+function getCookiesAsObject()
+{
+    var cookies = document.cookie.split(';');
+    var cookieObject = {};
+    cookies.forEach(function(cookie) {
+      var parts = cookie.split('=');
+      var key = parts[0].trim();
+      var value = decodeURIComponent(parts[1]);
+      cookieObject[key] = value;
+    });  
+    return cookieObject;
+}
+
+// Function To Send Cookies To Flask
+function sendToFlask()
+{
+    const data = getCookiesAsObject();
+    fetch("/api/cookiesBuffer", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Response : ",data);
+    })
+    .catch(error => {
+        console.log("Error : ",error);
+    })
 }
