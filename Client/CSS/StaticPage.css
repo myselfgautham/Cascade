@@ -177,6 +177,13 @@ body
   {
     display: block;
   }
+
+  /* Hamburger Menu Animation */
+  .nav-bg.active,
+  .navbar
+  {
+    animation: opacity-show 1.3s forwards;
+  }
 }
 
 /* Incompatible Screens */
@@ -206,4 +213,11 @@ body
 {
   display: none;
   visibility: hidden !important;
+}
+
+/* Keyframes Animation */
+@keyframes opacity-show
+{
+  from {opacity: 0%;}
+  to {opacity: 100%;}  
 }
