@@ -130,6 +130,7 @@ body
   {
     display: block;
   }
+
   /* Navigation Bar */
   .navbar
   {
@@ -140,11 +141,13 @@ body
     padding: 0.5rem 4%;
     display: none;
   }
+
   /* Active Class (JavaScript) */
   .navbar.active
   {
     display: block;
   }
+
   /* Links */
   .navbar a 
   {
@@ -153,6 +156,7 @@ body
     text-align: center;
     cursor: none;
   }
+
   /* Blurred Background */
   .nav-bg
   {
@@ -167,6 +171,7 @@ body
     z-index: 99;
     display: none;
   }
+  
   /* Active Clause (JavaScript) */
   .nav-bg.active
   {

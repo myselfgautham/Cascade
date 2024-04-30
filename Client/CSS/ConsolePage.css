@@ -1,3 +1,4 @@
+/* Console Container */
 .console {
     position: absolute;
     top: 50%;
@@ -5,6 +6,7 @@
     transform: translate(-50%,-50%);
 }
 
+/* Heading */
 .console h1 {
     color: white;
     font-family: 'Courier New', Courier, monospace;

@@ -1,11 +1,14 @@
+/* Libraries Import */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Universal Formatting */
 *
 {
     user-select: none;
     -webkit-user-select: none;
 }
 
+/* Body Element */
 body
 {
     margin: 0px 0px 0px 0px;
@@ -16,6 +19,7 @@ body
     background: black;
 }
 
+/* Container */
 .container
 {
     text-align: center;
@@ -30,6 +34,7 @@ body
     animation: show-animation 1s ease-out forwards;
 }
 
+/* Notice Header */
 .heading
 {
     text-align: center;
@@ -42,6 +47,7 @@ body
     margin-bottom: 12px;
 }
 
+/* Description */
 .innerText
 {
     text-align: center;
@@ -55,6 +61,7 @@ body
     margin-top: 0px;
 }
 
+/* Incompatible Devices */
 .incompatible
 {
     display: none;
@@ -68,6 +75,7 @@ body
     transform: translate(-50%,-50%);
 }
 
+/* Incompatible Devices Activation */
 @media screen and (max-width: 277px)
 {
   /* Header And Divisions */
@@ -88,21 +96,11 @@ body
   }
 }
 
-.container a
-{
-    color: white;
-    text-decoration: none;
-}
-
-.container a:hover
-{
-    text-align: center;
-    color: orange;
-}
-
+/* Buttons Seen */
 .accept,
 .help
 {
+    text-align: center;
     font-family: "Montserrat", sans-serif;
     font-size: calc(9px + 1vw);
     letter-spacing: 0.10rem;
@@ -115,8 +113,10 @@ body
     transition: background-color 0.6s ease, color 0.6s ease;
 }
 
+/* Text Padding */
 @media screen and (max-width: 800px)
 {
+    /* Text Box */
     .innerText
     {
         padding-left: 10px;
@@ -124,6 +124,7 @@ body
     }
 }
 
+/* Hover Clause Buttons */
 .accept:hover,
 .help:hover
 {
@@ -133,6 +134,7 @@ body
     font-weight: 600;
 }
 
+/* Opacity Animation */
 @keyframes show-animation
 {
     from {
@@ -143,24 +145,25 @@ body
     }
 }
 
+/* Help Automatic Padding */
 @media screen and (min-width: 420px)
 {
+    /* Help Button */
     .help
     {
         margin-left: 7px;
     }
 }
 
+/* Buttons Common Styling */
 .buttons
 {
     margin-top: 12px;
     margin-bottom: 12px;
 }
 
-@media screen and (max-width: 397px)
+/* Help Top Margin */
+.help
 {
-    .help
-    {
-        margin-top: 12px;
-    }
+    margin-top: 12px;
 }

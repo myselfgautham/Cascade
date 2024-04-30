@@ -1,3 +1,4 @@
+// Listen For Website Loading
 document.addEventListener("DOMContentLoaded", () => {
     const cookiesStatus = localStorage.getItem("cookiesAccepted");
     if (cookiesStatus === "true")
@@ -6,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 })
 
+// Accept Cookies Call
 function cookiesAccepted()
 {
     localStorage.setItem("cookiesAccepted",true);

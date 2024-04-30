@@ -1,3 +1,4 @@
+/* Centered Container */
 .container
 {
     position: absolute;
@@ -6,12 +7,14 @@
     transform: translate(-50%,-50%);
 }
 
+/* Opacity Text Show Animation */
 @keyframes textShow
 {
     from {opacity: 0%;}
     to {opacity: 100%;}
 }
 
+/* Text Element */
 .text
 {
     text-align: center;

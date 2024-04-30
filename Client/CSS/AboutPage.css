@@ -1,5 +1,7 @@
+/* Libraries Import */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Wrapper */
 .wrapper
 {
     position: absolute;
@@ -8,6 +10,7 @@
     transform: translate(-50%,-50%);
 }
 
+/* Heading And Text Box */
 .heading,
 .text
 {
@@ -17,6 +20,7 @@
     position: relative;
 }
 
+/* Text Box */
 .text
 {
     white-space: wrap;
@@ -28,7 +32,8 @@
     font-weight: 400;
 }
 
-.heading 
+/* Heading */
+.heading
 {
     font-family: "Raleway", sans-serif;
     padding-bottom: 30px;
@@ -36,8 +41,10 @@
     font-weight: 600;
 }
 
+/* Heading Margin Setting */
 @media screen and (max-width: 494px)
 {
+    /* Heading Element */
     .heading
     {
         margin-top: 24px;

@@ -1,16 +1,30 @@
+<!--Document Type Definition-->
 <!DOCTYPE html>
+<!--HTML Beginning-->
 <html lang="en">
+<!--Website Head Element-->
 <head>
+    <!--Google Fonts Preconnect-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--MetaData Website-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Title-->
     <title>Simple | Cookies</title>
+    <!--Favicon-->
     <link rel="icon" type="images-x/icon" href="{{ url_for('static',filename='Images/Favicon.png') }}">
+    <!--JavaScript-->
     <script src="{{ url_for('static',filename='JavaScript/Cookies.js') }}"></script>
+    <!--CSS-->
     <link rel="stylesheet" href="{{ url_for('static',filename='CSS/AcceptCookies.css') }}">
 </head>
+<!--Website Body-->
 <body>
+    <!--Container-->
     <div class="container">
+        <!--Heading-->
         <h1 class="heading">This Website Uses Cookies</h1>
+        <!--Description-->
         <p class="innerText">
             This Website Uses Cookies To <br>
             Store A Unique Identifier For Each Devices <br>
@@ -18,11 +32,14 @@
             The Data Is Accessed Only Once To Verify The Device <br>
             The Data Is Not Accessed Later During A Session <br>
         </p>
+        <!--Buttons-->
         <div class="buttons">
             <button class="accept" onclick="cookiesAccepted()">Accept Cookies</button>
+            <br>
             <button class="help" onclick="">Get Help</button>
         </div>
     </div>
+    <!--Incompatibility Screen-->
     <div class="incompatible">
         <h1>Incompatible Device</h1>
     </div>
