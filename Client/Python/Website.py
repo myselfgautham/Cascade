@@ -42,10 +42,7 @@ def handle404Error(Error):
 @application.route("/user")
 def serveConsolePage():
     print(ENVIRONMENT.get("STATE"))
-    if ENVIRONMENT.get("STATE") == "false":
-        return Serve("LoginSignup.html")
-    else:
-        return Serve("ConsolePage.html",userProfilePicture="https://picsum.photos/46")
+    return Serve("ConsolePage.html",userProfilePicture="https://picsum.photos/46")
 
 # UID Generator
 @application.route("/api/getUID", methods=['GET'])

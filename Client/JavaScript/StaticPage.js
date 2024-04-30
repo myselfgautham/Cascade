@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             getUID();
             console.log("Added Cookie Successfully");
+            window.location.href = "/";
         }
         else {
             console.log("Cookie Already Set");
