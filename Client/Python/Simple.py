@@ -10,4 +10,4 @@ main_directory_path = abspath(join(current_dir, '..', '..'))
 path.append(main_directory_path)
 
 # Modules Importing
-from Server import Device
+from Server.Device import Device
