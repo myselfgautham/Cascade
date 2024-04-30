@@ -19,15 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else
     {
-        var state = getCookie("uid");
-        if (state === "")
+        var uid = getCookie("uid");
+        var state = getCookie("userStatus");
+        if (uid === "" || state === "")
         {
-            getUID()
-            console.log("Added Cookie Successfully")
+            getUID();
+            console.log("Added Cookie Successfully");
         }
         else {
-            console.log("Cookie Already Set")
-            console.log("UID : ",getCookie("uid"))
+            console.log("Cookie Already Set");
+            console.log("UID : ",getCookie("uid"));
+            console.log("Logged In : ",getCookie("userStatus"));
         }
     }
 })
@@ -44,6 +46,7 @@ async function getUID()
       }
       const data = await response.json();
       setCookie("uid",data.uid,128);
+      setCookie("userStatus","false",128);
     }
     catch (error)
     {
