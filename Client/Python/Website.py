@@ -37,7 +37,10 @@ def handle404Error(Error):
 # Website Console Page
 @application.route("/user")
 def serveConsolePage():
-    return Serve("ConsolePage.html")
+    return Serve(
+        "ConsolePage.html",
+        userProfilePicture = "https://picsum.photos/50"
+    )
 
 # UID Generator
 @application.route("/api/getUID", methods=['GET'])
