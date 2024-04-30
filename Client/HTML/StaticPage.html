@@ -36,11 +36,13 @@
         {% endblock %}
         <!--Navigation Bar Links-->
         <nav class="navbar">
+            {% block Links %}
             <a href="about">About</a>
             <a href="services">Services</a>
             <a href="help">Help Center</a>
             <a href="contact">Get In Touch</a>
             <a href="user" class="userMetaData">Console</a>
+            {% endblock %}
         </nav>
     </header>
     <!--Navigation Bar Background-->
