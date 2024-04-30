@@ -17,4 +17,66 @@ document.addEventListener("DOMContentLoaded", () => {
     {
         window.location.href = "/";
     }
+    else
+    {
+        var state = getCookie("uid");
+        if (state === "")
+        {
+            getUID()
+            console.log("Added Cookie Successfully")
+        }
+        else {
+            console.log("Cookie Already Set")
+            console.log("UID : ",getCookie("uid"))
+        }
+    }
 })
+
+// Flask UID API
+async function getUID()
+{
+    try
+    {
+      const response = await fetch('/api/getUID');
+      if (!response.ok)
+      {
+        throw new Error('Bad Network Response');
+      }
+      const data = await response.json();
+      setCookie("uid",data.uid,128);
+    }
+    catch (error)
+    {
+      console.error('There Was A Problem With The Request :', error);
+    }
+}
+
+// Cookies Generate
+function setCookie(cookieName, cookieValue, expirationDays)
+{
+    var time = new Date();
+    time.setTime(time.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+time.toUTCString();
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+}
+
+// Cookie Existence Check
+function getCookie(cookieName)
+{
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+    for (var i = 0; i < cookieArray.length; i++)
+    {
+        var cookie = cookieArray[i];
+        while (cookie.charAt(0) == ' ')
+        {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) == 0)
+        {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+    return "";
+}

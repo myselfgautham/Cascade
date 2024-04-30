@@ -1,6 +1,8 @@
 # Dependencies Import
 from flask import Flask
 from flask import render_template as Serve
+from flask import jsonify
+from Simple import Device
 
 # Flask Application Definitions
 STATIC: str = "../"
@@ -36,6 +38,12 @@ def handle404Error(Error):
 @application.route("/user")
 def serveConsolePage():
     return Serve("ConsolePage.html")
+
+# UID Generator
+@application.route("/api/getUID", methods=['GET'])
+def apiToGetUID():
+    responseDictionary = {"uid": Device.createUID()}
+    return jsonify(responseDictionary)
 
 # Execution Of Flask Application
 if __name__ == "__main__":
