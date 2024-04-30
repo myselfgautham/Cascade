@@ -12,3 +12,12 @@ function closeNav()
         document.getElementById("cls").className = "closebtn";
     },400)
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const negativeValue = [null,"null",false,"false"];
+    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
+    if (negativeValue.includes(cookiesAccepted))
+    {
+        window.location.href = "/";
+    }
+})
