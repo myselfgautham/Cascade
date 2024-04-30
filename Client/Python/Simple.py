@@ -9,5 +9,7 @@ current_dir = dirname(abspath(__file__))
 main_directory_path = abspath(join(current_dir, '..', '..'))
 path.append(main_directory_path)
 
-# Modules Importing
-from Server.Device import Device
+# Device Class
+class Device():
+    from Server.Device import Identity
+    from Server.Device import Metadata
