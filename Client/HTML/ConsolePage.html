@@ -13,19 +13,22 @@
     <header class="header" id="header">
         <a href="/" class="logo">Simple</a>
         <div class="userImage">
-            <img alt="User Profile Picture" onclick="openNav(), hideText('header','header')" src="{{ userProfilePicture }}">
+            <img alt="User Profile Picture" onclick="openNav(), hideText('header','header'), hideText('container','container')" src="{{ userProfilePicture }}">
         </div>
     </header>
     <div class="incompatible">
         <h1>Incompatible Device</h1>
     </div>
     <div class="overlay" id="navigationOverlay">
-        <a id="cls" href="javascript:void(0)" class="closebtn" onclick="closeNav(), hideText('header','header')">&times;</a>
+        <a id="cls" href="javascript:void(0)" class="closebtn" onclick="closeNav(), hideText('header','header'), hideText('container','container')">&times;</a>
         <div class="overlay-content">
             <a href="#">My Cards</a>
             <a href="/">Go Back Home</a>
         </div>
     </div>
     <script src="{{ url_for('static',filename='JavaScript/ConsoleBar.js') }}"></script>
+    <div class="container" id="container">
+        <h1>Welcome Back <br> {{ name }}</h1>
+    </div>
 </body>
 </html>

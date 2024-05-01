@@ -200,3 +200,28 @@ body
         cursor: none;
     }
 }
+
+.container
+{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.container h1
+{
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: calc(26px + 1.30vw);
+    animation: opacity-show 1.5s ease-in-out forwards;
+    letter-spacing: 0.15rem;
+    font-weight: 400;
+}
+
+@keyframes opacity-show
+{
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}

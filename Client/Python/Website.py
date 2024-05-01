@@ -28,7 +28,7 @@ def serveAboutPage():
 
 @website.route("/profile")
 def serveConsole():
-    return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46")
+    return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46",name="Gautham")
 
 # API Interfacing Routes
 @website.route("/api/getNewUID")
