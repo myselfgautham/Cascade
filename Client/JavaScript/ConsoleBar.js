@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else if (getCookieFromStorage("UID") == "" || getCookieFromStorage("UserState") == "")
     {
-        confirm("The Website Cookies Seems To Have Some Issues With It\n Click Continue / OK To Reset Them\n (You Maybe Logged Out)");
+        confirm("The Website Cookies Seems To Have Some Issues With It\nClick Continue / OK To Reset Them\n(You Maybe Logged Out)");
         window.location.href = "/";
     }
 });
