@@ -45,10 +45,6 @@ async function FlaskAllSet()
     {
         console.error('There Was A Problem With The Request :', error);
     }
-    finally
-    {
-        window.location.reload();
-    }
 }
 
 // Get Cookies From Storage
