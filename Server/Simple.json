@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "simple-cards-unifier",
+  "private_key_id": "b729032f8876a06bfa597f2cfd63d696855fd775",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCmV2fDnwVqpCSr\nZ5oK7KmInKl4ZAo1aYIkwaACoLN2B+PHHACOqZozBd97kN1T0yywM2aU/ahafz+s\nO22iDJRGCuhzoRqQNup+ANKWUzDjE0Lb1Qo8nQLzsQog9YdE/AjoG1z6Ty0PfT4q\nKV1ZObJLWkTizWtJa4IJsD2kQOmCpPzGdPFr5eSJ2QZ8vG0xOrmwEa6yWbqEt2qg\nwkdRRVfBKJeX50QwnH7V4OTXm0wGJoHjfOzDCnkEXTvqH0AsphWElVJgdvMk9Vsl\nh6Wfq6FQPEWK/Y2XfwcrStbzCC+gTFaCOH5xBe2KOEqorX5pw6jkXHt4TmtLLxKW\ngho1zIbvAgMBAAECggEAF6/lrlU0S8HRGPl5Vanq4HHSrjqsu3tpVXufIhCpTZsF\nBCMIL0iWlUJ2Vx3Dbr7pI7RGHNxcP3rUYd3amFNrP+govuKHqlavoL7UPiTdltB0\n2mIlgYkoVPR2iUf9ecTcLdVLsbdZptWCZzWZve155sIVgiiXaQ6ep2uJ85xsxDYo\npQPjSpgEjIgsCmz2hEmTJisbXJbFl7l/Jn34nV29UWxoomjqqGYlnek4mBZ3JvLo\nU99KIiFWbD7+C1p5PKMHfaRuMMyxBv6DnYftCrJFp2WEls3GCVBhcEait6ZCqkrm\n168ygp25nU9BAD1h17XalUShoRKb4D7zJmRFNBtE1QKBgQDPdCCKMl7cUk35WkUE\naU8yKqpZCmW1OTmDREEGWbomCVMKAlcRhnxo0YmHVmrUQyuIy6P7Ba12T5bjwUFR\na5UA6vpe7bYOJ8zjiZ7k1OAeckMRjOB7NXV9MakEhRrelMDNXKUMcZz7MTz5gcW0\n5daHXlxrt85KQZEEs2kuOuKk1QKBgQDNRGFQmDl+kRXuvQbD8OnGiYZmPxgu+fbg\nw7X1pVZC0R6PI5mFyR0xDHOa+BZjV3L55Qq+wue6UDqMROMg2pkC6oBje+QpbJhw\nCW0pH2k63qeOGD7Q/CklcynItgQvd9PCBcvIhS9Avpb+RPISUJHtsG4eG0NibGM3\nskIz72EuswKBgBNP9zuGRuhxzQp6idRITXQZHrSdUCyXwC/lKbyCm96wnYdgAmUC\nRRCo+QmdVOKfwizA8GoM9EIAVMatFfyTbFKijV5K+NjGgb9o717UJm0PLAk1OSyf\nJGncNqTSE1dHN8+mYUMQTJHh2pBLsXEOuHLvqODqQo0NH4f1f8Qq/TBlAoGAZXOB\ngXrrF7IPnAJTAK7mbBj2kzxl8Hnc2fQAz9saykVfDDH1I9llkyNrU9GABzNmgToB\n2IyuSThz53X4p/lCnN1X/VNzTkH9CYqvKB79PHplZ+Z1zYaDs526rhe/89IOmBuT\nP5UL6L0KFbvvxLuLlGWZ10l0QYX+d72j2NVcO98CgYB4aBmSSf3lq4zIfHQkfJhq\neafC89NSX9D5lurRM5ksqwTDtzhbb44abUdb4rz0v+oPhIVVY1eRzZFtWPeiFSiv\n5M6deC9YDBdeEAoDrqypK4Log+YY8JoAMM7ZbIGgmf4iHwvj43ueaDNUaGjcu5D+\nHHtOlmLuuHdF0C/efE0M6w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-f280i@simple-cards-unifier.iam.gserviceaccount.com",
+  "client_id": "100123762636924854707",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-f280i%40simple-cards-unifier.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
