@@ -182,7 +182,7 @@ body
   .nav-bg.active,
   .navbar
   {
-    animation: opacity-show 1.3s forwards;
+    animation: opacity-show 0.32s forwards;
   }
 }
 
