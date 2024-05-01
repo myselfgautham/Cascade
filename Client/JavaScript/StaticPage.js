@@ -8,113 +8,75 @@ menuIcon.addEventListener('click', () => {
     navbg.classList.toggle('active');
 });
 
-// Cookies Check
+// Cookies Check For Almost All Pages
 document.addEventListener("DOMContentLoaded", () => {
-    const negativeValue = [null,"null",false,"false"];
-    const cookiesAccepted = localStorage.getItem("cookiesAccepted");
-    const member = negativeValue.includes(cookiesAccepted)
-    if (member === true)
+    // Cookies Accept Routing
+    const cookiesStatus = localStorage.getItem("cookiesAccepted");
+    const negatives = new Set([null,"null",false,"false"]);
+    if (negatives.has(cookiesStatus))
     {
         window.location.href = "/";
     }
-    else
+    // Cookies Setting If Not Set
+    if (getCookieFromStorage("UID") == "" || getCookieFromStorage("UserState") == "")
     {
-        var uid = getCookie("uid");
-        var state = getCookie("userStatus");
-        if (uid === "" || state === "")
-        {
-            getUID();
-            console.log("Added Cookie Successfully");
-            window.location.href = "/";
-        }
-        else {
-            console.log("Cookie Already Set");
-            console.log("UID : ",getCookie("uid"));
-            console.log("Logged In : ",getCookie("userStatus"));
-            sendToFlask()
-        }
+        FlaskAllSet();
     }
-})
+    else {
+        console.log("Device Local Data Looks All Good");
+    }
+});
 
-// Flask UID API
-async function getUID()
+// Flask Cookies Set
+async function FlaskAllSet()
 {
     try
     {
-      const response = await fetch('/api/getUID');
-      if (!response.ok)
-      {
-        throw new Error('Bad Network Response');
-      }
-      const data = await response.json();
-      setCookie("uid",data.uid,128);
-      setCookie("userStatus",false,128);
+        const response = await fetch('/api/getNewUID');
+        if (!response.ok)
+        {
+            throw new Error('Bad Network Response');
+        }
+        const data = await response.json();
+        setCookieToStorage("UID",data.UID,128);
+        setCookieToStorage("UserState","false",128);
     }
     catch (error)
     {
-      console.error('There Was A Problem With The Request :', error);
+        console.error('There Was A Problem With The Request :', error);
+    }
+    finally
+    {
+        window.location.reload();
     }
 }
 
-// Cookies Generate
-function setCookie(cookieName, cookieValue, expirationDays)
+// Get Cookies From Storage
+function getCookieFromStorage(cookieName)
+{
+    cookieName += "=";
+    var localStorageCookies = decodeURIComponent(document.cookie);
+    var cookieArray = localStorageCookies.split(";");
+    for (var i = 0; i < cookieArray.length; i++)
+    {
+        var current = cookieArray[i];
+        while (current.charAt(0) == ' ')
+        {
+            current = current.substring(1);
+        }
+        if (current.indexOf(cookieName) == 0)
+        {
+            return current.substring(cookieName.length, current.length);
+        }
+    }
+    return "";
+}
+
+// Set Cookie To Storage
+function setCookieToStorage(cookieName, cookieValue, expirationDays)
 {
     var time = new Date();
     time.setTime(time.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
     var expires = "expires="+time.toUTCString();
     document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
-}
-
-// Cookie Existence Check
-function getCookie(cookieName)
-{
-    var name = cookieName + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var cookieArray = decodedCookie.split(';');
-    for (var i = 0; i < cookieArray.length; i++)
-    {
-        var cookie = cookieArray[i];
-        while (cookie.charAt(0) == ' ')
-        {
-            cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(name) == 0)
-        {
-            return cookie.substring(name.length, cookie.length);
-        }
-    }
-    return "";
-}
-// Cookies As HashMap
-function getCookiesAsObject()
-{
-    var cookies = document.cookie.split(';');
-    var cookieObject = {};
-    cookies.forEach(function(cookie) {
-      var parts = cookie.split('=');
-      var key = parts[0].trim();
-      var value = decodeURIComponent(parts[1]);
-      cookieObject[key] = value;
-    });  
-    return cookieObject;
-}
-
-// Function To Send Cookies To Flask
-function sendToFlask()
-{
-    const data = getCookiesAsObject();
-    fetch("/api/cookiesBuffer", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Response : ",data);
-    })
-    .catch(error => {
-        console.log("Error : ",error);
-    })
 }

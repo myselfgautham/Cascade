@@ -35,3 +35,6 @@ function sendCookiesToFlask(cookies: {})
         console.log("Error : ",error);
     })
 }
+
+// Exports
+export {getUIDFromFlask, sendCookiesToFlask};
