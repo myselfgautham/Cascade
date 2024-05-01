@@ -20,4 +20,30 @@ document.addEventListener("DOMContentLoaded", () => {
     {
         window.location.href = "/";
     }
-})
+    else if (getCookieFromStorage("UID") == "" || getCookieFromStorage("UserState") == "")
+    {
+        confirm("The Website Cookies Seems To Have Some Issues With It\n Click Continue / OK To Reset Them\n (You Maybe Logged Out)");
+        window.location.href = "/";
+    }
+});
+
+// Get Cookies From Storage
+function getCookieFromStorage(cookieName)
+{
+    cookieName += "=";
+    var localStorageCookies = decodeURIComponent(document.cookie);
+    var cookieArray = localStorageCookies.split(";");
+    for (var i = 0; i < cookieArray.length; i++)
+    {
+        var current = cookieArray[i];
+        while (current.charAt(0) == ' ')
+        {
+            current = current.substring(1);
+        }
+        if (current.indexOf(cookieName) == 0)
+        {
+            return current.substring(cookieName.length, current.length);
+        }
+    }
+    return "";
+}
