@@ -8,3 +8,9 @@ function hideText(ID,CLASS) {
         ELEMENT.className = CLASS;
     }
 }
+
+// Route To Page
+function route(R)
+{
+    window.location.href = R;
+}

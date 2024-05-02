@@ -33,5 +33,5 @@ def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: 
         return {"response": "Phone Number Already Exists"}
     except EmailAlreadyExistsError:
         return {"response": "Email ID Already Exists"}
-    except Exception as e:
-        print(f"\n{e}\n")
+    except Exception:
+        return {"response": "Something Went Wrong"}
