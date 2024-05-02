@@ -1,0 +1,88 @@
+* {
+    overflow: hidden;
+}
+
+.container
+{
+    margin-top: 78px !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.heading
+{
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.10rem;
+    font-optical-sizing: auto;
+    font-size: calc(32px + 1.20vw);
+    padding-bottom: 24px;
+}
+
+.TextBox
+{
+    margin-bottom: 12px;
+    padding: 2px;
+    border: 2px solid rgba( 255, 255, 255, 0.15 );
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TextBox .icon
+{
+    margin-top: 3px;
+    color: white;
+    font-size: 24px;
+    margin-right: 8px;
+    margin-left: 12px;
+}
+
+.TextBox input
+{
+    font-size: calc(12px + 1vw);
+    background-color: transparent;
+    outline: none;
+    border: none;
+    max-width: calc(100vw - (15vw * 2));
+    text-align: left;
+    color: white;
+    margin-bottom: 0.7px;
+}
+
+.wrapperBTN
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapperBTN button
+{
+    font-size: calc(42px + 1.10vw);
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.wrapperBTN button:hover
+{
+    cursor: pointer;
+    color: orange;
+}
+
+@media screen and (min-width: 861px)
+{
+    .container
+    {
+        margin-top: 55px !important;
+    }
+}
