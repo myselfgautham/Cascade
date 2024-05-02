@@ -32,7 +32,7 @@ def serveConsole():
     return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46",name="Gautham")
 
 @website.route("/signup")
-def serveSignUpPage():
+def serveSignupPage():
     return Serve("CreateAccount.html")
 
 # API Interfacing Routes
@@ -40,13 +40,11 @@ def serveSignUpPage():
 def responseUID():
     return jsonify({"UID" : Device.createUID()})
 
-@website.route("/createAccount",methods=["POST"])
-def createAccountMethod():
-    print(f"\nName => {request.form.get("name")}")
-    print(f"E Mail => {request.form.get("email")}")
-    print(f"Phone => {request.form.get("phone")}")
-    print(f"Password => {request.form.get("password")}\n")
-    return Serve("CreateAccount.html")
+@website.route("/api/createAccount", methods = ["POST"])
+def createNewAccount():
+    data = request.json()
+    print(data)
+    return jsonify({"Test": 200})
 
 # Error / Exception Handling Routes
 @website.errorhandler(404)
