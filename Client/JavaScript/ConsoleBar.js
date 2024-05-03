@@ -1,8 +1,10 @@
+// Open Overlay Navigator
 function openNav()
 {
     document.getElementById("navigationOverlay").style.height = "100%";
 }
 
+// Close The Open Navigator
 function closeNav()
 {
     document.getElementById("cls").className = "hidden";
@@ -13,6 +15,7 @@ function closeNav()
     },400)
 }
 
+// Cookies Check And Getting Users Real Name
 document.addEventListener("DOMContentLoaded", () => {
     const negativeValue = [null,"null",false,"false"];
     const cookiesAccepted = localStorage.getItem("cookiesAccepted");
@@ -54,6 +57,7 @@ function getCookieFromStorage(cookieName)
     return "";
 }
 
+// Set Cookies To Storage
 function setCookieToStorage(cookieName, cookieValue, expirationDays)
 {
     var time = new Date();
@@ -62,6 +66,7 @@ function setCookieToStorage(cookieName, cookieValue, expirationDays)
     document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
 }
 
+// Get Users Real Name
 function pingUserName()
 {
     fetch("/api/username", {
@@ -76,6 +81,7 @@ function pingUserName()
     .catch(error => console.log("Error",error))
 }
 
+// Change Text As Per Name
 function changeTextConsole(text)
 {
     var x = document.getElementById("textBox")

@@ -9,7 +9,7 @@ current_dir = dirname(abspath(__file__))
 main_directory_path = abspath(join(current_dir, '..', '..'))
 path.append(main_directory_path)
 
-# Module Classes
+# Server Modules Install
 from Server import Device
 from Server import Firebase
 from Server import PasswordAnalyser

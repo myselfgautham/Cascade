@@ -1,3 +1,4 @@
+// Special Show Clause
 function specialShow(ID, CLASS)
 {
     var x = document.getElementById(ID);
@@ -21,6 +22,7 @@ function specialShow(ID, CLASS)
     }
 }
 
+// Setting Cookies And Completing Registration On Login
 document.addEventListener("DOMContentLoaded", () => {
     var x = specialShow("notifier", "notifier");
     if (x === true)
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 });
 
+// Set Cookies To Storage
 function setCookieToStorage(cookieName, cookieValue, expirationDays)
 {
     var time = new Date();
@@ -46,6 +49,7 @@ function setCookieToStorage(cookieName, cookieValue, expirationDays)
     document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
 }
 
+// Complete Device Registration
 function completeRegister()
 {
     var data = {
@@ -64,6 +68,7 @@ function completeRegister()
     .catch(error => console.log("Error",error))
 }
 
+// Access Cookies
 function getCookieFromStorage(cookieName)
 {
     cookieName += "=";

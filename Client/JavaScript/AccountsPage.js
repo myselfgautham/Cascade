@@ -19,6 +19,7 @@ function onlyShow(ID, CLASS)
     }
 }
 
+// Notifier In HTML Page Enabling
 document.addEventListener("DOMContentLoaded", () => {
     var test = true;
     if (window.location.href.includes("/createAccount") && test === false)
