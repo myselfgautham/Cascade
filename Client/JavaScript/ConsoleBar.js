@@ -20,9 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     {
         window.location.href = "/";
     }
-    else if (getCookieFromStorage("UID") == "" || getCookieFromStorage("UserState") == "")
+    else if (getCookieFromStorage("UID") == "" || getCookieFromStorage("UserState") == "" || (getCookieFromStorage("Email") == "" & getCookieFromStorage("UserState") === "true"))
     {
         confirm("The Website Cookies Seems To Have Some Issues With It\nClick Continue / OK To Reset Them\n(You Maybe Logged Out)");
+        setCookieToStorage("UserState","false",128);
         window.location.href = "/";
     }
     else if (negativeValue.includes(getCookieFromStorage("UserState")))
@@ -50,4 +51,12 @@ function getCookieFromStorage(cookieName)
         }
     }
     return "";
+}
+
+function setCookieToStorage(cookieName, cookieValue, expirationDays)
+{
+    var time = new Date();
+    time.setTime(time.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+time.toUTCString();
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
 }

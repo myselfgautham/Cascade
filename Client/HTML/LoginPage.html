@@ -8,17 +8,17 @@
 <script src="{{ url_for('static',filename='JavaScript/LoginPage.js') }}"></script>
 {% endblock %}
 {% block Icon %}
-<i class='bx bx-menu' id="menu-icon" onclick=""></i>
+<i class='bx bx-menu' id="menu-icon" onclick="hideText('container','container')"></i>
 {% endblock %}
 {% block content %}
-<div class="container">
+<div class="container" id="container">
     <form action="/loginToAccount" method="post">
         <h1 class="heading">Login To Simple</h1>
         <div class="TextBox">
             <span class="icon">
                 <i class='bx bx-user-circle'></i>
             </span>
-            <input type="email" autocomplete="email" required name="email" placeholder="Registered Email Address">
+            <input id="email" type="email" autocomplete="email" required name="email" placeholder="Registered Email Address">
         </div>
         <div class="TextBox">
             <span class="icon">

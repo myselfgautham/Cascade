@@ -31,7 +31,7 @@ def serveAboutPage():
 
 @website.route("/profile")
 def serveConsole():
-    return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46",name="Gautham")
+    return Serve("BlankConsole.html", userProfilePicture="https://picsum.photos/46",name="Gautham")
 
 @website.route("/signup")
 def serveSignupPage(value = ""):
@@ -40,6 +40,10 @@ def serveSignupPage(value = ""):
 @website.route("/login")
 def serveLoginPage(note: str = ""):
     return Serve("LoginPage.html", notification = note)
+
+@website.route("/dashboard")
+def serveDashboard():
+    return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46",name="Gautham")
 
 # API Interfacing Routes
 @website.route("/api/getNewUID")
@@ -63,6 +67,14 @@ def loginToAccount():
         password = str(request.form.get("password"))
     )
     return serveLoginPage(R["response"])
+
+@website.route("/api/completeRegister", methods = {"POST"})
+def registerClient():
+    Firebase.registerDevice(
+        uid = request.json.get("UID"),
+        user = request.json.get("Email")
+    )
+    return jsonify({"Response": 200})
 
 # Error / Exception Handling Routes
 @website.errorhandler(404)
