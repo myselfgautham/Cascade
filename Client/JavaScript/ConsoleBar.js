@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
         window.location.href = "/signup";
     }
+    pingUserName()
 });
 
 // Get Cookies From Storage
@@ -59,4 +60,24 @@ function setCookieToStorage(cookieName, cookieValue, expirationDays)
     time.setTime(time.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
     var expires = "expires="+time.toUTCString();
     document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+}
+
+function pingUserName()
+{
+    fetch("/api/username", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({Email: getCookieFromStorage("Email")})
+    })
+    .then(response => response.json())
+    .then(data => changeTextConsole(data.Name))
+    .catch(error => console.log("Error",error))
+}
+
+function changeTextConsole(text)
+{
+    var x = document.getElementById("textBox")
+    x.innerHTML += text
 }

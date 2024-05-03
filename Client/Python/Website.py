@@ -16,36 +16,42 @@ website: Flask = Flask(__name__)
 website.template_folder = TEMPLATES
 website.static_folder = STATIC
 
-# User Interface Serving Routes
+# Cookies Accepting Website
 @website.route("/")
 def serveWebsiteRoot():
     return Serve("AcceptCookies.html")
 
+# Website Homepage Route
 @website.route("/home")
 def serveHomePage():
     return Serve("HomePage.html")
 
+# Website About Page
 @website.route("/about")
 def serveAboutPage():
     return Serve("AboutPage.html")
 
+# Profile / Dashboard Page
 @website.route("/profile")
-def serveConsole():
-    return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46",name="Gautham")
+def serveDashboard():
+    return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46")
     
+# Signup Page Serving
 @website.route("/signup")
 def serveSignupPage(value = ""):
     return Serve("CreateAccount.html", notification = value)
 
+# Login Page Serving
 @website.route("/login")
 def serveLoginPage(note: str = ""):
     return Serve("LoginPage.html", notification = note)
 
-# API Interfacing Routes
+# New UID Interface
 @website.route("/api/getNewUID")
 def responseUID():
     return jsonify({"UID" : Device.createUID()})
 
+# Create Account Form
 @website.route("/createAccount", methods = {"POST"})
 def createNewAccount():
     R = Firebase.createNewUserAccount (
@@ -56,6 +62,7 @@ def createNewAccount():
     )
     return serveSignupPage(R["response"])
 
+# Login Account Form
 @website.route("/loginToAccount", methods = {"POST"})
 def loginToAccount():
     R = PyrebaseSDK.loginUserWithEmailAndPassword(
@@ -64,6 +71,7 @@ def loginToAccount():
     )
     return serveLoginPage(R["response"])
 
+# Device Registration Completion
 @website.route("/api/completeRegister", methods = {"POST"})
 def registerClient():
     Firebase.registerDevice(
@@ -72,7 +80,14 @@ def registerClient():
     )
     return jsonify({"Response": 200})
 
-# Error / Exception Handling Routes
+# Name For Console Page
+@website.route("/api/username", methods = {"POST"})
+def getUserName():
+    name: str = request.json.get("Email")
+    name = Firebase.getUserRealName(name)
+    return jsonify({"Name": name})
+
+# 404 Error / Exception Handling
 @website.errorhandler(404)
 def handle404Error(_):
     return Serve("Error404.html")
