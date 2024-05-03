@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
         confirm("The Website Cookies Seems To Have Some Issues With It\nClick Continue / OK To Reset Them\n(You Maybe Logged Out)");
         window.location.href = "/";
     }
+    else if (negativeValue.includes(getCookieFromStorage("UserState")))
+    {
+        window.location.href = "/signup";
+    }
 });
 
 // Get Cookies From Storage

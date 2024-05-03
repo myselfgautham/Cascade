@@ -13,3 +13,4 @@ path.append(main_directory_path)
 from Server import Device
 from Server import Firebase
 from Server import PasswordAnalyser
+from Server import PyrebaseSDK

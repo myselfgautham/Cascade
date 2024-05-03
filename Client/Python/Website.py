@@ -5,6 +5,7 @@ from flask import request
 from flask import render_template as Serve
 from Simple import Device
 from Simple import Firebase
+from Simple import PyrebaseSDK
 
 # Definitions For Server
 STATIC: str = "../"
@@ -36,6 +37,10 @@ def serveConsole():
 def serveSignupPage(value = ""):
     return Serve("CreateAccount.html", notification = value)
 
+@website.route("/login")
+def serveLoginPage(note: str = ""):
+    return Serve("LoginPage.html", notification = note)
+
 # API Interfacing Routes
 @website.route("/api/getNewUID")
 def responseUID():
@@ -43,29 +48,21 @@ def responseUID():
 
 @website.route("/createAccount", methods = {"POST"})
 def createNewAccount():
-    formData = getFormData("create")
     R = Firebase.createNewUserAccount (
-        fullName = formData["name"],
-        eMail = formData["email"],
-        phoneNumber = formData["phone"],
-        password = formData["password"]
+        fullName = request.form.get("name"),
+        eMail = request.form.get("email"),
+        phoneNumber = request.form.get("phone"),
+        password = request.form.get("password")
     )
     return serveSignupPage(R["response"])
 
-# Get Form Data From Website
-def getFormData(state: str) -> dict[str]:
-    data: dict = {}
-    if (state == "create"):
-        data['name'] = request.form.get("name")
-        data['email'] = request.form.get("email")
-        data['phone'] = request.form.get("phone")
-        data['password'] = request.form.get("password")
-        return data
-    elif (state == "login"):
-        data['email'] = request.form.get("email")
-        data['password'] = request.form.get("password")
-    else:
-        return {"RETURN": "Invalid Input"}
+@website.route("/loginToAccount", methods = {"POST"})
+def loginToAccount():
+    R = PyrebaseSDK.loginUserWithEmailAndPassword(
+        email = str(request.form.get("email")),
+        password = str(request.form.get("password"))
+    )
+    return serveLoginPage(R["response"])
 
 # Error / Exception Handling Routes
 @website.errorhandler(404)
