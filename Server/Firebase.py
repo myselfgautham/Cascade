@@ -5,7 +5,8 @@ from firebase_admin.auth import create_user
 from os.path import abspath
 from firebase_admin.auth import EmailAlreadyExistsError
 from firebase_admin.auth import PhoneNumberAlreadyExistsError
-from Server.PasswordAnalyser import *
+from Server.PasswordAnalyser import SQLInjectionCharactersError
+from Server.PasswordAnalyser import PasswordAnalyser
 
 class WeakPasswordError(Exception):
     message: str = "Choose A Stronger Password"
