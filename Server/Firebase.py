@@ -5,6 +5,13 @@ from firebase_admin.auth import create_user
 from os.path import abspath
 from firebase_admin.auth import EmailAlreadyExistsError
 from firebase_admin.auth import PhoneNumberAlreadyExistsError
+from Server.PasswordAnalyser import *
+
+class WeakPasswordError(Exception):
+    message: str = "Choose A Stronger Password"
+    def __init__(self) -> None:
+        super().__init__(self.message)
+        return None
 
 serviceAccountKey: Certificate = Certificate(abspath("Server/SimpleServer.json"))
 firebaseApplication: App = initialize_app(serviceAccountKey)
@@ -17,11 +24,13 @@ def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: 
     Phone Number
     And Password
     Usage : createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: str)
-    Return Type : Integer
+    Return Type : HashMap
     Dependencies : Firebase Admin SDK For Python
-    Exception Classes : 
+    Exception Classes : Firebase Exception & Weak Password Error & SQL Injection Error
     """
     try:
+        if not PasswordAnalyser(password).getStrength():
+            raise WeakPasswordError()
         create_user (
             display_name = fullName,
             email = eMail,
@@ -33,5 +42,10 @@ def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: 
         return {"response": "Phone Number Already Exists"}
     except EmailAlreadyExistsError:
         return {"response": "Email ID Already Exists"}
-    except Exception:
+    except WeakPasswordError:
+        return {"response": WeakPasswordError.message}
+    except SQLInjectionCharactersError:
+        return {"response": SQLInjectionCharactersError.message}
+    except Exception as e:
+        print(e)
         return {"response": "Something Went Wrong"}
