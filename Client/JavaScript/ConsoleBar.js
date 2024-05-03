@@ -85,5 +85,11 @@ function pingUserName()
 function changeTextConsole(text)
 {
     var x = document.getElementById("textBox")
-    x.innerHTML += text
+    if (text == "")
+    {
+        x.innerHTML = "Welcome To Simple";
+    }
+    else {
+        x.innerHTML = "Welcome Back<br>" + text;
+    }
 }

@@ -32,10 +32,15 @@ def serveAboutPage():
     return Serve("AboutPage.html")
 
 # Profile / Dashboard Page
-@website.route("/profile")
+@website.route("/dashboard")
 def serveDashboard():
     return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46")
-    
+
+# Blank Console For Aesthetics
+@website.route("/profile")
+def serveBlankPage():
+    return Serve("BlankConsole.html")
+
 # Signup Page Serving
 @website.route("/signup")
 def serveSignupPage(value = ""):

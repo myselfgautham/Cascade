@@ -214,10 +214,11 @@ body
 {
     color: white;
     font-family: "Montserrat", sans-serif;
-    font-size: calc(26px + 1.30vw);
+    font-size: calc(20px + 1.20vw);
     animation: opacity-show 1.5s ease-in-out forwards;
     letter-spacing: 0.15rem;
     font-weight: 400;
+    font-optical-sizing: auto;
 }
 
 @keyframes opacity-show
