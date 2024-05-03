@@ -8,11 +8,11 @@
 #include <unistd.h>
 #endif
 
-#define COMMAND_COUNT 2
+#define COMMAND_COUNT 3
 #define DELAY_MS 1
 
 char * PYTHON = "python3.12 -m ";
-char * COMMANDS[COMMAND_COUNT] = {"pip install Flask","pip install firebase-admin"};
+char * COMMANDS[COMMAND_COUNT] = {"pip install Flask","pip install firebase-admin","pip install pyrebase4"};
 
 int main(void)
 {
