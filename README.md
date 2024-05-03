@@ -1,5 +1,5 @@
 <h1 align="right">:house_with_garden: Little Kites State Camp :earth_asia:
-<h1 align="right">:zap: Final Projects :snowflake:
+<h1 align="right">:zap: Final Project :snowflake:
 
 ### :books: Project Details :atom:
 > :airplane: Project Count : - <br>
