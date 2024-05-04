@@ -14,20 +14,22 @@ function getValidateFromFlask()
     })
     .then (response => response.json())
     .then (process => {
+        var first = true;
         if (process.Response === "Device Does Not Exist" && getCookieFromStorage("UserState") != "false" && getCookieFromStorage("Email") == "")
         {
             raiseAlert();
         }
-        else if (process.Email != getCookieFromStorage("Email") && getCookieFromStorage("UserState") == "true" && getCookieFromStorage("Email") != "")
+        else if (process.Email != getCookieFromStorage("Email") && getCookieFromStorage("UserState") == "true" && getCookieFromStorage("Email") != "" && !first)
         {
             raiseAlert();
         }
-        else if (process.UID != getCookieFromStorage("UID") && getCookieFromStorage("UserState") == "true" && getCookieFromStorage("Email") != "")
+        else if (process.UID != getCookieFromStorage("UID") && getCookieFromStorage("UserState") == "true" && getCookieFromStorage("UID") != "" && !first)
         {
             raiseAlert();
         }
         else
         {
+            first = !first;
             console.log("Cookies Are Valid");
         }
     })
@@ -92,8 +94,14 @@ function resetCookies(cookieName)
 
 function raiseAlert()
 {
-    confirm("The Cookies Stored On Your Device\nSeems To Be Invalid As Per Our Server\nThis Requires A Reset Of Cookies\nClick Ok / Continue To Reset Them");
-    console.log('Resetting Cookies');
-    resetCookies(["UID","UserState","Email"]);
-    console.log("Reset Complete")
+    var x = confirm("The Cookies Stored On Your Device\nSeems To Be Invalid As Per Our Server\nThis Requires A Reset Of Cookies\nClick Ok / Continue To Reset Them");
+    if (x === true)
+    {
+        console.log('Resetting Cookies');
+        resetCookies(["UID","UserState","Email"]);
+        console.log("Reset Complete")
+    }
+    else {
+        console.log("User Declined Process");
+    }
 }
