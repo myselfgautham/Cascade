@@ -104,4 +104,5 @@ function raiseAlert()
     else {
         console.log("User Declined Process");
     }
+    window.location.href = "/";
 }

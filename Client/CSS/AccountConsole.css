@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 *
 {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 body
@@ -12,6 +16,11 @@ body
     height: 100vh;
     width: 100vw;
     background: black;
+}
+
+.incompatible
+{
+    display: none !important;
 }
 
 @media screen and (max-width: 300px)
@@ -25,6 +34,7 @@ body
     .incompatible
     {
         color: orange;
+        display: block;
         font-family: sans-serif;
         letter-spacing: 0.09rem;
         top: 50%;
@@ -89,14 +99,145 @@ header
 
 .container
 {
+    padding: 24px;
+    border: 2px solid white;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    flex-wrap: wrap;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    margin-top: calc(84px / 2);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.user
+#userProfilePicture
 {
-    border: 2px solid white;
+    border: 3px solid white;
     border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#userProfilePicture:hover
+{
+    border-color: orange;
+}
+
+#userName
+{
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    padding-top: 12px;
+    text-align: center;
+    letter-spacing: 0.10rem;
+    font-size: calc(14px + 1.20vw);
+    font-weight: 360;
+}
+
+#userDate
+{
+    color: white;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: calc(8px + 1.10vw);
+    letter-spacing: 0.09rem;
+    padding-top: 2px;
+    font-weight: 250;
+}
+
+.statistics
+{
+    padding-top: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.item
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item .icon
+{
+    color: white;
+    font-size: calc(32px + 1.20vw);
+}
+
+.item .text
+{
+    font-family: "Roboto", sans-serif;
+    color: white;
+    letter-spacing: 0.09rem;
+    font-size: calc(9px + 1.10vw);
+    font-weight: 400;
+}
+
+.controls
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 16px;
+}
+
+#resetPassword
+{
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+    padding: 8px;
+    color: white;
+    border-radius: 16px;
+    font-size: calc(12px + 1.10vw);
+    font-family: "Raleway";
+    font-weight: 300;
+    letter-spacing: 0.10rem;
+}
+
+#resetPassword:hover
+{
+    border-color: red;
+    color: red;
+    transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.43s;
+}
+
+#logOut
+{
+    margin-top: 12px !important;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid white;
+    padding: 8px;
+    color: white;
+    border-radius: 16px;
+    font-size: calc(12px + 1.10vw);
+    font-family: "Raleway";
+    letter-spacing: 0.10rem;
+    font-weight: 300;
+}
+
+#logOut:hover
+{
+    border-color: orange;
+    color: orange;
+    transition: ease-in-out 0.5s;
+}
+
+@media screen and (max-width: 500px)
+{
+    .container
+    {
+        margin-top: calc(76px / 2);
+    }
 }
