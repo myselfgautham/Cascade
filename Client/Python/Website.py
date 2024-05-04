@@ -92,6 +92,16 @@ def getUserName():
     name = Firebase.getUserRealName(name)
     return jsonify({"Name": name})
 
+# Fetch Server Side User Data
+@website.route("/api/validate", methods = ["POST"])
+def getValidationData():
+    uid: str = request.json.get("UID")
+    data = Firebase.readDocument("Devices",uid)
+    if (data != {}):
+        return jsonify(data)
+    else:
+        return {"Response": "Device Does Not Exist"}
+
 # 404 Error / Exception Handling
 @website.errorhandler(404)
 def handle404Error(_):

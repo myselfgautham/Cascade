@@ -111,7 +111,8 @@ def registerDevice(uid: str, user: str):
             "UID": uid,
             "User": getUserUIDFromEMail(user),
             "Time": utc_time_string,
-            "UserName": getUserRealName(user)
+            "UserName": getUserRealName(user),
+            "Email": user
         })
         return True
     except Exception:
