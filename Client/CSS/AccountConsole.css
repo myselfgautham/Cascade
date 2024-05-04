@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*
+{
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+body
+{
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+}
+
+@media screen and (max-width: 300px)
+{
+    header,
+    div:not(.incompatible)
+    {
+        display: none !important;
+    }
+
+    .incompatible
+    {
+        color: orange;
+        font-family: sans-serif;
+        letter-spacing: 0.09rem;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        font-size: calc(9px + 1vw);
+    }
+}
+
+header
+{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.09rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba( 255, 255, 255, 0.1 );
+}
+
+#btn
+{
+    font-size: 32px;
+    border: 2px solid white;
+    padding: 3px;
+    border-radius: 16px;
+}
+
+#btn:hover
+{
+    color: orange;
+    border-color: orange;
+    transition: 0.69s ease-in;
+}
+
+.logo
+{
+    font-weight: 300;
+    font-size: calc(22px + 1.20vw);
+}
+
+@media screen and (max-width: 992px)
+{
+    header
+    {
+        padding: 1.25rem 4%;
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+    #btn
+    {
+        padding: 0px;
+        border: none;
+    }
+}
+
+.container
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.user
+{
+    border: 2px solid white;
+    border-radius: 50%;
+}

@@ -51,6 +51,11 @@ def serveSignupPage(value = ""):
 def serveLoginPage(note: str = ""):
     return Serve("LoginPage.html", notification = note)
 
+# Account Page Serving
+@website.route("/account")
+def serveAccountPage():
+    return Serve("AccountPage.html")
+
 # New UID Interface
 @website.route("/api/getNewUID")
 def responseUID():

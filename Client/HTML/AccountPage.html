@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple | Account</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/AccountConsole.css') }}">
+    <link rel="icon" type="images-x/icon" href="{{ url_for('static',filename='Images/Account.svg') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="{{ url_for('static',filename='JavaScript/AccountManagePage.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1 class="logo">Simple Account</h1>
+        <i class='bx bx-right-arrow-alt' id="btn" title="Go Back To Console"></i>
+    </header>
+    <div class="incompatible">
+        <h1>Incompatible<br>Device</h1>
+    </div>
+    <div class="container">
+        <div>
+            <img class="user" src="https://picsum.photos/200" alt="Avatar" height="84" width="84">
+        </div>
+    </div>
+</body>
+</html>
