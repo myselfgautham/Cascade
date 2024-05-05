@@ -73,8 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else
     {
+        const cookiesStatus = localStorage.getItem("cookiesAccepted");
         const negatives = ["null","undefined","false",null,false,undefined];
-        if (negatives.includes(getCookieFromStorage("UserState")))
+        if (negatives.includes(cookiesStatus))
+        {
+            window.location.href = "/";
+        }
+        else if (negatives.includes(getCookieFromStorage("UserState")))
         {
             console.log("User Not Registered")
         }
