@@ -44,7 +44,8 @@ def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: 
             display_name = fullName,
             email = eMail,
             phone_number = phoneNumber,
-            password = password
+            password = password,
+            email_verified = False
         )
         return {"response": "Account Created Successfully"}
     except PhoneNumberAlreadyExistsError:
