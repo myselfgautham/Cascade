@@ -85,11 +85,14 @@ function pingUserName()
 function changeTextConsole(text)
 {
     var x = document.getElementById("textBox")
+    var profilePicture = document.getElementById("profile");
     if (text == "")
     {
         x.innerHTML = "Welcome To Simple";
+        profilePicture.src = "https://picsum.photos/46";
     }
     else {
         x.innerHTML = "Welcome Back<br>" + text;
+        profilePicture.src = `https://api.dicebear.com/8.x/initials/svg?seed=${text}`;
     }
 }

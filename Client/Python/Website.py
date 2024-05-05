@@ -34,7 +34,7 @@ def serveAboutPage():
 # Profile / Dashboard Page
 @website.route("/dashboard")
 def serveDashboard():
-    return Serve("ConsolePage.html", userProfilePicture="https://picsum.photos/46")
+    return Serve("ConsolePage.html")
 
 # Blank Console For Aesthetics
 @website.route("/profile")
@@ -52,9 +52,14 @@ def serveLoginPage(note: str = ""):
     return Serve("LoginPage.html", notification = note)
 
 # Account Page Serving
-@website.route("/account")
+@website.route("/accountManage")
 def serveAccountPage():
     return Serve("AccountPage.html")
+
+# Account Fallback Page Serving
+@website.route("/account")
+def serveFallbackPageAccount():
+    return Serve("AccountPageFallback.html")
 
 # New UID Interface
 @website.route("/api/getNewUID")
@@ -106,6 +111,23 @@ def getValidationData():
         return jsonify(data)
     else:
         return {"Response": "Device Does Not Exist"}
+
+# Delete Device Collection
+@website.route("/api/signout", methods = ["POST"])
+def signOutUser():
+    uid: str = request.json.get("UID")
+    status: bool = Firebase.deleteDocument("Devices",uid)
+    return jsonify({"Response": "Success"}) if status else jsonify({"Response": "Failed"})
+
+# Password Reset Route
+@website.route("/api/reset", methods = ["POST"])
+def resetPassword():
+    try:
+        email: str = request.json.get("Email")
+        link = Firebase.resetPassword(email)
+        return jsonify({"Link": link,"Response" : "Success"})
+    except Exception:
+        return jsonify({"Response" : "Failed"})
 
 # 404 Error / Exception Handling
 @website.errorhandler(404)

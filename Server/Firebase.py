@@ -12,6 +12,7 @@ from firebase_admin.auth import EmailAlreadyExistsError
 from firebase_admin.auth import PhoneNumberAlreadyExistsError
 from Server.PasswordAnalyser import SQLInjectionCharactersError
 from Server.PasswordAnalyser import PasswordAnalyser
+from firebase_admin.auth import generate_password_reset_link
 
 class WeakPasswordError(Exception):
     message: str = "Choose A Stronger Password"
@@ -117,3 +118,10 @@ def registerDevice(uid: str, user: str):
         return True
     except Exception:
         return False
+    
+def resetPassword(email: str):
+    try:
+        link = generate_password_reset_link(email=email)
+        return link
+    except Exception:
+        return "Something Went Wrong"

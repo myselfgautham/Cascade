@@ -107,3 +107,24 @@
 {
     padding-right: 8px !important;
 }
+
+.forgot
+{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-right: 6px !important;
+    padding-bottom: 2px;
+}
+
+#forgotBTN
+{
+    text-decoration: none;
+    color: white;
+}
+
+#forgotBTN:hover
+{
+    color: orange;
+    transition: 0.56s linear;
+}

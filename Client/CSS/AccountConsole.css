@@ -25,7 +25,7 @@ body
 
 @media screen and (max-width: 300px)
 {
-    header,
+    #header,
     div:not(.incompatible)
     {
         display: none !important;
@@ -34,7 +34,7 @@ body
     .incompatible
     {
         color: orange;
-        display: block;
+        display: block !important;
         font-family: sans-serif;
         letter-spacing: 0.09rem;
         top: 50%;
@@ -46,7 +46,7 @@ body
     }
 }
 
-header
+#header
 {
     color: white;
     display: flex;
@@ -82,7 +82,7 @@ header
 
 @media screen and (max-width: 992px)
 {
-    header
+    #header
     {
         padding: 1.25rem 4%;
     }
@@ -99,19 +99,11 @@ header
 
 .container
 {
-    padding: 24px;
-    border: 2px solid white;
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    border-radius: 16px;
-    flex-wrap: wrap;
     top: 50%;
     left: 50%;
+    display: block;
     transform: translate(-50%,-50%);
-    margin-top: calc(84px / 2);
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #userProfilePicture
@@ -232,12 +224,4 @@ header
     border-color: orange;
     color: orange;
     transition: ease-in-out 0.5s;
-}
-
-@media screen and (max-width: 500px)
-{
-    .container
-    {
-        margin-top: calc(76px / 2);
-    }
 }
