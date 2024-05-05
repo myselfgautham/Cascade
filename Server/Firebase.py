@@ -12,6 +12,7 @@ from firebase_admin.auth import EmailAlreadyExistsError
 from firebase_admin.auth import PhoneNumberAlreadyExistsError
 from Server.PasswordAnalyser import SQLInjectionCharactersError
 from Server.PasswordAnalyser import PasswordAnalyser
+from firebase_admin.auth import get_user
 from firebase_admin.auth import generate_password_reset_link
 
 class WeakPasswordError(Exception):
@@ -125,3 +126,10 @@ def resetPassword(email: str):
         return link
     except Exception:
         return "Something Went Wrong"
+    
+def getPhoneNumber(uid: str) -> str:
+    try:
+        user: UserRecord =  get_user(uid=uid)
+        return user.phone_number
+    except Exception:
+        return ""

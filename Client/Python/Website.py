@@ -6,6 +6,9 @@ from flask import render_template as Serve
 from Simple import Device
 from Simple import Firebase
 from Simple import PyrebaseSDK
+from Simple import Twilio
+from random import randint
+from Simple import Phone
 
 # Definitions For Server
 STATIC: str = "../"
@@ -15,6 +18,10 @@ TEMPLATES: str = "../HTML"
 website: Flask = Flask(__name__)
 website.template_folder = TEMPLATES
 website.static_folder = STATIC
+
+# Twilio API
+SMS = Phone(Twilio.account_sid,Twilio.auth_token)
+BUFFER = {}
 
 # Cookies Accepting Website
 @website.route("/")
@@ -119,6 +126,11 @@ def signOutUser():
     status: bool = Firebase.deleteDocument("Devices",uid)
     return jsonify({"Response": "Success"}) if status else jsonify({"Response": "Failed"})
 
+# Verification Page
+@website.route("/verify")
+def serveVerify():
+    return Serve("VerificationPage.html")
+
 # Password Reset Route
 @website.route("/api/reset", methods = ["POST"])
 def resetPassword():
@@ -128,6 +140,26 @@ def resetPassword():
         return jsonify({"Link": link,"Response" : "Success"})
     except Exception:
         return jsonify({"Response" : "Failed"})
+
+# Get User Phone Number
+@website.route("/api/phone", methods = ["POST"])
+def verifyPhone():
+    try:
+        uid:str = request.json.get("UID")
+        if (uid == ""):
+            raise Exception
+        else:
+            phone: str = Firebase.getPhoneNumber(uid)
+            otp: int = randint(100000, 999999)
+            BUFFER[uid] = otp
+            SMS.messages.create(
+                to=phone,
+                from_=Twilio.number,
+                body=f"Your OTP For Your Simple Account Is {otp}"
+            )
+            return jsonify({"Phone": phone,"OTP": otp})
+    except Exception:
+        return jsonify({"Response": "Error"})
 
 # 404 Error / Exception Handling
 @website.errorhandler(404)
