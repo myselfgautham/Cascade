@@ -1,9 +1,11 @@
 # Modules Import
 from psutil import cpu_percent
 from flask import Flask
+from flask import request
 from flask import render_template as Serve
 from Device import createUID
 from flask import jsonify
+from Firebase import createNewUserAccount
 
 # Server Metadata Class
 class Server():
@@ -61,8 +63,8 @@ def serveConsoleFallbackPage():
 
 # Serve Account Creation Page
 @app.route("/account")
-def serveAccountCreationPage():
-    return Serve("CreateAccountPage.html")
+def serveAccountCreationPage(key = ""):
+    return Serve("CreateAccountPage.html",notification = key)
 
 # Login Page Serving Route
 @app.route("/login")
@@ -78,6 +80,17 @@ def serveNewUID():
 @app.route("/verify")
 def serveVerificationPage():
     return Serve("PhoneVerification.html")
+
+# Account Creation Route
+@app.route("/createAccount", methods = ["POST"])
+def createNewSimpleAccount():
+    response: str = createNewUserAccount (
+        fullName = request.form.get("name"),
+        eMail = request.form.get("email"),
+        phoneNumber = request.form.get("phone"),
+        password = request.form.get("password")
+    )
+    return serveAccountCreationPage(key = response["response"])
 
 # Run Server Script
 if (__name__ == "__main__"):

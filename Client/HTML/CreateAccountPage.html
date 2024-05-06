@@ -11,6 +11,14 @@
         x.addEventListener("click", () => {
             routeToPage("/login");
         })
+        var textarea = document.getElementById("notifier");
+        if (textarea.innerText == "Account Created Successfully")
+        {
+            textarea.style.color = "green";
+            setTimeout(function() {
+                window.location.href = "/login";
+            },500);
+        }
     })
 </script>
 {% endblock %}
