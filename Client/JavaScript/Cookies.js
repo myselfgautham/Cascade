@@ -62,6 +62,7 @@ async function setBasicCookies()
 {
     var data = await fetchFlaskAPIOneWay(`/${ServerName}/api/uid`);
     setCookieToStorage("UID",data.UID,128);
+    setCookieToStorage("UserState",false,128);
 }
 
 function validateCookies()

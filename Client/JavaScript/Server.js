@@ -1,2 +1,2 @@
 export const ServerName = "main";
-export const cookies = ["UID"];
+export const cookies = ["UID","UserState"];
