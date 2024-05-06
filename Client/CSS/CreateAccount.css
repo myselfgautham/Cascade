@@ -96,10 +96,11 @@
     color: lightcoral;
     padding-bottom: 12px;
     text-align: center;
-    font-size: calc(9px + 1.10vw);
+    font-size: calc(10px + 1.10vw);
     letter-spacing: 0.09rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 350;
+    padding-top: 12px;
     animation: shaking 0.25s forwards;
 }
 

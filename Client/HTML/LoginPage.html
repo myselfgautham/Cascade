@@ -22,6 +22,15 @@
         route.addEventListener("click", () => {
             routeToPage("/account");
         })
+        var textarea = document.getElementById("notifier");
+        if (textarea.innerText == "Sign In Completed Successfully")
+        {
+            textarea.style.color = "green";
+        }
+        else if (textarea.innerText == "")
+        {
+            textarea.style.display = "none";
+        }
     })
 </script>
 <div class="container" id="container">

@@ -5,6 +5,7 @@ from flask import request
 from flask import render_template as Serve
 from Device import createUID
 from flask import jsonify
+from PyrebaseSDK import loginUserWithEmailAndPassword
 from Firebase import createNewUserAccount
 
 # Server Metadata Class
@@ -68,8 +69,8 @@ def serveAccountCreationPage(key = ""):
 
 # Login Page Serving Route
 @app.route("/login")
-def serveLoginPage():
-    return Serve("LoginPage.html")
+def serveLoginPage(note: str = ""):
+    return Serve("LoginPage.html",notification = note)
 
 # UID Generate API
 @app.route("/api/uid")
@@ -84,13 +85,22 @@ def serveVerificationPage():
 # Account Creation Route
 @app.route("/createAccount", methods = ["POST"])
 def createNewSimpleAccount():
-    response: str = createNewUserAccount (
+    response: dict[str] = createNewUserAccount (
         fullName = request.form.get("name"),
         eMail = request.form.get("email"),
         phoneNumber = request.form.get("phone"),
         password = request.form.get("password")
     )
     return serveAccountCreationPage(key = response["response"])
+
+# Website Login Route
+@app.route("/loginToAccount", methods = ["POST"])
+def loginToAccount():
+    response: dict = loginUserWithEmailAndPassword(
+        email = request.form.get("email"),
+        password = request.form.get("password")
+    )
+    return serveLoginPage(note = response["response"])
 
 # Run Server Script
 if (__name__ == "__main__"):
