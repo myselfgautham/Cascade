@@ -1,0 +1,48 @@
+<!--Document Type Definition-->
+<!DOCTYPE html>
+<!--HTML Beginning-->
+<html lang="en">
+<!--Website Head Element-->
+<head>
+    <!--Google Fonts Preconnect-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--MetaData Website-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Please Accept The Cookies Policy">
+    <!--Title-->
+    <title>Simple | Cookies</title>
+    <!--Favicon-->
+    <link rel="icon" type="images-x/icon" href="{{ url_for('static',filename='Images/Favicon.png') }}">
+    <!--CSS-->
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/AcceptCookies.css') }}">
+</head>
+<!--Website Body-->
+<body>
+    <!--Container-->
+    <div class="container">
+        <!--Heading-->
+        <h1 class="heading">This Website Uses Cookies</h1>
+        <!--Description-->
+        <p class="innerText">
+            This Website Uses Cookies To <br>
+            Offer You The User An Awesome Experience <br>
+            These Cookies Are Only Accessed Once Per Session <br>
+            And Can Never Be Accessed Manually <br>
+            Only Cookies Are Accessed In A Session Nothing Else
+        </p>
+        <!--Buttons-->
+        <div class="buttons">
+            <button id="accept">Accept Cookies</button>
+            <br>
+            <button id="help">Get Help</button>
+        </div>
+    </div>
+    <!--Incompatibility Screen-->
+    <div class="incompatible">
+        <h1>Incompatible Device</h1>
+    </div>
+    <!--JavaScript-->
+    <script type="module" src="{{ url_for('static', filename = 'JavaScript/CookiesPolicyPage.js') }}"></script>
+</body>
+</html>

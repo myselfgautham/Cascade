@@ -1,0 +1,222 @@
+/* Fonts Imports */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Common Styling */
+*
+{
+  user-select: none;
+  -webkit-user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Body Element */
+body
+{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Header Element */
+.header
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  z-index: 100;
+}
+
+/* Header Animation Initial */
+.header::before
+{
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg,transparent,rgba(255, 255, 255, 0.4), transparent);
+  transition: 1s;
+}
+
+/* Header Swipe Animation */
+.header:hover::before
+{
+  left: 100%;
+}
+
+/* Logo Element */
+.logo
+{
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-size: 26px;
+  text-decoration: none;
+  font-weight: 500;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: 0.15rem;
+  cursor: cell;
+}
+
+/* Navigation Links Styling */
+.navbar a
+{
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  margin-left: 35px;
+  transition: 0.3s;
+}
+
+/* Navigation Links Hover Animation */
+.navbar a:hover
+{
+  color: orange;
+}
+
+/* Menu Icon Hiding */
+#menu-icon
+{
+  font-size: 36px;
+  color: #fff;
+  display: none;
+}
+
+/* Incompatible Hiding Initial */
+.incompatible
+{
+  visibility: hidden;
+  display: none;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+}
+
+/* Header Padding Cutoff */
+@media (max-width: 992px)
+{
+  .header 
+  {
+    padding: 1.25rem 4%;
+  }
+}
+
+/* Smaller Screens */
+@media (max-width: 860px)
+{
+  /* Hamburger Menu Icon */
+  #menu-icon
+  {
+    display: block;
+  }
+
+  /* Navigation Bar */
+  .navbar
+  {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 4%;
+    display: none;
+  }
+
+  /* Active Class (JavaScript) */
+  .navbar.active
+  {
+    display: block;
+  }
+
+  /* Links */
+  .navbar a 
+  {
+    display: block;
+    margin: 1.5rem 0;
+    text-align: center;
+    cursor: none;
+  }
+
+  /* Blurred Background */
+  .nav-bg
+  {
+    position: absolute;
+    top: 79px;
+    left: 0;
+    width: 100%;
+    height: 295px;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 99;
+    display: none;
+  }
+  
+  /* Active Clause (JavaScript) */
+  .nav-bg.active
+  {
+    display: block;
+  }
+
+  /* Hamburger Menu Animation */
+  .nav-bg.active,
+  .navbar
+  {
+    animation: opacity-show 0.32s forwards;
+  }
+}
+
+/* Incompatible Screens */
+@media screen and (max-width: 300px)
+{
+  /* Header And Divisions */
+  .header,
+  div:not(.incompatible)
+  {
+    display: none;
+    visibility: hidden;
+  }
+
+  /* Incompatibility Screen */
+  .incompatible
+  {
+    color: orange;
+    display: block;
+    visibility: visible;
+    text-align: center;
+    font-size: calc(7px + 1.10vw);
+  }
+}
+
+/* Hidden Elements */
+.hidden
+{
+  display: none;
+  visibility: hidden !important;
+}
+
+/* Keyframes Animation */
+@keyframes opacity-show
+{
+  from {opacity: 0%;}
+  to {opacity: 100%;}  
+}
