@@ -74,6 +74,11 @@ def serveLoginPage():
 def serveNewUID():
     return jsonify({"UID": createUID()})
 
+# Phone Verification Route
+@app.route("/verify")
+def serveVerificationPage():
+    return Serve("PhoneVerification.html")
+
 # Run Server Script
 if (__name__ == "__main__"):
     app.run (
