@@ -15,7 +15,7 @@ def createUID() -> str:
     At Last A SHA384 Checksum To Ensure Safety
     Usage : createUID()
     Parameters : None
-    Return : String Of Length 384 Characters (Human Readable)
+    Return : String Of Length 96 Characters (Human Readable)
     Dependencies : Secrets (TokenHEX) | HashLib (SHA384) | Time (TimeNS)
     Special Errors : UnableToGenerateUID(Exception)
     Error Case : "" | Length Not Equal To 96
