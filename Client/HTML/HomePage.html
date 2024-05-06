@@ -1,0 +1,33 @@
+{% extends "BasePage.html" %}
+{% block Header %}
+<style>
+    .container
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    @keyframes show-animation
+    {
+        from {opacity: 0%;}
+        to {opacity: 100%;}
+    }
+    .text {
+        font-family: 'Courier New', Courier, monospace;
+        letter-spacing: 0.10rem;
+        font-size: calc(16px + 1.10vw);
+        font-weight: 400;
+        color: white;
+        animation: show-animation 1.24s steps(40,end);
+    }
+</style>
+{% endblock %}
+{% block Content %}
+<div class="container">
+    <h1 class="text">
+        For Every Card Ever<br>
+        For Everyone
+    </h1>
+</div>
+{% endblock %}

@@ -36,21 +36,41 @@ SERVER: Server = Server (
 
 # Flask Configuration
 app: Flask = Flask(__name__)
-app.template_folder = "../Client/HTML"
+app.template_folder = "../Client/HTML/"
 app.static_folder = "../Client"
 
 # Website Root Serving ( Home Page )
-@app.route(f"/{SERVER.PREFIX}/home")
+@app.route("/")
 def serveHomePage():
     return Serve("BasePage.html")
 
 # Cookies Enforcement Route
-@app.route(f"/{SERVER.PREFIX}/policy")
+@app.route("/policy")
 def serveCookiesPolicy():
     return Serve("AcceptCookies.html")
 
+# Console Home Page Serving
+@app.route("/dashboard")
+def serveDashboardPage():
+    return Serve("ConsoleHomePage.html")
+
+# Console Fallback Page
+@app.route("/profile")
+def serveConsoleFallbackPage():
+    return Serve("ConsoleFallbackPage.html")
+
+# Serve Account Creation Page
+@app.route("/account")
+def serveAccountCreationPage():
+    return Serve("CreateAccountPage.html")
+
+# Login Page Serving Route
+@app.route("/login")
+def serveLoginPage():
+    return Serve("LoginPage.html")
+
 # UID Generate API
-@app.route(f"/{SERVER.PREFIX}/api/uid")
+@app.route("/api/uid")
 def serveNewUID():
     return jsonify({"UID": createUID()})
 

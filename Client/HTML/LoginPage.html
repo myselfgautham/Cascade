@@ -1,0 +1,56 @@
+{% extends "BasePage.html" %}
+{% block Title %}
+<title>Simple | Login</title>
+{% endblock %}
+{% block Header %}
+<link rel="stylesheet" href="{{ url_for('static',filename='CSS/CreateAccount.css') }}">
+<style>
+    #topdiv
+    {
+        margin-bottom: 0px !important;
+    }
+</style>
+{% endblock %}
+{% block Icon %}
+<i class='bx bx-menu' id="menu-icon" onclick="hideText('container','container')"></i>
+{% endblock %}
+{% block Content %}
+<script type="module">
+    import {routeToPage} from "/static/JavaScript/Server.js";
+    document.addEventListener("DOMContentLoaded", () => {
+        var route = document.getElementById("loginRoute");
+        route.addEventListener("click", () => {
+            routeToPage("/account");
+        })
+    })
+</script>
+<div class="container" id="container">
+    <form action="/loginToAccount" method="post">
+        <h1 class="heading">Login To Simple</h1>
+        <div class="TextBox">
+            <span class="icon">
+                <i class='bx bx-user-circle'></i>
+            </span>
+            <input id="email" type="email" autocomplete="email" required name="email" placeholder="Registered Email Address">
+        </div>
+        <div class="TextBox" id="topdiv">
+            <span class="icon">
+                <i class='bx bxs-lock-alt'></i>
+            </span>
+            <input type="password" autocomplete="current-password" placeholder="Enter Your Password" required name="password">
+        </div>
+        <div class="forgot">
+            <a id="forgotBTN" href="#" title="Reset Password Now">Forgot Password</a>
+        </div>
+        <h3 class="notifier" id="notifier">{{ notification }}</h3>
+        <div class="wrapperBTN">
+            <button id="loginRoute" type="button" title="Create An Account Now">
+                <i class='bx bx-user-plus'></i>
+            </button>
+            <button type="submit" title="Login Now">
+                <i class='bx bx-right-arrow-circle'></i>
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

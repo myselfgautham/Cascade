@@ -4,7 +4,6 @@ For The Simple Website
 Developed By Gautham Krishna
 */
 
-import { ServerName } from "/static/JavaScript/Server.js";
 import { fetchFlaskAPIOneWay } from "/static/JavaScript/FlaskAPI.js";
 import { cookies } from "/static/JavaScript/Server.js";
 
@@ -54,13 +53,13 @@ function enforceCookiesPolicy()
 {
     if (!getCookiesState())
     {
-        window.location.href = `/${ServerName}/policy`;
+        window.location.href = "/policy";
     }
 }
 
 async function setBasicCookies()
 {
-    var data = await fetchFlaskAPIOneWay(`/${ServerName}/api/uid`);
+    var data = await fetchFlaskAPIOneWay("/api/uid");
     setCookieToStorage("UID",data.UID,128);
     setCookieToStorage("UserState",false,128);
 }
