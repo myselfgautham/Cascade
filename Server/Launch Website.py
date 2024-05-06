@@ -2,6 +2,8 @@
 from psutil import cpu_percent
 from flask import Flask
 from flask import render_template as Serve
+from Device import createUID
+from flask import jsonify
 
 # Server Metadata Class
 class Server():
@@ -46,6 +48,11 @@ def serveHomePage():
 @app.route(f"/{SERVER.PREFIX}/policy")
 def serveCookiesPolicy():
     return Serve("AcceptCookies.html")
+
+# UID Generate API
+@app.route(f"/{SERVER.PREFIX}/api/uid")
+def serveNewUID():
+    return jsonify({"UID": createUID()})
 
 # Run Server Script
 if (__name__ == "__main__"):

@@ -5,6 +5,8 @@ Developed By Gautham Krishna
 */
 
 import { ServerName } from "/static/JavaScript/Server.js";
+import { fetchFlaskAPIOneWay } from "/static/JavaScript/FlaskAPI.js";
+import { cookies } from "/static/JavaScript/Server.js";
 
 function getCookieFromStorage(cookieName)
 {
@@ -56,4 +58,34 @@ function enforceCookiesPolicy()
     }
 }
 
-export {getCookieFromStorage, getCookiesState, resetCookies, setCookieToStorage, enforceCookiesPolicy};
+async function setBasicCookies()
+{
+    var data = await fetchFlaskAPIOneWay(`/${ServerName}/api/uid`);
+    setCookieToStorage("UID",data.UID,128);
+}
+
+function validateCookies()
+{
+    for (let i = 0; i < cookies.length; i++)
+    {
+        if (getCookieFromStorage(cookies[i]) === "")
+        {
+            resetCookies(cookies);
+            setBasicCookies()
+            break;
+        }
+        else {
+            continue;
+        }
+    }
+}
+
+export {
+    getCookieFromStorage,
+    getCookiesState,
+    resetCookies,
+    setCookieToStorage,
+    enforceCookiesPolicy,
+    setBasicCookies,
+    validateCookies
+};

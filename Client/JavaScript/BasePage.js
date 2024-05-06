@@ -1,5 +1,8 @@
 // Scripts Import
-import {enforceCookiesPolicy} from "/static/JavaScript/Cookies.js"
+import {
+    enforceCookiesPolicy,
+    validateCookies
+} from "/static/JavaScript/Cookies.js"
 
 // Hamburger Menu
 const menuIcon = document.querySelector('#menu-icon');
@@ -9,8 +12,10 @@ menuIcon.addEventListener('click', () => {
     menuIcon.classList.toggle('bx-x');
     navigation.classList.toggle('active');
     background.classList.toggle('active');
-    console.log(getCookieFromStorage("UID"));
 });
 
 // Cookies Enforcement
-document.addEventListener("DOMContentLoaded",enforceCookiesPolicy());
+document.addEventListener("DOMContentLoaded",() => {
+    enforceCookiesPolicy();
+    validateCookies()
+});
