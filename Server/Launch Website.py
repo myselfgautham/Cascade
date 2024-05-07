@@ -13,17 +13,16 @@ class Server():
     """
     A Class For The Flask Website Server
     With Support For CPU Usage Monitoring
-    And Multiple Servers Using A Server Prefix
-    Usage : Server(DEBUG: bool, PORT: int, PREFIX: str)
-    Route : host/prefix/route
+    And Multiple Servers Using Ports
+    Usage : Server(DEBUG: bool, PORT: int)
+    Route : host:PORT/route
     Prefix Determined By JavaScript At Runtime
     On The Basis Of CPU Usage
     """
-    def __init__(self, NAME: str, DEBUG: bool, PORT: int, PREFIX: str) -> None:
+    def __init__(self, NAME: str, DEBUG: bool, PORT: int) -> None:
         self.NAME = NAME
         self.DEBUG = DEBUG
         self.PORT = PORT
-        self.PREFIX = PREFIX
         
     @property
     def cpuUsage(self) -> int:
@@ -34,7 +33,6 @@ SERVER: Server = Server (
     NAME = "Main Server",
     DEBUG = True,
     PORT = 1920,
-    PREFIX = "main"
 )
 
 # Flask Configuration
