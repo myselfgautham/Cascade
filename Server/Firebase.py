@@ -15,6 +15,8 @@ from PasswordAnalyser import PasswordAnalyser
 from firebase_admin.auth import get_user
 from firebase_admin.auth import generate_password_reset_link
 from firebase_admin.auth import generate_email_verification_link
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 class WeakPasswordError(Exception):
     message: str = "Choose A Stronger Password"
@@ -48,6 +50,7 @@ def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: 
             password = password,
             email_verified = False
         )
+        sendVerificationEmail(eMail)
         return {"response": "Account Created Successfully"}
     except PhoneNumberAlreadyExistsError:
         return {"response": "Phone Number Already Exists"}
@@ -141,3 +144,21 @@ def getEmailVerificationLink(email: str):
         return generate_email_verification_link(email)
     except Exception:
         return ""
+    
+def sendVerificationEmail(email: str):
+    try:
+        message = Mail(
+            from_email="gauthamkrishnav@icloud.com",
+            to_emails=email,
+            subject="Simple Account Email Verification"
+        )
+        message.dynamic_template_data = {
+            "name" : getUserRealName(email),
+            "url" : getEmailVerificationLink(email)
+        }
+        message.template_id = "d-e57dd5ac3b2b423994c161d316b3dc0f"
+        sg = SendGridAPIClient("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")
+        sg.send(message)
+        return True
+    except Exception:
+        return False
