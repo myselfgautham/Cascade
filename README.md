@@ -23,6 +23,7 @@
 > * TypeScript Compiler ( **TSC 2.7.2** ) <br>
 > * Pyrebase4 Wrapper ( **4.8.0** ) <br>
 > * Python Hashlib ( **v3.12** ) <br>
+> * Twilio SendGrid ( **6.11.0** )
 
 <br>
 
