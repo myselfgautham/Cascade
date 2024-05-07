@@ -1,3 +1,4 @@
+import json
 from firebase_admin import initialize_app
 from firebase_admin.credentials import Certificate
 from firebase_admin import App
@@ -27,6 +28,9 @@ class WeakPasswordError(Exception):
 serviceAccountKey: Certificate = Certificate(abspath("Server/SimpleServer.json"))
 firebaseApplication: App = initialize_app(serviceAccountKey)
 FIRESTORE = firestore.client(firebaseApplication)
+
+with open(abspath("./Server/SimpleServer.json")) as file:
+    data = json.load(file)
 
 def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: str) -> dict[str]:
     """
@@ -148,7 +152,7 @@ def getEmailVerificationLink(email: str):
 def sendVerificationEmail(email: str):
     try:
         message = Mail(
-            from_email="gauthamkrishnav@icloud.com",
+            from_email=data["Twilio SendGrid"]["Mail"],
             to_emails=email,
             subject="Simple Account Email Verification"
         )
@@ -156,8 +160,8 @@ def sendVerificationEmail(email: str):
             "name" : getUserRealName(email),
             "url" : getEmailVerificationLink(email)
         }
-        message.template_id = "d-e57dd5ac3b2b423994c161d316b3dc0f"
-        sg = SendGridAPIClient("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")
+        message.template_id = data["Twilio SendGrid"]["Templates"]["Verification"]
+        sg = SendGridAPIClient(data["Twilio SendGrid"]["Key"])
         sg.send(message)
         return True
     except Exception:
