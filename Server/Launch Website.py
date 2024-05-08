@@ -9,6 +9,7 @@ from Device import getServerIPAddress
 from PyrebaseSDK import loginUserWithEmailAndPassword
 from Firebase import createNewUserAccount
 from flask_cors import CORS
+from flask_caching import Cache
 
 # Server Metadata Class
 class Server():
@@ -50,6 +51,12 @@ SERVER: Server = Server (
     IP=getServerIPAddress()
 )
 
+# Cache Configuration
+cacheConfiguration: dict = {
+    'CACHE_TYPE': 'simple',
+    'CACHE_DEFAULT_TIMEOUT': 300
+}
+
 # Flask Configuration
 app: Flask = Flask(__name__)
 app.template_folder = "../Client/HTML/"
@@ -60,13 +67,28 @@ ORIGINS = [
 ]
 CORS(app, origins=ORIGINS)
 
+# Flask Cache Initialization
+cache = Cache(app=app, config=cacheConfiguration)
+cache.init_app(app=app)
+
+# Routes Cache Configuration
+routesCache = {
+    "root": None,
+    "policy": 3600,
+    "404": 86400,
+    "accounts": 300,
+    "fallbacks": 120
+}
+
 # Website Root Serving ( Home Page )
 @app.route("/")
+@cache.cached(timeout=routesCache["root"])
 def serveHomePage():
     return Serve("BasePage.html")
 
 # Cookies Enforcement Route
 @app.route("/policy")
+@cache.cached(timeout=routesCache["policy"])
 def serveCookiesPolicy():
     return Serve("AcceptCookies.html")
 
@@ -77,16 +99,19 @@ def serveDashboardPage():
 
 # Console Fallback Page
 @app.route("/profile")
+@cache.cached(timeout=routesCache["fallbacks"])
 def serveConsoleFallbackPage():
     return Serve("ConsoleFallbackPage.html")
 
 # Serve Account Creation Page
 @app.route("/account")
+@cache.cached(timeout=routesCache["accounts"])
 def serveAccountCreationPage(key = ""):
     return Serve("CreateAccountPage.html",notification = key)
 
 # Login Page Serving Route
 @app.route("/login")
+@cache.cached(timeout=routesCache["accounts"])
 def serveLoginPage(note: str = ""):
     return Serve("LoginPage.html",notification = note)
 
@@ -122,6 +147,7 @@ def loginToAccount():
 
 # 404 Error Handling
 @app.errorhandler(404)
+@cache.cached(timeout=routesCache["404"])
 def except404Error(_):
     return Serve("PageNotFound.html")
 
