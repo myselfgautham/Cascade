@@ -9,6 +9,8 @@ from Device import getServerIPAddress
 from PyrebaseSDK import loginUserWithEmailAndPassword
 from Firebase import createNewUserAccount
 from flask_cors import CORS
+from Firebase import getPhoneNumber
+from Firebase import getUserUIDFromEMail
 from flask_caching import Cache
 
 # Server Metadata Class
@@ -155,6 +157,13 @@ def except404Error(_):
 @app.route("/api/usage", methods = ["POST"])
 def serverCPUUsage():
     return jsonify({"Usage" : SERVER.cpuUsage})
+
+# User Phone Fetching
+@app.route("/api/phone", methods = ["POST"])
+def getUserPhoneNumber():
+    email = request.json.get("Email")
+    phone = getPhoneNumber(getUserUIDFromEMail(email))
+    return jsonify({"Phone" : phone})
 
 # Run Server Script
 if (__name__ == "__main__"):

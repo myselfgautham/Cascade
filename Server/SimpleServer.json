@@ -26,5 +26,10 @@
         "Templates" : {
             "Verification" : "d-e57dd5ac3b2b423994c161d316b3dc0f"
         }
+    },
+    "Twilio Communications" : {
+        "SID" : "ACa3f3f960331922354c614416f1ddf730",
+        "AUTH" : "3582723f252c6d21deddef6ca9c71929",
+        "PHONE" : "+1 (505) 492-0806"
     }
 }

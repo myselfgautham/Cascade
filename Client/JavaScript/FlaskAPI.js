@@ -13,4 +13,19 @@ async function fetchFlaskAPIOneWay(route) {
     return data;
 }
 
-export {fetchFlaskAPIOneWay};
+function fetchFlaskWithData(route, data) {
+    return fetch(route, {
+        method: "POST",
+        headers: {
+            "Content-type" : "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .catch(error => {
+        console.log("Error:", error);
+        return null;
+    });
+}
+
+export {fetchFlaskAPIOneWay, fetchFlaskWithData};
