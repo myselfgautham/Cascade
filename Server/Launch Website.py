@@ -9,6 +9,8 @@ from Device import getServerIPAddress
 from PyrebaseSDK import loginUserWithEmailAndPassword
 from Firebase import createNewUserAccount
 from flask_cors import CORS
+from random import randint
+from Twilio import sendOTPMessage
 from Firebase import getPhoneNumber
 from Firebase import getUserUIDFromEMail
 from flask_caching import Cache
@@ -163,7 +165,28 @@ def serverCPUUsage():
 def getUserPhoneNumber():
     email = request.json.get("Email")
     phone = getPhoneNumber(getUserUIDFromEMail(email))
+    if email not in OTP:
+        otp:int = randint(100000,999999)
+        OTP[email] = str(otp)
+        sendOTPMessage(phone,otp)
     return jsonify({"Phone" : phone})
+
+# OTP Data Buffer
+OTP: dict = {}
+
+# OTP Verification Route
+@app.route("/api/verify-otp", methods = ["POST"])
+def validateOTP():
+    try:
+        data = request.json
+        email = data.get("Email")
+        if OTP[email] == data.get("OTP"):
+            del OTP[email]
+            return jsonify({"State": "true"})
+        else:
+            return jsonify({"State": "false"})
+    except Exception:
+        return jsonify({"State": "verified"})
 
 # Run Server Script
 if (__name__ == "__main__"):
