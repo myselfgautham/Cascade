@@ -5,8 +5,10 @@ from flask import request
 from flask import render_template as Serve
 from Device import createUID
 from flask import jsonify
+from Device import getServerIPAddress
 from PyrebaseSDK import loginUserWithEmailAndPassword
 from Firebase import createNewUserAccount
+from flask_cors import CORS
 
 # Server Metadata Class
 class Server():
@@ -19,26 +21,44 @@ class Server():
     Prefix Determined By JavaScript At Runtime
     On The Basis Of CPU Usage
     """
-    def __init__(self, NAME: str, DEBUG: bool, PORT: int) -> None:
+    def __init__(self, NAME: str, DEBUG: bool, PORT: int, IP: str) -> None:
         self.NAME = NAME
         self.DEBUG = DEBUG
         self.PORT = PORT
+        self.IP = IP
         
     @property
     def cpuUsage(self) -> int:
         return int(cpu_percent())
     
+# IPv4 Address Class
+class IPv4(object):
+    def __init__(self,protocol: str, host: str, port:int) -> None:
+        self.protocol = protocol
+        self.host = host
+        self.port = port
+        return None
+    @property
+    def address(self):
+        return f"{self.protocol}://{self.host}:{self.port}"
+
 # Server Object Definition
 SERVER: Server = Server (
     NAME = "Main Server",
     DEBUG = True,
     PORT = 1920,
+    IP=getServerIPAddress()
 )
 
 # Flask Configuration
 app: Flask = Flask(__name__)
 app.template_folder = "../Client/HTML/"
 app.static_folder = "../Client"
+ORIGINS = [
+    IPv4("http",getServerIPAddress(),SERVER.PORT).address,
+    IPv4("http","127.0.0.1",5500).address
+]
+CORS(app, origins=ORIGINS)
 
 # Website Root Serving ( Home Page )
 @app.route("/")
@@ -100,9 +120,21 @@ def loginToAccount():
     )
     return serveLoginPage(note = response["response"])
 
+# 404 Error Handling
+@app.errorhandler(404)
+def except404Error(_):
+    return Serve("PageNotFound.html")
+
+# Server CPU Usage
+@app.route("/api/usage", methods = ["POST"])
+def serverCPUUsage():
+    return jsonify({"Usage" : SERVER.cpuUsage})
+
 # Run Server Script
 if (__name__ == "__main__"):
     app.run (
         debug = SERVER.DEBUG,
-        port = SERVER.PORT
+        port = SERVER.PORT,
+        host=SERVER.IP,
+        threaded=True
     )

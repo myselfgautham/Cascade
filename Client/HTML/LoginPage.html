@@ -17,8 +17,10 @@
 {% block Content %}
 <script type="module">
     import {routeToPage} from "/static/JavaScript/Server.js";
+    import { setCookieToStorage } from "/static/JavaScript/Cookies.js"
     document.addEventListener("DOMContentLoaded", () => {
         var route = document.getElementById("loginRoute");
+        var email = document.getElementById("email");
         route.addEventListener("click", () => {
             routeToPage("/account");
         })
@@ -31,6 +33,9 @@
         {
             textarea.style.display = "none";
         }
+        email.addEventListener("input", () => {
+            setCookieToStorage("Email", email.value, 128);
+        })
     })
 </script>
 <div class="container" id="container">

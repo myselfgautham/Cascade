@@ -2,6 +2,8 @@
 from secrets import token_bytes
 from hashlib import sha384
 from time import time_ns
+from socket import gethostname
+from socket import gethostbyname
 
 class UnableToGenerateUID(Exception):
     message: str = "Unable To Generate UID For Device"
@@ -33,3 +35,7 @@ def createUID() -> str:
         print(f"\n\033[31;3m{UnableToGenerateUID.message}\033[0m",end="\n\n")
     except Exception as E:
         print(f"\n\033[3m=> Undefined Exception : {"\033[0;31m" + str(E).title() + "\033[0m"}")
+                                                         
+def getServerIPAddress():
+    hostname = gethostname()
+    return gethostbyname(hostname)
