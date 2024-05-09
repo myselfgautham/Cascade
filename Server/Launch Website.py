@@ -96,11 +96,6 @@ def serveHomePage():
 def serveCookiesPolicy():
     return Serve("AcceptCookies.html")
 
-# Console Home Page Serving
-@app.route("/dashboard")
-def serveDashboardPage():
-    return Serve("ConsoleHomePage.html")
-
 # Console Fallback Page
 @app.route("/profile")
 @cache.cached(timeout=routesCache["fallbacks"])
