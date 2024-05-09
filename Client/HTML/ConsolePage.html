@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple | Console</title>
+    <link rel="icon" href="{{ url_for('static', filename='Images/Console.svg') }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/Console.css') }}">
+</head>
+<body>
+    <header>
+        <div class="wrapperText">
+            <img src="{{ url_for('static', filename='Images/Console.svg') }}" alt="Logo" width="48" height="48">
+            <h1 class="heading">Simple Console</h1>
+        </div>
+        <img height="52" width="52" src="https://api.dicebear.com/8.x/initials/svg?seed=Gautham%20Krishna" id="user" alt="Avatar">
+    </header>
+    <div class="container">
+        <h1 class="text-box">Welcome Back</h1>
+    </div>
+    <script type="module" src="{{ url_for('static', filename='JavaScript/ConsolePage.js') }}"></script>
+</body>
+</html>

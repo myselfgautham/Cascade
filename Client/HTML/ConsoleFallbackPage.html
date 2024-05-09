@@ -23,7 +23,7 @@
         import { validateCookies, getCookieFromStorage } from "/static/JavaScript/Cookies.js"
         document.addEventListener("DOMContentLoaded", () => {
             validateCookies();
-            if (getCookieFromStorage("UserState") == "true")
+            if (getCookieFromStorage("UserState") == "true" && getCookieFromStorage("Email") != "")
             {
                 window.location.href = "/dashboard";
             }

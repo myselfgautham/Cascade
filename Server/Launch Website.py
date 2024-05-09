@@ -14,6 +14,7 @@ from Twilio import sendOTPMessage
 from Firebase import getPhoneNumber
 from Firebase import getUserUIDFromEMail
 from flask_caching import Cache
+from Firebase import registerDevice
 
 # Server Metadata Class
 class Server():
@@ -80,8 +81,8 @@ routesCache = {
     "root": None,
     "policy": 3600,
     "404": 86400,
-    "accounts": 300,
-    "fallbacks": 120
+    "fallbacks": 120,
+    "about" : 86400
 }
 
 # Website Root Serving ( Home Page )
@@ -104,13 +105,11 @@ def serveConsoleFallbackPage():
 
 # Serve Account Creation Page
 @app.route("/account")
-@cache.cached(timeout=routesCache["accounts"])
 def serveAccountCreationPage(key = ""):
     return Serve("CreateAccountPage.html",notification = key)
 
 # Login Page Serving Route
 @app.route("/login")
-@cache.cached(timeout=routesCache["accounts"])
 def serveLoginPage(note: str = ""):
     return Serve("LoginPage.html",notification = note)
 
@@ -150,6 +149,12 @@ def loginToAccount():
 def except404Error(_):
     return Serve("PageNotFound.html")
 
+# Method Not Allowed Error Handling
+@app.errorhandler(405)
+@cache.cached(timeout=routesCache["404"])
+def except405Error(_):
+    return Serve("MethodNotAllowed.html")
+
 # Server CPU Usage
 @app.route("/api/usage", methods = ["POST"])
 def serverCPUUsage():
@@ -182,6 +187,30 @@ def validateOTP():
             return jsonify({"State": "false"})
     except Exception:
         return jsonify({"State": "verified"})
+
+# Complete Device Registration
+@app.route("/api/complete", methods = ["POST"])
+def completeDeviceRegistration():
+    try:
+        data: dict = request.json
+        response: bool = registerDevice(
+            uid= data.get("UID"),
+            user= data.get("Email")
+        )
+        return jsonify({"Response": "True"}) if response else jsonify({"Response": "False"})
+    except Exception:
+        return jsonify({"Response": "False"})
+
+# Console Page Serving
+@app.route("/dashboard")
+def serveConsolePage():
+    return Serve("ConsolePage.html")
+
+# About Page Serving
+@app.route("/about")
+@cache.cached(timeout=routesCache["about"])
+def serveAboutPage():
+    return Serve("AboutPage.html")
 
 # Run Server Script
 if (__name__ == "__main__"):

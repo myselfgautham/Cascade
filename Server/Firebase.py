@@ -119,11 +119,11 @@ def registerDevice(uid: str, user: str):
         current_utc_time = datetime.now(UTC)
         utc_time_string = current_utc_time.strftime('%Y-%m-%d %H:%M:%S')
         createNewDocument("Devices", uid, {
-            "UID": uid,
-            "User": getUserUIDFromEMail(user),
-            "Time": utc_time_string,
-            "UserName": getUserRealName(user),
-            "Email": user
+            "Device UID": uid,
+            "Active User": getUserUIDFromEMail(user),
+            "Activation Time": utc_time_string,
+            "Name Of User": getUserRealName(user),
+            "Email Address": user
         })
         return True
     except Exception:

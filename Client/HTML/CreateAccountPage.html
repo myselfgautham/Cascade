@@ -5,7 +5,7 @@
 {% block Header %}
 <link rel="stylesheet" href="{{ url_for('static',filename='CSS/CreateAccount.css') }}">
 <script type="module">
-    import {routeToPage} from "/static/JavaScript/Server.js";
+    import {routeToPage, hide} from "/static/JavaScript/Server.js";
     document.addEventListener("DOMContentLoaded", () => {
         var x = document.getElementById("loginRoute");
         x.addEventListener("click", () => {
@@ -23,6 +23,10 @@
         {
             textarea.style.display = "none";
         }
+        var box = document.getElementById("menu-icon");
+        box.addEventListener("click", () => {
+            hide("container", "container");
+        })
     })
 </script>
 {% endblock %}

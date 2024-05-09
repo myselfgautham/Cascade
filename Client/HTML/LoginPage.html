@@ -16,8 +16,10 @@
 {% endblock %}
 {% block Content %}
 <script type="module">
-    import {routeToPage} from "/static/JavaScript/Server.js";
-    import { setCookieToStorage } from "/static/JavaScript/Cookies.js"
+    import {routeToPage, cookies} from "/static/JavaScript/Server.js";
+    import { setCookieToStorage, getCookieFromStorage, resetCookies } from "/static/JavaScript/Cookies.js"
+    import {fetchFlaskWithData} from "/static/JavaScript/FlaskAPI.js";
+    import {hide} from "/static/JavaScript/Server.js";
     document.addEventListener("DOMContentLoaded", () => {
         var route = document.getElementById("loginRoute");
         var email = document.getElementById("email");
@@ -28,6 +30,17 @@
         if (textarea.innerText == "Sign In Completed Successfully")
         {
             textarea.style.color = "green";
+            setCookieToStorage("UserState", true, 128);
+            fetchFlaskWithData("/api/complete", {
+                UID: getCookieFromStorage("UID"),
+                Email: getCookieFromStorage("Email")
+            })
+            .then(response => {
+                if (response.Response != "True") {
+                    resetCookies(cookies);
+                    window.location.href = "/";
+                }
+            })
         }
         else if (textarea.innerText == "")
         {
@@ -35,6 +48,10 @@
         }
         email.addEventListener("input", () => {
             setCookieToStorage("Email", email.value, 128);
+        })
+        var box = document.getElementById("menu-icon");
+        box.addEventListener("click", () => {
+            hide("container", "container");
         })
     })
 </script>

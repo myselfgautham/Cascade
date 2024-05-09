@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'CSS/PageNotFound.css') }}">
+    <link rel="icon" type="images-x/icon" href="{{ url_for('static', filename = 'Images/Favicon.svg') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <h1 class="note">Method Not Allowed</h1>
+        <i class='bx bx-left-arrow-circle' id="btn" title="Go Back Home"></i>
+    </div>
+    <script type="text/javascript" defer>
+        var x = document.getElementById("btn");
+        x.addEventListener("click", () => {
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 400);
+        });
+    </script>
+</body>
+</html>
