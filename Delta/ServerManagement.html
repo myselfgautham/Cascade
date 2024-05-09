@@ -11,13 +11,16 @@
     <header>
         <h1 class="heading">Simple Server Dashboard</h1>
     </header>
-    <div class="container">
+    <div class="container" id="container">
         <div class="main">
-            <h3>Main Server</h3>
+            <h3 id="mainName">Main Server</h3>
             <a id="usageMain">0</a>
-            <div id="chartContainer"></div>
+            <div id="note">Pinging Server</div>
         </div>
     </div>
     <script src="ServerManager.js" defer></script>
+    <audio id="audio">
+        <source src="Alert.mp3" type="audio/mpeg">
+    </audio>
 </body>
 </html>

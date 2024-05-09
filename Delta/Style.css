@@ -62,3 +62,17 @@ header {
     box-sizing: border-box;
     border-radius: 16px;
 }
+
+#note {
+    font-size: calc(12px + 1.20vw);
+    margin-top: 12px;
+    text-align: center;
+    font-family: sans-serif;
+    letter-spacing: 0.10rem;
+}
+
+@keyframes blink {
+    0% {opacity: 100%;}
+    50% {opacity: 0%;}
+    100% {opacity: 100%;}
+}

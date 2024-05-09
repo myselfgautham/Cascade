@@ -1,8 +1,10 @@
 const servers = {
-    Main: "http://192.168.16.200:1920/api/usage"
+    Main: "http://192.168.43.189:1920/api/usage"
 };
 
 const pingDelay = (1) * 1000;
+var notifier = document.getElementById("note");
+var audio = document.getElementById("audio");
 
 function setCPU(value, id)
 {
@@ -11,13 +13,19 @@ function setCPU(value, id)
     if (value <= 50)
     {
         x.style.borderColor = "green";
+        notifier.innerText = "Balanced Load";
+        notifier.style.color = "green";
     }
     else if (value <= 79)
     {
         x.style.borderColor = "yellow";
+        notifier.innerText = "Moderate Load";
+        notifier.style.color = "yellow";
     }
     else {
         x.style.borderColor = "red";
+        notifier.innerText = "Extreme Load";
+        notifier.style.color = "red";
     }
 }
 
@@ -31,9 +39,24 @@ function fetchCPU(url, id) {
     })
     .then(response => response.json())
     .then(data => {
+        audio.pause();
+        notifier.style.color = "white";
+        buffer = data.Usage;
         setCPU(data.Usage,id)
     })
-    .catch(console.log("Error Happened While Fetching API Endpoint"))
+    .catch(() => {
+        if (buffer == "") {
+            console.log("Error Happened While Fetching");
+        }
+        else {
+            document.getElementById("mainName").style.color = "orange";
+            notifier.innerText = "Server Down"
+            notifier.style.color = "red";
+            notifier.style.animation = "blink 1s infinite";
+            audio.play();
+        }
+    })
+    let buffer;
 }
 
 setInterval(() => fetchCPU(servers.Main,"usageMain"),pingDelay);
