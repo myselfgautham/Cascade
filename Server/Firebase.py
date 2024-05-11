@@ -166,3 +166,7 @@ def sendVerificationEmail(email: str):
         return True
     except Exception:
         return False
+    
+def getVerificationStatus(email: str) -> bool:
+    user: UserRecord = get_user(uid=getUserUIDFromEMail(email))
+    return user.email_verified

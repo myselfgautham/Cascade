@@ -15,6 +15,8 @@ from Firebase import getPhoneNumber
 from Firebase import getUserUIDFromEMail
 from flask_caching import Cache
 from Firebase import registerDevice
+from Firebase import getUserRealName
+from Firebase import getVerificationStatus
 
 # Server Metadata Class
 class Server():
@@ -211,6 +213,22 @@ def serveConsolePage():
 @cache.cached(timeout=routesCache["about"])
 def serveAboutPage():
     return Serve("AboutPage.html")
+
+# User Data Route
+@app.route("/api/user", methods = ["POST"])
+def serveUserInformation():
+    data: dict = request.json
+    try:
+        email = data.get("Email")
+        user: dict = {
+            "Name": getUserRealName(email),
+            "Phone": getPhoneNumber(getUserUIDFromEMail(email)),
+            "UID": getUserUIDFromEMail(email),
+            "Verified": getVerificationStatus(email)
+        }
+        return jsonify(user)
+    except Exception:
+        return jsonify({"Response": "None"})
 
 # Run Server Script
 if (__name__ == "__main__"):

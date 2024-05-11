@@ -8,15 +8,25 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/Console.css') }}">
 </head>
 <body>
-    <header>
+    <header id="header" class="header">
         <div class="wrapperText">
             <img src="{{ url_for('static', filename='Images/Console.svg') }}" alt="Logo" width="48" height="48">
             <h1 class="heading">Simple Console</h1>
         </div>
-        <img height="52" width="52" src="https://api.dicebear.com/8.x/initials/svg?seed=Gautham%20Krishna" id="user" alt="Avatar">
+        <img height="52" width="52" src="{{ url_for('static', filename = 'Images/Fallback.jpg') }}" id="user" alt="Avatar">
     </header>
-    <div class="container">
-        <h1 class="text-box">Welcome Back</h1>
+    <div class="container" id="container">
+        <h1 class="text-box" id="text">Welcome Back</h1>
+    </div>
+    <div class="incompatible">
+        <h1 class="message">Incompatible<br>Device</h1>
+    </div>
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <a href="#">Linked Cards</a>
+          <a href="/">Go Back Home</a>
+          <a href="javascript:void(0)" id="close" class="closebtn">&times;</a>
+        </div>
     </div>
     <script type="module" src="{{ url_for('static', filename='JavaScript/ConsolePage.js') }}"></script>
 </body>

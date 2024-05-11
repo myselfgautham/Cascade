@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 * {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 body {
@@ -70,6 +73,7 @@ header img {
     text-align: center;
     animation: opacity-show 2s forwards steps(40, end);
     font-weight: 400;
+    display: none;
 }
 
 .container {
@@ -82,4 +86,101 @@ header img {
 @keyframes opacity-show {
     from {opacity: 0%;}
     to {opacity: 100%;}
+}
+
+.incompatible {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.message {
+    text-align: center;
+    color: white;
+    font-optical-sizing: auto;
+    font-size: calc(24px + 1.20vw);
+    font-weight: 400;
+    font-family: sans-serif;
+}
+
+@media screen and (max-width: 268px) {
+    header,
+    div:not(.incompatible)
+    {
+        display: none;
+    }
+    .incompatible {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 992px)
+{
+    * {
+        cursor: none;
+    }
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.overlay a {
+    font-family: "IBM Plex Sans", sans-serif;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    letter-spacing: 0.10rem;
+    font-size: calc(24px + 1.20vw);
+    white-space: nowrap;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: relative;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+}
+
+.hidden {
+    display: none !important;
 }
