@@ -1,9 +1,6 @@
 from twilio.rest import Client
-import json
+from Firebase import data
 
-with open("./Server/SimpleServer.json") as file:
-    data = json.load(file)
-    
 TwilioClient = Client(
     data["Twilio Communications"]["SID"],
     data["Twilio Communications"]["AUTH"]

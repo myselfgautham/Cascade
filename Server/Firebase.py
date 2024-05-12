@@ -25,11 +25,11 @@ class WeakPasswordError(Exception):
         super().__init__(self.message)
         return None
 
-serviceAccountKey: Certificate = Certificate(abspath("Server/SimpleServer.json"))
+serviceAccountKey: Certificate = Certificate(abspath("./SimpleServer.json"))
 firebaseApplication: App = initialize_app(serviceAccountKey)
 FIRESTORE = firestore.client(firebaseApplication)
 
-with open(abspath("./Server/SimpleServer.json")) as file:
+with open(abspath("./SimpleServer.json")) as file:
     data = json.load(file)
 
 def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: str) -> dict[str]:
