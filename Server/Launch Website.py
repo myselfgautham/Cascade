@@ -91,7 +91,7 @@ routesCache = {
 @app.route("/")
 @cache.cached(timeout=routesCache["root"])
 def serveHomePage():
-    return Serve("BasePage.html")
+    return Serve("HomePage.html")
 
 # Cookies Enforcement Route
 @app.route("/policy")
