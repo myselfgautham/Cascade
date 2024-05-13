@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
             var overlay = document.getElementById("overlay");
             var userProfileImage = document.getElementById("user");
             var text = document.getElementById("text");
+            document.getElementById("loader").className = "hidden";
             userProfileImage.src = `https://api.dicebear.com/8.x/initials/svg?seed=${response.Name}`
             text.style.display = "block";
             var close = document.getElementById("close");

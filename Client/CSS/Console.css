@@ -184,3 +184,19 @@ header img {
 .hidden {
     display: none !important;
 }
+
+@keyframes spin {
+    0% {rotate: 0deg;}
+    100% {rotate: 360deg;}
+}
+
+.loader {
+    height: 48px;
+    width: 48px;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 5px solid white;
+    border-bottom-color: transparent;
+    animation: spin 1s linear infinite;
+}
