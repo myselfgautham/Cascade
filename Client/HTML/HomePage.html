@@ -25,11 +25,18 @@
 </style>
 {% endblock %}
 {% block Content %}
-<div class="container">
+<div class="container" id="container">
     <h1 class="text">
         For Every Card Ever
         <br>
         For Everyone
     </h1>
 </div>
+<script type="module" defer>
+    import { hide } from "/static/JavaScript/Server.js";
+    var icon = document.getElementById("menu-icon");
+    icon.addEventListener("click", () => {
+        hide("container", "container")
+    })
+</script>
 {% endblock %}

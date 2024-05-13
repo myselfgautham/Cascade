@@ -16,24 +16,24 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => {
         if (response.Verified == true)
         {
+            var overlay = document.getElementById("overlay");
             var userProfileImage = document.getElementById("user");
             var text = document.getElementById("text");
-            text.innerHTML += `<br>${response.Name}`;
             userProfileImage.src = `https://api.dicebear.com/8.x/initials/svg?seed=${response.Name}`
             text.style.display = "block";
-            var x = document.getElementById("close");
+            var close = document.getElementById("close");
             userProfileImage.addEventListener("click", () => {
-                document.getElementById("overlay").style.height = "100%";
+                overlay.style.height = "100%";
                 hide("header","header");
                 hide("container","container");
             })
-            x.addEventListener("click", () => {
-                x.style.opacity = "0%"
-                document.getElementById("overlay").style.height = "0%";
+            close.addEventListener("click", () => {
+                close.style.opacity = "0%"
+                overlay.style.height = "0%";
                 hide("header","header");
                 hide("container","container");
                 setTimeout(() => {
-                    x.style.opacity = "100%";
+                    close.style.opacity = "100%";
                 },400);
             })
         }
