@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple | Account</title>
+    <link rel="icon" type="images-x/icon" href="{{ url_for('static', filename='Images/Console.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/AccountManage.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+        <div class="wrapperLogo">
+            <img src="{{ url_for('static', filename='Images/Console.svg') }}" alt="Simple Account Logo" height="48" width="48">
+            <h2 class="logoText">Simple Accounts</h2>
+        </div>
+        <i class='bx bx-right-arrow-circle' id="back" title="Go Back Home"></i>
+    </header>
+    <div class="container">
+        <img width="64" height="64" alt="Avatar" id="avatar">
+        <h3 id="text">Gautham Krishna</h3>
+        <div class="stats">
+            <div class="item" title="Total Cards">
+                <span class="icon">
+                    <i class='bx bx-credit-card-front'></i>
+                </span>
+                <h4 class="label">23</h4>
+            </div>
+            <div class="item" title="Card Vendors">
+                <span class="icon">
+                    <i class='bx bx-buildings'></i>
+                </span>
+                <h4 class="label">18</h4>
+            </div>
+            <div class="item" title="Signed In On">
+                <span class="icon">
+                    <i class='bx bx-devices'></i>
+                </span>
+                <h4 class="label">2024</h4>
+            </div>
+        </div>
+        <div class="settings">
+            <span class="option">
+                <i class='bx bx-user-circle'></i>
+            </span>
+            <span class="option">
+                <i class='bx bx-lock-alt'></i>
+            </span>
+            <span class="option">
+                <i class='bx bx-credit-card-front'></i>
+            </span>
+            <span class="option">
+                <i class='bx bx-log-out' id="lst"></i>
+            </span>
+        </div>
+    </div>
+    <script type="module" src="{{ url_for('static', filename='JavaScript/AccountsPage.js') }}"></script>
+</body>
+</html>

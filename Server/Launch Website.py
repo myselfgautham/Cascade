@@ -17,6 +17,7 @@ from flask_caching import Cache
 from Firebase import registerDevice
 from Firebase import getUserRealName
 from Firebase import getVerificationStatus
+from  Firebase import deleteDocument
 
 # Server Metadata Class
 class Server():
@@ -229,6 +230,21 @@ def serveUserInformation():
         return jsonify(user)
     except Exception:
         return jsonify({"Response": "None"})
+
+# Account Page
+@app.route("/manage")
+def serveAccountPage():
+    return Serve("AccountPage.html")
+
+# Sign Out System
+@app.route("/api/logout", methods =["POST"])
+def logoutCurrentUser():
+    try:
+        uid = request.json.get("UID")
+        deleteDocument("Devices", uid)
+        return jsonify({"Response": "True"})
+    except Exception:
+        return jsonify({"Response": "False"})
 
 # Run Server Script
 if (__name__ == "__main__"):
