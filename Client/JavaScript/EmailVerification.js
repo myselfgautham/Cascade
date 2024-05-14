@@ -31,7 +31,7 @@ if (getCookieFromStorage("Email") != "")
                         window.location.href = "/";
                     }
                 })
-                setTimeout(routeToPage("/dashboard"),400);
+                setTimeout(() => {routeToPage("/dashboard")},600);
             }
             else {
                 note.innerText = "Invalid Credentials"

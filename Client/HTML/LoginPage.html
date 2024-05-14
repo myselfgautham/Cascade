@@ -27,10 +27,10 @@
             routeToPage("/account");
         })
         var textarea = document.getElementById("notifier");
-        if (textarea.innerText == "Sign In Completed Successfully")
+        if (textarea.innerText == "Proceeding To Verification")
         {
             textarea.style.color = "green";
-            setTimeout(() => {routeToPage("/verify/email")}, 500);
+            setTimeout(() => {routeToPage("/verify/email")}, 800);
         }
         else if (textarea.innerText == "")
         {

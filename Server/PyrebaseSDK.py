@@ -20,7 +20,7 @@ def loginUserWithEmailAndPassword(email: str, password: str):
         _ = authentication.sign_in_with_email_and_password(email=email, password=password)
         if not user.email_verified:
             raise UserNotVerified()
-        response["response"] = "Sign In Completed Successfully"
+        response["response"] = "Proceeding To Verification"
     except pyrebase.HTTPError:
         response['response'] = "Invalid Credentials"
     except UserNotVerified:
