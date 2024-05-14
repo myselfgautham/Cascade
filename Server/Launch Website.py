@@ -17,7 +17,9 @@ from flask_caching import Cache
 from Firebase import registerDevice
 from Firebase import getUserRealName
 from Firebase import getVerificationStatus
-from  Firebase import deleteDocument
+from Firebase import deleteDocument
+from Firebase import getSignedInDevices
+from Firebase import sendEmailOTP
 
 # Server Metadata Class
 class Server():
@@ -122,7 +124,7 @@ def serveNewUID():
     return jsonify({"UID": createUID()})
 
 # Phone Verification Route
-@app.route("/verify")
+@app.route("/verify/phone")
 def serveVerificationPage():
     return Serve("PhoneVerification.html")
 
@@ -225,7 +227,8 @@ def serveUserInformation():
             "Name": getUserRealName(email),
             "Phone": getPhoneNumber(getUserUIDFromEMail(email)),
             "UID": getUserUIDFromEMail(email),
-            "Verified": getVerificationStatus(email)
+            "Verified": getVerificationStatus(email),
+            "Devices": getSignedInDevices(email)
         }
         return jsonify(user)
     except Exception:
@@ -237,7 +240,7 @@ def serveAccountPage():
     return Serve("AccountPage.html")
 
 # Sign Out System
-@app.route("/api/logout", methods =["POST"])
+@app.route("/api/logout", methods = ["POST"])
 def logoutCurrentUser():
     try:
         uid = request.json.get("UID")
@@ -245,6 +248,44 @@ def logoutCurrentUser():
         return jsonify({"Response": "True"})
     except Exception:
         return jsonify({"Response": "False"})
+
+# Email Verification
+@app.route("/verify/email")
+def verifyEmailOTP():
+    return Serve("EmailVerification.html")
+
+# Email OTP Buffer
+EMAILOTP = {}
+
+# Email Verification API
+@app.route("/api/generate-email", methods = ["POST"])
+def verifyOTP():
+    data = request.json.get("Email")
+    if data not in EMAILOTP:
+        otp = randint(10000,99999)
+        EMAILOTP[data] = otp
+        if (sendEmailOTP(data, otp)):
+            return jsonify({"Response": True})
+        else:
+            return jsonify({"Response": False})
+    else:
+        return jsonify({"Response": False})
+
+# Verify Email OTP API
+@app.route("/api/verify-email", methods = ["POST"])
+def verifyEmailLoginOTP():
+    data: dict = request.json
+    email = data.get("Email")
+    inputOTP = int(data.get("OTP"))
+    if email in EMAILOTP:
+        if (EMAILOTP[email] == inputOTP):
+            del EMAILOTP[email]
+            return jsonify({"Response": True})
+        else:
+            return jsonify({"Response": False})
+    else:
+        del EMAILOTP[email]
+        return jsonify({"Response": False})
 
 # Run Server Script
 if (__name__ == "__main__"):

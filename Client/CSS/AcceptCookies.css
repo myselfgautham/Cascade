@@ -30,6 +30,7 @@ body
     width: calc(100vw - (1vw * 30));
     transform: translate(-50%,-50%);
     border: 2px solid white;
+    border-radius: 16px;
     padding: 2px 2px 2px 2px;
     animation: show-animation 1s ease-out forwards;
 }

@@ -30,18 +30,7 @@
         if (textarea.innerText == "Sign In Completed Successfully")
         {
             textarea.style.color = "green";
-            setCookieToStorage("UserState", true, 128);
-            fetchFlaskWithData("/api/complete", {
-                UID: getCookieFromStorage("UID"),
-                Email: getCookieFromStorage("Email")
-            })
-            .then(response => {
-                if (response.Response != "True") {
-                    resetCookies(cookies);
-                    window.location.href = "/";
-                }
-            })
-            setTimeout(routeToPage("/dashboard"),400);
+            setTimeout(() => {routeToPage("/verify/email")}, 500);
         }
         else if (textarea.innerText == "")
         {

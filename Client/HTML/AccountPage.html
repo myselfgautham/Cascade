@@ -16,43 +16,46 @@
         </div>
         <i class='bx bx-right-arrow-circle' id="back" title="Go Back Home"></i>
     </header>
-    <div class="container">
-        <img width="64" height="64" alt="Avatar" id="avatar">
-        <h3 id="text">Gautham Krishna</h3>
+    <div class="container" id="container">
+        <img width="64" height="64" alt="Avatar" id="avatar" src="{{ url_for('static', filename='Images/Fallback.jpg') }}">
+        <h3 id="text">Lorem Ipsum</h3>
         <div class="stats">
             <div class="item" title="Total Cards">
                 <span class="icon">
                     <i class='bx bx-credit-card-front'></i>
                 </span>
-                <h4 class="label">23</h4>
+                <h4 class="label" id="cards">23</h4>
             </div>
             <div class="item" title="Card Vendors">
                 <span class="icon">
                     <i class='bx bx-buildings'></i>
                 </span>
-                <h4 class="label">18</h4>
+                <h4 class="label" id="vendors">18</h4>
             </div>
             <div class="item" title="Connected Devices">
                 <span class="icon">
                     <i class='bx bx-devices'></i>
                 </span>
-                <h4 class="label">2024</h4>
+                <h4 class="label" id="devices">2024</h4>
             </div>
         </div>
         <div class="settings">
             <span class="option" title="User Information">
-                <i class='bx bx-user-circle'></i>
+                <i class='bx bx-user-circle' id="userinfo"></i>
             </span>
             <span class="option" title="Security Settings">
-                <i class='bx bx-lock-alt'></i>
+                <i class='bx bx-lock-alt' id="security"></i>
             </span>
             <span class="option" title="Product Settings">
-                <i class='bx bx-credit-card-front'></i>
+                <i class='bx bx-credit-card-front' id="product"></i>
             </span>
             <span class="option" title="Log Out">
-                <i class='bx bx-log-out' id="lst"></i>
+                <i class='bx bx-log-out' id="logout"></i>
             </span>
         </div>
+    </div>
+    <div id="wrapper">
+        <div class="loader"></div>
     </div>
     <script type="module" src="{{ url_for('static', filename='JavaScript/AccountsPage.js') }}"></script>
 </body>

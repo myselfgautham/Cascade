@@ -18,6 +18,7 @@ from firebase_admin.auth import generate_password_reset_link
 from firebase_admin.auth import generate_email_verification_link
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+from google.cloud.firestore_v1.base_query import FieldFilter
 
 class WeakPasswordError(Exception):
     message: str = "Choose A Stronger Password"
@@ -170,3 +171,29 @@ def sendVerificationEmail(email: str):
 def getVerificationStatus(email: str) -> bool:
     user: UserRecord = get_user(uid=getUserUIDFromEMail(email))
     return user.email_verified
+
+def getSignedInDevices(email: str) -> int:
+    try:
+        filter: FieldFilter = FieldFilter("`Active User`","==",getUserUIDFromEMail(email))
+        document = FIRESTORE.collection("Devices").where(filter=filter).get()
+        return len(document)
+    except Exception:
+        return 0
+    
+def sendEmailOTP(email: str, otp: int):
+    try:
+        message = Mail(
+            from_email=data["Twilio SendGrid"]["Mail"],
+            to_emails=email,
+            subject="Simple Account Login Verification"
+        )
+        message.dynamic_template_data = {
+            "name" : getUserRealName(email),
+            "OTP" : otp
+        }
+        message.template_id = data["Twilio SendGrid"]["Templates"]["Login"]
+        sg = SendGridAPIClient(data["Twilio SendGrid"]["Key"])
+        sg.send(message)
+        return True
+    except Exception:
+        return False

@@ -24,7 +24,8 @@
         "Key" : "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",
         "Mail" : "gauthamkrishnav@icloud.com",
         "Templates" : {
-            "Verification" : "d-e57dd5ac3b2b423994c161d316b3dc0f"
+            "Verification" : "d-e57dd5ac3b2b423994c161d316b3dc0f",
+            "Login": "d-ee8191f15aee4e73ae902f2763e5d25c"
         }
     },
     "Twilio Communications" : {

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple | Verify</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="images-x/icon" href="{{ url_for('static',filename='Images/Favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/VerificationPage.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static',filename='Images/Favicon.svg') }}" alt="Logo">
+        <h1 class="heading">Simple Account<br>Verification</h1>
+        <p class="text">
+            We Have Sent An OTP<br>
+            To Your Email Address<br>
+            <span id="phone">Loading</span><br>
+            Please Enter It Below
+        </p>
+        <div class="TextBox">
+            <span class="icon">
+                <i class='bx bx-voicemail'></i>
+            </span>
+            <input id="buffer" type="number" autocomplete="off" placeholder="Enter OTP" name="otp">
+        </div>
+        <h6 id="note"></h6>
+        <i class='bx bx-right-arrow-circle' id="next"></i>
+        <p class="notice">
+            OTPs Are Private Codes For Authentication <br>
+            And Should Not Be Shared With Anyone<br>
+            No One From Simple Will Ever Ask For This Information
+        </p>
+    </div>
+    <script defer type="module" src="{{ url_for('static',filename='JavaScript/EmailVerification.js') }}"></script>
+</body>
+</html>
