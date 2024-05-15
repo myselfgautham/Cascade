@@ -287,6 +287,11 @@ def verifyEmailLoginOTP():
         del EMAILOTP[email]
         return jsonify({"Response": False})
 
+# Cards Management UI
+@app.route("/cards")
+def serveCardsPage():
+    return Serve("CardsManagement.html")
+
 # Run Server Script
 if (__name__ == "__main__"):
     app.run (
