@@ -46,5 +46,5 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     setTimeout(() => {
         localStorage.setItem("FirstLoad", false);
-    }, 20000);
+    }, 10000);
 })
