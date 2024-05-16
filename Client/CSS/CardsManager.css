@@ -191,3 +191,51 @@ body {
 .controls i:hover {
     color: orange;
 }
+
+footer {
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    left: 0%;
+    bottom: 0%;
+    border-top: 3px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon i {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(32px + 0.6vw);
+}
+
+.icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flags {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 2px;
+    align-items: center;
+}
+
+.flags i[title = "Heavily Encrypted"]:hover {
+    color: red;
+}
+
+.flags i[title = "Requires Verification"]:hover {
+    color: orange;
+}
+
+.flags i:not(.flags i[title = "Requires Verification"])
+{
+    padding-right: 2px;
+}
