@@ -18,8 +18,11 @@ from Firebase import registerDevice
 from Firebase import getUserRealName
 from Firebase import getVerificationStatus
 from Firebase import deleteDocument
+from UserCards import createNewCard
 from Firebase import getSignedInDevices
 from Firebase import sendEmailOTP
+from Firebase import checkDeviceExistence
+from UserCards import getLinkedCards
 
 # Server Metadata Class
 class Server():
@@ -291,6 +294,57 @@ def verifyEmailLoginOTP():
 @app.route("/cards")
 def serveCardsPage():
     return Serve("CardsManagement.html")
+
+# Cards Fetching API
+@app.route("/api/cards", methods = ["POST"])
+def fetchAllCards():
+    email: str = request.json.get("Email")
+    cards: list = getLinkedCards(user=getUserUIDFromEMail(email))
+    return jsonify({"Result": cards})
+
+# New Cards Form Route
+@app.route("/cards/new")
+def serveCreateNewCardPage():
+    return Serve("AddCard.html")
+
+# New Card API
+@app.route("/api/newCard", methods = ["POST"])
+def newCardCreateAPI():
+    try:
+        data: dict = {
+            "Number": request.form.get("number"),
+            "From": request.form.get("from"),
+            "Till": request.form.get("till"),
+            "Flags": {
+                "Encrypted": request.form.get("encrypt"),
+                "Verified": request.form.get("verify"),
+                "CVV": request.form.get("cvv")
+            },
+            "User": request.form.get("user")
+        }
+        for key in data["Flags"].keys():
+            if data["Flags"][key] == "on":
+                data["Flags"][key] = True
+            else:
+                data["Flags"][key] = False
+        createNewCard({
+            "Card Number": data["Number"],
+            "Valid From": data["From"],
+            "Valid Till": data["Till"],
+            "Card Flags": data["Flags"],
+            "Card Owners": [
+                getUserUIDFromEMail(data["User"])
+            ]
+        })
+        return jsonify({"Response": 200})
+    except Exception:
+        return jsonify({"Response": 101})
+
+# Verify Device Existence
+@app.route("/api/verify/device", methods = ["POST"])
+def verifyDeviceExists():
+    uid: str = request.json.get("UID")
+    return jsonify({"Existence": checkDeviceExistence(uid)})
 
 # Run Server Script
 if (__name__ == "__main__"):

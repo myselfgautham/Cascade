@@ -18,7 +18,7 @@
             <i class="bi bi-arrow-right-circle" title="Go Back To Console" id="back"></i>
         </div>
     </header>
-    <div class="container">
+    <div class="container" id="container">
         <div class="wrapper">
             <div class="current">
                 <div class="brand">
@@ -42,6 +42,7 @@
                 <div class="flags">
                     <i class="bi bi-shield-lock-fill" title="Heavily Encrypted"></i>
                     <i class="bi bi-person-badge-fill" title="Requires Verification"></i>
+                    <i class="bi bi-command" title="CVV Protected Card"></i>
                 </div>
             </div>
         </div>
@@ -54,7 +55,23 @@
         <div class="icon" title="Get Help Regarding This Card">
             <i class="bi bi-voicemail"></i>
         </div>
+        <div id="cardAddNew" class="icon" title="Add A New Card To Vault">
+            <i class="bi bi-plus-circle"></i>
+        </div>
+        <div class="icon" title="Remove Card From Vault">
+            <i class="bi bi-dash-circle"></i>
+        </div>
+        <div class="icon" title="Share Card With Someone">
+            <i class="bi bi-share"></i>
+        </div>
     </footer>
+    <div id="loader" class="loaderWrapper">
+        <div class="loader"></div>
+    </div>
+    <div id="empty">
+        <i class="bi bi-wallet2"></i>
+        <h2>Nothing Here</h2>
+    </div>
     <script type="module" src="{{ url_for('static', filename='JavaScript/CardsPage.js') }}"></script>
 </body>
 </html>

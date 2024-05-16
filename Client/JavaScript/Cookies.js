@@ -4,7 +4,10 @@ For The Simple Website
 Developed By Gautham Krishna
 */
 
-import { fetchFlaskAPIOneWay } from "/static/JavaScript/FlaskAPI.js";
+import {
+    fetchFlaskAPIOneWay,
+    fetchFlaskWithData
+} from "/static/JavaScript/FlaskAPI.js";
 import { cookies } from "/static/JavaScript/Server.js";
 
 function getCookieFromStorage(cookieName)
@@ -62,6 +65,7 @@ async function setBasicCookies()
     var data = await fetchFlaskAPIOneWay("/api/uid");
     setCookieToStorage("UID",data.UID,128);
     setCookieToStorage("UserState",false,128);
+    localStorage.setItem("FirstLoad",true)
 }
 
 function validateCookies()
@@ -77,6 +81,20 @@ function validateCookies()
         else {
             continue;
         }
+    }
+    if (getCookieFromStorage("UserState") == "true" && localStorage.getItem("FirstLoad") == "false")
+    {
+        console.log("Fetching Flask API");
+        fetchFlaskWithData("/api/verify/device", {UID: getCookieFromStorage("UID")})
+        .then(response => {
+            if (response.Existence == false) {
+                alert("Invalid Device Configuration\nProceeding To Do Data Reset")
+                resetCookies(cookies)
+                setBasicCookies()
+                window.location.href = "/";
+            }
+        })
+        .catch(error => console.error("HandledError : ", error))
     }
 }
 

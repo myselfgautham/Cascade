@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Cards | Add</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/AddCard.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='Images/Cards.svg') }}" type="image/x-icon">
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='Images/Cards.svg') }}" alt="Simple Cards" height="48" width="48">
+            <h4>Simple Cards</h4>
+        </div>
+        <div class="exit" id="exit">
+            <i class="bi bi-x-lg"></i>
+        </div>
+    </header>
+    <div class="container" id="container">
+        <i class="bi bi-credit-card-2-front" id="blx"></i>
+        <h2>Add A New Card</h2>
+        <form action="/api/newCard" method="post">
+            <div class="TextBox">
+                <span class="icon">
+                    <i class="bi bi-credit-card-2-front"></i>
+                </span>
+                <input type="text" name="number" id="cardNumber" placeholder="Enter Card Number">
+            </div>
+            <div class="TextBox">
+                <span class="icon">
+                    <i class="bi bi-calendar-plus"></i>
+                </span>
+                <input type="text" name="from" placeholder="Valid From">
+            </div>
+            <div class="TextBox">
+                <span class="icon">
+                    <i class="bi bi-calendar-minus"></i>
+                </span>
+                <input type="text" name="till" placeholder="Valid Till">
+            </div>
+            <div class="flags">
+                <input type="checkbox" name="encrypt" id="f1">
+                <input type="checkbox" name="verify" id="f2">
+                <input type="checkbox" name="cvv" id="f3">
+                <i class="bi bi-shield-lock-fill" title="Heavily Encrypted" id="encrypt"></i>
+                <i class="bi bi-person-badge-fill" title="Requires Verification" id="verify"></i>
+                <i class="bi bi-command" title="CVV Protected Card" id="cvv"></i>
+            </div>
+            <div class="buttons">
+                <button type="submit">
+                    <span class="csx">
+                        <i class="bi bi-arrow-right-circle"></i>
+                    </span>
+            </button>
+            </div>
+            <input type="text" name="user" id="buffer">
+        </form>
+    </div>
+    <script type="module" src="{{ url_for('static', filename='JavaScript/AddCard.js') }}"></script>
+</body>
+</html>
