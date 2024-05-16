@@ -292,6 +292,11 @@ def verifyEmailLoginOTP():
 def serveCardsPage():
     return Serve("CardsManagement.html")
 
+# Cards Fetching API
+@app.route("/api/cards", methods = ["POST"])
+def fetchAllCards():
+    return jsonify({"Response": "Hello World!"})
+
 # Run Server Script
 if (__name__ == "__main__"):
     app.run (

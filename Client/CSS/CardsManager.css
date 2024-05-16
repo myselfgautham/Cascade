@@ -73,10 +73,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    animation: show 0.5s ease-in-out forwards;
 }
 
 .wrapper,
@@ -200,7 +201,7 @@ footer {
     bottom: 0%;
     border-top: 3px solid rgba(255, 255, 255, 0.2);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -235,7 +236,72 @@ footer {
     color: orange;
 }
 
-.flags i:not(.flags i[title = "Requires Verification"])
+.flags i:not(.flags i[title = "CVV Protected Card"])
 {
-    padding-right: 2px;
+    padding-right: 4px;
+}
+
+@keyframes spin {
+    from {rotate: 0deg;}
+    to {rotate: 360deg;}
+}
+
+.loaderWrapper,
+#empty
+{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loaderWrapper {
+    display: flex;
+}
+
+.loader {
+    width: 52px;
+    height: 52px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 6px solid white;
+    border-bottom-color: transparent;
+    animation: spin 1s linear infinite;
+    border-radius: 50%;
+}
+
+.flags i[title = "CVV Protected Card"]:hover {
+    color: coral;
+}
+
+#empty {
+    color: white;
+    flex-direction: column;
+    width: calc(100vw - 8vw);
+    animation: show 0.34s linear forwards;
+}
+
+#empty h2 {
+    font-weight: 500;
+    font-family: sans-serif;
+    letter-spacing: 0.09rem;
+    font-size: calc(16px + 1.20vw);
+    width: 100vw;
+    text-align: center;
+    width: inherit;
+}
+
+#empty i {
+    font-size: calc(24px + 1vw);
+}
+
+@keyframes show {
+    from {
+        opacity: 0%;
+    } to {
+        opacity: 100%;
+    }
 }
