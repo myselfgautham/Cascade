@@ -22,6 +22,7 @@ from UserCards import createNewCard
 from Firebase import getSignedInDevices
 from Firebase import sendEmailOTP
 from Firebase import checkDeviceExistence
+from UserCards import getLinkedCards
 
 # Server Metadata Class
 class Server():
@@ -297,7 +298,9 @@ def serveCardsPage():
 # Cards Fetching API
 @app.route("/api/cards", methods = ["POST"])
 def fetchAllCards():
-    return jsonify({"Response": "Hello World!"})
+    email: str = request.json.get("Email")
+    cards: list = getLinkedCards(user=getUserUIDFromEMail(email))
+    return jsonify({"Result": cards})
 
 # New Cards Form Route
 @app.route("/cards/new")
