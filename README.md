@@ -2,28 +2,56 @@
 <h1 align="right">:zap: Final Project :snowflake:
 
 ### :books: Project Details :atom:
-> :airplane: Project Count : - <br>
-> :bookmark_tabs: Lookup IDs : - <br>
+> :airplane: Project Count : 1<br>
+> :bookmark_tabs: Lookup IDs : 0x1<br>
 > :clock1: Finished On : Working Right Now<br>
-> :desktop_computer: Hardware Reference File : - <br>
-> :card_file_box: Logs Folder :  - <br>
+> :desktop_computer: Hardware Reference File : _undefined_<br>
+> :card_file_box: Logs Folder : _undefined_ <br>
 > :books: Created By : Gautham Krishna V
 
 <br>
 
 ### :sparkles: Projects Under This Repository :atom:
+* :card_file_box: Simple Cards Unifier
 
 <br>
 
 ### :bridge_at_night: Dependencies Used :airplane:
 
-> * C99 Required ( *Available On Most Systems* ) <br>
 > * Python **3.9 Or Above** <br>
 > * Firebase Admin SDK ( *10.11.1* ) <br>
-> * TypeScript Compiler ( **TSC 2.7.2** ) <br>
 > * Pyrebase4 Wrapper ( **4.8.0** ) <br>
 > * Python Hashlib ( **v3.12** ) <br>
-> * Twilio SendGrid ( **6.11.0** )
+> * Twilio SendGrid ( **6.11.0** ) <br>
+> * Twilio Communications ( **v9.0.5** ) <br>
+> * Python Psutil ( **v5.9.8** ) <br>
+> * Flask CORS ( _v4.0.1_ ) <br>
+> * Flask Caching ( _v2.3.0_ ) <br>
+> * Bootstrap Icon CSS ( **v1.11** ) <br>
+> * Boxicons CSS ( **v2.1.4** )
+
+<br>
+
+### :deciduous_tree: Developer & Tested Environment :man_technologist:
+
+> * Python **3.12.1**
+> * TypeScript Compiler _2.7.2_
+> * Ubuntu 18.04.6 ( **Main Environment** )
+> * Ubuntu 22.04 ( **GitHub CodeSpace** )
+> * GCC **7.5.0**
+> * Open JDK **1.80._362**
+> * Chrome **v124**
+> * Android API Level **34**
+
+<br>
+
+### :scroll: Text Editors / IDEs Used :octocat:
+
+> * Visual Studio Code _v1.89_
+> * IntelliJ IDEA **2024.1**
+> * Arduino IDE **v2.3.2**
+> * Fleet Preview **v1.34**
+> * Android Studio **2023.2.1**
 
 <br>
 
@@ -35,8 +63,8 @@
 
 <br>
 
-### :octocat: Commits History : Production :fire:
-| *Commit ID* | *Date Of Merge* | *Authorized By* | **Status** |
+### :octocat: Releases History : Production :fire:
+| *Release ID* | *Date Of Release* | *Authorized By* | **Status** |
 | ----------- | --------------- | --------------- | ---------- |
 
 <br>
