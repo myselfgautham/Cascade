@@ -28,16 +28,20 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .TextBox .icon
 {
-    margin-top: 3px;
+    display: flex;
     color: white;
     font-size: 24px;
-    margin-right: 8px;
-    margin-left: 12px;
+    justify-content: center;
+    align-items: center;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 8px;
 }
 
 .TextBox input

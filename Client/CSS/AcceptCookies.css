@@ -40,7 +40,7 @@ body
 {
     text-align: center;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: sans-serif;
     padding-bottom: 12px;
     letter-spacing: 0.15rem;
     font-size: calc(12px + 1.20vw);
