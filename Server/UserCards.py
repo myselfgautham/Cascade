@@ -1,7 +1,9 @@
 from Firebase import createNewDocument
 from hashlib import sha256
+from Firebase import FIRESTORE
 from secrets import token_bytes
 from time import time_ns
+from Firebase import FieldFilter
 from Device import UnableToGenerateUID
 
 class FirebaseError(Exception):
@@ -33,3 +35,12 @@ def createNewCard(data):
         print(f"\n\033[31;3m{FirebaseError.message}\033[0m",end="\n\n")
     except Exception as E:
         print(f"\n\033[3m=> Undefined Exception : {"\033[0;31m" + str(E).title() + "\033[0m"}")
+                                                         
+def getLinkedCards(user: str):
+    reference = FIRESTORE.collection('Cards')
+    buffer: list = []
+    fltr: FieldFilter = FieldFilter("`Card Owners`", "array_contains", user)
+    query = reference.where(filter=fltr).get()
+    for doc in query:
+        buffer.append(doc.to_dict())
+    return buffer
