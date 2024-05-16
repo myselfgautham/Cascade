@@ -197,3 +197,8 @@ def sendEmailOTP(email: str, otp: int):
         return True
     except Exception:
         return False
+    
+def checkDeviceExistence(uid: str) -> bool:
+    reference = FIRESTORE.collection("Devices").document(uid)
+    document = reference.get()
+    return True if document.exists else False

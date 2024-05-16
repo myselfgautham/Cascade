@@ -1,4 +1,4 @@
-export const cookies = ["UID","UserState"];
+export const cookies = ["UID","UserState", "Email"];
 function routeToPage(route)
 {
     window.location.href = route;

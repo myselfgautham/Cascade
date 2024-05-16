@@ -1,0 +1,157 @@
+* {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    user-select: none;
+    -webkit-user-select: none;
+    color: white;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+}
+
+header,
+.logo,
+.exit
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    justify-content: center !important;
+    flex-direction: row;
+}
+
+.logo h4 {
+    font-family: "Montserrat", sans-serif;
+    font-size: calc(20px + 0.3vw);
+    font-weight: 400;
+}
+
+.exit {
+    padding-right: 16px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.logo img {
+    padding: 8px 0px 8px 0px;
+}
+
+@media screen and (min-width: 902px) {
+    .logo {
+        padding-left: 100px;
+    }
+}
+
+header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    padding: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+}
+
+.container h2 {
+    font-family: sans-serif;
+    letter-spacing: 0.10rem;
+    font-size: calc(18px + 1.10vw);
+    white-space: nowrap;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+
+#blx {
+    font-size: 38px;
+    width: 100%;
+    text-align: center;
+}
+
+.TextBox {
+    padding: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 8px;
+    margin-left: 2px;
+    font-size: 24px;
+}
+
+.TextBox input {
+    outline: none;
+    border: none;
+    background: transparent;
+    margin-bottom: 2px;
+    font-size: calc(12px + 1.10vw);
+}
+
+.buttons
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 12px;  
+}
+
+.buttons button {
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.csx i {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.csx i:hover {
+    color: orange;
+}
+
+.flags {
+    margin-top: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 13px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px;
+}
+
+.flags i
+{
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.flags input
+{
+    display: none;
+}
+
+#buffer {
+    display: none;
+}

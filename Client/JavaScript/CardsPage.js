@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
     .catch(error => console.error('Error : ', error))
-    let previous = document.getElementById("previous");
-    let next = document.getElementById("next");
+    let newCard = document.getElementById("cardAddNew");
+    newCard.addEventListener("click", () => {
+        window.location.href = "/cards/new";
+    })
 })

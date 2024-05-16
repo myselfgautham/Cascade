@@ -44,4 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "/"
         }
     })
+    setTimeout(() => {
+        localStorage.setItem("FirstLoad", false);
+    }, 20000);
 })
