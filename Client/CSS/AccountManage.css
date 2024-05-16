@@ -1,0 +1,168 @@
+* {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+}
+
+.header,
+.wrapperLogo
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.header img {
+    padding: 8px;
+}
+
+.logoText {
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    letter-spacing: 0.10rem;
+    font-weight: 400;
+    font-size: calc(22px + 1vw);
+}
+
+@media screen and (max-width: 414px) {
+    .logoText {
+        display: none;
+    }
+}
+
+#back {
+    color: white;
+    padding-right: 8px;
+    font-size: 38px;
+}
+
+#back:hover {
+    color: orange;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    animation: show 0.6s linear forwards;
+}
+
+#avatar {
+    border-radius: 16px;
+}
+
+#text {
+    color: white;
+    letter-spacing: 0.09rem;
+    font-family: sans-serif;
+    padding-top: 8px;
+    text-align: center;
+    font-size: calc(20px + 1vw);
+    font-weight: 450;
+}
+
+.stats {
+    padding-top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+}
+
+.item .label
+{
+    font-size: calc(10px + 1vw);
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.item .icon i {
+    font-size: calc(32px + 1vw);
+}
+
+.settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    border: 2px solid white;
+    border-radius: 13px;
+    padding: 8px;
+}
+
+.option i {
+    color: white;
+    font-size: calc(32px + 1vw);
+    padding-right: 2px;
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    padding-left: 2px;
+}
+
+#logout {
+    border: none;
+    padding-right: 0px;
+}
+
+#userinfo {
+    padding-left: 0px;
+}
+
+.loader {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    border-bottom-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {rotate: 0deg;}
+    100% {rotate: 360deg;}
+}
+
+#wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes show {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}

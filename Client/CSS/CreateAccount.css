@@ -28,16 +28,20 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .TextBox .icon
 {
-    margin-top: 3px;
+    display: flex;
     color: white;
     font-size: 24px;
-    margin-right: 8px;
-    margin-left: 12px;
+    justify-content: center;
+    align-items: center;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 8px;
 }
 
 .TextBox input
@@ -96,10 +100,11 @@
     color: lightcoral;
     padding-bottom: 12px;
     text-align: center;
-    font-size: calc(9px + 1.10vw);
+    font-size: calc(10px + 1.10vw);
     letter-spacing: 0.09rem;
     font-family: "Montserrat", sans-serif;
     font-weight: 350;
+    padding-top: 12px;
     animation: shaking 0.25s forwards;
 }
 

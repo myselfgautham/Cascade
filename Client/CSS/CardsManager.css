@@ -1,0 +1,241 @@
+* {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    overflow-x: hidden;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo h4 {
+    padding-left: 12px;
+    font-family: sans-serif;
+    font-size: calc(18px + 1vw);
+    font-weight: 400;
+    letter-spacing: 0.09rem;
+    color: white;
+}
+
+.logo img {
+    padding-left: 100px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+@media screen and (max-width: 902px) {
+    .logo img {
+        padding-left: 5px;
+    }
+}
+
+@media screen and (max-width: 382px) {
+    .logo h4 {
+        display: none;
+    }
+}
+
+.back i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    padding-right: 12px;
+    font-size: calc(24px + 0.78vw);
+    color: white;
+}
+
+.back i:hover
+{
+    color: orange;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper,
+.controls i
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.controls i {
+    color: white;
+    font-size: calc(28px + 0.54vw);
+}
+
+#previous {
+    padding-right: 12px;
+}
+
+#next {
+    padding-left: 12px;
+}
+
+.current {
+    color: white;
+    padding: 8px;
+    border: 2px solid gold;
+    border-radius: 13px;
+}
+
+.brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.brand h3 {
+    color: white;
+    font-size: calc(18px + 0.9vw);
+    font-family: sans-serif;
+    letter-spacing: 0.09rem;
+    font-weight: 400;
+}
+
+.wrx {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3px;
+}
+
+.details,
+.cardNumber,
+.validity
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.details {
+    padding-left: 48px;
+}
+
+.label {
+    font-size: calc(12px + .40vw);
+    font-family: sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.10rem;
+}
+
+.cardNumber {
+    padding-bottom: 8px;
+}
+
+#from,
+#to
+{
+    letter-spacing: 0.09rem;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+
+#from {
+    padding-right: 8px;
+}
+
+#to {
+    padding-left: 8px;
+}
+
+.cardNumber h4 {
+    font-family: sans-serif;
+    font-weight: 400;
+    padding-top: 3px;
+    letter-spacing: 0.09rem;
+    font-size: calc(12px + 0.7vw);
+    white-space: nowrap;
+}
+
+.controls {
+    padding-top: 13px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls i:hover {
+    color: orange;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    left: 0%;
+    bottom: 0%;
+    border-top: 3px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon i {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(32px + 0.6vw);
+}
+
+.icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flags {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 2px;
+    align-items: center;
+}
+
+.flags i[title = "Heavily Encrypted"]:hover {
+    color: red;
+}
+
+.flags i[title = "Requires Verification"]:hover {
+    color: orange;
+}
+
+.flags i:not(.flags i[title = "Requires Verification"])
+{
+    padding-right: 2px;
+}

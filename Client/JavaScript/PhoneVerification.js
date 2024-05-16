@@ -1,59 +1,38 @@
-let OTP;
-
+import {getCookieFromStorage} from "/static/JavaScript/Cookies.js"
+import {fetchFlaskWithData} from "/static/JavaScript/FlaskAPI.js"
+const email = getCookieFromStorage("Email");
+fetchFlaskWithData("/api/phone", {Email: email})
 document.addEventListener("DOMContentLoaded", () => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const port = urlParams.get("route");
-    fetchPhone()
-    var x = document.getElementById("next");
-    var input = document.getElementById("buffer");
-    x.addEventListener("click", () => {
-        if (input.value == OTP)
-        {
-            window.location.href = `/${port}`;
-        }
-        else {
-            var notifier = document.getElementById('note');
-            notifier.innerText = "Incorrect OTP Try Again";
-            notifier.style.display = "block";
-        }
-    })
-})
-
-function getCookieFromStorage(cookieName)
-{
-    cookieName += "=";
-    var localStorageCookies = decodeURIComponent(document.cookie);
-    var cookieArray = localStorageCookies.split(";");
-    for (var i = 0; i < cookieArray.length; i++)
-    {
-        var current = cookieArray[i];
-        while (current.charAt(0) == ' ')
-        {
-            current = current.substring(1);
-        }
-        if (current.indexOf(cookieName) == 0)
-        {
-            return current.substring(cookieName.length, current.length);
-        }
-    }
-    return "";
-}
-
-function fetchPhone()
-{
-    fetch("/api/phone", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({UID: "waulXziPYcb9zefOZwch5U0zWFI3"})
-    })
-    .then(response => response.json())
-    .then(data => {
-        var x = document.getElementById("phone")
-        x.innerText = data.Phone;
-        OTP = data.OTP;
+    var phone = document.getElementById("phone");
+    var btn = document.getElementById("next");
+    var note = document.getElementById("note");
+    var text = document.getElementById("buffer");
+    fetchFlaskWithData("/api/phone",{Email: email})
+    .then(response => {
+        phone.innerText = response.Phone;
     })
     .catch(error => console.log("Error : ",error))
-}
+    btn.addEventListener("click",() => {
+        fetchFlaskWithData("/api/verify-otp", {OTP: text.value, Email: email})
+        .then(response => {
+            console.log(response)
+            if (response.State == "true")
+            {
+                note.innerText = "Verified Successfully";
+                note.style.display = "block";
+                note.style.color = "green";
+            }
+            else if (response.State == "verified")
+            {
+                note.innerText = "Invalid Session";
+                note.style.display = "block";
+                note.style.color = "red";
+            }
+            else {
+                note.innerText = "Invalid Credential";
+                note.style.display = "block";
+            }
+        })
+        .catch(error => console.log("Error : ",error))
+    })
+})

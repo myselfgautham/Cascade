@@ -1,11 +1,9 @@
-{% extends "StaticPage.html" %}
-{% block title %}
+{% extends "BasePage.html" %}
+{% block Title %}
 <title>Simple | Login</title>
 {% endblock %}
 {% block Header %}
-<script src="{{ url_for('static',filename='JavaScript/CommonScripts.js') }}"></script>
 <link rel="stylesheet" href="{{ url_for('static',filename='CSS/CreateAccount.css') }}">
-<script src="{{ url_for('static',filename='JavaScript/LoginPage.js') }}"></script>
 <style>
     #topdiv
     {
@@ -16,7 +14,37 @@
 {% block Icon %}
 <i class='bx bx-menu' id="menu-icon" onclick="hideText('container','container')"></i>
 {% endblock %}
-{% block content %}
+{% block Content %}
+<script type="module">
+    import {routeToPage, cookies} from "/static/JavaScript/Server.js";
+    import { setCookieToStorage, getCookieFromStorage, resetCookies } from "/static/JavaScript/Cookies.js"
+    import {fetchFlaskWithData} from "/static/JavaScript/FlaskAPI.js";
+    import {hide} from "/static/JavaScript/Server.js";
+    document.addEventListener("DOMContentLoaded", () => {
+        var route = document.getElementById("loginRoute");
+        var email = document.getElementById("email");
+        route.addEventListener("click", () => {
+            routeToPage("/account");
+        })
+        var textarea = document.getElementById("notifier");
+        if (textarea.innerText == "Proceeding To Verification")
+        {
+            textarea.style.color = "green";
+            setTimeout(() => {routeToPage("/verify/email")}, 800);
+        }
+        else if (textarea.innerText == "")
+        {
+            textarea.style.display = "none";
+        }
+        email.addEventListener("input", () => {
+            setCookieToStorage("Email", email.value, 128);
+        })
+        var box = document.getElementById("menu-icon");
+        box.addEventListener("click", () => {
+            hide("container", "container");
+        })
+    })
+</script>
 <div class="container" id="container">
     <form action="/loginToAccount" method="post">
         <h1 class="heading">Login To Simple</h1>
@@ -37,7 +65,7 @@
         </div>
         <h3 class="notifier" id="notifier">{{ notification }}</h3>
         <div class="wrapperBTN">
-            <button onclick="route('/signup')" id="loginRoute" type="button" title="Create An Account Now">
+            <button id="loginRoute" type="button" title="Create An Account Now">
                 <i class='bx bx-user-plus'></i>
             </button>
             <button type="submit" title="Login Now">

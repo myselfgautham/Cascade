@@ -1,15 +1,15 @@
-# Imports
+# Libraries Imports
 from secrets import token_bytes
 from hashlib import sha384
 from time import time_ns
+from socket import gethostname
+from socket import gethostbyname
 
-# Custom Exception
 class UnableToGenerateUID(Exception):
     message: str = "Unable To Generate UID For Device"
     def __init__(self) -> None:
         super().__init__(self.message)
 
-# Create UID Function
 def createUID() -> str:
     """
     Creates A Unique Identifier For Each Device On The Basis Of
@@ -17,10 +17,10 @@ def createUID() -> str:
     At Last A SHA384 Checksum To Ensure Safety
     Usage : createUID()
     Parameters : None
-    Return : String Of Length 384 Characters (Human Readable)
+    Return : String Of Length 96 Characters (Human Readable)
     Dependencies : Secrets (TokenHEX) | HashLib (SHA384) | Time (TimeNS)
     Special Errors : UnableToGenerateUID(Exception)
-    Error Case : "" | Length Not Equal To 384
+    Error Case : "" | Length Not Equal To 96
     """
     try:
         token = token_bytes(32)
@@ -35,24 +35,7 @@ def createUID() -> str:
         print(f"\n\033[31;3m{UnableToGenerateUID.message}\033[0m",end="\n\n")
     except Exception as E:
         print(f"\n\033[3m=> Undefined Exception : {"\033[0;31m" + str(E).title() + "\033[0m"}")
-
-# Device Type Definition
-def getDeviceTypeAbsolute(userAgentBuffer: str) -> str:
-    """
-    Returns The Type Of Device Which Is Connected
-    On The Basis Of User Agent In Request
-    Usage : getDeviceTypeAbsolute(userAgentBuffer: str)
-    Return : String
-    Special Errors : Nil
-    Dependencies : Flask (User-Agent From request.header)
-    """
-    phoneTypes: list[str] = ['iphone', 'android', 'windows phone']
-    userAgentBuffer = userAgentBuffer.lower()
-    if "mobile" in userAgentBuffer:
-        return "Mobile Device"
-    elif "tablet" in userAgentBuffer:
-        return "Tablet Device"
-    elif any(agent in userAgentBuffer for agent in phoneTypes):
-        return "Smart Phone"
-    else:
-        return "Computer"
+                                                         
+def getServerIPAddress():
+    hostname = gethostname()
+    return gethostbyname(hostname)

@@ -4,48 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple | Account</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/AccountConsole.css') }}">
-    <link rel="icon" type="images-x/icon" href="{{ url_for('static',filename='Images/Account.svg') }}">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="{{ url_for('static',filename='JavaScript/CookiesValidation.js') }}"></script>
-    <script src="{{ url_for('static',filename='JavaScript/AccountManagePage.js') }}"></script>
+    <link rel="icon" type="images-x/icon" href="{{ url_for('static', filename='Images/Console.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/AccountManage.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div id="header">
-        <h1 class="logo">Simple Account</h1>
-        <i class='bx bx-right-arrow-alt' id="btn" title="Go Back To Console"></i>
-    </div>
-    <div class="incompatible">
-        <h1>Incompatible<br>Device</h1>
-    </div>
+    <header class="header">
+        <div class="wrapperLogo">
+            <img src="{{ url_for('static', filename='Images/Console.svg') }}" alt="Simple Account Logo" height="48" width="48">
+            <h2 class="logoText">Simple Accounts</h2>
+        </div>
+        <i class='bx bx-right-arrow-circle' id="back" title="Go Back Home"></i>
+    </header>
     <div class="container" id="container">
-        <img id="userProfilePicture" alt="Avatar" height="84" width="84">
-        <h3 id="userName"></h3>
-        <div class="statistics">
-            <div class="item">
+        <img width="64" height="64" alt="Avatar" id="avatar" src="{{ url_for('static', filename='Images/Fallback.jpg') }}">
+        <h3 id="text">Lorem Ipsum</h3>
+        <div class="stats">
+            <div class="item" title="Total Cards">
                 <span class="icon">
-                    <i class='bx bxs-credit-card'></i>
+                    <i class='bx bx-credit-card-front'></i>
                 </span>
-                <h6 class="text">32</h6>
+                <h4 class="label" id="cards">23</h4>
             </div>
-            <div class="item">
+            <div class="item" title="Card Vendors">
                 <span class="icon">
-                    <i class='bx bxs-bar-chart-alt-2' ></i>
+                    <i class='bx bx-buildings'></i>
                 </span>
-                <h6 class="text">7</h6>
+                <h4 class="label" id="vendors">18</h4>
             </div>
-            <div class="item">
+            <div class="item" title="Connected Devices">
                 <span class="icon">
-                    <i class='bx bxs-user-pin'></i>
+                    <i class='bx bx-devices'></i>
                 </span>
-                <h6 class="text">2024</h6>
+                <h4 class="label" id="devices">2024</h4>
             </div>
         </div>
-        <div class="controls">
-            <button id="resetPassword">Reset Password</button>
-            <button id="logOut">Sign Out</button>
+        <div class="settings">
+            <span class="option" title="User Information">
+                <i class='bx bx-user-circle' id="userinfo"></i>
+            </span>
+            <span class="option" title="Security Settings">
+                <i class='bx bx-lock-alt' id="security"></i>
+            </span>
+            <span class="option" title="Product Settings">
+                <i class='bx bx-credit-card-front' id="product"></i>
+            </span>
+            <span class="option" title="Log Out">
+                <i class='bx bx-log-out' id="logout"></i>
+            </span>
         </div>
     </div>
+    <div id="wrapper">
+        <div class="loader"></div>
+    </div>
+    <script type="module" src="{{ url_for('static', filename='JavaScript/AccountsPage.js') }}"></script>
 </body>
 </html>

@@ -1,16 +1,8 @@
 from pyrebase import pyrebase
 from firebase_admin.auth import get_user_by_email
+from Firebase import data
 
-firebaseConfig: dict[str,str] = {
-  "apiKey": "AIzaSyBIpNPJ1jYxuHmAlEJVeQEaFuWz2wofONc",
-  "authDomain": "simple-cards-unifier.firebaseapp.com",
-  "projectId": "simple-cards-unifier",
-  "storageBucket": "simple-cards-unifier.appspot.com",
-  "messagingSenderId": "811926276875",
-  "appId": "1:811926276875:web:063a3e48382e336421f00e",
-  "measurementId": "G-ZPBVDRMDZT",
-  "databaseURL": ""
-}
+firebaseConfig: dict[str,str] = data["FireBaseSDK"]
 
 class UserNotVerified(Exception):
     message = "Account Not Verified"
@@ -28,7 +20,7 @@ def loginUserWithEmailAndPassword(email: str, password: str):
         _ = authentication.sign_in_with_email_and_password(email=email, password=password)
         if not user.email_verified:
             raise UserNotVerified()
-        response["response"] = "Sign In Completed Successfully"
+        response["response"] = "Proceeding To Verification"
     except pyrebase.HTTPError:
         response['response'] = "Invalid Credentials"
     except UserNotVerified:

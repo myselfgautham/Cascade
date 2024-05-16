@@ -1,26 +1,34 @@
-{% extends "StaticPage.html" %}
-{% block title %}
+{% extends "BasePage.html" %}
+{% block Title %}
 <title>Simple | About</title>
 {% endblock %}
 {% block Header %}
-<!--Website CSS And JavaScript-->
-<script src="{{ url_for('static',filename='JavaScript/CommonScripts.js') }}"></script>
-<link rel="stylesheet" href="{{ url_for('static',filename='CSS/AboutPage.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/AboutPage.css') }}">
 {% endblock %}
-{% block Icon %}
-<i class='bx bx-menu' id="menu-icon" onclick="hideText('text', 'wrapper')"></i>
-{% endblock %}
-{% block content %}
-<!--Container / Wrapper-->
-<div class="wrapper" id="text">
-    <!--About Heading-->
-    <h1 class="heading">About Simple</h1>
-    <!--Inner Text-->
-    <p class="text">
-        Simple Is A Project Aimed At Solving The Card Crisis
-        People Often Find It Difficult To Manage Multiple Cards
-        Not Only People But Also Enterprises Find It Challenging
-        Simple With Its Services Make This Task A Walk In The Park
+{% block Content %}
+<div class="centered" id="centered">
+    <h1>About Simple</h1>
+    <p>
+        Simple Is A Project Aimed At Solving An Issue Faced By Both
+        Consumers And Enterprises Alike <span class="bold">Cards</span>
+        Often Times Cards Are <span class="bold">Inconvenient</span>
+        Managing Cards Is A Task For Both Consumers And Enterprises
+        Due To This Very Inconvenience And Expense As An Ultimatum
+        Companies Often Find It Difficult To Solve The So Called
+        <span class="bold"> Card Crisis</span> Simple Solves This Problem By 
+        Providing A Unified Interface To Allow Both Individuals And Businesses
+        To <span class="bold">Consolidate And Manage</span> Cards <br>
+        The Abstract And Swift User Interface And Experience Of Simple As Characterized
+        By The Name Allows For Rapid Adaptation And Implementation
     </p>
 </div>
+<script type="module">
+    import {hide} from "/static/JavaScript/Server.js";
+    document.addEventListener("DOMContentLoaded", () => {
+        var box = document.getElementById("menu-icon");
+        box.addEventListener("click", () => {
+            hide("centered", "centered")
+        })
+    })
+</script>
 {% endblock %}

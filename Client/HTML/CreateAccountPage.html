@@ -1,0 +1,72 @@
+{% extends "BasePage.html" %}
+{% block Title %}
+<title>Simple | Create Account</title>
+{% endblock %}
+{% block Header %}
+<link rel="stylesheet" href="{{ url_for('static',filename='CSS/CreateAccount.css') }}">
+<script type="module">
+    import {routeToPage, hide} from "/static/JavaScript/Server.js";
+    document.addEventListener("DOMContentLoaded", () => {
+        var x = document.getElementById("loginRoute");
+        x.addEventListener("click", () => {
+            routeToPage("/login");
+        })
+        var textarea = document.getElementById("notifier");
+        if (textarea.innerText == "Account Created Successfully")
+        {
+            textarea.style.color = "green";
+            setTimeout(function() {
+                window.location.href = "/login";
+            },500);
+        }
+        else if (textarea.innerText == "")
+        {
+            textarea.style.display = "none";
+        }
+        var box = document.getElementById("menu-icon");
+        box.addEventListener("click", () => {
+            hide("container", "container");
+        })
+    })
+</script>
+{% endblock %}
+{% block Icon %}
+<i class='bx bx-menu' id="menu-icon" onclick="hideText('container', 'container')"></i>
+{% endblock %}
+{% block Content %}
+<div class="container" id="container">
+    <form action="/createAccount" method="post">
+        <h1 class="heading">Create Account</h1>
+        <div class="TextBox">
+            <span class="icon">
+                <i class='bx bx-user-circle'></i>
+            </span>
+            <input id="verify" type="text" autocomplete="name" placeholder="Full Name" name="name" required>
+        </div>
+        <div class="TextBox">
+            <span class="icon">
+                <i class='bx bx-envelope'></i>
+            </span>
+            <input type="email" autocomplete="email" placeholder="Email Address" name="email" required>
+        </div>
+        <div class="TextBox">
+            <span class="icon">
+                <i class='bx bx-voicemail' ></i>
+            </span>
+            <input class="phno" type="text" autocomplete="cc-number" placeholder="Full Phone Number" required name="phone">
+        </div>
+        <div class="TextBox">
+            <span class="icon">
+                <i class='bx bx-key'></i>
+            </span>
+            <input type="password" autocomplete="new-password" placeholder="Set A Password" required name="password">
+        </div>
+        <h3 id="notifier" class="notifier">{{ notification }}</h3>
+        <div class="wrapperBTN">
+            <button id="loginRoute" title="Already Have An Account ?" type="button"><i class='bx bxs-user-check'></i></button>
+            <button type="submit" title="Next"><i class='bx bx-right-arrow-circle'></i></button>
+        </div>
+    </form>
+</div>
+<script type="module" src="{{ url_for('static', filename = 'JavaScript/Server.js') }}"></script>
+{% endblock %}

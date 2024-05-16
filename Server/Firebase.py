@@ -1,3 +1,4 @@
+import json
 from firebase_admin import initialize_app
 from firebase_admin.credentials import Certificate
 from firebase_admin import App
@@ -10,10 +11,14 @@ from firebase_admin._user_mgt import UserRecord
 from firebase_admin.auth import get_user_by_email
 from firebase_admin.auth import EmailAlreadyExistsError
 from firebase_admin.auth import PhoneNumberAlreadyExistsError
-from Server.PasswordAnalyser import SQLInjectionCharactersError
-from Server.PasswordAnalyser import PasswordAnalyser
+from PasswordAnalyser import SQLInjectionCharactersError
+from PasswordAnalyser import PasswordAnalyser
 from firebase_admin.auth import get_user
 from firebase_admin.auth import generate_password_reset_link
+from firebase_admin.auth import generate_email_verification_link
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+from google.cloud.firestore_v1.base_query import FieldFilter
 
 class WeakPasswordError(Exception):
     message: str = "Choose A Stronger Password"
@@ -21,9 +26,12 @@ class WeakPasswordError(Exception):
         super().__init__(self.message)
         return None
 
-serviceAccountKey: Certificate = Certificate(abspath("Server/SimpleServer.json"))
+serviceAccountKey: Certificate = Certificate(abspath("./SimpleServer.json"))
 firebaseApplication: App = initialize_app(serviceAccountKey)
 FIRESTORE = firestore.client(firebaseApplication)
+
+with open(abspath("./SimpleServer.json")) as file:
+    data = json.load(file)
 
 def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: str) -> dict[str]:
     """
@@ -47,6 +55,7 @@ def createNewUserAccount(fullName: str, eMail: str, phoneNumber: str, password: 
             password = password,
             email_verified = False
         )
+        sendVerificationEmail(eMail)
         return {"response": "Account Created Successfully"}
     except PhoneNumberAlreadyExistsError:
         return {"response": "Phone Number Already Exists"}
@@ -111,11 +120,11 @@ def registerDevice(uid: str, user: str):
         current_utc_time = datetime.now(UTC)
         utc_time_string = current_utc_time.strftime('%Y-%m-%d %H:%M:%S')
         createNewDocument("Devices", uid, {
-            "UID": uid,
-            "User": getUserUIDFromEMail(user),
-            "Time": utc_time_string,
-            "UserName": getUserRealName(user),
-            "Email": user
+            "Device UID": uid,
+            "Active User": getUserUIDFromEMail(user),
+            "Activation Time": utc_time_string,
+            "Name Of User": getUserRealName(user),
+            "Email Address": user
         })
         return True
     except Exception:
@@ -134,3 +143,57 @@ def getPhoneNumber(uid: str) -> str:
         return user.phone_number
     except Exception:
         return ""
+    
+def getEmailVerificationLink(email: str):
+    try:
+        return generate_email_verification_link(email)
+    except Exception:
+        return ""
+    
+def sendVerificationEmail(email: str):
+    try:
+        message = Mail(
+            from_email=data["Twilio SendGrid"]["Mail"],
+            to_emails=email,
+            subject="Simple Account Email Verification"
+        )
+        message.dynamic_template_data = {
+            "name" : getUserRealName(email),
+            "url" : getEmailVerificationLink(email)
+        }
+        message.template_id = data["Twilio SendGrid"]["Templates"]["Verification"]
+        sg = SendGridAPIClient(data["Twilio SendGrid"]["Key"])
+        sg.send(message)
+        return True
+    except Exception:
+        return False
+    
+def getVerificationStatus(email: str) -> bool:
+    user: UserRecord = get_user(uid=getUserUIDFromEMail(email))
+    return user.email_verified
+
+def getSignedInDevices(email: str) -> int:
+    try:
+        filter: FieldFilter = FieldFilter("`Active User`","==",getUserUIDFromEMail(email))
+        document = FIRESTORE.collection("Devices").where(filter=filter).get()
+        return len(document)
+    except Exception:
+        return 0
+    
+def sendEmailOTP(email: str, otp: int):
+    try:
+        message = Mail(
+            from_email=data["Twilio SendGrid"]["Mail"],
+            to_emails=email,
+            subject="Simple Account Login Verification"
+        )
+        message.dynamic_template_data = {
+            "name" : getUserRealName(email),
+            "OTP" : otp
+        }
+        message.template_id = data["Twilio SendGrid"]["Templates"]["Login"]
+        sg = SendGridAPIClient(data["Twilio SendGrid"]["Key"])
+        sg.send(message)
+        return True
+    except Exception:
+        return False
