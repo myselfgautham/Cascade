@@ -337,9 +337,9 @@ def newCardCreateAPI():
                 getUserUIDFromEMail(data["User"])
             ]
         })
-        return jsonify({"Response": 200})
+        return serveCardsPage()
     except Exception:
-        return jsonify({"Response": 101})
+        return serveCardsPage()
 
 # Verify Device Existence
 @app.route("/api/verify/device", methods = ["POST"])

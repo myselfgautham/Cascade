@@ -63,10 +63,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     let deletebtn = document.getElementById("remove");
     deletebtn.addEventListener("click", () => {
-        let x = confirm("Are You Sure You Want To Delete This Card\nIt Wont Be Accessible Again\nUnless Added Back")
-        if (x) {
+        let overlay = document.getElementById("overlay");
+        overlay.style.display = "flex";
+        let continue_ = document.getElementById("continue");
+        let close = document.getElementById("close");
+        close.addEventListener("click", () => {
+            overlay.style.display = "none";
+        });
+        continue_.addEventListener("click", () => {
             deleteCurrentCard(current);
-        }
+            window.location.reload()
+        })
     })
 })
 
@@ -144,4 +151,5 @@ function deleteCurrentCard(index)
             alert("Card Deletion Failed\nPlease Try Again")
         }
     })
+    .catch(error => console.error("Error : ", error))
 }

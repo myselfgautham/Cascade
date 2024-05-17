@@ -26,21 +26,27 @@
         <form action="/api/newCard" method="post">
             <div class="TextBox">
                 <span class="icon">
+                    <i class="bi bi-building-check"></i>
+                </span>
+                <input type="text" name="vendor" required placeholder="Enter Card Vendor">
+            </div>
+            <div class="TextBox">
+                <span class="icon">
                     <i class="bi bi-credit-card-2-front"></i>
                 </span>
-                <input type="text" name="number" id="cardNumber" placeholder="Enter Card Number">
+                <input type="text" name="number" id="cardNumber" required placeholder="Enter Card Number">
             </div>
             <div class="TextBox">
                 <span class="icon">
                     <i class="bi bi-calendar-plus"></i>
                 </span>
-                <input type="text" name="from" placeholder="Valid From">
+                <input type="text" required name="from" placeholder="Valid From">
             </div>
             <div class="TextBox">
                 <span class="icon">
                     <i class="bi bi-calendar-minus"></i>
                 </span>
-                <input type="text" name="till" placeholder="Valid Till">
+                <input type="text" required name="till" placeholder="Valid Till">
             </div>
             <div class="flags">
                 <input type="checkbox" name="encrypt" id="f1">
