@@ -224,7 +224,7 @@ footer {
     color: white;
     display: flex;
     justify-content: flex-start;
-    padding-top: 2px;
+    padding-top: 8px;
     align-items: center;
 }
 
@@ -304,4 +304,8 @@ footer {
     } to {
         opacity: 100%;
     }
+}
+
+.flags i[title = "Shared Card"]:hover {
+    color: lightblue;
 }

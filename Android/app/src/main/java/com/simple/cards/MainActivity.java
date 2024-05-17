@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        WebView.setWebContentsDebuggingEnabled(true);
         buffer = findViewById(R.id.Website);
         WebSettings settings = buffer.getSettings();
         settings.setJavaScriptEnabled(true);
