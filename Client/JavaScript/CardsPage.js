@@ -7,6 +7,7 @@ import {
 enforceCookiesPolicy();
 validateCookies();
 document.addEventListener("DOMContentLoaded", () => {
+    let current = 0
     let container = document.getElementById("container");
     let back = document.getElementById("back");
     container.style.display = "none";
@@ -24,10 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("empty").style.display = "flex";
         }
         else {
+            localStorage.setItem("Data", addToLocalStorage(response.Result))
             setCurrentCard(0);
             let first = true;
             let data = localStorageJSON("Data");
-            let current = 0
             var controls = {
                 NXT: document.getElementById("next"),
                 PREV: document.getElementById("previous")
@@ -51,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 setCurrentCard(current);
             })
-            localStorage.setItem("Data", addToLocalStorage(response.Result))
             document.getElementById("loader").style.display = "none";
             container.style.display = "flex";
         }
@@ -60,6 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let newCard = document.getElementById("cardAddNew");
     newCard.addEventListener("click", () => {
         window.location.href = "/cards/new";
+    });
+    let deletebtn = document.getElementById("remove");
+    deletebtn.addEventListener("click", () => {
+        let x = confirm("Are You Sure You Want To Delete This Card\nIt Wont Be Accessible Again\nUnless Added Back")
+        if (x) {
+            deleteCurrentCard(current);
+        }
     })
 })
 
@@ -116,13 +123,25 @@ function setCurrentCard(index)
         flags.ENCRYPT.style.display = "block";
     }
     if (data["Card Owners"].length == 1) {
-        flags.SHARED.style.display = "block"
-    } else {
         flags.SHARED.style.display = "none"
+    } else {
+        flags.SHARED.style.display = "block"
     }
-    console.log((cardFlags));
     loader.style.display = "none";
     card.style.display = "flex";
     card.style.flexDirection = "column";
     container.style.display = "flex";
+}
+
+function deleteCurrentCard(index)
+{
+    let card = localStorageJSON("Data")[index]
+    fetchFlaskWithData("/api/deleteCard", {CUID: (card["Document ID"])})
+    .then(response => {
+        if (response.Response === "Delete Successful") {
+            window.location.reload()
+        } else {
+            alert("Card Deletion Failed\nPlease Try Again")
+        }
+    })
 }

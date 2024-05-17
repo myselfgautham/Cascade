@@ -19,6 +19,7 @@ from Firebase import getUserRealName
 from Firebase import getVerificationStatus
 from Firebase import deleteDocument
 from UserCards import createNewCard
+from UserCards import deleteCard
 from Firebase import getSignedInDevices
 from Firebase import sendEmailOTP
 from Firebase import checkDeviceExistence
@@ -345,6 +346,15 @@ def newCardCreateAPI():
 def verifyDeviceExists():
     uid: str = request.json.get("UID")
     return jsonify({"Existence": checkDeviceExistence(uid)})
+
+# Card Deletion Route
+@app.route("/api/deleteCard", methods = ["POST"])
+def deleteCardRoute():
+    uid: str = request.json.get("CUID")
+    if (deleteCard(uid)):
+        return jsonify({"Response": "Delete Successful"})
+    else:
+        return jsonify({"Response": "Delete Failed"})
 
 # Run Server Script
 if (__name__ == "__main__"):

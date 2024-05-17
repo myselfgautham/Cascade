@@ -54,14 +54,11 @@ header {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    flex-direction: column;
     padding: 24px;
     border: 3px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
@@ -154,4 +151,11 @@ header {
 
 #buffer {
     display: none;
+}
+
+.lgx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

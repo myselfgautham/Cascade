@@ -3,6 +3,7 @@ from hashlib import sha256
 from Firebase import FIRESTORE
 from secrets import token_bytes
 from time import time_ns
+from Firebase import deleteDocument
 from Firebase import FieldFilter
 from Device import UnableToGenerateUID
 
@@ -43,4 +44,12 @@ def getLinkedCards(user: str):
     query = reference.where(filter=fltr).get()
     for doc in query:
         buffer.append(doc.to_dict())
+        buffer[len(buffer) - 1]["Document ID"] = doc.id
     return buffer
+    
+def deleteCard(carduid: str) -> bool:
+    result: bool = deleteDocument(
+        collection = "Cards",
+        document = carduid
+    )
+    return result
