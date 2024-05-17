@@ -1,9 +1,6 @@
 from Firebase import createNewDocument
 from hashlib import sha256
 from Firebase import FIRESTORE
-from secrets import token_bytes
-from time import time_ns
-from Firebase import deleteDocument
 from Firebase import FieldFilter
 from Device import UnableToGenerateUID
 
@@ -15,10 +12,8 @@ class FirebaseError(Exception):
 
 def createNewCard(data):
     try:
-        token = token_bytes(32)
-        time = int(time_ns())
-        combinedData = token + time.to_bytes(8,byteorder="big")
-        cardUID = sha256(combinedData).digest().hex()
+        dataBuffer = str(data["Card Number"] + data["Card Owners"][0]).encode()
+        cardUID = sha256(dataBuffer).digest().hex()
         if (cardUID == "") or (len(cardUID) != 64):
             raise UnableToGenerateUID
         else:
@@ -48,8 +43,14 @@ def getLinkedCards(user: str):
     return buffer
     
 def deleteCard(carduid: str) -> bool:
-    result: bool = deleteDocument(
-        collection = "Cards",
-        document = carduid
-    )
-    return result
+    try:
+        reference = FIRESTORE.collection("Cards").document(carduid)
+        data = reference.get()
+        if (data.exists):
+            reference.delete()
+            return True
+        else:
+            return False
+    except Exception as e:
+        print("\n",e,end="\n\n")
+        return False

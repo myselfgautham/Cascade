@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
         Email: getCookieFromStorage('Email')
     })
     .then(response => {
+        localStorage.setItem("Data", "");
         if (response.Result.length === 0)
         {
-            localStorage.setItem("Data", "");
             document.getElementById("loader").style.display = "none";
             document.getElementById("empty").style.display = "flex";
         }
@@ -61,19 +61,18 @@ document.addEventListener("DOMContentLoaded", () => {
     newCard.addEventListener("click", () => {
         window.location.href = "/cards/new";
     });
+    let continue_ = document.getElementById("continue");
     let deletebtn = document.getElementById("remove");
     deletebtn.addEventListener("click", () => {
         let overlay = document.getElementById("overlay");
         overlay.style.display = "flex";
-        let continue_ = document.getElementById("continue");
         let close = document.getElementById("close");
         close.addEventListener("click", () => {
             overlay.style.display = "none";
         });
-        continue_.addEventListener("click", () => {
-            deleteCurrentCard(current);
-            window.location.reload()
-        })
+    })
+    continue_.addEventListener("click", () => {
+        deleteCurrentCard(current);
     })
 })
 
@@ -145,10 +144,8 @@ function deleteCurrentCard(index)
     let card = localStorageJSON("Data")[index]
     fetchFlaskWithData("/api/deleteCard", {CUID: (card["Document ID"])})
     .then(response => {
-        if (response.Response === "Delete Successful") {
-            window.location.reload()
-        } else {
-            alert("Card Deletion Failed\nPlease Try Again")
+        if (response.Response == "Delete Successful") {
+            window.location.href = "/cards";
         }
     })
     .catch(error => console.error("Error : ", error))
