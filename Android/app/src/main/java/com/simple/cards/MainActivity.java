@@ -5,6 +5,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import android.webkit.WebSettings;
+import  android.webkit.WebChromeClient;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,12 +20,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        WebView.setWebContentsDebuggingEnabled(true);
         buffer = findViewById(R.id.Website);
         WebSettings settings = buffer.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         buffer.setWebViewClient(new WebViewClient());
+        buffer.setWebChromeClient(new WebChromeClient());
         buffer.setScrollContainer(false);
+        settings.setDisplayZoomControls(false);
+        settings.setBuiltInZoomControls(false);
         buffer.loadUrl(WebSiteAddress);
     }
 }

@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Simple Server Node Configuration",
+    "Server Name": "Main",
+    "Debug Mode": true,
+    "Port": 1920,
+    "Cache Configuration": {
+        "Cache Type": "simple",
+        "Default Timeout": 300,
+        "Cache Metadata": {
+            "Root": null,
+            "Policy": 3600,
+            "Exceptions": 86400,
+            "Fallbacks": 3600,
+            "About": 86400
+        }
+    }
+}

@@ -20,7 +20,7 @@
     </header>
     <div class="container" id="container">
         <div class="wrapper">
-            <div class="current">
+            <div class="current" id="card">
                 <div class="brand">
                     <img src="{{ url_for('static', filename='Images/Cards.svg') }}" alt="Vendor Logo" height="48" width="48">
                     <h3>Simple Cards</h3>
@@ -28,7 +28,7 @@
                 <div class="details">
                     <div class="cardNumber">
                         <a class="label">Card Number</a>
-                        <h4>4591 1590 0026 9894</h4>
+                        <h4 id="cardnumber">4591 1590 0026 9894</h4>
                     </div>
                     <div class="validity">
                         <a class="label">Validity</a>
@@ -40,9 +40,10 @@
                     </div>
                 </div>
                 <div class="flags">
-                    <i class="bi bi-shield-lock-fill" title="Heavily Encrypted"></i>
-                    <i class="bi bi-person-badge-fill" title="Requires Verification"></i>
-                    <i class="bi bi-command" title="CVV Protected Card"></i>
+                    <i class="bi bi-shield-lock-fill" title="Heavily Encrypted" id="encrypted"></i>
+                    <i class="bi bi-person-badge-fill" title="Requires Verification" id="verify"></i>
+                    <i class="bi bi-share" title="Shared Card" id="shared"></i>
+                    <i class="bi bi-command" title="CVV Protected Card" id="cvv"></i>
                 </div>
             </div>
         </div>
@@ -58,7 +59,7 @@
         <div id="cardAddNew" class="icon" title="Add A New Card To Vault">
             <i class="bi bi-plus-circle"></i>
         </div>
-        <div class="icon" title="Remove Card From Vault">
+        <div class="icon" title="Remove Card From Vault" id="remove">
             <i class="bi bi-dash-circle"></i>
         </div>
         <div class="icon" title="Share Card With Someone">
@@ -71,6 +72,19 @@
     <div id="empty">
         <i class="bi bi-wallet2"></i>
         <h2>Nothing Here</h2>
+    </div>
+    <div class="overlay" id="overlay">
+        <div class="overlaywrap">
+            <i class="bi bi-trash" id="trash"></i>
+            <h1 class="heading">Are You Sure</h1>
+            <h2>Delete Current Card</h2>
+            <div class="options">
+                <span>
+                    <i class="bi bi-x-lg" id="close"></i>
+                </span>
+                <i class="bi bi-check-lg" id="continue"></i>
+            </div>
+        </div>
     </div>
     <script type="module" src="{{ url_for('static', filename='JavaScript/CardsPage.js') }}"></script>
 </body>
