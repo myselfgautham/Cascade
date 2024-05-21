@@ -1,8 +1,0 @@
-firebase_admin
-twilio
-sendgrid
-psutil
-flask
-flask_cors
-flask_caching
-pyrebase4
