@@ -6,10 +6,10 @@ import compression from "compression";
 export const path = require("path");
 
 // Server Global Scope Definitions
-const PORT = 3000;
-const staticFolder = path.join(__dirname, "..", "Client")
-export const templatesFolder = path.join(staticFolder, "Templates")
-const DEBUG = true;
+const PORT: number = 3000;
+const staticFolder: string = path.join(__dirname, "..", "Client")
+export const templatesFolder: string = path.join(staticFolder, "Templates")
+const DEBUG: boolean = true;
 
 // Server Application Definition
 export const application = express();
