@@ -1,0 +1,30 @@
+.container {flex-direction: column;}
+
+.container > h2 {
+    color: white;
+    font-family: monospace;
+    font-size: calc(9px + 3vw);
+    white-space: nowrap;
+}
+
+.branded {
+    color: #34A853;
+}
+
+.container > h3 {
+    font-size: calc(9px + 2vw);
+    color: white;
+    font-family: sans-serif;
+    letter-spacing: 0.09rem;
+    padding-top: 8px;
+}
+
+#supports {
+    padding-top: 8px;
+    gap: 8px;
+}
+
+#python:hover {color: #FFDE57;}
+#nodejs:hover {color: #3C873A;}
+#javascript:hover {color: #F0DB4F;}
+#server:hover {color: #FF204E;}
