@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="description", content="A Swift And Simple Cards Unification Platform")
+        block title
+            title Swift | Home
+        link(rel="shortcut icon", href="../Assets/Favicon.svg", type="image/x-icon")
+        link(rel="stylesheet", href="../CSS/CommonStyles.css")
+        block styles
+            link(rel="stylesheet", href="../CSS/HomePage.css")
+    body
+        header.header.specialFlexBox
+            div.logo.specialFlexBox
+                img(src="../Assets/Favicon.svg", alt="Swift Logo Picture 48px * 48px" width="48" height="48")
+                span Swift
+        div.links.specialFlexBox
+            ion-icon(name="newspaper-outline" class="icon" title="About Swift Project")
+            ion-icon(name="help-outline" class="icon" title="Get Help")
+            ion-icon(name="hammer-outline" class="icon" title="Services Offered")
+            ion-icon(name="cube-outline" class="icon" title="Go To Console")
+        block content
+            div.container(class="specialFlexBox")
+                h2 Simplify Cards 
+                    span.branded Instantly
+                h3 With Swift Framework
+                div.specialFlexBox(id="supports")
+                    ion-icon#python(name="logo-python" class="icon" title="Python Package Index")
+                    ion-icon#nodejs(name="logo-nodejs" class="icon" title="Node Package Manager")
+                    ion-icon#javascript(name="logo-javascript" class="icon" title="Content Delivery Network")
+                    ion-icon#server(name="server-outline" class="icon" title="Custom Server")
+        block scripts
+        script(type="module", src="../JavaScript/FirebaseLinking.js" defer async)
+        script(type="module", src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js")
+        script(src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js")
