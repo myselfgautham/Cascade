@@ -5,3 +5,9 @@ Server.application.get("/", async function (_, res) {
         Server.templatesFolder, "HomePage.pug"
     ));
 })
+
+Server.application.get("/account/create", async function (_, res) {
+    res.render(Server.path.join(
+        Server.templatesFolder, "CreateAccount.pug"
+    ));
+});

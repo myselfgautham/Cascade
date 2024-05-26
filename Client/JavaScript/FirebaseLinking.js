@@ -8,8 +8,8 @@ const firebaseConfig = {
     projectId: "swiftjs-development",
     storageBucket: "swiftjs-development.appspot.com",
     messagingSenderId: "396909879457",
-    appId: "1:396909879457:web:b90b8c303d41a61c6fd0e0",
-    measurementId: "G-X3X7TMXZQM"
+    appId: "1:396909879457:web:47e323aa1ca83f686fd0e0",
+    measurementId: "G-REWZSYLBHN"
 };
 
 try {
