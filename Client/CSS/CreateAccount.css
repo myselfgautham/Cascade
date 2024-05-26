@@ -38,7 +38,7 @@ input {
     font-size: calc(18px + 0.8vw) !important;
 }
 
-#submit {
+.iax {
     outline: none;
     background-color: transparent;
     border: 2px solid orange;
@@ -49,3 +49,7 @@ input {
     font-size: calc(12px + 0.8vw);
     font-family: Arial, sans-serif;letter-spacing: 0.09rem;
 }
+
+.submit { gap: 8px; }
+
+.submit > button { cursor: pointer; }

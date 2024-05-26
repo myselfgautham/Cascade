@@ -11,3 +11,9 @@ Server.application.get("/account/create", async function (_, res) {
         Server.templatesFolder, "CreateAccount.pug"
     ));
 });
+
+Server.application.get("/account/login", async function (_, res) {
+    res.render(Server.path.join(
+        Server.templatesFolder, "LoginPage.pug"
+    ))
+})
