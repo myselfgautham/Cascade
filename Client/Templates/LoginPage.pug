@@ -15,7 +15,12 @@ block content
                 span.icon.specialFlexBox
                     ion-icon(name="key-outline" class="esx")
                     input(type="password", name="password", autocapitalize="off", placeholder="Enter Your Password")
+            div.notifier.specialFlexBox
+                h3(id="note")
             div.submit.specialFlexBox
-                button(type="button" id="login" class="iax") Login Now
+                button(type="button" id="login" class="iax") Login
+                button(type="button" class="iax" id="route") Sign Up
             div.submit.specialFlexBox
                 button(type="button" id="forgot" class="iax") Forgot Password
+block scripts
+    script(src="../JavaScript/LoginPage.js")

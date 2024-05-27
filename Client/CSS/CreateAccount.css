@@ -53,3 +53,21 @@ input {
 .submit { gap: 8px; }
 
 .submit > button { cursor: pointer; }
+
+#note {
+    display: none;
+    color: #FF204E;
+    font-family: sans-serif;
+    font-optical-sizing: auto;
+    font-size: calc(12px + 0.8vw);
+    font-weight: 400;
+    animation: shaking 0.3s ease-in-out;
+}
+
+@keyframes shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+}
