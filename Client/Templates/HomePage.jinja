@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Swift And Simple Cards Unification Platform">
+    {% block title %}
+    <title>Swift | Home</title>
+    {% endblock %}
+    <link rel="icon" href="/static/Assets/Favicon.png" type="image-x/icon">
+    <link rel="stylesheet" href="/static/CSS/CommonStyles.css">
+    {% block styles %}
+    <link rel="stylesheet" href="/static/CSS/HomePage.css">
+    {% endblock %}
+</head>
+<body>
+    <header class="header specialFlexBox">
+        <div class="logo specialFlexBox"><img src="/static/Assets/Favicon.svg" alt="Swift Logo Picture 48px * 48px" width="48" height="48"><span>Swift</span></div>
+    </header>
+    <div class="links specialFlexBox">
+        <ion-icon class="icon" name="newspaper-outline" title="About Swift Project"></ion-icon>
+        <ion-icon class="icon" name="help-outline" title="Get Help"></ion-icon>
+        <ion-icon class="icon" name="hammer-outline" title="Services Offered"></ion-icon>
+        <ion-icon class="icon" name="cube-outline" title="Go To Console"></ion-icon>
+    </div>
+    <div class="overlay specialFlexBox" id="overlay">
+        <div class="wrapper specialFlexBox">
+            <h3>We Use Cookies</h3>
+            <p>Swift Uses Cookies To Ensure That You Get The Best Possible Experience On Our Website Please Make Sure That You Agree To Them Clicking "Accept Cookies" Is Considered As <span class="rax">A Form Of Consent</span></p>
+            <div class="hex specialFlexBox"><button id="accept">Accept Cookies </button></div>
+        </div>
+    </div>
+    {% block content %}
+    <div class="container specialFlexBox">
+        <h2>Simplify Cards <span class="branded">Instantly</span></h2>
+        <h3>With Swift Framework</h3>
+        <div class="specialFlexBox" id="supports">
+            <ion-icon class="icon" id="python" name="logo-python" title="Python Package Index"></ion-icon>
+            <ion-icon class="icon" id="nodejs" name="logo-nodejs" title="Node Package Manager"></ion-icon>
+            <ion-icon class="icon" id="javascript" name="logo-javascript" title="Content Delivery Network"></ion-icon>
+            <ion-icon class="icon" id="server" name="server-outline" title="Custom Server"></ion-icon>
+        </div>
+    </div>
+    {% endblock %}
+    <script src="/static/JavaScript/Cookies.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" async></script>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" async></script>
+    <script type="module" src="/static/JavaScript/FirebaseLinking.js" defer async></script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
