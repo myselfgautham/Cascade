@@ -36,7 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 note.style.display = "block";
             } else {
                 note.innerHTML = "";
-                fetch("http://localhost:1920/api/accounts/create", {
+                let url = new URL(window.location.href);
+                fetch(`http://${url.hostname}:1920/api/accounts/create`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

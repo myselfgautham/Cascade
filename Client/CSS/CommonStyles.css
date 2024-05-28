@@ -63,6 +63,7 @@ body {
 .icon {
     color: white;
     font-size: 24px;
+    cursor: pointer;
 }
 
 .links {

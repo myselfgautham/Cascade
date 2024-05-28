@@ -1,4 +1,5 @@
 const emailRegex = new RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+let url = new URL(window.location.href);
 const testEmail = (email) => emailRegex.test(email)
 document.addEventListener('DOMContentLoaded', () => {
     let btn = document.getElementById('route');
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             else {
                 note.innerHTML = "";
-                fetch("http://localhost:1920/api/accounts/login", {
+                fetch(`http://${url.hostname}:1920/api/accounts/login`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -41,6 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         note.innerHTML = data["Response"];
                         note.style.display = "block";
                         note.style.color = "#34A853";
+                        setUserToLocalStorage(input[0].value).then(_ => {
+                            setTimeout(() => {
+                                window.location.href = "/verify/email";
+                            }, 400)
+                        });
                     }
                     else {
                         note.innerHTML = data["Response"];
@@ -53,3 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 })
+
+async function setUserToLocalStorage(mail) {
+    return new Promise((resolve) => {
+        localStorage.setItem("Email",mail);
+        localStorage.setItem("LoggedIn", "true");
+        resolve(null);
+    })
+}
