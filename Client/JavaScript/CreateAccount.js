@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 note.innerHTML = "";
                 let url = new URL(window.location.href);
-                fetch(`http://${url.hostname}:1920/api/accounts/create`, {
+                fetch(`/api/accounts/create`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

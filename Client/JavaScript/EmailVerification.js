@@ -5,7 +5,7 @@ if ((localStorage.getItem("Email") === "") ||
 {
     window.location.href = "/account/login";
 } else {
-    fetch(`http://${url.hostname}:1920/api/verify/email`, {
+    fetch(`/api/verify/email`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -27,7 +27,7 @@ if ((localStorage.getItem("Email") === "") ||
 
 let submit = document.getElementById("submit");
 submit.addEventListener("click", () => {
-    fetch(`http://${url.hostname}:1920/api/verify/code/email`, {
+    fetch(`/api/verify/code/email`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             else {
                 note.innerHTML = "";
-                fetch(`http://${url.hostname}:1920/api/accounts/login`, {
+                fetch(`/api/accounts/login`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
