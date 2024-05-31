@@ -1,0 +1,60 @@
+{% extends 'HomePage.html' %}
+{% block title %}
+<title>Swift | Dashboard</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/CSS/DashboardPage.min.css">
+{% endblock %}
+{% block content %}
+<div class="container specialFlexBox">
+    <div class="current">
+        <div class="company specialFlexBox">
+            <img src="/static/Assets/Favicon.svg" alt="Card Vendor Logo">
+            <h3>The Swift Project</h3>
+        </div>
+        <div class="details">
+            <div class="numbers specialFlexBox">
+                <label for="cardNumber">Card Number</label>
+                <span id="cardNumber">4591 1590 0026 9894</span>
+            </div>
+            <div class="validity specialFlexBox">
+                <div class="from specialFlexBox">
+                    <label for="from">From</label>
+                    <span id="from">10/2019</span>
+                </div>
+                <ion-icon name="arrow-forward-outline" class="arrow"></ion-icon>
+                <div class="till specialFlexBox">
+                    <label for="till">Till</label>
+                    <span id="till">10/2024</span>
+                </div>
+            </div>
+        </div>
+        <div class="flags specialFlexBox">
+            <span class="flag specialFlexBox">
+                <ion-icon name="timer-outline"></ion-icon>
+            </span>
+            <span class="flag specialFlexBox">
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </span>
+            <span class="flag specialFlexBox">
+                <ion-icon name="aperture-outline"></ion-icon>
+            </span>
+            <span class="flag specialFlexBox">
+                <ion-icon name="people-circle-outline"></ion-icon>
+            </span>
+        </div>
+    </div>
+    <div class="controls specialFlexBox">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+        <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+    </div>
+</div>
+<footer class="specialFlexBox">
+    <ion-icon name="add-outline"></ion-icon>
+    <ion-icon name="recording-outline"></ion-icon>
+    <ion-icon name="remove-outline"></ion-icon>
+    <ion-icon name="share-outline"></ion-icon>
+</footer>
+{% endblock %}
+{% block scripts %}
+{% endblock %}

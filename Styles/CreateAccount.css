@@ -71,3 +71,14 @@ input {
     75% { transform: translateX(5px) }
     100% { transform: translateX(0) }
 }
+
+#forgot {
+    font-size: calc(8px + 0.6vw);
+    color: white;
+    font-family: sans-serif;
+    padding-right: 4px;
+    cursor: pointer;
+}
+#forgot:hover {
+    color: #34A853;
+}
