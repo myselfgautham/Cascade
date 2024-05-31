@@ -1,69 +1,84 @@
-const emailRegex = new RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-const testEmail = (email) => emailRegex.test(email)
-const phoneRegex = new RegExp(/^\+\d{1,15}$/);
-const validPhone = (phone) => phoneRegex.test(phone)
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-const isStrongPassword = password => passwordRegex.test(password);
+let user = document.getElementById("name");
+let email = document.getElementById("mail");
+let phone = document.getElementById("phone");
+let password = document.getElementById("password");
+let submit = document.getElementById("submit")
+let span = document.getElementById("note");
 
-document.addEventListener('DOMContentLoaded', () => {
-    let loginBtn = document.getElementById('login');
-    loginBtn.addEventListener('click', () => {
-        window.location.href = "/account/login";
-    })
-    let submit = document.getElementById('submit');
-    let note = document.getElementById('note');
-    submit.addEventListener('click', () => {
-        let input = document.querySelectorAll("input");
-        input.forEach((rax) => {
-            if (rax.value === "") {
-                note.innerHTML = "Please Fill In All Fields";
-                note.style.display = "block";
-                return null;
-            }
-            else if (rax.value === input[3].value) {
-                note.innerHTML = "";
-            }
-        });
-        if (note.innerHTML === "") {
-            if (!testEmail(input[1].value)) {
-                note.innerHTML = "Enter A Valid Email";
-                note.style.display = "block";
-            } else if (!validPhone(input[2].value)) {
-                note.innerHTML = "Enter Valid Phone Number";
-                note.style.display = "block";
-            } else if (!isStrongPassword(input[3].value)) {
-                note.innerHTML = "Enter A Stronger Password";
-                note.style.display = "block";
+submit.addEventListener("click", () => {
+    if ( (user.value === "") ||
+        (email.value === "") ||
+        (phone.value === "") ||
+        (password.value === "")
+    ) {
+        span.innerText = "Please Fill In All Fields";
+        span.style.display = "block";
+    }
+    else if (!isStrongPassword(password.value)) {
+        span.innerText = "Choose A Stronger Password";
+        span.style.display = "block";
+    }
+    else if(email.value.includes(" ") || !plausibleEmail(email.value))
+    {
+        span.innerText = "Invalid Email Address";
+        span.style.display = "block";
+    }
+    else if (!isValidE164PhoneNumber(phone.value)) {
+        span.innerText = "Incomplete Phone Number";
+        span.style.display = "block";
+    }
+    else {
+        span.style.color = "#34A853";
+        span.innerHTML = "Creating Account";
+        span.style.display = "block";
+        fetch("/account/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: user.value,
+                email: email.value,
+                phone: phone.value,
+                password: password.value
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            span.innerText = data["Response"];
+            if (data["Response"] === "Account Created Successfully") {
+                span.style.color = "#34A853";
+                setTimeout(() => {
+                    window.location.href = "/account/login"
+                }, 500)
             } else {
-                note.innerHTML = "";
-                let url = new URL(window.location.href);
-                fetch(`/api/accounts/create`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        name: input[0].value,
-                        email: input[1].value,
-                        phone: input[2].value,
-                        password: input[3].value
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    note.innerHTML = data["Response"];
-                    if (data["Response"] === "Account Created Successfully") {
-                        note.style.color = "#34A853";
-                        setTimeout(() => {
-                            window.location.href = "/account/login";
-                        }, 500)
-                    } else {
-                        note.style.color = "#FF204E";
-                    }
-                    note.style.display = "block";
-                })
-                .catch(error => console.error("Error : ", error));
+                span.style.color = "#FF204E"
             }
-        }
-    })
+            span.style.display = "block";
+        })
+        .catch(error => console.error(error));
+    }
+})
+
+function isStrongPassword(password) {
+    return (
+      typeof password === 'string' &&
+      password.length >= 8 &&
+      /[0-9]/.test(password) &&
+      /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)
+    );
+}
+
+function plausibleEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email)
+}
+
+function isValidE164PhoneNumber(phoneNumber) {
+    const e164Regex = /^\+[1-9]\d{1,14}$/;
+    return e164Regex.test(phoneNumber);
+}
+
+document.getElementById("login").addEventListener("click", () => {
+    window.location.href = "/account/login"
 })

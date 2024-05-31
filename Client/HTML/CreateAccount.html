@@ -1,10 +1,10 @@
-{% extends "HomePage.jinja" %}
+{% extends 'HomePage.html' %}
 {% block title %}
 <title>Swift | Create Account</title>
-{% endblock title %}
+{% endblock %}
 {% block styles %}
-<link rel="stylesheet" href="/static/CSS/CreateAccount.css" />
-{% endblock styles %}
+<link rel="stylesheet" href="/static/CSS/CreateAccount.min.css">
+{% endblock %}
 {% block content %}
 <div class="container specialFlexBox">
     <h1 class="mov">Create Account</h1>
@@ -12,34 +12,37 @@
         <div class="TextBox specialFlexBox">
             <span class="icon specialFlexBox">
                 <ion-icon class="esx" name="person-circle-outline"></ion-icon>
-                <input type="text" name="username" autocapitalize="on" placeholder="Enter Your Full Name"/>
+                <input id="name" type="text" name="username" autocapitalize="on" placeholder="Enter Your Full Name"/>
             </span>
         </div>
         <div class="TextBox specialFlexBox">
             <span class="icon specialFlexBox">
                 <ion-icon class="esx" name="mail-outline"></ion-icon>
-                <input type="email" name="email" autocapitalize="off" autocomplete="email" placeholder="Enter Your Email Address"/>
+                <input id="mail" type="email" name="email" autocapitalize="off" autocomplete="email" placeholder="Enter Your Email Address"/>
             </span>
         </div>
         <div class="TextBox specialFlexBox">
             <span class="icon specialFlexBox">
                 <ion-icon class="esx" name="recording-outline"></ion-icon>
-                <input type="text" name="phone" autocapitalize="off" placeholder="Complete Phone Number"/>
+                <input id="phone" type="text" name="phone" autocapitalize="off" placeholder="Complete Phone Number"/>
             </span>
         </div>
         <div class="TextBox specialFlexBox">
             <span class="icon specialFlexBox">
                 <ion-icon class="esx" name="key-outline"></ion-icon>
-                <input type="password" name="password" autocapitalize="off" placeholder="Password To Set"/>
+                <input id="password" type="password" name="password" autocapitalize="off" placeholder="Password To Set"/>
             </span>
         </div>
         <div class="notifier specialFlexBox">
-            <h3 id="note"></h3>
+            <h3 id="note">{{ message }}</h3>
         </div>
-        <div class="submit specialFlexBox"><button class="iax" type="button" id="submit">Create</button><button class="iax" type="button" id="login">Login</button></div>
+        <div class="submit specialFlexBox">
+            <button class="iax" type="button" id="submit">Create</button>
+            <button class="iax" type="button" id="login">Login</button>
+        </div>
     </form>
 </div>
-{% endblock content %}
+{% endblock %}
 {% block scripts %}
 <script src="/static/JavaScript/CreateAccount.js"></script>
-{% endblock scripts %}
+{% endblock %}

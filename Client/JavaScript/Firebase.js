@@ -16,7 +16,7 @@ try {
     const application = initializeApp(firebaseConfig);
     const analytics = getAnalytics(application);
     const performance = getPerformance(application);
-    console.log("Firebase Initialised")
+    console.log("Firebase Initialized")
 } catch {
-    console.log("Firebase Failed To Initialise")
+    console.log("Firebase Failed To Initialize")
 }
