@@ -19,13 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.style.display = "none";
         })
     }
-    let console = document.getElementById("console");
-    console.addEventListener("click", () => {
-        if (localStorage.getItem("LoggedIn") === "true")
-        {
-            window.location.href = "/dashboard";
-        } else {
-            window.location.href = "/account/login";
-        }
+    let logo = document.getElementById("logo");
+    logo.addEventListener("click", () => {
+        window.location.href = "/";
     })
+    if (!window.location.pathname.includes("/user")) {
+        let console = document.getElementById("console");
+        console.addEventListener("click", () => {
+            if (localStorage.getItem("LoggedIn") === "true")
+            {
+                window.location.href = "/user/dashboard";
+            } else {
+                window.location.href = "/account/login";
+            }
+        })
+    }
 })

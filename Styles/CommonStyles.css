@@ -44,9 +44,10 @@ body {
     display: none;
   }
 }
-/* Logo Element Side Padding */
+/* Logo Element Styling */
 .logo {
   padding-left: 8px;
+  cursor: pointer;
 }
 
 /* Centered Container */

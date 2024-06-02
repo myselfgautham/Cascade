@@ -1,4 +1,4 @@
-const negatives = new Set([null, undefined, "null", false, "false", "undefined"]);
+const negatives = new Set([null, undefined, "null", false, "false", "undefined", ""]);
 if (negatives.has(localStorage.getItem("DeviceUID")))
 {
     fetch("/api/device", {

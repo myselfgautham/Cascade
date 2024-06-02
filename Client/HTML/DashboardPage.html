@@ -5,56 +5,69 @@
 {% block styles %}
 <link rel="stylesheet" href="/static/CSS/DashboardPage.min.css">
 {% endblock %}
+{% block icons %}
+<ion-icon class="icon" name="person-circle-outline" title="Manage Account" onclick="routeToAccountPage()"></ion-icon>
+<ion-icon class="icon" name="analytics-outline" title="Manage Nodes"></ion-icon>
+<ion-icon class="icon" name="card-outline" title="Manage Cards" id="cards"></ion-icon>
+{% endblock %}
 {% block content %}
-<div class="container specialFlexBox">
+<div class="container specialFlexBox" id="container" style="display: none;">
     <div class="current">
         <div class="company specialFlexBox">
-            <img src="/static/Assets/Favicon.svg" alt="Card Vendor Logo">
-            <h3>The Swift Project</h3>
+            <img src="/static/Assets/Favicon.svg" id="vendorLogo" alt="Card Vendor Logo">
+            <h3 id="vendorName"></h3>
         </div>
         <div class="details">
             <div class="numbers specialFlexBox">
                 <label for="cardNumber">Card Number</label>
-                <span id="cardNumber">4591 1590 0026 9894</span>
+                <span id="cardNumber"></span>
             </div>
             <div class="validity specialFlexBox">
                 <div class="from specialFlexBox">
                     <label for="from">From</label>
-                    <span id="from">10/2019</span>
+                    <span id="from"></span>
                 </div>
                 <ion-icon name="arrow-forward-outline" class="arrow"></ion-icon>
                 <div class="till specialFlexBox">
                     <label for="till">Till</label>
-                    <span id="till">10/2024</span>
+                    <span id="till"></span>
                 </div>
             </div>
         </div>
         <div class="flags specialFlexBox">
-            <span class="flag specialFlexBox">
+            <span class="flag specialFlexBox" id="encrypted" title="Heavily Encrypted">
                 <ion-icon name="timer-outline"></ion-icon>
             </span>
-            <span class="flag specialFlexBox">
+            <span class="flag specialFlexBox" id="verification" title="Requires Verification">
                 <ion-icon name="person-circle-outline"></ion-icon>
             </span>
-            <span class="flag specialFlexBox">
+            <span class="flag specialFlexBox" id="cvv" title="CVV Protected Card">
                 <ion-icon name="aperture-outline"></ion-icon>
             </span>
-            <span class="flag specialFlexBox">
+            <span class="flag specialFlexBox" id="shared" title="Shared Card">
                 <ion-icon name="people-circle-outline"></ion-icon>
             </span>
         </div>
     </div>
-    <div class="controls specialFlexBox">
-        <ion-icon name="arrow-back-circle-outline"></ion-icon>
-        <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+    <div class="controls specialFlexBox" id="controls">
+        <ion-icon name="arrow-back-circle-outline" id="prev"></ion-icon>
+        <ion-icon name="arrow-forward-circle-outline" id="next"></ion-icon>
     </div>
 </div>
 <footer class="specialFlexBox">
-    <ion-icon name="add-outline"></ion-icon>
-    <ion-icon name="recording-outline"></ion-icon>
-    <ion-icon name="remove-outline"></ion-icon>
-    <ion-icon name="share-outline"></ion-icon>
+    <ion-icon name="add-outline" title="Add A New Card"></ion-icon>
+    <ion-icon name="recording-outline" title="Report This Card"></ion-icon>
+    <ion-icon name="remove-outline" title="Remove This Card"></ion-icon>
+    <ion-icon name="share-outline" title="Share This Card"></ion-icon>
 </footer>
+<div id="nothing" class="container specialFlexBox" style="display: none;">
+    <ion-icon name="logo-apple-ar"></ion-icon>
+    <h2>Nothing Here</h2>
+</div>
+<div id="loaderWrapper" class="container specialFlexBox">
+    <div class="loader"></div>
+</div>
 {% endblock %}
 {% block scripts %}
+<script src="/static/JavaScript/CardsPage.js"></script>
 {% endblock %}

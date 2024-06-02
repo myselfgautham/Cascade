@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         setUserToLocalStorage(input[0].value)
                         .then(_ => {
                             setTimeout(() => {
-                                window.location.href = "/dashboard";
+                                window.location.href = "/user/dashboard";
                             }, 500)
                         })
                     } else {
