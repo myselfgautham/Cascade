@@ -75,6 +75,8 @@ function setCardToView(index, data)
     document.getElementById("vendorName").innerText = current["Vendor"];
     if (current["Logo"] !== undefined) {
         document.getElementById("vendorLogo").setAttribute("src", current["Logo"])
+    } else {
+        document.getElementById("vendorLogo").setAttribute("src", "/static/Assets/Favicon.svg")
     }
     if (current["Flags"]["CVV"]) {
         document.getElementById("cvv").style.display = "flex";
@@ -101,4 +103,8 @@ function setCardToView(index, data)
 
 function routeToAccountPage() {
     window.location.href = "/user/manage";
+}
+
+function sharePage() {
+    window.location.href = `/cards/share?card=${document.getElementById("cardNumber").innerText}`;
 }
