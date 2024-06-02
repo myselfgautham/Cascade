@@ -24,6 +24,7 @@ from firebase_admin._user_mgt import UserRecord
 from firebase_admin.firestore import client
 from datetime import datetime
 from datetime import UTC
+from google.cloud.firestore import FieldFilter
 
 application: Flask = Flask(__name__)
 application.static_folder = "../Client/"
@@ -132,7 +133,8 @@ def initiateLoginProcess():
 def generateNewUUIDForDevice():
     return jsonify({"Response": str(uuid4())})
 
-@application.route("/dashboard", methods = ["GET"])
+@application.route("/user/dashboard", methods = ["GET"])
+@cache.cached(timeout=3600)
 def serveDashboardPage():
     return render_template("DashboardPage.html")
 
@@ -145,3 +147,55 @@ def checkDeviceAuthorization(uid: str) -> bool:
             return False
     except Exception:
         return False
+    
+@application.route("/api/cards", methods = ["POST"])
+def cardsJSONDataServe():
+    try:
+        data: dict = request.json
+        if not checkDeviceAuthorization(data.get("uid")):
+            return jsonify({"Response": "Unauthorized Device"})
+        documents = firestore.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
+        cards = {}
+        for doc in documents:
+            cards[doc.id] = doc.to_dict()
+        return jsonify({"Response": cards})
+    except Exception:
+        return jsonify({"Response": {}})
+    
+@application.route("/user/manage", methods = ["GET", "POST"])
+def serveAccountManagementPage():
+    if (request.method == "GET"):
+        return render_template("ManageAccount.html")
+    else:
+        try:
+            data: dict = request.json
+            user: UserRecord = get_user_by_email(data.get("email"))
+            devices = firestore.collection("Devices").where(filter=FieldFilter("`User Email`", "==", data.get("email"))).stream()
+            cards = firestore.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
+            devLen: int = 0
+            cardsLen: int = 0
+            for _ in devices:
+                devLen += 1
+            for _ in cards:
+                cardsLen += 1
+            return jsonify({"Response": {
+                "Name": user.display_name,
+                "Cards": cardsLen,
+                "Devices": devLen
+            }})
+        except Exception:
+            return jsonify({"Response": "Error"})
+
+@application.route("/api/logout", methods = ["POST"])
+def logOutUser():
+    try:
+        data: dict = request.json
+        reference = firestore.collection("Devices").document(data.get("uid"))
+        fetch = reference.get()
+        if (fetch.exists):
+            reference.delete()
+            return jsonify({"Response": "S"})
+        else:
+            raise Exception
+    except Exception:
+        return jsonify({"Response": "F"})
