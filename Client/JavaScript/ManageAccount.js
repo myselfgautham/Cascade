@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => {
         let res = data["Response"];
+        document.getElementById("vendors").innerHTML = res["Vendors"];
         document.getElementById("userName").innerHTML = res["Name"];
         document.getElementById("devices").innerHTML = res["Devices"];
         document.getElementById("cardsCount").innerHTML = res["Cards"];

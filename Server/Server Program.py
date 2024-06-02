@@ -17,11 +17,12 @@ from firebase_admin.auth import (
     create_user,
     PhoneNumberAlreadyExistsError,
     EmailAlreadyExistsError,
-    get_user_by_email
+    get_user_by_email,
+    UserNotFoundError
 )
 from uuid import uuid4
 from firebase_admin._user_mgt import UserRecord
-from firebase_admin.firestore import client
+from firebase_admin import firestore
 from datetime import datetime
 from datetime import UTC
 from google.cloud.firestore import FieldFilter
@@ -48,7 +49,7 @@ firebaseConfig = {
 }
 authentication = pyrebaseSDK(config=firebaseConfig).auth()
 firebase = initialize_app(credentials)
-firestore = client(app=firebase)
+db = firestore.client(app=firebase)
 
 def isStrongPassword(password: str) -> bool:
     if (len(password) < 8):
@@ -115,7 +116,7 @@ def initiateLoginProcess():
                 password=data.get("password")
             )
             user: UserRecord = get_user_by_email(data.get("email"))
-            firestore.collection("Devices").document(data.get("uid")).set({
+            db.collection("Devices").document(data.get("uid")).set({
                 "Device UID": data.get("uid"),
                 "User Email": data.get("email"),
                 "User Account": user.uid,
@@ -140,7 +141,7 @@ def serveDashboardPage():
 
 def checkDeviceAuthorization(uid: str) -> bool:
     try:
-        doc_ref = firestore.collection("Devices").document(uid).get()
+        doc_ref = db.collection("Devices").document(uid).get()
         if (doc_ref.exists):
             return True
         else:
@@ -154,7 +155,7 @@ def cardsJSONDataServe():
         data: dict = request.json
         if not checkDeviceAuthorization(data.get("uid")):
             return jsonify({"Response": "Unauthorized Device"})
-        documents = firestore.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
+        documents = db.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
         cards = {}
         for doc in documents:
             cards[doc.id] = doc.to_dict()
@@ -170,18 +171,23 @@ def serveAccountManagementPage():
         try:
             data: dict = request.json
             user: UserRecord = get_user_by_email(data.get("email"))
-            devices = firestore.collection("Devices").where(filter=FieldFilter("`User Email`", "==", data.get("email"))).stream()
-            cards = firestore.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
+            devices = db.collection("Devices").where(filter=FieldFilter("`User Email`", "==", data.get("email"))).stream()
+            cards = db.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
             devLen: int = 0
             cardsLen: int = 0
+            vendors = set()
             for _ in devices:
                 devLen += 1
-            for _ in cards:
+            for card in cards:
                 cardsLen += 1
+                vendor: str = card.get("Vendor")
+                if vendor not in vendors:
+                    vendors.add(vendor)
             return jsonify({"Response": {
                 "Name": user.display_name,
                 "Cards": cardsLen,
-                "Devices": devLen
+                "Devices": devLen,
+                "Vendors": len(vendors)
             }})
         except Exception:
             return jsonify({"Response": "Error"})
@@ -190,7 +196,7 @@ def serveAccountManagementPage():
 def logOutUser():
     try:
         data: dict = request.json
-        reference = firestore.collection("Devices").document(data.get("uid"))
+        reference = db.collection("Devices").document(data.get("uid"))
         fetch = reference.get()
         if (fetch.exists):
             reference.delete()
@@ -199,3 +205,21 @@ def logOutUser():
             raise Exception
     except Exception:
         return jsonify({"Response": "F"})
+    
+@application.route("/cards/share", methods = ["GET", "POST"])
+def shareCardUIAndEndpoint():
+    if request.method == "GET":
+        return render_template("ShareCard.html")
+    else:
+        try:
+            get_user_by_email(request.json.get("email"))
+            if not (checkDeviceAuthorization(request.json.get("uid"))):
+                raise Exception("Invalid Device")
+            db.collection("Cards").document(request.json.get("card")).update({
+                "Owners": firestore.ArrayUnion([request.json.get("email")])
+            })
+            return jsonify({"Response": "Added"})
+        except UserNotFoundError:
+            return jsonify({"Response": "User Not Found"})
+        except Exception:
+            return jsonify({"Response": "Card Share Failed"})
