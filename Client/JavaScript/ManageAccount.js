@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
         logout.addEventListener("click", () => {
             if (confirm("Are You Sure You Want To Sign Out ?\nIf You Sign Out You Will Have To Login Again"))
             {
+                let notifier = document.getElementById("notifierx");
+                document.getElementById("notifierContent").innerHTML = "Signing Out";
+                document.getElementById("cox").setAttribute("name", "log-out-outline");
+                notifier.style.display = "flex";
                 fetch("/api/logout", {
                     method: "POST",
                     headers: {

@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data['Response']);
         document.getElementById("loaderWrapper").style.display = "none";
         if (Object.keys(data["Response"]).length === 0)
         {
