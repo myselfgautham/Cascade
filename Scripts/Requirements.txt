@@ -4,3 +4,4 @@ Flask-Compress
 pyrebase4
 firebase-admin
 uuid
+gunicorn
