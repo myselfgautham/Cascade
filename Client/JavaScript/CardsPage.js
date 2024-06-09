@@ -58,10 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
     .catch(error => console.error("Error : ", error))
-    let card = document.getElementById("cards")
-    card.addEventListener("click", () => {
-        window.location.href = "/user/dashboard";
-    })
 })
 
 function setCardToView(index, data)
@@ -98,10 +94,6 @@ function setCardToView(index, data)
         document.getElementById("verification").style.display = "none";
     }
     document.getElementById("container").style.display = "flex";
-}
-
-function routeToAccountPage() {
-    window.location.href = "/user/manage";
 }
 
 function sharePage() {

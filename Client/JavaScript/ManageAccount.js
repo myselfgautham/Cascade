@@ -20,14 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('loaderWrapper').style.display = "none";
             document.getElementById("idk").style.display = "flex";
         }, 400)
-        let cards = document.getElementById("cards");
-        cards.addEventListener('click', () => {
-            window.location.href = "/user/dashboard";
-        })
-        let acc = document.getElementById("acc");
-        acc.addEventListener("click", () => {
-            window.location.reload();
-        })
         let logout = document.getElementById("logout")
         logout.addEventListener("click", () => {
             if (confirm("Are You Sure You Want To Sign Out ?\nIf You Sign Out You Will Have To Login Again"))

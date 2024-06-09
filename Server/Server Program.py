@@ -26,6 +26,7 @@ from firebase_admin import firestore
 from datetime import datetime
 from datetime import UTC
 from google.cloud.firestore import FieldFilter
+from psutil import cpu_percent
 
 application: Flask = Flask(__name__)
 application.static_folder = "../Client/"
@@ -223,3 +224,15 @@ def shareCardUIAndEndpoint():
             return jsonify({"Response": "User Not Found"})
         except Exception:
             return jsonify({"Response": "Card Share Failed"})
+        
+@application.route("/api/cpu", methods = ["POST"])
+def returnSystemWideCPUUsage():
+    return jsonify({
+        "Response": {
+            "CPU Usage": int(cpu_percent(
+                interval=0.5,
+                percpu=False
+            )),
+            "Cores Usage": [(int(x)) for x in cpu_percent(interval=0.5, percpu=True)]
+        }
+    })
