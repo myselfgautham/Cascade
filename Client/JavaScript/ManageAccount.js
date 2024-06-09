@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("vendors").innerHTML = res["Vendors"];
         document.getElementById("userName").innerHTML = res["Name"];
         document.getElementById("devices").innerHTML = res["Devices"];
+        document.getElementById("nodes").innerHTML = res["Nodes"];
         document.getElementById("cardsCount").innerHTML = res["Cards"];
         document.getElementById("avatar").setAttribute("src", `https://api.dicebear.com/8.x/initials/svg?seed=${res["Name"]}`)
         setTimeout(() => {

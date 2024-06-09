@@ -174,7 +174,9 @@ def serveAccountManagementPage():
             user: UserRecord = get_user_by_email(data.get("email"))
             devices = db.collection("Devices").where(filter=FieldFilter("`User Email`", "==", data.get("email"))).stream()
             cards = db.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
+            nodes = db.collection("Nodes").where(filter=FieldFilter("`User Email`", "==", data.get("email"))).stream()
             devLen: int = 0
+            nodesLen = 0
             cardsLen: int = 0
             vendors = set()
             for _ in devices:
@@ -184,11 +186,14 @@ def serveAccountManagementPage():
                 vendor: str = card.get("Vendor")
                 if vendor not in vendors:
                     vendors.add(vendor)
+            for _ in nodes:
+                nodesLen += 1
             return jsonify({"Response": {
                 "Name": user.display_name,
                 "Cards": cardsLen,
                 "Devices": devLen,
-                "Vendors": len(vendors)
+                "Vendors": len(vendors),
+                "Nodes": nodesLen
             }})
         except Exception:
             return jsonify({"Response": "Error"})
