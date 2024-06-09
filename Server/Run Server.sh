@@ -8,6 +8,8 @@ HOST=$(hostname -I | cut -d' ' -f1)
 SERVER="IND1 Server"
 
 python3.12 "Register Server.py" "$SERVER" "$PORT"
+sleep 1
+clear
 
 gunicorn -w $CORES \
 --certfile=$CERT \
