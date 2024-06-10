@@ -7,6 +7,7 @@ from socket import (
     gethostbyname,
     gethostname
 )
+from flask_compress import Compress
 
 application = Flask(__name__)
 application.static_folder = "../Content/"
@@ -18,6 +19,7 @@ cache = Cache(
         "CACHE_DEFAULT_TIMEOUT": 300
     }
 )
+Compress(app=application)
 
 @cache.cached(timeout=None)
 @application.route("/", methods = ["GET"])
