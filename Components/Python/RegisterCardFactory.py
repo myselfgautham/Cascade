@@ -8,7 +8,7 @@ from firebase_admin._user_mgt import UserRecord
 from datetime import datetime
 from datetime import UTC
 
-credentials: Certificate = Certificate("../Certificates/Firebase.json")
+credentials: Certificate = Certificate("../../Certificates/Firebase.json")
 firebase = initialize_app(credentials)
 db = firestore.client(firebase)
 serial = pyserial.Serial(
@@ -28,7 +28,8 @@ def issueCardToUser(Email: str, ActivationCode: str, CardUid: str) -> None:
             "User Identifier": user.uid,
             "User Phone Number": user.phone_number,
             "User Real Name": user.display_name,
-            "Issued On": datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S UTC")
+            "Issued On": datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S UTC"),
+            "Activated": False
         })
         print("\033[92mCard Issued Successfully\033[0m\n")
     except Exception:
