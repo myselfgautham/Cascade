@@ -1,3 +1,4 @@
+# Packages Imports
 from flask import (
     Flask,
     render_template,
@@ -28,6 +29,7 @@ from datetime import UTC
 from google.cloud.firestore import FieldFilter
 from psutil import cpu_percent
 
+# Application Configuration
 application: Flask = Flask(__name__)
 application.static_folder = "../Client/"
 application.template_folder = "../Client/HTML/"
@@ -37,6 +39,7 @@ cache: Cache = Cache(app=application, config={
     "CACHE_DEFAULT_TIMEOUT": 300
 })
 
+# Firebase Admin SDK Setup
 credentials = Certificate("../Certificates/Firebase.json")
 firebaseConfig = {
   "apiKey": "AIzaSyCDyvXeVLxNr3g8oYHu9EU1BU5pSofbpt8",
@@ -52,6 +55,7 @@ authentication = pyrebaseSDK(config=firebaseConfig).auth()
 firebase = initialize_app(credentials)
 db = firestore.client(app=firebase)
 
+# Password Strength Checker
 def isStrongPassword(password: str) -> bool:
     if (len(password) < 8):
         return False
@@ -65,6 +69,7 @@ def isStrongPassword(password: str) -> bool:
         return False
     return True
 
+# Customer Side Routes
 @cache.cached(timeout=None)
 @application.get("/")
 def serveHomePage():
@@ -140,6 +145,7 @@ def generateNewUUIDForDevice():
 def serveDashboardPage():
     return render_template("DashboardPage.html")
 
+# Device Authorization
 def checkDeviceAuthorization(uid: str) -> bool:
     try:
         doc_ref = db.collection("Devices").document(uid).get()
@@ -241,3 +247,9 @@ def returnSystemWideCPUUsage():
             "Cores Usage": [(int(x)) for x in cpu_percent(interval=0.5, percpu=True)]
         }
     })
+    
+# Enterprise Side Routes
+@application.route("/enterprise", methods = ["GET"])
+@cache.cached(timeout=None)
+def ServeEnterpriseHomePage():
+    return render_template("Enterprise : Home.html")
