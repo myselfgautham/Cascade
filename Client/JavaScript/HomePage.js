@@ -34,4 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
     }
+    let enterprise = document.getElementById("enterprise");
+    enterprise.addEventListener("click", () => {
+        window.location.href = "/enterprise";
+    })
 })
