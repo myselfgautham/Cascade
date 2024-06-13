@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "/account/login";
             }
         })
+        let enterprise = document.getElementById("enterprise");
+        enterprise.addEventListener("click", () => {
+            window.location.href = "/enterprise";
+        })
     }
-    let enterprise = document.getElementById("enterprise");
-    enterprise.addEventListener("click", () => {
-        window.location.href = "/enterprise";
-    })
 })
