@@ -5,12 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            email: localStorage.getItem("Email")
+            email: localStorage.getItem("Email"),
+            uid: localStorage.getItem("DeviceUID")
         })
     })
     .then(res => res.json())
     .then(data => {
         let res = data["Response"];
+        if (res === "Error") {
+            alert("Unauthorized Device Found\nPlease Clear Browser Data\nIf Issue Persists\nPlease Contact Support");
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 200);
+        }
         document.getElementById("vendors").innerHTML = res["Vendors"];
         document.getElementById("userName").innerHTML = res["Name"];
         document.getElementById("devices").innerHTML = res["Devices"];

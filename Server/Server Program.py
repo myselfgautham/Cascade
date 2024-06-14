@@ -146,11 +146,17 @@ def serveDashboardPage():
     return render_template("DashboardPage.html")
 
 # Device Authorization
-def checkDeviceAuthorization(uid: str) -> bool:
+def checkDeviceAuthorization(uid: str, email: str) -> bool:
     try:
-        doc_ref = db.collection("Devices").document(uid).get()
-        if (doc_ref.exists):
-            return True
+        document = db.collection("Devices").document(uid).get()
+        if (document.exists):
+            try:
+                if (document.to_dict().get("User Email") == email):
+                    return True
+                else:
+                    return False
+            except Exception:
+                return False
         else:
             return False
     except Exception:
@@ -160,7 +166,7 @@ def checkDeviceAuthorization(uid: str) -> bool:
 def cardsJSONDataServe():
     try:
         data: dict = request.json
-        if not checkDeviceAuthorization(data.get("uid")):
+        if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
             return jsonify({"Response": "Unauthorized Device"})
         documents = db.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
         cards = {}
@@ -176,6 +182,8 @@ def serveAccountManagementPage():
         return render_template("ManageAccount.html")
     else:
         try:
+            if not (checkDeviceAuthorization(request.json.get("uid"), request.json.get("email"))):
+                raise Exception("Unauthorized Device")
             data: dict = request.json
             user: UserRecord = get_user_by_email(data.get("email"))
             devices = db.collection("Devices").where(filter=FieldFilter("`User Email`", "==", data.get("email"))).stream()
@@ -225,7 +233,7 @@ def shareCardUIAndEndpoint():
     else:
         try:
             get_user_by_email(request.json.get("email"))
-            if not (checkDeviceAuthorization(request.json.get("uid"))):
+            if not (checkDeviceAuthorization(request.json.get("uid"), request.json.get("email"))):
                 raise Exception("Invalid Device")
             db.collection("Cards").document(request.json.get("card")).update({
                 "Owners": firestore.ArrayUnion([request.json.get("email")])
