@@ -1,0 +1,83 @@
+#selectedNode {
+    border: 2px solid #F97300;
+    padding: 8px;
+    border-radius: 13px;
+}
+
+.nodeCase > h2 {
+    color: white;
+    text-align: center;
+    font-size: calc(12px + 0.5vw);
+    font-family: sans-serif;
+    letter-spacing: 0.06rem;
+}
+
+.pleaseHelpMe {
+    padding-right: 8px;
+    border-right: 2px solid goldenrod;
+    flex-direction: column;
+}
+
+.textInNode {
+    color: white;
+    font-size: calc(14px + 0.4vw);
+    letter-spacing: 0.07rem;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.ownerDetails {
+    margin-left: 8px;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#nodeName:hover {
+    color: #57A6A1;
+    cursor: pointer;
+}
+
+.container {
+    gap: 10px;
+    flex-direction: column;
+}
+
+.iconz {
+    color: white;
+    font-size: calc(32px + 0.4vw);
+}
+
+.iconz:hover {
+    color: yellow;
+}
+
+#controls {
+    gap: 10px;
+}
+
+.loaderWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+}
+
+.loader {
+    display: inline-block;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: spin 1s linear infinite;
+    width: 48px;
+    height: 48px;
+    border-bottom-color: transparent;
+}
+
+@keyframes spin {
+    from {
+        rotate: 0deg;
+    } to {
+        rotate: 360deg;
+    }
+}

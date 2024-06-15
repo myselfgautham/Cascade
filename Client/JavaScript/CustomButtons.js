@@ -9,3 +9,9 @@ let cards = document.getElementById("cards");
 cards.addEventListener('click', () => {
     window.location.href = "/user/dashboard";
 })
+
+// Nodes Manager Page
+let Nodes = document.getElementById("nodes");
+Nodes.addEventListener("click", () => {
+    window.location.href = "/user/nodes";
+})

@@ -1,0 +1,39 @@
+{% extends 'HomePage.html' %}
+{% block title %}
+<title>Swift | Account</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/CSS/NodesManager.css">
+{% endblock %}
+{% block icons %}
+<ion-icon class="icon" name="person-circle-outline" title="Manage Account" id="acc"></ion-icon>
+<ion-icon class="icon" name="analytics-outline" title="Manage Nodes" id="nodes"></ion-icon>
+<ion-icon class="icon" name="card-outline" title="Manage Cards" id="cards"></ion-icon>
+{% endblock %}
+{% block content %}
+<div class="container specialFlexBox" style="display: none;" id="container">
+    <div id="selectedNode" class="specialFlexBox">
+        <div class="specialFlexBox pleaseHelpMe">
+            <div class="nodeCase specialFlexBox" style="flex-direction: column;">
+                <img width="48" id="nodeLogo" height="48" src="https://img.icons8.com/fluency/48/bookmark-ribbon.png" alt="bookmark-ribbon"/>
+                <h2 id="nodeName">Cassandra<br>One</h2>
+            </div>
+        </div>
+        <div class="ownerDetails specialFlexBox">
+            <span id="name" class="textInNode">Gautham Krishna</span>
+            <span id="index" class="textInNode">1</span>
+        </div>
+    </div>
+    <div id="controls" class="specialFlexBox" style="display: none;">
+        <ion-icon name="arrow-back-circle-outline" class="iconz" id="prev"></ion-icon>
+        <ion-icon name="arrow-forward-circle-outline" class="iconz" id="fwd"></ion-icon>
+    </div>
+</div>
+<div class="loaderWrapper" id="loader">
+    <div class="loader"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/JavaScript/CustomButtons.js"></script>
+<script src="/static/JavaScript/NodeManager.js" defer></script>
+{% endblock %}
