@@ -39,7 +39,7 @@ cache: Cache = Cache(app=application, config={
     "CACHE_DEFAULT_TIMEOUT": 300
 })
 
-# Firebase Admin SDK Setup
+# Firebase Admin SDK & Pyrebase Setup
 credentials = Certificate("../Certificates/Firebase.json")
 firebaseConfig = {
   "apiKey": "AIzaSyCDyvXeVLxNr3g8oYHu9EU1BU5pSofbpt8",
@@ -69,12 +69,30 @@ def isStrongPassword(password: str) -> bool:
         return False
     return True
 
-# Customer Side Routes
+# Device Authorization
+def checkDeviceAuthorization(uid: str, email: str) -> bool:
+    try:
+        document = db.collection("Devices").document(uid).get()
+        if (document.exists):
+            try:
+                if (document.to_dict().get("User Email") == email):
+                    return True
+                else:
+                    return False
+            except Exception:
+                return False
+        else:
+            return False
+    except Exception:
+        return False
+
+# Customer Side Routes : Home
 @cache.cached(timeout=None)
 @application.get("/")
 def serveHomePage():
     return render_template("HomePage.html")
 
+# Create Account : Consumer
 @application.route("/account/create", methods = ["GET", "POST"])
 def createNewSwiftAccount():
     if (request.method == "GET"):
@@ -103,7 +121,8 @@ def createNewSwiftAccount():
         except Exception as e:
             print(f"\n{e}", end="\n\n")
             return jsonify({"Response": "Something Went Wrong"})
-        
+
+# Account Login : Consumer        
 @application.route("/account/login", methods = ["GET", "POST"])
 def initiateLoginProcess():
     if request.method == "GET":
@@ -135,33 +154,19 @@ def initiateLoginProcess():
             return jsonify({"Response": "Invalid Credentials"})
         except Exception:
             return jsonify({"Response": "Try Again Later"})
-        
+
+# Device UID API : POST
 @application.route("/api/device", methods = ["POST"])
 def generateNewUUIDForDevice():
     return jsonify({"Response": str(uuid4())})
 
+# Dashboard Page Serving
 @application.route("/user/dashboard", methods = ["GET"])
 @cache.cached(timeout=3600)
 def serveDashboardPage():
     return render_template("DashboardPage.html")
 
-# Device Authorization
-def checkDeviceAuthorization(uid: str, email: str) -> bool:
-    try:
-        document = db.collection("Devices").document(uid).get()
-        if (document.exists):
-            try:
-                if (document.to_dict().get("User Email") == email):
-                    return True
-                else:
-                    return False
-            except Exception:
-                return False
-        else:
-            return False
-    except Exception:
-        return False
-    
+# Consumer Cards API    
 @application.route("/api/cards", methods = ["POST"])
 def cardsJSONDataServe():
     try:
@@ -175,7 +180,8 @@ def cardsJSONDataServe():
         return jsonify({"Response": cards})
     except Exception:
         return jsonify({"Response": {}})
-    
+
+# Consumer Routes : Account Management Page    
 @application.route("/user/manage", methods = ["GET", "POST"])
 def serveAccountManagementPage():
     if (request.method == "GET"):
@@ -212,6 +218,7 @@ def serveAccountManagementPage():
         except Exception:
             return jsonify({"Response": "Error"})
 
+# Consumer APIs : Logout
 @application.route("/api/logout", methods = ["POST"])
 def logOutUser():
     try:
@@ -225,7 +232,8 @@ def logOutUser():
             raise Exception
     except Exception:
         return jsonify({"Response": "F"})
-    
+
+# Consumer Routes : Share Card    
 @application.route("/cards/share", methods = ["GET", "POST"])
 def shareCardUIAndEndpoint():
     if request.method == "GET":
@@ -243,7 +251,8 @@ def shareCardUIAndEndpoint():
             return jsonify({"Response": "User Not Found"})
         except Exception:
             return jsonify({"Response": "Card Share Failed"})
-        
+
+# Server Side CPU Usage API        
 @application.route("/api/cpu", methods = ["POST"])
 def returnSystemWideCPUUsage():
     return jsonify({
@@ -256,7 +265,7 @@ def returnSystemWideCPUUsage():
         }
     })
     
-# Enterprise Side Routes
+# Enterprise Side Routes : Home
 @application.route("/enterprise", methods = ["GET"])
 @cache.cached(timeout=None)
 def ServeEnterpriseHomePage():
