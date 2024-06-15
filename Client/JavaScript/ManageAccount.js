@@ -12,8 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => {
         let res = data["Response"];
-        if (res === "Error") {
+        if (res === "Unauthorized Device") {
             alert("Unauthorized Device Found\nPlease Clear Browser Data\nIf Issue Persists\nPlease Contact Support");
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 200);
+        } else if (res === "Error") {
+            alert("Something Went Wrong\nPlease Try Again\nIf Issue Persists Please Contact Support");
             setTimeout(() => {
                 window.location.href = "/";
             }, 200);

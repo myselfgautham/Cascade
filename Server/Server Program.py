@@ -132,7 +132,7 @@ def initiateLoginProcess():
             })
             return jsonify({"Response": "Login Completed"})
         except HTTPError:
-            raise jsonify({"Response": "Invalid Credentials"})
+            return jsonify({"Response": "Invalid Credentials"})
         except Exception:
             return jsonify({"Response": "Try Again Later"})
         
@@ -183,7 +183,7 @@ def serveAccountManagementPage():
     else:
         try:
             if not (checkDeviceAuthorization(request.json.get("uid"), request.json.get("email"))):
-                raise Exception("Unauthorized Device")
+                return jsonify({"Response": "Unauthorized Device"})
             data: dict = request.json
             user: UserRecord = get_user_by_email(data.get("email"))
             devices = db.collection("Devices").where(filter=FieldFilter("`User Email`", "==", data.get("email"))).stream()
@@ -234,7 +234,7 @@ def shareCardUIAndEndpoint():
         try:
             get_user_by_email(request.json.get("email"))
             if not (checkDeviceAuthorization(request.json.get("uid"), request.json.get("email"))):
-                raise Exception("Invalid Device")
+                return jsonify({"Response": "Unauthorized Device"})
             db.collection("Cards").document(request.json.get("card")).update({
                 "Owners": firestore.ArrayUnion([request.json.get("email")])
             })

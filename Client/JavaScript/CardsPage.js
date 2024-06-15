@@ -13,11 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => {
         document.getElementById("loaderWrapper").style.display = "none";
-        if (Object.keys(data["Response"]).length === 0)
-        {
-            document.getElementById("nothing").style.display = "flex";
-        } else if (data["Response"] === "Unauthorized Device") {
+        if (data["Response"] === "Unauthorized Device") {
             window.location.href = "/account/login";
+        } else if (Object.keys(data["Response"]).length === 0) {
+            document.getElementById("nothing").style.display = "flex";
         } else if (Object.keys(data["Response"]).length === 1) {
             document.getElementById("controls").style.visibility = "hidden";
         }
