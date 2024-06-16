@@ -1,0 +1,29 @@
+name: Python Server Program Test
+run-name: ${{ github.actor }} Is Testing Server Program 🚀
+on: [push]
+jobs:
+  Server-Program-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Actions Pipeline Triggered"
+      - run: echo "🐧 Running On A Linux Server"
+      - uses: actions/checkout@v4
+      - name: Initialize Python Environment
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          cd "${{ github.workspace }}/Scripts/"
+          python -m pip install -r Requirements.txt
+          python -m pip install setuptools
+      - name: Test Server Application
+        run: |
+          cd "${{ github.workspace }}/Server/"
+          python "Server Program.py"
+      - name: Test Server Registrar
+        run: |
+          cd "${{ github.workspace }}/Server/"
+          python "Register Server.py" "Actions Server" "1920"
+      - run: echo "🍏 Execution Status => ${{ job.status }}"
