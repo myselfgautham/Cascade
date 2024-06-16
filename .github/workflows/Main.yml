@@ -17,7 +17,8 @@ jobs:
       - run: echo "🖥️ Executing Test"
       - name: Python Dependencies Install
         run: |
-          bash "${{ github.workspace }}/Scripts/Install Dependencies.sh"
+          cd "${{ github.workspace }}/Scripts/"
+          bash "Install Dependencies.sh"
       - name: Compile Server
         run: |
           cd "${{ github.workspace }}/Server/"
