@@ -270,3 +270,8 @@ def returnSystemWideCPUUsage():
 @cache.cached(timeout=None)
 def ServeEnterpriseHomePage():
     return render_template("Enterprise : Home.html")
+
+# 404 Error Handler
+@application.errorhandler(404)
+def serve404ErrorPage(_):
+    return render_template("PageNotFound.html")
