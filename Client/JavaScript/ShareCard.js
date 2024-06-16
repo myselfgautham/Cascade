@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("Data") === "\"Unauthorized Device\"") {
+        alert("Unauthorized Device Found\nPlease Clear Browser Data\nIf Issue Persists\nPlease Contact Support");
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 200)
+    }
+})
 let card = document.getElementById("number")
 let search = new URLSearchParams(window.location.search);
 console.log(search);

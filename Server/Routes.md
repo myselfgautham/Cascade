@@ -7,11 +7,11 @@
 * **/account/login** => Login Page => GET
 * **/account/login** => Login API => POST
 * **/api/device** => Device Identifier => POST
-* **/user/dashboard** => Dashboard Page => GET : _CSR_
-* **/api/cards** => Enrolled Cards => POST
-* **/user/manage** => Manage Account => GET & POST
+* **/user/dashboard** => Dashboard Page => GET : _CSR & Protected ( Cards API )_
+* **/api/cards** => Enrolled Cards => POST : _Protected_
+* **/user/manage** => Manage Account => GET & POST : _Protected_
 * **/api/logout** => Logout User => POST
-* **/cards/share** => Share Cards => GET & POST
+* **/cards/share** => Share Cards => GET & POST : _Protected_
 * **/api/cpu** => CPU Usage API => POST
 
 <h3>Enterprise Side Routes</h3>

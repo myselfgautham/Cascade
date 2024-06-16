@@ -8,7 +8,7 @@ from firebase_admin._user_mgt import UserRecord
 from datetime import datetime
 from datetime import UTC
 
-credentials: Certificate = Certificate("../../Certificates/Firebase.json")
+credentials: Certificate = Certificate("../Certificates/Firebase.json")
 firebase = initialize_app(credentials)
 db = firestore.client(firebase)
 serial = pyserial.Serial(
