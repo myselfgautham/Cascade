@@ -12,7 +12,7 @@
 <br>
 
 ### :sparkles: Projects Under This Repository :atom:
-* :card_file_box: Simple Cards Unifier
+* :card_file_box: Swift Cards Framework
 
 <br>
 
@@ -22,17 +22,16 @@
 > * Firebase Admin SDK ( *10.11.1* ) <br>
 > * Pyrebase4 Wrapper ( **4.8.0** ) <br>
 > * Python Hashlib ( **v3.12** ) <br>
-> * Twilio SendGrid ( **6.11.0** ) <br>
-> * Twilio Communications ( **v9.0.5** ) <br>
 > * Python Psutil ( **v5.9.8** ) <br>
-> * Flask CORS ( _v4.0.1_ ) <br>
 > * Flask Caching ( _v2.3.0_ ) <br>
-> * Bootstrap Icon CSS ( **v1.11** ) <br>
-> * Boxicons CSS ( **v2.1.4** )
+> * Flask Compress ( _v1.15_ ) <br>
+> * Firebase SDK ( _JavaScript_ ) <br>
+> * Firebase SDK ( _Android Java_ ) <br>
+> * PySerial ( _v3.5_ )
 
 <br>
 
-### :deciduous_tree: Developer & Tested Environment :man_technologist:
+### :deciduous_tree: Developing & Testing Environment :man_technologist:
 
 > * Python **3.12.1**
 > * TypeScript Compiler _2.7.2_
@@ -42,6 +41,7 @@
 > * Open JDK **1.80._362**
 > * Chrome **v124**
 > * Android API Level **34**
+> * Docker ( _Linux_ ) **24.0.2**
 
 <br>
 
@@ -76,6 +76,13 @@ Is Licensed Under **The GNU General Public License Version 3** <br>
 And The Disclosure Of Source<sup>**1**</sup> Is **Mandatory** Under **All Circumstances** <br>
 **Please Note The Above Before Using A Project Part Of This Repository** <br>
 <sup>**1**</sup> The Source Hereby Refers To This Repository (Parent Repository)
+
+<br>
+
+### :deciduous_tree: Branches Reference :scroll:
+
+> * **Production** => _Production Code_
+> * **Release** => _Contains Release Code_
 
 <br>
 

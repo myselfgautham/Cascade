@@ -5,3 +5,4 @@ pyrebase4
 firebase-admin
 uuid
 gunicorn
+psutil
