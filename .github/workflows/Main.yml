@@ -19,6 +19,7 @@ jobs:
         run: |
           cd "${{ github.workspace }}/Scripts/"
           python -m pip install -r ./Requirements.txt
+          sudo python -m pip install setuptools
       - name: Compile Server
         run: |
           cd "${{ github.workspace }}/Server/"
