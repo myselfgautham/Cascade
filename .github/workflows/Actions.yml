@@ -1,0 +1,22 @@
+name: GitHub Action Pipeline
+run-name: ${{ github.actor }} Is Testing The Application 🚀
+on: [push]
+jobs:
+  Test-Server-Program:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Server Program Test Initialized"
+      - run: echo "🐧 Running On ${{ runner.os }}"
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+      - run: echo "💡 ${{ github.repository }} Has Been Cloned"
+      - run: echo "🖥️ Executing Test"
+      - name: Python Setup
+        run: |
+          cd "${{ github.workspace }}/Scripts/Install Python.sh"
+          cd "${{ github.workspace }}/Scripts/Install Dependencies.sh"
+      - name: Compile Server
+        run: |
+          cd "${{ github.workspace }}/Server/"
+          python3.12 "Server Program.py"
+      - run: echo "🍏 The Execution Status Is ${{ job.status }}"
