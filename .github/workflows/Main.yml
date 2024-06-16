@@ -22,5 +22,5 @@ jobs:
       - name: Compile Server
         run: |
           cd "${{ github.workspace }}/Server/"
-          python3.12 "Server Program.py"
+          python "Server Program.py"
       - run: echo "🍏 The Execution Status Is ${{ job.status }}"
