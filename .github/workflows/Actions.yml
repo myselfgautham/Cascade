@@ -13,8 +13,8 @@ jobs:
       - run: echo "🖥️ Executing Test"
       - name: Python Setup
         run: |
-          cd "${{ github.workspace }}/Scripts/Install Python.sh"
-          cd "${{ github.workspace }}/Scripts/Install Dependencies.sh"
+          bash "${{ github.workspace }}/Scripts/Install Python.sh"
+          bash "${{ github.workspace }}/Scripts/Install Dependencies.sh"
       - name: Compile Server
         run: |
           cd "${{ github.workspace }}/Server/"
