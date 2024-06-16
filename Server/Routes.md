@@ -1,7 +1,7 @@
 <h1 align="right">Server Routes</h1>
 <h3>Customer Side Routes</h3>
 
-* **/** =>  Home Page => GET
+* **/** => Home Page => GET
 * **/account/create** => Create Account Page => GET
 * **/account/create** => Create Account API => POST
 * **/account/login** => Login Page => GET
@@ -17,3 +17,7 @@
 <h3>Enterprise Side Routes</h3>
 
 * **/enterprise** => Enterprise Home Page
+
+<h3>Exceptions Handled</h3>
+
+* **Error 404** => _PageNotFound.html_
