@@ -17,14 +17,13 @@ jobs:
           python -m pip install --upgrade pip
           cd "${{ github.workspace }}/Scripts/"
           python -m pip install -r Requirements.txt
-          python -m pip install pytest
           python -m pip install setuptools
       - name: Test Server Application
         run: |
           cd "${{ github.workspace }}/Server/"
-          pytest "Server Program.py"
+          python "Server Program.py"
       - name: Test Server Registrar
         run: |
           cd "${{ github.workspace }}/Server/"
-          pytest "Register Server.py"
+          python "Register Server.py" "Actions Server" "1920"
       - run: echo "🍏 Execution Status => ${{ job.status }}"
