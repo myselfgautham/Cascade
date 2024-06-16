@@ -18,6 +18,7 @@ jobs:
           cd "${{ github.workspace }}/Scripts/"
           python -m pip install -r Requirements.txt
           python -m pip install pytest
+          python -m pip install setuptools
       - name: Test Server Application
         run: |
           cd "${{ github.workspace }}/Server/"
