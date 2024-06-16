@@ -270,22 +270,3 @@ def returnSystemWideCPUUsage():
 @cache.cached(timeout=None)
 def ServeEnterpriseHomePage():
     return render_template("Enterprise : Home.html")
-
-# Nodes Manager : Page
-@application.route("/user/nodes", methods = ["GET", "POST"])
-def serveNodesManager():
-    if (request.method == "GET"):
-        return render_template("NodesManager.html")
-    else:
-        try:
-            if not (checkDeviceAuthorization(request.json.get("uid"), request.json.get("email"))):
-                return jsonify({"Response": "Unauthorized Device"})
-            user: UserRecord = get_user_by_email(request.json.get("email"))
-            result: dict = {}
-            result["Name"] = user.display_name
-            documents = db.collection("Nodes").where(filter=FieldFilter("`User Email`", "==", request.json.get("email"))).stream()
-            for doc in documents:
-                result[doc.id] = doc.to_dict()
-            return jsonify({"Response": result})
-        except Exception:
-            return jsonify({"Response": "Error"})
