@@ -9,18 +9,14 @@ jobs:
       - run: echo "🐧 Running On ${{ runner.os }}"
       - name: Checkout Repository Code
         uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+            python-version: '3.12'
       - run: echo "💡 ${{ github.repository }} Has Been Cloned"
       - run: echo "🖥️ Executing Test"
-      - name: Python Setup
+      - name: Python Dependencies Install
         run: |
-          sudo apt install -y build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev wget
-          wget https://www.python.org/ftp/python/3.12.1/Python-3.12.1.tgz
-          tar -xzf Python-3.12.1.tgz
-          cd Python-3.12.1 || exit 1
-          ./configure --enable-optimizations
-          make -j$(nproc)
-          sudo make altinstall
-          python3.12 --version
           bash "${{ github.workspace }}/Scripts/Install Dependencies.sh"
       - name: Compile Server
         run: |
