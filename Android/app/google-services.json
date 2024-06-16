@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "396909879457",
+    "project_id": "swiftjs-development",
+    "storage_bucket": "swiftjs-development.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396909879457:android:bab8eb198b2678636fd0e0",
+        "android_client_info": {
+          "package_name": "com.swift.swiftproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPRnlK2yGUVJ9hi3uijVng7LSpEluKHwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

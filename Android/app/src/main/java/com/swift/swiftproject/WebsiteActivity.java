@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class WebsiteActivity extends AppCompatActivity {
     WebView view;
-    String url = "https://192.168.19.200:1920";
+    String url = "https://neal.fun/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
