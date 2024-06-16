@@ -196,7 +196,7 @@ def serveAccountManagementPage():
             cards = db.collection("Cards").where(filter=FieldFilter("Owners", "array_contains", data.get("email"))).stream()
             nodes = db.collection("Nodes").where(filter=FieldFilter("`User Email`", "==", data.get("email"))).stream()
             devLen: int = 0
-            nodesLen = 0
+            nodesLen: int = 0
             cardsLen: int = 0
             vendors = set()
             for _ in devices:
