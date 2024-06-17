@@ -1,3 +1,5 @@
+let note = document.getElementById("note");
+
 let register = document.getElementById("register");
 register.addEventListener("click", () => {
     window.location.href = "/account/register";
@@ -16,6 +18,19 @@ submit.addEventListener("click", () => {
         })
     })
     .then(res => res.json())
-    .then(data => {})
+    .then(data => {
+        let result = data["Response"];
+        if (result == true) {
+            note.innerHTML = "Login Completed";
+            note.style.color = "green";
+        } else if (result == false) {
+            note.innerHTML = "Invalid Credentials";
+            note.style.color = "red";
+        } else {
+            note.innerHTML = result;
+            note.style.color = "red";
+        }
+        note.style.display = "block";
+    })
     .catch(error => console.error("Error : ", error))
 })

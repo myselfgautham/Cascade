@@ -1,3 +1,5 @@
+let note = document.getElementById("note")
+
 let login = document.getElementById("login");
 login.addEventListener("click", () => {
     window.location.href = "/account/login"
@@ -19,6 +21,14 @@ submit.addEventListener("click", () => {
         })
     })
     .then(res => res.json())
-    .then(data => {})
+    .then(data => {
+        note.innerHTML = data["Response"]
+        if (data["Response"] === "Account Created") {
+            note.style.color = "green"
+        } else {
+            note.style.color = "red";
+        }
+        note.style.display = "block";
+    })
     .catch(error => console.error("Error : ", error))
 })
