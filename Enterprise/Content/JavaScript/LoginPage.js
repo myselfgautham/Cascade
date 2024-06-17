@@ -52,6 +52,12 @@ submit.addEventListener("click", () => {
             if (result == true) {
                 note.innerHTML = "Login Completed";
                 note.style.color = "green";
+                localStorage.setItem("LoggedIn", "true");
+                localStorage.setItem("Email", document.getElementById("email").value);
+                localStorage.setItem("PreviouslyLoggedIn", "true");
+                setTimeout(() => {
+                    window.location.href = "/dashboard";
+                }, 400)
             } else if (result == false) {
                 note.innerHTML = "Invalid Credentials";
                 note.style.color = "red";

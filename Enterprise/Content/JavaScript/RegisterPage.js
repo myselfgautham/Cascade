@@ -59,6 +59,9 @@ submit.addEventListener("click", () => {
             note.innerHTML = data["Response"]
             if (data["Response"] === "Account Created") {
                 note.style.color = "green"
+                localStorage.setItem("LoggedIn", "true");
+                localStorage.setItem("Email", document.getElementById("email").value);
+                localStorage.setItem("PreviouslyLoggedIn", "true");
             } else {
                 note.style.color = "red";
             }

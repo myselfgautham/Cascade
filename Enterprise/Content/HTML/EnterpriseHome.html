@@ -42,7 +42,14 @@
             const negatives = new Set(["undefined", undefined, null, "null", "false", false])
             if (negatives.has(localStorage.getItem("LoggedIn"))) {
                 window.location.href = "/account/register";
-            } else {}
+            } else if (localStorage.getItem("Email") !== "") {
+                window.location.href = "/dashboard";
+            } else if (localStorage.getItem("PreviouslyLoggedIn") === "true")
+            {
+                window.location.href = "/account/login";
+            } else {
+                window.location.href = "/account/register";
+            }
         }
         function routeToHome() {
             window.location.href = "/";
