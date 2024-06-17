@@ -1,6 +1,7 @@
 from flask import (
     Flask,
-    render_template as Serve
+    render_template as Serve,
+    request
 )
 from flask_caching import Cache
 from flask_compress import Compress
@@ -25,7 +26,13 @@ def serveEnterpriseHomePage():
     return Serve("EnterpriseHome.html")
 
 # Account Creation Page
-@cache.cached(timeout=None)
-@application.route("/account/register")
+@application.route("/account/register", methods = ["GET", "POST"])
 def serveEnterpriseRegistrationPage():
-    return Serve("RegisterBusiness.html")
+    if (request.method == "GET"):
+        return Serve("RegisterBusiness.html")
+
+# Account Login Page
+@application.route("/account/login", methods = ["GET", "POST"])
+def serveEnterpriseLoginPage():
+    if (request.method == "GET"):
+        return Serve("BusinessLogin.html")

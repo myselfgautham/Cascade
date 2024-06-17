@@ -3,7 +3,7 @@
 <title>Swift Enterprise | Register</title>
 {% endblock %}
 {% block styles %}
-<link rel="stylesheet" href="/static/Styles/EnterpriseAccess.css">    
+<link rel="stylesheet" href="/static/Styles/EnterpriseAccess.css">
 {% endblock %}
 {% block content %}
 <div class="container specialFlexBox">
@@ -40,7 +40,7 @@
             </span>
         </div>
         <div class="notifier specialFlexBox">
-            <h3 id="note">{{ message }}</h3>
+            <h3 id="note"></h3>
         </div>
         <div class="submit specialFlexBox">
             <button class="iax" type="button" id="submit">Create</button>
@@ -48,4 +48,7 @@
         </div>
     </form>
 </div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/JavaScript/RegisterPage.js"></script>
 {% endblock %}

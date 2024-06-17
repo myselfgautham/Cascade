@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <div class="logo">
+        <div class="logo" onclick="routeToHome()">
             <img src="https://img.icons8.com/fluency/48/customer-insight.png" alt="Swift Enterprise Logo" height="48" width="48">
             <span>Swift Enterprise</span>
         </div>
@@ -44,9 +44,14 @@
                 window.location.href = "/account/register";
             } else {}
         }
+        function routeToHome() {
+            window.location.href = "/";
+        }
     </script>
     <script type="module" src="/static/JavaScript/Firebase.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>
