@@ -14,10 +14,6 @@
 * **/cards/share** => Share Cards => GET & POST : _Protected_
 * **/api/cpu** => CPU Usage API => POST
 
-<h3>Enterprise Side Routes</h3>
-
-* **/enterprise** => Enterprise Home Page
-
 <h3>Exceptions Handled</h3>
 
 * **Error 404** => _PageNotFound.html_

@@ -265,12 +265,6 @@ def returnSystemWideCPUUsage():
         }
     })
     
-# Enterprise Side Routes : Home
-@application.route("/enterprise", methods = ["GET"])
-@cache.cached(timeout=None)
-def ServeEnterpriseHomePage():
-    return render_template("Enterprise : Home.html")
-
 # 404 Error Handler
 @application.errorhandler(404)
 def serve404ErrorPage(_):
