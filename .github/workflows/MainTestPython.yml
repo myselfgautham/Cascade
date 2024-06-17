@@ -25,5 +25,9 @@ jobs:
       - name: Test Server Registrar
         run: |
           cd "${{ github.workspace }}/Server/"
-          python "Register Server.py" "Actions Server" "1920"
+          python "Register Server.py" "Actions Server" "3000"
+      - name: Test Enterprise Server
+        run: |
+          cd "${{ github.workspace }}/Enterprise/Server/"
+          python "Enterprise Server.py"
       - run: echo "🍏 Execution Status => ${{ job.status }}"
