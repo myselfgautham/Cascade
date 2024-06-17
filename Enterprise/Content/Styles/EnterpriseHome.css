@@ -75,6 +75,7 @@ header {
     display: block;
     transition: 0.3s;
     font-family: sans-serif;
+    cursor: pointer;
 }
 
 .overlay a:hover, .overlay a:focus, .close:hover {

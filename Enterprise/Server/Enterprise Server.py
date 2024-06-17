@@ -23,3 +23,9 @@ cache: Cache = Cache(
 @cache.cached(timeout=None)
 def serveEnterpriseHomePage():
     return Serve("EnterpriseHome.html")
+
+# Account Creation Page
+@cache.cached(timeout=None)
+@application.route("/account/register")
+def serveEnterpriseRegistrationPage():
+    return Serve("RegisterBusiness.html")

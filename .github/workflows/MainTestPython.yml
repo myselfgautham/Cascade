@@ -1,6 +1,6 @@
 name: Python Server Program Test
 run-name: ${{ github.actor }} Is Testing Server Program 🚀
-on: [push]
+on: [pull_request]
 jobs:
   Server-Program-Test:
     runs-on: ubuntu-latest
