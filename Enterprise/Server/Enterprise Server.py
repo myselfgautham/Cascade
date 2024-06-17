@@ -1,3 +1,4 @@
+# Flask Packages Import
 from flask import (
     Flask,
     render_template as Serve,
@@ -5,6 +6,13 @@ from flask import (
 )
 from flask_caching import Cache
 from flask_compress import Compress
+
+# Firebase Admin SDK Imports
+from firebase_admin import initialize_app
+from firebase_admin.credentials import Certificate
+from firebase_admin import App
+from firebase_admin.firestore import client as Firestore
+from google.cloud.firestore import Client
 
 # Application Configuration
 application: Flask = Flask(__name__)
@@ -18,6 +26,11 @@ cache: Cache = Cache(
         "CACHE_DEFAULT_TIMEOUT": 300
     }
 )
+
+# Firebase Admin Setup
+credentials: Certificate = Certificate("../../Certificates/Firebase.json")
+firebase: App = initialize_app(credential=credentials)
+database: Client = Firestore(app=firebase)
 
 # Enterprise Home Page
 @application.route("/", methods = ["GET"])
