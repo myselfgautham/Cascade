@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift | Enterprise</title>
+    <link rel="stylesheet" href="/static/Styles/EnterpriseHome.css" type="text/css">
+    <link rel="shortcut icon" href="https://img.icons8.com/fluency/48/customer-insight.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/fluency/48/customer-insight.png" alt="Swift Enterprise Logo" height="48" width="48">
+            <span>Swift Enterprise</span>
+        </div>
+        <span class="menu">
+            <i class='bx bx-menu' onclick="openNavigator()"></i>
+        </span>
+    </header>
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <i class='bx bx-x close' onclick="closeNavigation()"></i>
+        </div>
+    </div>
+    <script>
+        function openNavigator() {
+            document.getElementById("overlay").style.width = "100%";
+        }
+        function closeNavigation() {
+            document.getElementById("overlay").style.width = "0";
+        }
+    </script>
+</body>
+</html>
