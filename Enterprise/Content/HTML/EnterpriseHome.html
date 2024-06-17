@@ -26,12 +26,22 @@
     <div id="overlay" class="overlay">
         <div class="overlay-content">
             <a onclick="routeUserToRelatedPageConsole()">Console</a>
+            <a onclick="logOutUserSession()" id="logout" style="display: none;">Log Out</a>
             <i class='bx bx-x close' onclick="closeNavigation()"></i>
         </div>
     </div>
     {% block content %}
     {% endblock %}
     <script>
+        const negatives = new Set(["undefined", undefined, null, "null", "false", false, ""])
+        document.addEventListener("DOMContentLoaded", () => {
+            if (
+                (!negatives.has(localStorage.getItem("LoggedIn"))) &&
+                (!negatives.has(localStorage.getItem("Email")))
+            ) {
+                document.getElementById("logout").style.display = "block";
+            }
+        })
         function openNavigator() {
             document.getElementById("overlay").style.width = "100%";
         }
@@ -39,20 +49,28 @@
             document.getElementById("overlay").style.width = "0";
         }
         function routeUserToRelatedPageConsole() {
-            const negatives = new Set(["undefined", undefined, null, "null", "false", false])
-            if (negatives.has(localStorage.getItem("LoggedIn"))) {
-                window.location.href = "/account/register";
-            } else if (localStorage.getItem("Email") !== "") {
+            if (!negatives.has(localStorage.getItem("LoggedIn"))) {
                 window.location.href = "/dashboard";
-            } else if (localStorage.getItem("PreviouslyLoggedIn") === "true")
-            {
+            }
+            else if (!negatives.has(localStorage.getItem("PreviouslyLoggedIn"))) {
                 window.location.href = "/account/login";
-            } else {
+            }
+            else {
                 window.location.href = "/account/register";
             }
         }
         function routeToHome() {
             window.location.href = "/";
+        }
+        function logOutUserSession() {
+            if (confirm("Are You Sure You Want To Sign Out\nYou Will Have To Login Again\nAs Per Our Security Policies"))
+            {
+                localStorage.setItem("LoggedIn", undefined);
+                localStorage.setItem("Email", undefined);
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 200)
+            }
         }
     </script>
     <script type="module" src="/static/JavaScript/Firebase.js" defer></script>
