@@ -101,5 +101,5 @@ And The Disclosure Of Source<sup>**1**</sup> Is **Mandatory** Under **All Circum
 
 > Gautham Krishna V <br>
 > For Little Kites State Camp 2024 <br>
-> E Mail -> gauthamkrishnav@icloud.com <br>
+> EMail -> gauthamkrishnav@icloud.com <br>
 > GitHub -> @myselfgautham <br>
