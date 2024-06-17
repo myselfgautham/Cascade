@@ -39,4 +39,12 @@ public class WebsiteActivity extends AppCompatActivity {
         settings.setBuiltInZoomControls(false);
         view.loadUrl(url);
     }
+    @Override
+    public void onBackPressed() {
+        if (view.canGoBack() && view != null) {
+            view.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
