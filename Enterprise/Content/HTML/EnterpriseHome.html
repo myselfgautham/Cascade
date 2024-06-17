@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swift | Enterprise</title>
+    {% block title %}
+    <title>Swift Enterprise</title>
+    {% endblock %}
     <link rel="stylesheet" href="/static/Styles/EnterpriseHome.css" type="text/css">
     <link rel="shortcut icon" href="https://img.icons8.com/fluency/48/customer-insight.png" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/Styles/CommonStyles.css">
+    {% block styles %}
+    {% endblock %}
 </head>
 <body>
     <header>
-        <div class="logo">
+        <div class="logo" onclick="routeToHome()">
             <img src="https://img.icons8.com/fluency/48/customer-insight.png" alt="Swift Enterprise Logo" height="48" width="48">
             <span>Swift Enterprise</span>
         </div>
@@ -20,9 +25,12 @@
     </header>
     <div id="overlay" class="overlay">
         <div class="overlay-content">
+            <a onclick="routeUserToRelatedPageConsole()">Console</a>
             <i class='bx bx-x close' onclick="closeNavigation()"></i>
         </div>
     </div>
+    {% block content %}
+    {% endblock %}
     <script>
         function openNavigator() {
             document.getElementById("overlay").style.width = "100%";
@@ -30,6 +38,27 @@
         function closeNavigation() {
             document.getElementById("overlay").style.width = "0";
         }
+        function routeUserToRelatedPageConsole() {
+            const negatives = new Set(["undefined", undefined, null, "null", "false", false])
+            if (negatives.has(localStorage.getItem("LoggedIn"))) {
+                window.location.href = "/account/register";
+            } else if (localStorage.getItem("Email") !== "") {
+                window.location.href = "/dashboard";
+            } else if (localStorage.getItem("PreviouslyLoggedIn") === "true")
+            {
+                window.location.href = "/account/login";
+            } else {
+                window.location.href = "/account/register";
+            }
+        }
+        function routeToHome() {
+            window.location.href = "/";
+        }
     </script>
+    <script type="module" src="/static/JavaScript/Firebase.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>

@@ -1,0 +1,36 @@
+{% extends 'EnterpriseHome.html' %}
+{% block title %}
+<title>Swift Enterprise | Login</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/Styles/EnterpriseAccess.css">
+{% endblock %}
+{% block content %}
+<div class="container specialFlexBox">
+    <h1 class="mov">Business Log In</h1>
+    <form id="form">
+        <div class="TextBox specialFlexBox">
+            <span class="icon specialFlexBox">
+                <ion-icon name="mail-outline" class="esx"></ion-icon>
+                <input type="text" name="mail" id="email" placeholder="Business Email Address">
+            </span>
+        </div>
+        <div class="TextBox specialFlexBox">
+            <span class="icon specialFlexBox">
+                <ion-icon name="key-outline" class="esx"></ion-icon>
+                <input type="password" name="password" id="password" placeholder="Enter Your Password">
+            </span>
+        </div>
+        <div class="notifier specialFlexBox">
+            <h3 id="note"></h3>
+        </div>
+        <div class="submit specialFlexBox">
+            <button class="iax" type="button" id="submit">Login</button>
+            <button class="iax" type="button" id="register">Register</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/JavaScript/LoginPage.js" defer></script>
+{% endblock %}

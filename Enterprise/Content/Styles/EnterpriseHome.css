@@ -22,6 +22,9 @@ header {
     justify-content: center;
     align-items: center;
     padding-left: 8px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .logo > span {
@@ -75,6 +78,7 @@ header {
     display: block;
     transition: 0.3s;
     font-family: sans-serif;
+    cursor: pointer;
 }
 
 .overlay a:hover, .overlay a:focus, .close:hover {
