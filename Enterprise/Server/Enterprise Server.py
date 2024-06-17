@@ -111,12 +111,14 @@ def serveEnterpriseLoginPage():
                     value=data.get("email")
                 )).stream()
             ):
-                if (document == None):
+                if (document is None):
                     document = documents.to_dict()
                 else:
                     continue
-            if document == None:
+            if document is None:
                 return jsonify({"Response": "Account Doesn't Exist"})
+            elif document["Verified"] is False:
+                return jsonify({"Response": "Account Not Verified"})
             return jsonify({"Response": (hashUserPassword(data.get("password")) == document["Password Hash"])})
         except Exception:
             return jsonify({"Response": "Something Went Wrong"})
