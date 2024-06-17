@@ -18,7 +18,6 @@ jobs:
           cd "${{ github.workspace }}/Scripts/"
           python -m pip install -r Requirements.txt
           python -m pip install setuptools
-          python -m pip install pytest
       - name: Test Server Application
         run: |
           cd "${{ github.workspace }}/Server/"
@@ -30,5 +29,5 @@ jobs:
       - name: Test Enterprise Server
         run: |
           cd "${{ github.workspace }}/Enterprise/Server/"
-          pytest "Enterprise Server.py" -W ignore::DeprecationWarning
+          python "Enterprise Server.py"
       - run: echo "🍏 Execution Status => ${{ job.status }}"
