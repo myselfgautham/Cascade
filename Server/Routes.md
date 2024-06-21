@@ -13,6 +13,7 @@
 * **/api/logout** => Logout User => POST
 * **/cards/share** => Share Cards => GET & POST : _Protected_
 * **/api/cpu** => CPU Usage API => POST
+* **/static/{File Type}/{File Name}** => Static Files Route
 
 <h3>Exceptions Handled</h3>
 
