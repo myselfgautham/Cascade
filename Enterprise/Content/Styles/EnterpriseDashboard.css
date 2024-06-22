@@ -1,0 +1,68 @@
+.icon {
+    color: white;
+    font-size: calc(28px + 0.6vw);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 2px 2px 0 0;
+    padding: 8px 0 8px 0;
+    width: 0;
+    opacity: 0;
+    animation: footerShow 0.5s ease-in-out forwards;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+
+@keyframes footerShow {
+    from {
+        width: 0;
+        opacity: 0;
+    } to {
+        width: 100%;
+        opacity: 100%;
+    }
+}
+
+.icon:hover {
+    color: #78A083;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.text {
+    text-align: center;
+    font-size: calc(16px + 2vw);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.07rem;
+}
+
+span.inner {
+    color: #9B3922;
+}
+
+.supports {
+    padding-top: 8px;
+    transition: 1s linear;
+}
+
+.support {
+    color: white;
+    font-size: calc(18px + 0.6vw);
+}
+
+#python:hover {color: #FFDE57;}
+#nodejs:hover {color: #3C873A;}
+#javascript:hover {color: #F0DB4F;}
+#server:hover {color: #FF204E;}
+#docker:hover {color: #0175bf;}
+#android:hover {color: #3DDC84;}

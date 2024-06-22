@@ -26,7 +26,6 @@
     <div id="overlay" class="overlay">
         <div class="overlay-content">
             <a onclick="routeUserToRelatedPageConsole()">Console</a>
-            <a onclick="logOutUserSession()" id="logout" style="display: none;">Log Out</a>
             <i class='bx bx-x close' onclick="closeNavigation()"></i>
         </div>
     </div>
@@ -61,16 +60,6 @@
         }
         function routeToHome() {
             window.location.href = "/";
-        }
-        function logOutUserSession() {
-            if (confirm("Are You Sure You Want To Sign Out\nYou Will Have To Login Again\nAs Per Our Security Policies"))
-            {
-                localStorage.setItem("LoggedIn", undefined);
-                localStorage.setItem("Email", undefined);
-                setTimeout(() => {
-                    window.location.href = "/";
-                }, 200)
-            }
         }
     </script>
     <script type="module" src="/static/JavaScript/Firebase.js" defer></script>
