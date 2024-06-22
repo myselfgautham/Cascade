@@ -122,3 +122,9 @@ def serveEnterpriseLoginPage():
             return jsonify({"Response": (hashUserPassword(data.get("password")) == document["Password Hash"])})
         except Exception:
             return jsonify({"Response": "Something Went Wrong"})
+
+# Dashboard Page
+@application.route("/dashboard", methods = ["GET", "POST"])
+def serveEnterpriseDashboardPage():
+    if (request.method == "GET"):
+        return Serve("DashboardPage.html")
