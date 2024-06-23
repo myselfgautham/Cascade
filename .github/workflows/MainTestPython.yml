@@ -1,6 +1,12 @@
 name: Python Server Program Test
 run-name: ${{ github.actor }} Is Testing Server Program 🚀
-on: [pull_request]
+
+on:
+  pull_request:
+    branches: ["Production"]
+  push:
+    branches: ["Production"]
+
 jobs:
   Server-Program-Test:
     runs-on: ubuntu-latest
@@ -30,4 +36,10 @@ jobs:
         run: |
           cd "${{ github.workspace }}/Enterprise/Server/"
           python "Enterprise Server.py"
-      - run: echo "🍏 Execution Status = ${{ job.status }}"
+      - name: Print Test Result
+        run: |
+          if [ $"{{ job.status }}" = "success" ]; then \
+            echo "✅ Server Program Test Passed" \
+          else \
+            echo "❌ Server Program Test Failed" \
+          fi
