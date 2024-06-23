@@ -35,7 +35,7 @@ jobs:
       - name: Test Server Registrar
         run: |
           cd "${{ github.workspace }}/Server/"
-          python "Register Server.py" "Actions Server" "3000"
+          python "Register Server.py" "GitHub Actions Server" "3000"
 
       - name: Test Enterprise Server
         run: |
@@ -47,6 +47,7 @@ jobs:
           echo "👨‍💻 Test Result : ${{ job.status }}"
   
   Test-Android-Application:
+    needs: Server-Program-Test
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Actions Pipeline Triggered"
