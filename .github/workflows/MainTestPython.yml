@@ -38,8 +38,4 @@ jobs:
           python "Enterprise Server.py"
       - name: Print Test Result
         run: |
-          if [ $"{{ job.status }}" = "success" ]; then \
-            echo "✅ Server Program Test Passed" \
-          else \
-            echo "❌ Server Program Test Failed" \
-          fi
+          if [ $"{{ job.status }}" = "success" ]; then (echo "✅ Test Passed"); else (echo "❌ Test Failed) fi
