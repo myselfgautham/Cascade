@@ -166,7 +166,7 @@ def generateNewUUIDForDevice():
 def serveDashboardPage():
     return render_template("DashboardPage.html")
 
-# Consumer Cards API    
+# Consumer Cards Render API    
 @application.route("/api/cards", methods = ["POST"])
 def cardsJSONDataServe():
     try:
@@ -240,11 +240,11 @@ def shareCardUIAndEndpoint():
         return render_template("ShareCard.html")
     else:
         try:
-            get_user_by_email(request.json.get("email"))
+            get_user_by_email(request.json.get("party"))
             if not (checkDeviceAuthorization(request.json.get("uid"), request.json.get("email"))):
                 return jsonify({"Response": "Unauthorized Device"})
             db.collection("Cards").document(request.json.get("card")).update({
-                "Owners": firestore.ArrayUnion([request.json.get("email")])
+                "Owners": firestore.ArrayUnion([request.json.get("party")])
             })
             return jsonify({"Response": "Added"})
         except UserNotFoundError:
@@ -269,3 +269,37 @@ def returnSystemWideCPUUsage():
 @application.errorhandler(404)
 def serve404ErrorPage(_):
     return render_template("PageNotFound.html")
+
+# Nodes Manager Page
+@application.route("/user/nodes", methods = ["GET", "POST"])
+def serveNodesManagerPage():
+    if request.method == "GET":
+        return render_template("NodesPage.html")
+    else:
+        try:
+            data: dict = request.json
+            if not (checkDeviceAuthorization(data.get("uid"), data.get("email"))):
+                return jsonify({"Response": "Unauthorized Device"})
+            returnData: dict = dict()
+            dataFetched = db.collection("Nodes").where(filter=FieldFilter(
+                field_path="`User Email`",
+                op_string="==",
+                value=data.get("email")
+            )).stream()
+            for document in dataFetched:
+                returnData[document.id] = document.to_dict()
+            return jsonify({"Response": returnData})
+        except Exception:
+            return jsonify({"Response": "Error"})
+
+# Delete Cards API
+@application.route("/api/cards/delete", methods = ["POST"])
+def deleteCards():
+    try:
+        data: dict = request.json
+        if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
+            return jsonify({"Response": "Unauthorized Device"})
+        db.collection("Cards").document(data.get("card")).delete()
+        return jsonify({"Response": "Card Deleted"})
+    except Exception:
+        return jsonify({"Response": "Something Went Wrong"})

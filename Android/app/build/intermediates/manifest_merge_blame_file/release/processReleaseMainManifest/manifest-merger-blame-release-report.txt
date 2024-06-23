@@ -1,0 +1,347 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.swift.swiftproject"
+4    android:versionCode="1"
+5    android:versionName="1.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:5:5-67
+11-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->[com.google.firebase:firebase-config:22.0.0] /home/megkvc/.gradle/caches/transforms-3/1599b740b2fa1da8d22d7ef784d30d3b/transformed/firebase-config-22.0.0/AndroidManifest.xml:22:5-79
+12-->[com.google.firebase:firebase-config:22.0.0] /home/megkvc/.gradle/caches/transforms-3/1599b740b2fa1da8d22d7ef784d30d3b/transformed/firebase-config-22.0.0/AndroidManifest.xml:22:22-76
+13    <uses-permission android:name="android.permission.WAKE_LOCK" />
+13-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:24:5-68
+13-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:24:22-65
+14    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+14-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:25:5-79
+14-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:25:22-76
+15    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+15-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:26:5-88
+15-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:26:22-85
+16    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+16-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:27:5-82
+16-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:27:22-79
+17    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+17-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:26:5-110
+17-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:26:22-107
+18
+19    <permission
+19-->[androidx.core:core:1.13.0] /home/megkvc/.gradle/caches/transforms-3/8c00fa48d7a5ed079f443a08aed620e4/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+20        android:name="com.swift.swiftproject.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20-->[androidx.core:core:1.13.0] /home/megkvc/.gradle/caches/transforms-3/8c00fa48d7a5ed079f443a08aed620e4/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+21        android:protectionLevel="signature" />
+21-->[androidx.core:core:1.13.0] /home/megkvc/.gradle/caches/transforms-3/8c00fa48d7a5ed079f443a08aed620e4/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+22
+23    <uses-permission android:name="com.swift.swiftproject.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23-->[androidx.core:core:1.13.0] /home/megkvc/.gradle/caches/transforms-3/8c00fa48d7a5ed079f443a08aed620e4/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.13.0] /home/megkvc/.gradle/caches/transforms-3/8c00fa48d7a5ed079f443a08aed620e4/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+24
+25    <application
+25-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:6:5-26:19
+26        android:allowBackup="true"
+26-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:8:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.13.0] /home/megkvc/.gradle/caches/transforms-3/8c00fa48d7a5ed079f443a08aed620e4/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
+28        android:dataExtractionRules="@xml/data_extraction_rules"
+28-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:9:9-65
+29        android:extractNativeLibs="false"
+30        android:fullBackupContent="@xml/backup_rules"
+30-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:10:9-54
+31        android:icon="@mipmap/ic_launcher"
+31-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:11:9-43
+32        android:label="@string/app_name"
+32-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:12:9-41
+33        android:roundIcon="@mipmap/ic_launcher_round"
+33-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:13:9-54
+34        android:supportsRtl="true"
+34-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:14:9-35
+35        android:theme="@style/Theme.SwiftProject"
+35-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:15:9-50
+36        android:usesCleartextTraffic="true" >
+36-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:7:9-44
+37        <activity
+37-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:17:9-25:20
+38            android:name="com.swift.swiftproject.WebsiteActivity"
+38-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:18:13-44
+39            android:exported="true" >
+39-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:19:13-36
+40            <intent-filter>
+40-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:20:13-24:29
+41                <action android:name="android.intent.action.MAIN" />
+41-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:21:17-69
+41-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:21:25-66
+42
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:23:17-77
+43-->/home/megkvc/Desktop/Developer/Android/app/src/main/AndroidManifest.xml:23:27-74
+44            </intent-filter>
+45        </activity>
+46
+47        <service
+47-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:11:9-20:19
+48            android:name="com.google.firebase.components.ComponentDiscoveryService"
+48-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:12:13-84
+49            android:directBootAware="true"
+49-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+50            android:exported="false" >
+50-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:13:13-37
+51            <meta-data
+51-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:14:13-16:85
+52                android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfKtxRegistrar"
+52-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:15:17-112
+53                android:value="com.google.firebase.components.ComponentRegistrar" />
+53-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:16:17-82
+54            <meta-data
+54-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:17:13-19:85
+55                android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar"
+55-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:18:17-109
+56                android:value="com.google.firebase.components.ComponentRegistrar" />
+56-->[com.google.firebase:firebase-perf:21.0.1] /home/megkvc/.gradle/caches/transforms-3/409442c49d3e47ab5083bfcc45285e3f/transformed/firebase-perf-21.0.1/AndroidManifest.xml:19:17-82
+57            <meta-data
+57-->[com.google.firebase:firebase-crashlytics:19.0.1] /home/megkvc/.gradle/caches/transforms-3/227853ac63402924a82eb35a32eeb924/transformed/firebase-crashlytics-19.0.1/AndroidManifest.xml:15:13-17:85
+58                android:name="com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar"
+58-->[com.google.firebase:firebase-crashlytics:19.0.1] /home/megkvc/.gradle/caches/transforms-3/227853ac63402924a82eb35a32eeb924/transformed/firebase-crashlytics-19.0.1/AndroidManifest.xml:16:17-126
+59                android:value="com.google.firebase.components.ComponentRegistrar" />
+59-->[com.google.firebase:firebase-crashlytics:19.0.1] /home/megkvc/.gradle/caches/transforms-3/227853ac63402924a82eb35a32eeb924/transformed/firebase-crashlytics-19.0.1/AndroidManifest.xml:17:17-82
+60            <meta-data
+60-->[com.google.firebase:firebase-crashlytics:19.0.1] /home/megkvc/.gradle/caches/transforms-3/227853ac63402924a82eb35a32eeb924/transformed/firebase-crashlytics-19.0.1/AndroidManifest.xml:18:13-20:85
+61                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
+61-->[com.google.firebase:firebase-crashlytics:19.0.1] /home/megkvc/.gradle/caches/transforms-3/227853ac63402924a82eb35a32eeb924/transformed/firebase-crashlytics-19.0.1/AndroidManifest.xml:19:17-115
+62                android:value="com.google.firebase.components.ComponentRegistrar" />
+62-->[com.google.firebase:firebase-crashlytics:19.0.1] /home/megkvc/.gradle/caches/transforms-3/227853ac63402924a82eb35a32eeb924/transformed/firebase-crashlytics-19.0.1/AndroidManifest.xml:20:17-82
+63            <meta-data
+63-->[com.google.firebase:firebase-config:22.0.0] /home/megkvc/.gradle/caches/transforms-3/1599b740b2fa1da8d22d7ef784d30d3b/transformed/firebase-config-22.0.0/AndroidManifest.xml:29:13-31:85
+64                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.FirebaseRemoteConfigKtxRegistrar"
+64-->[com.google.firebase:firebase-config:22.0.0] /home/megkvc/.gradle/caches/transforms-3/1599b740b2fa1da8d22d7ef784d30d3b/transformed/firebase-config-22.0.0/AndroidManifest.xml:30:17-128
+65                android:value="com.google.firebase.components.ComponentRegistrar" />
+65-->[com.google.firebase:firebase-config:22.0.0] /home/megkvc/.gradle/caches/transforms-3/1599b740b2fa1da8d22d7ef784d30d3b/transformed/firebase-config-22.0.0/AndroidManifest.xml:31:17-82
+66            <meta-data
+66-->[com.google.firebase:firebase-config:22.0.0] /home/megkvc/.gradle/caches/transforms-3/1599b740b2fa1da8d22d7ef784d30d3b/transformed/firebase-config-22.0.0/AndroidManifest.xml:32:13-34:85
+67                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+67-->[com.google.firebase:firebase-config:22.0.0] /home/megkvc/.gradle/caches/transforms-3/1599b740b2fa1da8d22d7ef784d30d3b/transformed/firebase-config-22.0.0/AndroidManifest.xml:33:17-117
+68                android:value="com.google.firebase.components.ComponentRegistrar" />
+68-->[com.google.firebase:firebase-config:22.0.0] /home/megkvc/.gradle/caches/transforms-3/1599b740b2fa1da8d22d7ef784d30d3b/transformed/firebase-config-22.0.0/AndroidManifest.xml:34:17-82
+69            <meta-data
+69-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:37:13-39:85
+70                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+70-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:38:17-139
+71                android:value="com.google.firebase.components.ComponentRegistrar" />
+71-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:39:17-82
+72            <meta-data
+72-->[com.google.firebase:firebase-sessions:2.0.1] /home/megkvc/.gradle/caches/transforms-3/b1c1ed2564da8a34ec4870e6d61210a5/transformed/firebase-sessions-2.0.1/AndroidManifest.xml:29:13-31:85
+73                android:name="com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar"
+73-->[com.google.firebase:firebase-sessions:2.0.1] /home/megkvc/.gradle/caches/transforms-3/b1c1ed2564da8a34ec4870e6d61210a5/transformed/firebase-sessions-2.0.1/AndroidManifest.xml:30:17-117
+74                android:value="com.google.firebase.components.ComponentRegistrar" />
+74-->[com.google.firebase:firebase-sessions:2.0.1] /home/megkvc/.gradle/caches/transforms-3/b1c1ed2564da8a34ec4870e6d61210a5/transformed/firebase-sessions-2.0.1/AndroidManifest.xml:31:17-82
+75            <meta-data
+75-->[com.google.firebase:firebase-installations:18.0.0] /home/megkvc/.gradle/caches/transforms-3/4537022f256eb597629cbe68dcd58fdb/transformed/firebase-installations-18.0.0/AndroidManifest.xml:15:13-17:85
+76                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+76-->[com.google.firebase:firebase-installations:18.0.0] /home/megkvc/.gradle/caches/transforms-3/4537022f256eb597629cbe68dcd58fdb/transformed/firebase-installations-18.0.0/AndroidManifest.xml:16:17-130
+77                android:value="com.google.firebase.components.ComponentRegistrar" />
+77-->[com.google.firebase:firebase-installations:18.0.0] /home/megkvc/.gradle/caches/transforms-3/4537022f256eb597629cbe68dcd58fdb/transformed/firebase-installations-18.0.0/AndroidManifest.xml:17:17-82
+78            <meta-data
+78-->[com.google.firebase:firebase-installations:18.0.0] /home/megkvc/.gradle/caches/transforms-3/4537022f256eb597629cbe68dcd58fdb/transformed/firebase-installations-18.0.0/AndroidManifest.xml:18:13-20:85
+79                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+79-->[com.google.firebase:firebase-installations:18.0.0] /home/megkvc/.gradle/caches/transforms-3/4537022f256eb597629cbe68dcd58fdb/transformed/firebase-installations-18.0.0/AndroidManifest.xml:19:17-127
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[com.google.firebase:firebase-installations:18.0.0] /home/megkvc/.gradle/caches/transforms-3/4537022f256eb597629cbe68dcd58fdb/transformed/firebase-installations-18.0.0/AndroidManifest.xml:20:17-82
+81            <meta-data
+81-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/megkvc/.gradle/caches/transforms-3/e0ad905ea96fd2ee1009bc0197fb7699/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+82                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+82-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/megkvc/.gradle/caches/transforms-3/e0ad905ea96fd2ee1009bc0197fb7699/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+83                android:value="com.google.firebase.components.ComponentRegistrar" />
+83-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/megkvc/.gradle/caches/transforms-3/e0ad905ea96fd2ee1009bc0197fb7699/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+84            <meta-data
+84-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+85                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+85-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+86                android:value="com.google.firebase.components.ComponentRegistrar" />
+86-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+87            <meta-data
+87-->[com.google.firebase:firebase-abt:21.1.1] /home/megkvc/.gradle/caches/transforms-3/9a36b1e36a33fecf61de03d0bc08074e/transformed/firebase-abt-21.1.1/AndroidManifest.xml:12:13-14:85
+88                android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+88-->[com.google.firebase:firebase-abt:21.1.1] /home/megkvc/.gradle/caches/transforms-3/9a36b1e36a33fecf61de03d0bc08074e/transformed/firebase-abt-21.1.1/AndroidManifest.xml:13:17-109
+89                android:value="com.google.firebase.components.ComponentRegistrar" />
+89-->[com.google.firebase:firebase-abt:21.1.1] /home/megkvc/.gradle/caches/transforms-3/9a36b1e36a33fecf61de03d0bc08074e/transformed/firebase-abt-21.1.1/AndroidManifest.xml:14:17-82
+90            <meta-data
+90-->[com.google.firebase:firebase-datatransport:18.1.8] /home/megkvc/.gradle/caches/transforms-3/a3637ef92cb5081168c917645b252f38/transformed/firebase-datatransport-18.1.8/AndroidManifest.xml:27:13-29:85
+91                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+91-->[com.google.firebase:firebase-datatransport:18.1.8] /home/megkvc/.gradle/caches/transforms-3/a3637ef92cb5081168c917645b252f38/transformed/firebase-datatransport-18.1.8/AndroidManifest.xml:28:17-115
+92                android:value="com.google.firebase.components.ComponentRegistrar" />
+92-->[com.google.firebase:firebase-datatransport:18.1.8] /home/megkvc/.gradle/caches/transforms-3/a3637ef92cb5081168c917645b252f38/transformed/firebase-datatransport-18.1.8/AndroidManifest.xml:29:17-82
+93        </service>
+94
+95        <property
+95-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:30:9-32:61
+96            android:name="android.adservices.AD_SERVICES_CONFIG"
+96-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:31:13-65
+97            android:resource="@xml/ga_ad_services_config" />
+97-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/megkvc/.gradle/caches/transforms-3/e2d6d49ff7d1c1b3cca375271c9c71ae/transformed/play-services-measurement-api-22.0.1/AndroidManifest.xml:32:13-58
+98
+99        <service
+99-->[com.google.firebase:firebase-sessions:2.0.1] /home/megkvc/.gradle/caches/transforms-3/b1c1ed2564da8a34ec4870e6d61210a5/transformed/firebase-sessions-2.0.1/AndroidManifest.xml:22:9-25:40
+100            android:name="com.google.firebase.sessions.SessionLifecycleService"
+100-->[com.google.firebase:firebase-sessions:2.0.1] /home/megkvc/.gradle/caches/transforms-3/b1c1ed2564da8a34ec4870e6d61210a5/transformed/firebase-sessions-2.0.1/AndroidManifest.xml:23:13-80
+101            android:enabled="true"
+101-->[com.google.firebase:firebase-sessions:2.0.1] /home/megkvc/.gradle/caches/transforms-3/b1c1ed2564da8a34ec4870e6d61210a5/transformed/firebase-sessions-2.0.1/AndroidManifest.xml:24:13-35
+102            android:exported="false" />
+102-->[com.google.firebase:firebase-sessions:2.0.1] /home/megkvc/.gradle/caches/transforms-3/b1c1ed2564da8a34ec4870e6d61210a5/transformed/firebase-sessions-2.0.1/AndroidManifest.xml:25:13-37
+103
+104        <provider
+104-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+105            android:name="com.google.firebase.provider.FirebaseInitProvider"
+105-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+106            android:authorities="com.swift.swiftproject.firebaseinitprovider"
+106-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+107            android:directBootAware="true"
+107-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+108            android:exported="false"
+108-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+109            android:initOrder="100" />
+109-->[com.google.firebase:firebase-common:21.0.0] /home/megkvc/.gradle/caches/transforms-3/8bc4bcae2f0db4a47b9fb224b8b1497a/transformed/firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+110
+111        <receiver
+111-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:29:9-33:20
+112            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+112-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:30:13-85
+113            android:enabled="true"
+113-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:31:13-35
+114            android:exported="false" >
+114-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:32:13-37
+115        </receiver>
+116
+117        <service
+117-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:35:9-38:40
+118            android:name="com.google.android.gms.measurement.AppMeasurementService"
+118-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:36:13-84
+119            android:enabled="true"
+119-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:37:13-35
+120            android:exported="false" />
+120-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:38:13-37
+121        <service
+121-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:39:9-43:72
+122            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+122-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:40:13-87
+123            android:enabled="true"
+123-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:41:13-35
+124            android:exported="false"
+124-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:42:13-37
+125            android:permission="android.permission.BIND_JOB_SERVICE" />
+125-->[com.google.android.gms:play-services-measurement:22.0.1] /home/megkvc/.gradle/caches/transforms-3/af2712fa7237fc3f91637b6c938cfc60/transformed/play-services-measurement-22.0.1/AndroidManifest.xml:43:13-69
+126
+127        <uses-library
+127-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/megkvc/.gradle/caches/transforms-3/138374e2c90d0f5529c97116d557a34a/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:23:9-25:40
+128            android:name="android.ext.adservices"
+128-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/megkvc/.gradle/caches/transforms-3/138374e2c90d0f5529c97116d557a34a/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:24:13-50
+129            android:required="false" />
+129-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/megkvc/.gradle/caches/transforms-3/138374e2c90d0f5529c97116d557a34a/transformed/ads-adservices-1.0.0-beta05/AndroidManifest.xml:25:13-37
+130
+131        <provider
+131-->[androidx.emoji2:emoji2:1.3.0] /home/megkvc/.gradle/caches/transforms-3/eebffc097df074ad80bddd126891253c/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+132            android:name="androidx.startup.InitializationProvider"
+132-->[androidx.emoji2:emoji2:1.3.0] /home/megkvc/.gradle/caches/transforms-3/eebffc097df074ad80bddd126891253c/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+133            android:authorities="com.swift.swiftproject.androidx-startup"
+133-->[androidx.emoji2:emoji2:1.3.0] /home/megkvc/.gradle/caches/transforms-3/eebffc097df074ad80bddd126891253c/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+134            android:exported="false" >
+134-->[androidx.emoji2:emoji2:1.3.0] /home/megkvc/.gradle/caches/transforms-3/eebffc097df074ad80bddd126891253c/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+135            <meta-data
+135-->[androidx.emoji2:emoji2:1.3.0] /home/megkvc/.gradle/caches/transforms-3/eebffc097df074ad80bddd126891253c/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+136                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+136-->[androidx.emoji2:emoji2:1.3.0] /home/megkvc/.gradle/caches/transforms-3/eebffc097df074ad80bddd126891253c/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+137                android:value="androidx.startup" />
+137-->[androidx.emoji2:emoji2:1.3.0] /home/megkvc/.gradle/caches/transforms-3/eebffc097df074ad80bddd126891253c/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+138            <meta-data
+138-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/megkvc/.gradle/caches/transforms-3/28318cc9b19ac298e3bbd626338ae304/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+139                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+139-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/megkvc/.gradle/caches/transforms-3/28318cc9b19ac298e3bbd626338ae304/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+140                android:value="androidx.startup" />
+140-->[androidx.lifecycle:lifecycle-process:2.6.2] /home/megkvc/.gradle/caches/transforms-3/28318cc9b19ac298e3bbd626338ae304/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+141            <meta-data
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+142                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+143                android:value="androidx.startup" />
+143-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+144        </provider>
+145
+146        <meta-data
+146-->[com.google.android.gms:play-services-basement:18.3.0] /home/megkvc/.gradle/caches/transforms-3/82958e9218a70f46ff2e19c6a23ae848/transformed/play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+147            android:name="com.google.android.gms.version"
+147-->[com.google.android.gms:play-services-basement:18.3.0] /home/megkvc/.gradle/caches/transforms-3/82958e9218a70f46ff2e19c6a23ae848/transformed/play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+148            android:value="@integer/google_play_services_version" />
+148-->[com.google.android.gms:play-services-basement:18.3.0] /home/megkvc/.gradle/caches/transforms-3/82958e9218a70f46ff2e19c6a23ae848/transformed/play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+149
+150        <service
+150-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/megkvc/.gradle/caches/transforms-3/80f7f20aa1873ab67da34f58893df936/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:28:9-34:19
+151            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+151-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/megkvc/.gradle/caches/transforms-3/80f7f20aa1873ab67da34f58893df936/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:29:13-103
+152            android:exported="false" >
+152-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/megkvc/.gradle/caches/transforms-3/80f7f20aa1873ab67da34f58893df936/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:30:13-37
+153            <meta-data
+153-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/megkvc/.gradle/caches/transforms-3/80f7f20aa1873ab67da34f58893df936/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:31:13-33:39
+154                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+154-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/megkvc/.gradle/caches/transforms-3/80f7f20aa1873ab67da34f58893df936/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:32:17-94
+155                android:value="cct" />
+155-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/megkvc/.gradle/caches/transforms-3/80f7f20aa1873ab67da34f58893df936/transformed/transport-backend-cct-3.1.9/AndroidManifest.xml:33:17-36
+156        </service>
+157        <service
+157-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/megkvc/.gradle/caches/transforms-3/b95c4f8342f6106b74e7efe145eecbfd/transformed/transport-runtime-3.1.9/AndroidManifest.xml:26:9-30:19
+158            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+158-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/megkvc/.gradle/caches/transforms-3/b95c4f8342f6106b74e7efe145eecbfd/transformed/transport-runtime-3.1.9/AndroidManifest.xml:27:13-117
+159            android:exported="false"
+159-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/megkvc/.gradle/caches/transforms-3/b95c4f8342f6106b74e7efe145eecbfd/transformed/transport-runtime-3.1.9/AndroidManifest.xml:28:13-37
+160            android:permission="android.permission.BIND_JOB_SERVICE" >
+160-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/megkvc/.gradle/caches/transforms-3/b95c4f8342f6106b74e7efe145eecbfd/transformed/transport-runtime-3.1.9/AndroidManifest.xml:29:13-69
+161        </service>
+162
+163        <receiver
+163-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/megkvc/.gradle/caches/transforms-3/b95c4f8342f6106b74e7efe145eecbfd/transformed/transport-runtime-3.1.9/AndroidManifest.xml:32:9-34:40
+164            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+164-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/megkvc/.gradle/caches/transforms-3/b95c4f8342f6106b74e7efe145eecbfd/transformed/transport-runtime-3.1.9/AndroidManifest.xml:33:13-132
+165            android:exported="false" />
+165-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/megkvc/.gradle/caches/transforms-3/b95c4f8342f6106b74e7efe145eecbfd/transformed/transport-runtime-3.1.9/AndroidManifest.xml:34:13-37
+166        <receiver
+166-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+167            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+167-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+168            android:directBootAware="false"
+168-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+169            android:enabled="true"
+169-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+170            android:exported="true"
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+171            android:permission="android.permission.DUMP" >
+171-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+172            <intent-filter>
+172-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+173                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+173-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+173-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+174            </intent-filter>
+175            <intent-filter>
+175-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+176                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+176-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+176-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+177            </intent-filter>
+178            <intent-filter>
+178-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+179                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+179-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+179-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+180            </intent-filter>
+181            <intent-filter>
+181-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+182                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+182-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+182-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/megkvc/.gradle/caches/transforms-3/893f762e952ad8c56d7e30ab400a8b75/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+183            </intent-filter>
+184        </receiver>
+185    </application>
+186
+187</manifest>

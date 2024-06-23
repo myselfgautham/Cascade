@@ -45,6 +45,8 @@
 .option {
     color: white;
     font-size: calc(24px + 0.4vw);
+    cursor: pointer;
+    user-select: none;
 }
 
 .option:not(.option:last-child) {
@@ -70,4 +72,9 @@
 @keyframes spin {
     from {rotate: 0deg;}
     to {rotate: 360deg;}
+}
+
+#logout:hover {
+    color: #FF204E;
+    transition: 0.4s ease-in-out;
 }

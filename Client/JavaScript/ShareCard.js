@@ -51,7 +51,8 @@ document.getElementById("submit").addEventListener("click", () => {
             body: JSON.stringify({
                 uid: localStorage.getItem("DeviceUID"),
                 card: crx,
-                email: document.getElementById("mail").value
+                party: document.getElementById("mail").value,
+                email: localStorage.getItem("Email")
             })
         })
         .then(res => res.json())
