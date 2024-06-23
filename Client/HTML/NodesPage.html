@@ -1,0 +1,22 @@
+{% extends 'HomePage.html' %}
+{% block title %}
+<title>Swift | Linked Nodes</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/CSS/NodesPage.css">
+{% endblock %}
+{% block icons %}
+<ion-icon class="icon" name="person-circle-outline" title="Manage Account" id="acc"></ion-icon>
+<ion-icon class="icon" name="analytics-outline" title="Manage Nodes" id="nodes"></ion-icon>
+<ion-icon class="icon" name="card-outline" title="Manage Cards" id="cards"></ion-icon>
+{% endblock %}
+{% block content %}
+<div class="container specialFlexBox"></div>
+<div class="container specialFlexBox" id="loader">
+    <div class="loader"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/JavaScript/CustomButtons.js" defer></script>
+<script src="/static/JavaScript/NodesPage.js" defer></script>
+{% endblock %}
