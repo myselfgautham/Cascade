@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.swift.swiftproject.app-mergeReleaseResources-39:/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/home/megkvc/.gradle/caches/transforms-3/9fbbd232509463e69723d5e960a86667/transformed/appcompat-1.7.0/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}
