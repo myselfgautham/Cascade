@@ -30,4 +30,4 @@ jobs:
         run: |
           cd "${{ github.workspace }}/Enterprise/Server/"
           python "Enterprise Server.py"
-      - run: echo "🍏 Execution Status > ${{ job.status }}"
+      - run: echo "🍏 Execution Status = ${{ job.status }}"

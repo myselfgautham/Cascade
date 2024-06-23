@@ -23,5 +23,7 @@ jobs:
           cd "${{ github.workspace }}/Android/"
           chmod +x gradlew
       - name: Gradle Build Test
-        run: ./gradlew build
-      - run: echo "🍏 Execution Status > ${{ job.status }}"
+        run: |
+          cd "${{ github.workspace }}/Android/"
+          ./gradlew build
+      - run: echo "🍏 Execution Status = ${{ job.status }}"
