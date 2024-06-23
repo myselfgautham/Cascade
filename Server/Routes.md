@@ -14,6 +14,8 @@
 * **/cards/share** => Share Cards => GET & POST : _Protected_
 * **/api/cpu** => CPU Usage API => POST
 * **/static/{File Type}/{File Name}** => Static Files Route
+* **/user/nodes** => Linked Nodes Page => GET & POST
+* **/api/cards/delete** => Delete Cards => POST
 
 <h3>Exceptions Handled</h3>
 
