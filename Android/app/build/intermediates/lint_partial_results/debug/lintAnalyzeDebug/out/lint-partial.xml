@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.3.2" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.swift.swiftproject.WebsiteActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <entry
+            name="model"
+            string="attr[colorOnPrimary(R)],color[purple_200(U),purple_500(U),purple_700(U),teal_200(U),teal_700(U),black(U),white(U)],drawable[ic_launcher_background(U),ic_launcher_foreground(U)],id[main(D),website(U)],layout[activity_website(U)],mipmap[ic_launcher(U),ic_launcher_round(U)],string[app_name(U)],style[Theme_SwiftProject(U),Theme_MaterialComponents_DayNight_NoActionBar(R)],xml[data_extraction_rules(U),backup_rules(U)];d^8^9,e^8^9,10^11^2^3^7^4^5^6^0^1;;;"/>
+    </map>
+
+</incidents>
