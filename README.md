@@ -1,6 +1,9 @@
 <h1 align="right">:house_with_garden: Little Kites State Camp :earth_asia:
 <h1 align="right">:zap: Final Project :snowflake:
 
+### :vertical_traffic_light: GitHub Platform Status :desktop_computer:
+![Actions Workflow Status](https://github.com/myselfgautham/LKCamp2024/actions/workflows/ActionsTests.yml/badge.svg)
+
 ### :books: Project Details :atom:
 > :airplane: Project Count : 1<br>
 > :bookmark_tabs: Lookup IDs : 0x1<br>

@@ -1,5 +1,5 @@
-name: Python Server Program Test
-run-name: ${{ github.actor }} Is Testing Server Program 🚀
+name: GitHub Actions Tests
+run-name: ${{ github.actor }} Is Testing Programs On GitHub Actions 🚀
 
 on:
   pull_request:
