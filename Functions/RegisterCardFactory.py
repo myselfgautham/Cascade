@@ -21,6 +21,9 @@ def issueCardToUser(Email: str, ActivationCode: str, CardUid: str) -> None:
     try:
         user: UserRecord = get_user_by_email(Email)
         reference = db.collection("Nodes").document(CardUid)
+        if (reference.get().exists):
+            print("\033[91mCard Already Issued\nTry Again\033[0m\n")
+            return None
         reference.set({
             "Card Identifier": CardUid,
             "User Email": Email,
