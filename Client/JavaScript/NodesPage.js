@@ -20,6 +20,8 @@ fetch("/user/nodes", {
         setTimeout(() => {
             window.location.href = "/";
         }, 200);
+    } else {
+        const nodes = data["Response"];
     }
 })
 .catch(error => console.error("Error : ", error));

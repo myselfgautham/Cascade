@@ -1,5 +1,5 @@
+let index = 0;
 document.addEventListener("DOMContentLoaded", () => {
-    let index = 0;
     fetch("/api/cards", {
         method: "POST",
         headers: {
@@ -97,4 +97,28 @@ function setCardToView(index, data)
 
 function sharePage() {
     window.location.href = `/cards/share?card=${document.getElementById("cardNumber").innerText}`;
+}
+
+function removeCard() {
+    if (confirm("Are You Sure You Want To Delete This Card ?\nDeleted Cards Cannot Be Recovered"))
+    {
+        let data = JSON.parse(localStorage.getItem("Data"));
+        fetch("/api/cards/delete", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                uid: localStorage.getItem("DeviceUID"),
+                card: Object.keys(data)[index],
+                email: localStorage.getItem("Email")
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("notifierContent").innerHTML = data["Response"];
+            document.getElementById("notifierx").style.display = "flex";
+        })
+        .catch(error => console.error("Error : ", error))
+    }
 }

@@ -166,7 +166,7 @@ def generateNewUUIDForDevice():
 def serveDashboardPage():
     return render_template("DashboardPage.html")
 
-# Consumer Cards API    
+# Consumer Cards Render API    
 @application.route("/api/cards", methods = ["POST"])
 def cardsJSONDataServe():
     try:
@@ -291,3 +291,15 @@ def serveNodesManagerPage():
             return jsonify({"Response": returnData})
         except Exception:
             return jsonify({"Response": "Error"})
+
+# Delete Cards API
+@application.route("/api/cards/delete", methods = ["POST"])
+def deleteCards():
+    try:
+        data: dict = request.json
+        if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
+            return jsonify({"Response": "Unauthorized Device"})
+        db.collection("Cards").document(data.get("card")).delete()
+        return jsonify({"Response": "Card Deleted"})
+    except Exception:
+        return jsonify({"Response": "Something Went Wrong"})
