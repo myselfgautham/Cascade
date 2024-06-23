@@ -3,6 +3,7 @@
 
 ### :vertical_traffic_light: GitHub Platform Status :desktop_computer:
 ![Actions Workflow Status](https://github.com/myselfgautham/LKCamp2024/actions/workflows/ActionsTests.yml/badge.svg)
+![Firebase Badge](https://img.shields.io/badge/Powered_By-Firebase-577B8D?logo=firebase&logoColor=ffa611&logoSize=auto)
 
 ### :books: Project Details :atom:
 > :airplane: Project Count : 1<br>
