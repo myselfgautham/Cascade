@@ -13,29 +13,35 @@ jobs:
     steps:
       - run: echo "🎉 Actions Pipeline Triggered"
       - run: echo "🐧 Running On A Linux Server"
+
       - uses: actions/checkout@v4
       - name: Initialize Python Environment
         uses: actions/setup-python@v3
         with:
           python-version: "3.12"
+
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
           cd "${{ github.workspace }}/Scripts/"
           python -m pip install -r Requirements.txt
           python -m pip install setuptools
+
       - name: Test Server Application
         run: |
           cd "${{ github.workspace }}/Server/"
           python "Server Program.py"
+
       - name: Test Server Registrar
         run: |
           cd "${{ github.workspace }}/Server/"
           python "Register Server.py" "Actions Server" "3000"
+
       - name: Test Enterprise Server
         run: |
           cd "${{ github.workspace }}/Enterprise/Server/"
           python "Enterprise Server.py"
+
       - name: Print Test Result
         run: |
-          if [ $"{{ job.status }}" = "success" ]; then (echo "✅ Test Passed"); else (echo "❌ Test Failed) fi
+          echo "👨‍💻 Test Result : ${{ job.status }}"
