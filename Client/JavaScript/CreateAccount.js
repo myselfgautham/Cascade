@@ -1,5 +1,10 @@
 // Imports From Scripts
-import {inputFilterCheck} from "/static/JavaScript/Globals.js";
+import {
+    inputFilterCheck,
+    plausibleEmail,
+    isValidE164PhoneNumber,
+    isStrongPassword
+} from "/static/JavaScript/Globals.js";
 
 // Input Fields Of The Form
 let user = document.getElementById("name");
@@ -69,28 +74,6 @@ submit.addEventListener("click", () => {
         .catch(error => console.error(error));
     }
 })
-
-// Strong Password Test
-function isStrongPassword(password) {
-    return (
-      typeof password === 'string' &&
-      password.length >= 8 &&
-      /[0-9]/.test(password) &&
-      /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)
-    );
-}
-
-// Email Check
-function plausibleEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email)
-}
-
-// Valid E164 Phone Number Check
-function isValidE164PhoneNumber(phoneNumber) {
-    const e164Regex = /^\+[1-9]\d{1,14}$/;
-    return e164Regex.test(phoneNumber);
-}
 
 // Login Forwarding
 document.getElementById("login").addEventListener("click", () => {

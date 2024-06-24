@@ -1,9 +1,8 @@
 // Imports From Scripts
-import {inputFilterCheck} from "/static/JavaScript/Globals.js";
-
-// Email Regex And Test
-const emailRegex = new RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-const testEmail = (email) => emailRegex.test(email);
+import {
+    inputFilterCheck,
+    plausibleEmail
+} from "/static/JavaScript/Globals.js";
 
 // DOM Content Loaded
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Final Check Before Fetch
         if (note.innerHTML === "") {
             // Test Email
-            if (!testEmail(input[0].value)) {
+            if (!plausibleEmail(input[0].value)) {
                 note.innerHTML = "Enter A Valid Email";
                 note.style.display = "block";
             }

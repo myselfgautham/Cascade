@@ -1,11 +1,8 @@
 // Imports From Scripts
-import {inputFilterCheck} from "/static/JavaScript/Globals.js";
-
-// Email Test
-function plausibleEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email)
-}
+import {
+    inputFilterCheck,
+    plausibleEmail
+} from "/static/JavaScript/Globals.js";
 
 // Document Load Event Fired
 document.addEventListener("DOMContentLoaded", () => {
