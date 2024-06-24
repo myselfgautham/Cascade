@@ -1,3 +1,6 @@
+// Imports From Scripts
+import {inputFilterCheck} from "/static/JavaScript/Globals.js";
+
 // Input Fields Of The Form
 let user = document.getElementById("name");
 let email = document.getElementById("mail");
@@ -9,12 +12,8 @@ let span = document.getElementById("note");
 // Submit Clicked
 submit.addEventListener("click", () => {
     // Null Safety Check
-    if ( (user.value === "") ||
-        (email.value === "") ||
-        (phone.value === "") ||
-        (password.value === "")
-    ) {
-        span.innerText = "Please Fill In All Fields";
+    if (!inputFilterCheck()) {
+        span.innerHTML = "Please Fill In All Fields"
         span.style.display = "block";
     }
     // Strong Password Check

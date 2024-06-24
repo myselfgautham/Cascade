@@ -1,3 +1,12 @@
+// Imports From Scripts
+import {inputFilterCheck} from "/static/JavaScript/Globals.js";
+
+// Email Test
+function plausibleEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email)
+}
+
 // Document Load Event Fired
 document.addEventListener("DOMContentLoaded", () => {
     // Unauthorized Device ( Load Check I )
@@ -21,16 +30,14 @@ document.getElementById("submit").addEventListener("click", () => {
     let note = document.getElementById("note");
     note.style.color = "red";
     // Inputs Check
-    let inputs = document.querySelectorAll("input");
-    inputs.forEach((e) => {
-        if (e.value === "") {
-            note.innerHTML = "Please Fill In All Field";
-        }
-        else if (e.value === inputs[1].value) {
-            note.innerHTML = "";
-        }
+    if (!inputFilterCheck()) {
+        note.innerHTML = "Please Fill All Fields";
         note.style.display = "block";
-    })
+    } else if (!plausibleEmail(document.getElementById("mail").value)) {
+        note.innerHTML = "Please Enter A Valid Email";
+    } else {
+        note.innerHTML = ""; 
+    }
     note.style.display = "block";
     // Fetch Finalized
     if (note.innerHTML === "") {

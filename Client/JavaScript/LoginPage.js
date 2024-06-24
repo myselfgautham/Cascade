@@ -1,9 +1,14 @@
+// Imports From Scripts
+import {inputFilterCheck} from "/static/JavaScript/Globals.js";
+
 // Email Regex And Test
 const emailRegex = new RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
 const testEmail = (email) => emailRegex.test(email);
 
 // DOM Content Loaded
 document.addEventListener("DOMContentLoaded", () => {
+    // Input Fields
+    let input = document.querySelectorAll("input");
     // Route To Signup Page
     let btn = document.getElementById('route');
     btn.addEventListener('click', () => {
@@ -15,17 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Login Button Clicked
     login.addEventListener("click", () => {
         // Input Check
-        let input = document.querySelectorAll("input");
-        input.forEach((rax) => {
-            if (rax.value === "") {
-                note.innerHTML = "Please Fill In All Fields";
-                note.style.display = "block";
-            }
-            // Destroy Note If All Are Filled
-            else if (rax.value === input[1].value) {
-                note.innerHTML = "";
-            }
-        })
+        if (!inputFilterCheck()) {
+            note.innerHTML = "Please Fill All Fields";
+            note.style.display = "block";
+        } else {
+            note.innerHTML = ""; 
+        }
         // Final Check Before Fetch
         if (note.innerHTML === "") {
             // Test Email

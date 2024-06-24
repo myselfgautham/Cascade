@@ -7,6 +7,7 @@ KEY="../Certificates/key.pem"
 HOST=$(hostname -I | cut -d' ' -f1)
 SERVER="Main Server"
 
+clear
 python3.12 "Register Server.py" "$SERVER" "$PORT"
 sleep 1
 clear
