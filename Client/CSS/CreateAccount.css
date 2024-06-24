@@ -1,3 +1,4 @@
+/* Form Element */
 #form {
     padding: 10px;
     border-radius: 5px;
@@ -6,8 +7,10 @@
     gap: 10px;
 }
 
+/* Container */
 .container { flex-direction: column; }
 
+/* Form Heading */
 .mov {
     color: white;
     font-family: sans-serif;
@@ -17,14 +20,17 @@
     font-weight: 400;
 }
 
+/* Input TextBox Class */
 .TextBox {
     padding: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
 }
 
+/* Element Inside Text Box */
 .TextBox > .icon { height: 100%; }
 
+/* Input Common Style Override */
 input {
     border: none;
     outline: none;
@@ -34,10 +40,12 @@ input {
     margin-left: 8px;
 }
 
+/* Another Icons Class */
 .esx {
     font-size: calc(18px + 0.8vw) !important;
 }
 
+/* Buttons Class */
 .iax {
     outline: none;
     background-color: transparent;
@@ -50,10 +58,13 @@ input {
     font-family: Arial, sans-serif;letter-spacing: 0.09rem;
 }
 
+/* Flex Gap On Buttons */
 .submit { gap: 8px; }
 
+/* Pointer Cursor For User Interactivity */
 .submit > button { cursor: pointer; }
 
+/* Note / Return From Server */
 #note {
     display: none;
     color: #FF204E;
@@ -64,6 +75,7 @@ input {
     animation: shaking 0.3s ease-in-out;
 }
 
+/* Note Display Shaking Animation */
 @keyframes shaking {
     0% { transform: translateX(0) }
     25% { transform: translateX(5px) }
@@ -72,6 +84,7 @@ input {
     100% { transform: translateX(0) }
 }
 
+/* Forgot Password Button */
 #forgot {
     font-size: calc(8px + 0.6vw);
     color: white;
@@ -79,6 +92,8 @@ input {
     padding-right: 4px;
     cursor: pointer;
 }
+
+/* Its Hover Event */
 #forgot:hover {
     color: #34A853;
 }
