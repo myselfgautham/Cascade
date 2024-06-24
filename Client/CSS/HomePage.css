@@ -27,7 +27,7 @@
     gap: 8px;
 }
 
-/* Supported Platform Hover */
+/* Supported Platform Hover Clause */
 #python:hover {color: #FFDE57;}
 #nodejs:hover {color: #3C873A;}
 #javascript:hover {color: #F0DB4F;}
