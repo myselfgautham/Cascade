@@ -1,3 +1,4 @@
+/* Current Card */
 .current {
     box-sizing: border-box;
     border: 2px solid gold;
@@ -6,8 +7,10 @@
     padding: 8px;
 }
 
+/* Company Details */
 .company {justify-content: flex-start;}
 
+/* Company Name */
 .company > h3 {
     color: white;
     letter-spacing: 0.09rem;
@@ -17,6 +20,7 @@
     padding-left: 4px;
 }
 
+/* Labels For Fields */
 label {
     color: white;
     letter-spacing: 0.08rem;
@@ -25,12 +29,14 @@ label {
     white-space: nowrap;
 }
 
+/* Card Number Display */
 .numbers {
     flex-direction: column;
     align-items: flex-end;
     white-space: nowrap;
 }
 
+/* Common Span Styling */
 span {
     color: white;
     font-family: sans-serif;
@@ -39,28 +45,33 @@ span {
     white-space: nowrap;
 }
 
+/* Details Of Card */
 .details {
     padding-left: calc(52px + 1vw);
     padding-top: 4px;
 }
 
+/* The Dates */
 .from,
 .till {
     flex-direction: column;
     align-items: flex-end;
 }
 
+/* Validity Arrow */
 .arrow {
     font-size: calc(18px + 0.5vw);
     color: white;
 }
 
+/* Validity Division ( Flex ) */
 .validity {
     gap: 10px;
     padding-top: 8px;
     justify-content: flex-end;
 }
 
+/* Card Flags */
 .flags {
     padding-top: 5px;
     color: white;
@@ -68,34 +79,41 @@ span {
     gap: 2px;
 }
 
+/* Flag Icons */
 .flag > ion-icon
 {
     font-size: calc(18px + 0.4vw);
 }
 
+/* Custom Hover Clauses */
 ion-icon[name="timer-outline"]:hover {color: red;}
 ion-icon[name="person-circle-outline"]:hover {color: orange;}
 ion-icon[name="aperture-outline"]:hover {color: lightcoral;}
 ion-icon[name="people-circle-outline"]:hover {color: aquamarine;}
 
+/* Container Styling */
 .container {
     flex-direction: column;
     gap: 8px;
 }
 
+/* Controls */
 .controls {
     gap: 16px;
 }
 
+/* Control Icons */
 .controls > ion-icon {
     font-size: calc(28px + 0.8vw);
     color: white;
 }
 
+/* Hover Clause */
 .controls > ion-icon:hover {
     color: #577B8D;
 }
 
+/* Footer Section */
 footer {
     position: absolute;
     border-top: 2px solid rgba(255, 255, 255, 0.2);
@@ -105,17 +123,18 @@ footer {
     justify-content: space-around !important;
 }
 
+/* Footer Controls */
 footer > ion-icon {
     color: white;
     font-size: calc(24px + 0.6vw);
     padding: 8px 0 8px 0;
 }
 
-footer > ion-icon[name="add-outline"]:hover {color: #57A6A1;}
-footer > ion-icon[name="recording-outline"]:hover {color: #DBAFA0;}
+/* Footer Icons Hover Clauses */
 footer > ion-icon[name="remove-outline"]:hover {color: red;}
 footer > ion-icon[name="share-outline"]:hover {color: #F97300;}
 
+/* No Enrolled Cards Division */
 #nothing {
     color: white;
     flex-direction: column;
@@ -123,10 +142,12 @@ footer > ion-icon[name="share-outline"]:hover {color: #F97300;}
     box-sizing: border-box;
 }
 
+/* No Cards Icon */
 #nothing > ion-icon {
     font-size: calc(32px + 0.8vw);
 }
 
+/* No Cards Text */
 #nothing > h2 {
     font-family: sans-serif;
     letter-spacing: 0.09rem;
@@ -135,6 +156,7 @@ footer > ion-icon[name="share-outline"]:hover {color: #F97300;}
     white-space: nowrap;
 }
 
+/* Loader */
 .loader {
     display: inline-block;
     box-sizing: border-box;
@@ -146,6 +168,7 @@ footer > ion-icon[name="share-outline"]:hover {color: #F97300;}
     animation: spin 1s linear infinite;
 }
 
+/* Spin */
 @keyframes spin {
     from {rotate: 0deg;}
     to {rotate: 360deg;}

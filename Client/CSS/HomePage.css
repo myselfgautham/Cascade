@@ -1,5 +1,5 @@
+/* Container And Children Styles */
 .container {flex-direction: column;}
-
 .container > h2 {
     color: white;
     font-family: monospace;
@@ -7,10 +7,12 @@
     white-space: nowrap;
 }
 
+/* Branded Text */
 .branded {
     color: #34A853;
 }
 
+/* Container > Heading */
 .container > h3 {
     font-size: calc(9px + 2vw);
     color: white;
@@ -19,11 +21,13 @@
     padding-top: 8px;
 }
 
+/* Supported By */
 #supports {
     padding-top: 8px;
     gap: 8px;
 }
 
+/* Supported Platform Hover */
 #python:hover {color: #FFDE57;}
 #nodejs:hover {color: #3C873A;}
 #javascript:hover {color: #F0DB4F;}
