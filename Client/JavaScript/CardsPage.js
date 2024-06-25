@@ -1,5 +1,9 @@
+// Global Scope Index
 let index = 0;
+
+// DOM Loaded Event
 document.addEventListener("DOMContentLoaded", () => {
+    // Fetch Cards API
     fetch("/api/cards", {
         method: "POST",
         headers: {
@@ -12,23 +16,33 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(res => res.json())
     .then(data => {
+        // Set Response To User Side
         document.getElementById("loaderWrapper").style.display = "none";
+        // Unauthorized Device
         if (data["Response"] === "Unauthorized Device") {
             window.location.href = "/account/login";
         } else if (Object.keys(data["Response"]).length === 0) {
+            // No Cards
             document.getElementById("nothing").style.display = "flex";
         } else if (Object.keys(data["Response"]).length === 1) {
+            // Hide Controls If Only One Card Is There
             document.getElementById("controls").style.visibility = "hidden";
         }
+        // Set Item To Local Storage
         localStorage.setItem("Data", JSON.stringify(data["Response"]));
     })
     .then(_ => {
+        // Parse Data Stored
         let data = JSON.parse(localStorage.getItem("Data"));
+        // !Nothing Check
         if (document.getElementById("nothing").style.display === "none")
         {
+            // Set Card To View
             setCardToView(index, data);
+            // Controls
             let prev = document.getElementById("prev");
             let nxt = document.getElementById("next");
+            // Previous
             prev.addEventListener("click", () => {
                 if (index === 0) {
                     index = (Object.keys(data).length) - 1; 
@@ -37,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 setCardToView(index, data);
             })
+            // Next
             nxt.addEventListener("click", () => {
                 if (index === (Object.keys(data).length) - 1) {
                     index = 0;
@@ -45,20 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 setCardToView(index, data);
             })
+            // CVV Copy To Clipboard
             let cvv = document.getElementById("cvv");
             cvv.addEventListener("click", () => {
                 let value = data[Object.keys(data)[index]]["CVV"];
                 navigator.clipboard.writeText(String(value))
-            })
-            let cards = document.getElementById("cards")
-            cards.addEventListener("click", () => {
-                window.location.reload()
             })
         }
     })
     .catch(error => console.error("Error : ", error))
 })
 
+// Set Card To View On The Basis Of Index
 function setCardToView(index, data)
 {
     let keys = Object.keys(data);
@@ -95,14 +108,19 @@ function setCardToView(index, data)
     document.getElementById("container").style.display = "flex";
 }
 
+// Route To Share Page With Prefill
 function sharePage() {
     window.location.href = `/cards/share?card=${document.getElementById("cardNumber").innerText}`;
 }
 
+// Delete Card
 function removeCard() {
+    // Confirm
     if (confirm("Are You Sure You Want To Delete This Card ?\nDeleted Cards Cannot Be Recovered"))
     {
+        // Get Data From Storage
         let data = JSON.parse(localStorage.getItem("Data"));
+        // Fetch Deletion POST Endpoint
         fetch("/api/cards/delete", {
             method: "POST",
             headers: {

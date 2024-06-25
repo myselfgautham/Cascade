@@ -1,3 +1,4 @@
+// Reduction Of CLS Time
 window.addEventListener("load", () => {
     let clsSaves = [
         document.getElementById("links")
@@ -7,7 +8,9 @@ window.addEventListener("load", () => {
     })
 })
 
+// Document Object Model Content Load
 document.addEventListener("DOMContentLoaded", () => {
+    // Cookies Accepted Checking And Overlay
     if (localStorage.getItem("cookiesAccepted") === null)
     {
         let overlay = document.getElementById("overlay");
@@ -19,10 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.style.display = "none";
         })
     }
+    // Clicking On Logo Routes To Home Page
     let logo = document.getElementById("logo");
     logo.addEventListener("click", () => {
         window.location.href = "/";
     })
+    // Console Page Routing ( Error Free )
     if (!window.location.pathname.includes("/user")) {
         let console = document.getElementById("console");
         console.addEventListener("click", () => {

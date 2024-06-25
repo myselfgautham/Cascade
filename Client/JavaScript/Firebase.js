@@ -1,7 +1,9 @@
+// Firebase SDK Imports CDN
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
 import { getPerformance } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-performance.js";
 
+// Firebase Configuration ( Restricted Access )
 const firebaseConfig = {
     apiKey: "AIzaSyCDyvXeVLxNr3g8oYHu9EU1BU5pSofbpt8",
     authDomain: "swiftjs-development.firebaseapp.com",
@@ -12,6 +14,7 @@ const firebaseConfig = {
     measurementId: "G-REWZSYLBHN"
 };
 
+// Initialization Of Firebase Tools
 try {
     const application = initializeApp(firebaseConfig);
     const analytics = getAnalytics(application);
