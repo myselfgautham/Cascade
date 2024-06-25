@@ -26,58 +26,42 @@ class Server(object):
     def RegisterServer(self) -> bool:
         with open("../Certificates/Server.json", "r", encoding="utf-8") as file:
             jsonData = json.load(file)
-            if "UID" not in jsonData:
-                jsonData["UID"] = str(uuid4())
+        if "UID" not in jsonData:
+            jsonData["UID"] = str(uuid4())
+            with open("../Certificates/Server.json", "w") as file:
+                json.dump(jsonData, file, ensure_ascii=False, indent=4)
+            return False
+        else:
+            data: dict = {
+                "`Host Address`": self.host,
+                "`Server Identifier`": jsonData.get("UID"),
+                "`Server Name`": self.name,
+                "`Server Port`": self.port,
+                "`Server Location`": jsonData.get("Location"),
+                "`Server Program Version`": jsonData.get("Version"),
+                "`Network Address`": jsonData.get("Network Address"),
+                "`Server Type`": jsonData.get("Type"),
+                "`Operating System`": system().title(),
+                "`System Release`": release(),
+                "`System Version`": version(),
+                "`Python Version`": python_version(),
+                "`Server Owner`": jsonData.get("Owner"),
+                "`Server Owner Email`": jsonData.get("Owner Email"),
+                "`Server Available`": jsonData.get("Available")
+            }
+            documentReference = db.collection("Servers").document(data["`Server Identifier`"])
+            if (documentReference.get().exists):
+                try:
+                    documentReference.update(field_updates=data)
+                    return True
+                except Exception:
+                    return False
             else:
-                docReference = db.collection("Servers").document(jsonData.get("UID"))
-                docReferenceGet = docReference.get()
-                if (docReferenceGet.exists):
-                    try:
-                        docReference.update({
-                            "`Host Address`": self.host,
-                            "`Server Identifier`": jsonData.get("UID"),
-                            "`Server Name`": self.name,
-                            "`Server Port`": self.port,
-                            "`Server Location`": jsonData.get("Location"),
-                            "`Server Program Version`": jsonData.get("Version"),
-                            "`Network Address`": jsonData.get("Network Address"),
-                            "`Server Type`": jsonData.get("Type"),
-                            "`Operating System`": system().title(),
-                            "`System Release`": release(),
-                            "`System Version`": version(),
-                            "`Python Version`": python_version(),
-                            "`Server Owner`": jsonData.get("Owner"),
-                            "`Server Owner Email`": jsonData.get("Owner Email"),
-                            "`Server Available`": jsonData.get("Available")
-                        })
-                        return True
-                    except Exception:
-                        return False
-                else:
-                    try:
-                        docReference.set({
-                            "`Host Address`": self.host,
-                            "`Server Identifier`": jsonData.get("UID"),
-                            "`Server Name`": self.name,
-                            "`Server Port`": self.port,
-                            "`Server Location`": jsonData.get("Location"),
-                            "`Server Program Version`": jsonData.get("Version"),
-                            "`Network Address`": jsonData.get("Network Address"),
-                            "`Server Type`": jsonData.get("Type"),
-                            "`Operating System`": system().title(),
-                            "`System Release`": release(),
-                            "`System Version`": version(),
-                            "`Python Version`": python_version(),
-                            "`Server Owner`": jsonData.get("Owner"),
-                            "`Server Owner Email`": jsonData.get("Owner Email"),
-                            "`Server Available`": jsonData.get("Available")
-                        })
-                        return True
-                    except Exception:
-                        return False
-            with open("../Certificates/Server.json", "w") as rax:
-                json.dump(jsonData, rax, indent=4, ensure_ascii=False)
-            self.RegisterServer()
+                try:
+                    documentReference.set(document_data=data)
+                    return True
+                except Exception:
+                    return False
 
 if (__name__ == "__main__"):
     SERVER: Server = Server(
