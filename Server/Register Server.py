@@ -16,6 +16,7 @@ from sys import argv
 credentials = Certificate("../Certificates/Firebase.json")
 firebase = initialize_app(credentials)
 db = firestore.client(app=firebase)
+print("Firebase Initialized")
 
 class Server(object):
     def __init__(self, NAME: str, PORT: int, HOST: str = "") -> None:
