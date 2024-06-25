@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ImageCaptureProgram.iml" filepath="$PROJECT_DIR$/ImageCaptureProgram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Image Capture Program.iml" filepath="$PROJECT_DIR$/Image Capture Program.iml" />
     </modules>
   </component>
 </project>
