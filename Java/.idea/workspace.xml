@@ -10,16 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbac8be6-a826-4c70-a423-852639bcf5e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Image_Capture_Program_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image Capture Program.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Image_Capture_Program_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Image_Capture_Program_jar/Image Capture Program.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/CommandNewFrameAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/DebugDataAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageCapture$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageCapture$DebugData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageCapture$ImageCaptured.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageCapture.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/Pixel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/PixelFormat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/MainProgram.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/SerialReader$SerialDataReceived.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/SerialReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/SerialReaderException.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +64,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Image Capture.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "Developer",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/megkvc/Desktop/Developer/Java",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Image Capture.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainWindow.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Developer&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/megkvc/Desktop/Developer/Java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Source" />

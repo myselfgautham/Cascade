@@ -67,7 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         note.style.color = "#FF204E";
                     }
                 })
-                .catch(err => console.error(err));
+                .catch(error => {
+                    console.error("Error : ", error);
+                    setTimeout(() => {
+                        window.location.href = "/";
+                    }, 200)
+                });
             }
         }
     })

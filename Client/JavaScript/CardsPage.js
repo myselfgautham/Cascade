@@ -137,6 +137,11 @@ function removeCard() {
             document.getElementById("notifierContent").innerHTML = data["Response"];
             document.getElementById("notifierx").style.display = "flex";
         })
-        .catch(error => console.error("Error : ", error))
+        .catch(error => {
+            console.error("Error : ", error);
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 200)
+        });
     }
 }

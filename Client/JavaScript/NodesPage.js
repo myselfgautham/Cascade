@@ -27,7 +27,12 @@ fetch("/user/nodes", {
     }
     // Successful Fetch
     else {
-        const nodes = data["Response"];
+        localStorage.setItem("Nodes", JSON.stringify(data["Response"]))
     }
 })
-.catch(error => console.error("Error : ", error));
+.catch(error => {
+    console.error("Error : ", error);
+    setTimeout(() => {
+        window.location.href = "/";
+    }, 200)
+});

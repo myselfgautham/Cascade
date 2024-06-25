@@ -71,7 +71,12 @@ submit.addEventListener("click", () => {
             }
             span.style.display = "block";
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            console.error("Error : ", error);
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 200)
+        });
     }
 })
 

@@ -16,5 +16,10 @@ if (negatives.has(localStorage.getItem("DeviceUID")))
         localStorage.setItem("DeviceUID", data["Response"]);
         console.log("Device UID Created");
     })
-    .catch(err => console.error(err))
+    .catch(error => {
+        console.error("Error : ", error);
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 200)
+    });
 }
