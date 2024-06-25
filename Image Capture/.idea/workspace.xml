@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fbac8be6-a826-4c70-a423-852639bcf5e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ImageCaptureProgram.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Libraries/JavaSerialCommunications.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ImageCapture/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ImageCapture/CommandNewFrameAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ImageCapture/DebugDataAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ImageCapture/ImageCapture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ImageCapture/ImageFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ImageCapture/Pixel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ImageCapture/PixelFormat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/MainProgram.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/SerialReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/SerialReaderException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2iMHrc15RuQrDDhL4vrcyE1QoJP" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Image Capture.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "Developer",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/megkvc/Desktop/Developer/Image Capture",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Source" />
+      <recent name="$PROJECT_DIR$/Libraries" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Image Capture" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MainProgram" />
+      <module name="ImageCaptureProgram" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fbac8be6-a826-4c70-a423-852639bcf5e1" name="Changes" comment="" />
+      <created>1719293725729</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719293725729</updated>
+    </task>
+    <servers />
+  </component>
+</project>
