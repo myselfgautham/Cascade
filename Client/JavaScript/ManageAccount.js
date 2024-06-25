@@ -80,5 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
     })
-    .catch(error => console.error("Error : ", error))
+    .catch(error => {
+        console.error("Error : ", error);
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 200)
+    });
 })

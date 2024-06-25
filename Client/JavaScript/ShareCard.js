@@ -85,6 +85,11 @@ document.getElementById("submit").addEventListener("click", () => {
             }
             note.style.display = "block"
         })
-        .catch(error => console.error("Error : ", error))
+        .catch(error => {
+            console.error("Error : ", error);
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 200)
+        });
     }
 })
