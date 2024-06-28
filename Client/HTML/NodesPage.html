@@ -2,6 +2,9 @@
 {% block title %}
 <title>Swift | Linked Nodes</title>
 {% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/CSS/NodesPage.css">
+{% endblock %}
 {% block icons %}
 <ion-icon class="icon" name="person-circle-outline" title="Manage Account" id="acc"></ion-icon>
 <ion-icon class="icon" name="analytics-outline" title="Manage Nodes" id="nodes"></ion-icon>
@@ -11,6 +14,13 @@
 <div class="container specialFlexBox"></div>
 <div class="container specialFlexBox" id="loader">
     <div class="loader"></div>
+</div>
+<footer class="specialFlexBox" id="footer">
+    <ion-icon name="add-outline" title="Enroll A New Node" onclick="window.location.href = '/user/nodes/new'"></ion-icon>
+</footer>
+<div id="nothing" class="container specialFlexBox" style="display: none;">
+    <ion-icon name="logo-apple-ar"></ion-icon>
+    <h2>Nothing Here</h2>
 </div>
 {% endblock %}
 {% block scripts %}

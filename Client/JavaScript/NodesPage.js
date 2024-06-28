@@ -36,3 +36,9 @@ fetch("/user/nodes", {
         window.location.href = "/";
     }, 200)
 });
+
+if (Object.keys(JSON.parse(localStorage.getItem("Nodes"))).length === 0)
+{
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("nothing").style.display = "flex";
+}

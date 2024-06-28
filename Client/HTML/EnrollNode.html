@@ -1,0 +1,31 @@
+{% extends 'HomePage.html' %}
+{% block title %}
+<title>Swift | Enroll Node</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/CSS/CreateAccount.css" />
+{% endblock styles %}
+{% block icons %}
+<ion-icon class="icon" name="person-circle-outline" title="Manage Account" id="acc"></ion-icon>
+<ion-icon class="icon" name="analytics-outline" title="Manage Nodes" id="nodes"></ion-icon>
+<ion-icon class="icon" name="card-outline" title="Manage Cards" id="cards"></ion-icon>
+{% endblock %}
+{% block content %}
+<div class="container specialFlexBox">
+    <h1 class="mov">Enroll Node</h1>
+    <form id="form">
+        <div class="TextBox specialFlexBox">
+            <span class="icon specialFlexBox">
+                <ion-icon name="albums-outline" class="esx"></ion-icon>
+                <input type="text" name="Activation Code" placeholder="Enter Your Activation Code" id="code" autocapitalize="off" autocomplete="off">
+            </span>
+        </div>
+        <div class="notifier specialFlexBox">
+            <h3 id="note"></h3>
+        </div>
+        <div class="submit specialFlexBox">
+            <button class="iax" type="button" id="activate">Activate Node</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

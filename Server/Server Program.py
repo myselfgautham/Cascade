@@ -130,6 +130,8 @@ def initiateLoginProcess():
     else:
         try:
             data: dict = request.json
+            if ("\'" in data.get("password")) or ("\"" in data.get("password")):
+                return jsonify({"Response": "Invalid Password"})
             user: UserRecord = get_user_by_email(
                 email=data.get("email"),
                 app=firebase
@@ -285,6 +287,10 @@ def serveNodesManagerPage():
                 field_path="`User Email`",
                 op_string="==",
                 value=data.get("email")
+            )).where(filter=FieldFilter(
+                field_path="Activated",
+                op_string="==",
+                value=True
             )).stream()
             for document in dataFetched:
                 returnData[document.id] = document.to_dict()
@@ -303,3 +309,9 @@ def deleteCards():
         return jsonify({"Response": "Card Deleted"})
     except Exception:
         return jsonify({"Response": "Something Went Wrong"})
+
+# Nodes Activation Page
+@application.route("/user/nodes/new", methods = ["GET", "POST"])
+def handleNodeEnrollment():
+    if (request.method == "GET"):
+        return render_template("EnrollNode.html")

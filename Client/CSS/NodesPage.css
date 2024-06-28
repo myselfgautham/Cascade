@@ -1,0 +1,40 @@
+/* Footer Setting */
+footer {
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+}
+
+/* Icon Inside Footer Styling */
+footer > ion-icon {
+    color: white;
+    font-size: calc(24px + 0.6vw);
+    padding: 8px 0 8px 0;
+}
+
+/* Hover Clauses */
+footer > ion-icon[name="add-outline"]:hover {color: #57A6A1;}
+
+/* No Enrolled Nodes Division */
+#nothing {
+    color: white;
+    flex-direction: column;
+    gap: 2px;
+    box-sizing: border-box;
+}
+
+/* No Nodes Icon */
+#nothing > ion-icon {
+    font-size: calc(32px + 0.8vw);
+}
+
+/* No Nodes Text */
+#nothing > h2 {
+    font-family: sans-serif;
+    letter-spacing: 0.09rem;
+    font-weight: 500;
+    font-size: calc(18px + 0.6vw);
+    white-space: nowrap;
+}
