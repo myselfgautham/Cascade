@@ -315,3 +315,24 @@ def deleteCards():
 def handleNodeEnrollment():
     if (request.method == "GET"):
         return render_template("EnrollNode.html")
+    else:
+        try:
+            data: dict = request.json
+            if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
+                return jsonify({"Response": "Unauthorized Device"})
+            nodes = db.collection("Nodes").where(filter=FieldFilter(
+                field_path="`User Email`", op_string="==", value=data.get("email")
+            )).where(filter=FieldFilter(
+                field_path="Activated", op_string="==", value=False
+            )).where(filter=FieldFilter(
+                field_path="`Activation Code`", op_string="==", value=data.get("code")
+            )).limit(1).stream()
+            NodeToActivate: str | None = None
+            for node in nodes:
+                NodeToActivate = node.id
+            if NodeToActivate is None:
+                return jsonify({"Response": "Invalid Node"})
+            db.collection("Nodes").document(NodeToActivate).update({"Activated": True})
+            return jsonify({"Response": "Node Activated"})
+        except Exception:
+            return jsonify({"Response": "Something Went Wrong"})
