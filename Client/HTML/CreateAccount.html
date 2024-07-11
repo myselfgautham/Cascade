@@ -31,6 +31,7 @@
             <span class="icon specialFlexBox">
                 <ion-icon class="esx" name="key-outline"></ion-icon>
                 <input id="password" type="password" name="password" autocapitalize="off" placeholder="Password To Set"/>
+                <ion-icon name="eye-outline" id="visibility" onclick="changePasswordVisibility()"></ion-icon>
             </span>
         </div>
         <div class="notifier specialFlexBox">
@@ -45,4 +46,16 @@
 {% endblock %}
 {% block scripts %}
 <script type="module" src="/static/JavaScript/CreateAccount.js"></script>
+<script type="text/javascript">
+  function changePasswordVisibility() {
+    let field = document.getElementById('password');
+    let icon = document.getElementById("visibility");
+    if (field.getAttribute("type") === "password") {
+      field.setAttribute("type", "text");
+      icon.setAttribute("name", "eye-off-outline");
+    } else {
+      field.setAttribute("type", "password");
+      icon.setAttribute("name", "eye-outline");
+    }
+</script>
 {% endblock %}
