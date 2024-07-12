@@ -336,3 +336,15 @@ def handleNodeEnrollment():
             return jsonify({"Response": "Node Activated"})
         except Exception:
             return jsonify({"Response": "Something Went Wrong"})
+
+# Node Deletion Route
+@application.route("/user/nodes/remove", methods = ['POST'])
+def deleteExistingNodeBinary():
+    try:
+        data: dict = request.json
+        if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
+            raise Exception
+        db.collection("Nodes").document(data.get("node")).delete()
+        return jsonify({"Response": "S"})
+    except Exception:
+        return jsonify({"Response": "F"})
