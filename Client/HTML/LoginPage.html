@@ -10,7 +10,13 @@
     <h1 class="mov">Login To Swift</h1>
     <form action="/api/accounts/login" method="post" id="form">
         <div class="TextBox specialFlexBox"><span class="icon specialFlexBox"><ion-icon class="esx" name="person-circle-outline"></ion-icon><input type="text" name="email" autocapitalize="off" placeholder="Your Email Address"/></span></div>
-        <div class="TextBox specialFlexBox"><span class="icon specialFlexBox"><ion-icon class="esx" name="key-outline"></ion-icon><input type="password" name="password" autocapitalize="off" placeholder="Enter Your Password"/></span></div>
+        <div class="TextBox specialFlexBox">
+          <span class="icon specialFlexBox">
+            <ion-icon class="esx" name="key-outline"></ion-icon>
+            <input id="password" type="password" name="password" autocapitalize="off" placeholder="Enter Your Password"/>
+            <ion-icon name="eye-outline" id="visibility" onclick="changePasswordVisibility()"></ion-icon>
+          </span>
+        </div>
         <div class="forgot specialFlexBox" style="justify-content: flex-end;">
             <h3 id="forgot">Forgot Password</h3>
         </div>
@@ -25,5 +31,18 @@
 </div>
 {% endblock content %}
 {% block scripts %}
+<script type="text/javascript">
+  function changePasswordVisibility() {
+    let field = document.getElementById('password');
+    let icon = document.getElementById("visibility");
+    if (field.getAttribute("type") === "password") {
+      field.setAttribute("type", "text");
+      icon.setAttribute("name", "eye-off-outline");
+    } else {
+      field.setAttribute("type", "password");
+      icon.setAttribute("name", "eye-outline");
+    }
+  }
+</script>
 <script type="module" src="/static/JavaScript/LoginPage.js"></script>
 {% endblock scripts %}

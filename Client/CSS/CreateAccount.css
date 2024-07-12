@@ -25,6 +25,7 @@
     padding: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
+    justify-content: flex-start;
 }
 
 /* Element Inside Text Box */
@@ -96,4 +97,9 @@ input {
 /* Its Hover Event */
 #forgot:hover {
     color: #34A853;
+}
+
+/* Visibility Hover */
+#visibility:hover {
+  color: red;
 }
