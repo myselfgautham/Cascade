@@ -81,7 +81,18 @@ function setItemToView(index) {
     document.getElementById("number").innerText = keys[index]
     let data = JSON.parse(localStorage.getItem("Nodes"));
     document.getElementById("user").innerHTML = data[keys[index]]["User Real Name"];
-    document.getElementById("phone").innerHTML = data[keys[index]]["User Phone Number"];
+    if (data[keys[index]]["Common Name"] !== undefined)
+    {
+        document.getElementById("common").style.display = "block";
+        document.getElementById("common").innerHTML = data[keys[index]]["Common Name"];
+    } else {
+        document.getElementById("common").style.display = "none";
+    }
+    if (data[keys[index]]["Branding Image"] !== undefined) {
+        document.getElementById("logoM").setAttribute("src", data[keys[index]]["Branding Image"])
+    } else {
+        document.getElementById("logoM").setAttribute("src", "/static/Assets/Nodes.svg");
+    }
 }
 
 function copyToClipboard() {

@@ -20,6 +20,7 @@ footer > ion-icon {
 footer > ion-icon[name="add-outline"]:hover {color: #57A6A1;}
 footer > ion-icon[name="copy-outline"]:hover { color: #C8ACD6; }
 footer > ion-icon[name="remove-outline"]:hover { color: red; transition: 0.5s linear; }
+footer > ion-icon[name="create-outline"]:hover { color: #F2613F; transition: 0.34s ease-in; }
 
 /* No Enrolled Nodes Division */
 #nothing {
@@ -92,3 +93,6 @@ footer > ion-icon[name="remove-outline"]:hover { color: red; transition: 0.5s li
 
 /* Flags Custom Hover */
 ion-icon[name="checkmark-circle-outline"]:hover { color: green; transition: 0.34s ease-in; }
+
+/* Node Nickname */
+#common { color: #57A6A1; }

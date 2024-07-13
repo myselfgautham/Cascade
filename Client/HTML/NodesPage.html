@@ -14,15 +14,15 @@
 <div class="container specialFlexBox" style="display: none;flex-direction: column;gap: 8px;" id="root">
     <div id="current" class="specialFlexBox">
         <span class="basics specialFlexBox" style="flex-direction: column;gap: 16px;">
-            <img src="/static/Assets/Nodes.svg" alt="Nodes Icon ( Prism Launcher )">
+            <img src="/static/Assets/Nodes.svg" id="logoM" alt="Nodes Branding Image" width="48" height="48">
             <span class="flags specialFlexBox">
                 <ion-icon class="icon" name="checkmark-circle-outline" title="Activated Node"></ion-icon>
             </span>
         </span>
         <span class="specialFlexBox" style="height: 100%;flex-direction: column;align-items: flex-start;gap: 4px;">
             <h2 id="user" class="texty"></h2>
-            <h2 id="phone" class="texty"></h2>
             <h2 id="number" class="texty"></h2>
+            <h2 id="common" class="texty"></h2>
         </span>
     </div>
     <div class="controls" id="controls">
@@ -36,6 +36,7 @@
 <footer class="specialFlexBox" id="footer">
     <ion-icon name="add-outline" title="Enroll A New Node" onclick="window.location.href = '/user/nodes/new'"></ion-icon>
     <ion-icon name="remove-outline" title="Remove This Node" onclick="removeNode()"></ion-icon>
+    <ion-icon name="create-outline" title="Edit Common Name" onclick="window.location.href = `/user/nodes/rename?node=${document.getElementById('number').innerHTML}`"></ion-icon>
     <ion-icon name="copy-outline" title="Copy Number To Clipboard" onclick="copyToClipboard()"></ion-icon>
 </footer>
 <div id="nothing" class="container specialFlexBox" style="display: none;">
