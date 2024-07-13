@@ -348,3 +348,19 @@ def deleteExistingNodeBinary():
         return jsonify({"Response": "S"})
     except Exception:
         return jsonify({"Response": "F"})
+
+# Nodes Rename Page Serving
+@application.route("/user/nodes/rename", methods = ["GET", "POST"])
+def serveNodeRenamingPage():
+    if (request.method == "GET"):
+        return render_template("RenameNode.html")
+    else:
+        try:
+            data: dict = request.json
+            if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
+                raise Exception
+            reference = db.collection("Nodes").document(data.get("node"))
+            reference.update({"`Common Name`": data.get("common")})
+            return jsonify({"Response": "Renamed Successfully"})
+        except Exception:
+            return jsonify({"Response": "Something Went Wrong"})

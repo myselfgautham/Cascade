@@ -3,8 +3,12 @@
     box-sizing: border-box;
     border: 2px solid gold;
     border-radius: 13px;
-    max-width: calc(100vw - 15vw);
     padding: 8px;
+}
+
+/* Media Query To Fix Scaling */
+@media screen and (max-width: 400px) {
+    .current { width: calc(100vw - 15vw); }
 }
 
 /* Company Details */
