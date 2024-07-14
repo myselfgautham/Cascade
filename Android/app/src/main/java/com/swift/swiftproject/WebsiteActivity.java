@@ -8,20 +8,24 @@ import android.webkit.WebViewClient;
 import android.webkit.SslErrorHandler;
 import android.net.http.SslError;
 
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class WebsiteActivity extends AppCompatActivity {
     WebView view;
     String url = "https://neal.fun/";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_website);
+        FirebaseMessaging.getInstance().subscribeToTopic("Messaging").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {}
+        });
         WebView.setWebContentsDebuggingEnabled(true);
         view = findViewById(R.id.website);
         WebSettings settings = view.getSettings();
