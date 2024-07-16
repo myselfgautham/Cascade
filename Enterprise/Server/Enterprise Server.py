@@ -15,6 +15,8 @@ from firebase_admin import App
 from firebase_admin.firestore import client as Firestore
 from google.cloud.firestore import Client
 from google.cloud.firestore_v1 import FieldFilter
+from firebase_admin.auth import get_user_by_email
+from firebase_admin.auth import UserNotFoundError
 
 # Miscellaneous Imports
 from hashlib import sha384
@@ -128,3 +130,37 @@ def serveEnterpriseLoginPage():
 def serveEnterpriseDashboardPage():
     if (request.method == "GET"):
         return Serve("DashboardPage.html")
+
+# Issue New Card API
+@application.route("/cards/new", methods = ["GET", "POST"])
+def issueNewCardInterface():
+    if (request.method == "GET"):
+        return Serve("IssueNewCard.html")
+    else:
+        try:
+            data: dict = request.json
+            get_user_by_email(
+                email=data.get("owner"),
+                app=firebase
+            )
+            format: dict = {
+                "Flags": data.get("flags"),
+                "From": data.get("from"),
+                "Till": data.get("till"),
+                "Owners": [data.get("owner")],
+                "Number": data.get("cardNumber")
+            }
+            if (data.get("flags")["CVV"]):
+                format["CVV"] = data.get("cvv")
+            vendorName: str = database.collection("Enterprises").where(filter=FieldFilter(
+                field_path="`Email Address`",
+                op_string="==",
+                value=data.get("vendor")
+            )).get()[0].to_dict().get("Business Name")
+            format["Vendor"] = vendorName.title()
+            database.collection("Cards").document(uuid4().hex).set(format)
+            return jsonify({"Response": "Card Created Successfully"})
+        except UserNotFoundError:
+            return jsonify({"Response": "User Does Not Exist"})
+        except Exception:
+            return jsonify({"Response": "Something Went Wrong"})
