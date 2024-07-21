@@ -1,5 +1,7 @@
+import {fetchLocation} from "/static/JavaScript/Globals.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("/user/manage", {
+    fetch(fetchLocation + "user/manage", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -50,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("cox").setAttribute("name", "log-out-outline");
                 notifier.style.display = "flex";
                 // Fetch Endpoint
-                fetch("/api/logout", {
+                fetch(fetchLocation + "api/logout", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

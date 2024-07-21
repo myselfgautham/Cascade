@@ -1,5 +1,7 @@
+import {fetchLocation} from "/static/JavaScript/Globals.js"
+
 // Fetch Nodes POST API
-fetch("/user/nodes", {
+fetch(fetchLocation + "user/nodes", {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -112,7 +114,7 @@ function removeNode() {
             document.getElementById("notifierContent").innerHTML = "No Nodes Found";
             document.getElementById("notifierx").style.display = "flex";
         } else {
-            fetch("/user/nodes/remove", {
+            fetch(fetchLocation + "user/nodes/remove", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

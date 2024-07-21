@@ -1,4 +1,4 @@
-import { inputFilterCheck } from "/static/JavaScript/Globals.js";
+import { inputFilterCheck, fetchLocation } from "/static/JavaScript/Globals.js";
 
 // Unauthorized Device ( Load Check I )
 if (localStorage.getItem("Data") === "\"Unauthorized Device\"") {
@@ -32,7 +32,7 @@ submit.addEventListener("click", () => {
         } else {
             note.innerHTML = "Please Wait";
             note.style.display = "block";
-            fetch("/user/nodes/rename", {
+            fetch(fetchLocation + "user/nodes/rename", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
