@@ -1,4 +1,4 @@
-import {inputFilterCheck} from "/static/JavaScript/Globals.js";
+import {inputFilterCheck, fetchLocation} from "/static/JavaScript/Globals.js";
 let note = document.getElementById("note");
 document.getElementById("activate").addEventListener("click", () => {
     if (!inputFilterCheck()) {
@@ -13,7 +13,7 @@ document.getElementById("activate").addEventListener("click", () => {
         note.innerHTML = "Activating Node";
         note.style.color = "green";
         note.style.display = "block";
-        fetch("/user/nodes/new", {
+        fetch(fetchLocation + "user/nodes/new", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

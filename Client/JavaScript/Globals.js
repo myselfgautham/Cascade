@@ -32,3 +32,6 @@ export function isStrongPassword(password) {
       /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)
     );
 }
+
+// Global Fetch Location
+export let fetchLocation = "https://192.168.143.200:1920/"
