@@ -56,10 +56,9 @@ header {
     z-index: 1;
     left: 0;
     top: 0;
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
+    background: black;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.42s ease-in-out;
 }
 
 .overlay-content {

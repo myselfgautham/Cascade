@@ -17,6 +17,8 @@
 * **/user/nodes** => Linked Nodes Page => GET & POST
 * **/api/cards/delete** => Delete Cards => POST
 * **/user/nodes/new** => New Node Linking Page => GET & POST : _Protected_
+* **/user/nodes/remove** => Remove Node => Binary POST : _Protected_
+* **/user/nodes/rename** => Node Nicknaming => Binary POST : _Protected_
 
 <h3>Exceptions Handled</h3>
 

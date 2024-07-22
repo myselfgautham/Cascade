@@ -33,14 +33,6 @@
     {% endblock %}
     <script>
         const negatives = new Set(["undefined", undefined, null, "null", "false", false, ""])
-        document.addEventListener("DOMContentLoaded", () => {
-            if (
-                (!negatives.has(localStorage.getItem("LoggedIn"))) &&
-                (!negatives.has(localStorage.getItem("Email")))
-            ) {
-                document.getElementById("logout").style.display = "block";
-            }
-        })
         function openNavigator() {
             document.getElementById("overlay").style.width = "100%";
         }

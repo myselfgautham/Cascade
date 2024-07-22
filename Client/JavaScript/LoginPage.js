@@ -1,7 +1,8 @@
 // Imports From Scripts
 import {
     inputFilterCheck,
-    plausibleEmail
+    plausibleEmail,
+    fetchLocation
 } from "/static/JavaScript/Globals.js";
 
 // DOM Content Loaded
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 note.innerHTML = "Please Wait";
                 note.style.display = "block";
                 note.style.color = "#34A853";
-                fetch("/account/login", {
+                fetch(fetchLocation + "account/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -69,9 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .catch(error => {
                     console.error("Error : ", error);
-                    setTimeout(() => {
-                        window.location.href = "/";
-                    }, 200)
+                    
                 });
             }
         }

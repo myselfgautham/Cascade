@@ -1,10 +1,12 @@
+import {fetchLocation} from "/static/JavaScript/Globals.js"
+
 // Global Scope Index
 let index = 0;
 
 // DOM Loaded Event
 document.addEventListener("DOMContentLoaded", () => {
     // Fetch Cards API
-    fetch("/api/cards", {
+    fetch(fetchLocation + "api/cards", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -121,7 +123,7 @@ function removeCard() {
         // Get Data From Storage
         let data = JSON.parse(localStorage.getItem("Data"));
         // Fetch Deletion POST Endpoint
-        fetch("/api/cards/delete", {
+        fetch(fetchLocation + "api/cards/delete", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -1,7 +1,8 @@
 // Imports From Scripts
 import {
     inputFilterCheck,
-    plausibleEmail
+    plausibleEmail,
+    fetchLocation
 } from "/static/JavaScript/Globals.js";
 
 // Document Load Event Fired
@@ -57,7 +58,7 @@ document.getElementById("submit").addEventListener("click", () => {
         // Fetching Initialized
         note.innerHTML = "Loading";
         note.style.display = "block";
-        fetch("/cards/share", {
+        fetch(fetchLocation + "cards/share", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

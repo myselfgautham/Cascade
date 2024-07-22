@@ -3,7 +3,8 @@ import {
     inputFilterCheck,
     plausibleEmail,
     isValidE164PhoneNumber,
-    isStrongPassword
+    isStrongPassword,
+    fetchLocation
 } from "/static/JavaScript/Globals.js";
 
 // Input Fields Of The Form
@@ -43,7 +44,7 @@ submit.addEventListener("click", () => {
         span.innerHTML = "Creating Account";
         span.style.display = "block";
         // Fetch Endpoint - Stage II
-        fetch("/account/create", {
+        fetch(fetchLocation + "account/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -10,29 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbac8be6-a826-4c70-a423-852639bcf5e1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Android/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Image_Capture_Program_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Image_Capture_Program_jar/Image Capture Program.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/Command.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/CommandNewFrameAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/DebugDataAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageCapture$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageCapture$DebugData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageCapture$ImageCaptured.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageCapture.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/ImageFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/Pixel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/ImageCapture/PixelFormat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/MainProgram.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/SerialReader$SerialDataReceived.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/SerialReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Image Capture Program/SerialReaderException.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,15 +48,17 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Application.Image Capture.executor&quot;: &quot;Run&quot;,
     &quot;Application.MainWindow.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.JavaSerialCommunications.jar.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Developer&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Release&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/megkvc/Desktop/Developer/Java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/LKCamp2024/Java/Libraries/JavaSerialCommunications.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -87,7 +67,7 @@
       <recent name="$PROJECT_DIR$/Libraries" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Image Capture">
     <configuration name="Image Capture" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainProgram" />
       <module name="Image Capture Program" />
@@ -95,6 +75,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JavaSerialCommunications.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/Libraries/JavaSerialCommunications.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.JavaSerialCommunications.jar" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

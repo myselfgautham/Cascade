@@ -28,16 +28,22 @@ from datetime import datetime
 from datetime import UTC
 from google.cloud.firestore import FieldFilter
 from psutil import cpu_percent
+from flask_cors import CORS
 
 # Application Configuration
 application: Flask = Flask(__name__)
 application.static_folder = "../Client/"
 application.template_folder = "../Client/HTML/"
+application.config["CORS_HEADERS"] = "Content-Type"
 Compress(app=application)
 cache: Cache = Cache(app=application, config={
     "CACHE_TYPE": "simple",
     "CACHE_DEFAULT_TIMEOUT": 300
 })
+_ = CORS(
+    app=application,
+    origins=["http://192.168.143.177:3000"]
+)
 
 # Firebase Admin SDK & Pyrebase Setup
 credentials = Certificate("../Certificates/Firebase.json")

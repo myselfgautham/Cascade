@@ -6,3 +6,4 @@ firebase-admin
 uuid
 gunicorn
 psutil
+flask_cors
