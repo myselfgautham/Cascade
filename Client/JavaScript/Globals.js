@@ -34,4 +34,18 @@ export function isStrongPassword(password) {
 }
 
 // Global Fetch Location
-export let fetchLocation = "https://192.168.143.200:1920/"
+export let fetchLocation = localStorage.getItem("Fetch Location");
+export function setFetchLocation() {
+    fetch("/api/servers", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({})
+    })
+    .then(res => res.json())
+    .then(data => {
+        localStorage.setItem("Fetch Location", data["Response"])
+    })
+    .catch(error => console.error("Error : ", error))
+}
