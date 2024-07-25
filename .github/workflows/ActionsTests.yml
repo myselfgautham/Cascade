@@ -39,7 +39,7 @@ jobs:
 
       - name: Test Enterprise Server
         run: |
-          cd "${{ github.workspace }}/Enterprise/Server/"
+          cd "${{ github.workspace }}/Delta/Server/"
           python "Enterprise Server.py"
 
       - name: Print Test Result

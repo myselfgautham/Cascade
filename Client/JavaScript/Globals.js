@@ -34,4 +34,4 @@ export function isStrongPassword(password) {
 }
 
 // Global Fetch Location
-export let fetchLocation = "https://192.168.143.200:1920/"
+export let fetchLocation = "/";
