@@ -3,19 +3,19 @@ import {setFetchLocation} from "/static/JavaScript/Globals.js";
 // Reduction Of CLS Time
 window.addEventListener("load", () => {
     localStorage.setItem("Fetch Location", "/");
+    setFetchLocation();
     let clsSaves = [
         document.getElementById("links")
     ]
     clsSaves.forEach((li) => {
         li.style.visibility = "visible";
     })
-    setFetchLocation();
     setTimeout(() => {
         if (localStorage.getItem("Fetch Location") === "/")
             window.location.reload()
         else
             console.log("Fetch Location Set Completed");
-    }, 2000)
+    }, 5000)
 })
 
 // Document Object Model Content Load
