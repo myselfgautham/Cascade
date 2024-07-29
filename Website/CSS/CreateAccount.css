@@ -103,3 +103,6 @@ input {
 #visibility:hover {
   color: red;
 }
+
+/* Visibility Padding */
+#visibility { padding-left: 8px; }

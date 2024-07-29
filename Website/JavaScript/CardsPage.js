@@ -110,10 +110,10 @@ function setCardToView(index, data)
     document.getElementById("container").style.display = "flex";
 }
 
-// Route To Share Page With Prefill
-function sharePage() {
-    window.location.href = `/cards/share?card=${document.getElementById("cardNumber").innerText}`;
-}
+// Delete Card Button Event Listener
+document.getElementById("removeCard").addEventListener("click", () => {
+    removeCard()
+})
 
 // Delete Card
 function removeCard() {
@@ -136,6 +136,11 @@ function removeCard() {
         })
         .then(res => res.json())
         .then(data => {
+            if (data["Response"] === "Card Deleted")  {
+                setTimeout(() => {
+                    window.location.reload()
+                }, 1000)
+            }
             document.getElementById("notifierContent").innerHTML = data["Response"];
             document.getElementById("notifierx").style.display = "flex";
         })

@@ -1,4 +1,4 @@
-# Packages Imports
+# Flask MVC Framework Imports
 from flask import (
     Flask,
     render_template,
@@ -7,11 +7,9 @@ from flask import (
 )
 from flask_caching import Cache
 from flask_compress import Compress
-from pyrebase.pyrebase import (
-    initialize_app as pyrebaseSDK,
-    HTTPError
-)
-from re import search
+from flask_cors import CORS
+
+# Firebase Admin SDK Imports
 from firebase_admin import initialize_app
 from firebase_admin.credentials import Certificate
 from firebase_admin.auth import (
@@ -21,29 +19,26 @@ from firebase_admin.auth import (
     get_user_by_email,
     UserNotFoundError
 )
-from uuid import uuid4
+from google.cloud.firestore import FieldFilter
 from firebase_admin._user_mgt import UserRecord
 from firebase_admin import firestore
+
+# Pyrebase SDK Imports
+from pyrebase.pyrebase import (
+    initialize_app as pyrebaseSDK,
+    HTTPError
+)
+
+# Device UID Generator Import
+from uuid import uuid4
+
+# Date Time ( Python ) Imports
 from datetime import datetime
 from datetime import UTC
-from google.cloud.firestore import FieldFilter
-from psutil import cpu_percent
-from flask_cors import CORS
 
-# Application Configuration
-application: Flask = Flask(__name__)
-application.static_folder = "../Client/"
-application.template_folder = "../Client/HTML/"
-application.config["CORS_HEADERS"] = "Content-Type"
-Compress(app=application)
-cache: Cache = Cache(app=application, config={
-    "CACHE_TYPE": "simple",
-    "CACHE_DEFAULT_TIMEOUT": 300
-})
-_ = CORS(
-    app=application,
-    origins=["http://192.168.143.177:3000"]
-)
+# Miscellaneous Imports
+from re import search
+from psutil import cpu_percent
 
 # Firebase Admin SDK & Pyrebase Setup
 credentials = Certificate("../Certificates/Firebase.json")
@@ -61,7 +56,22 @@ authentication = pyrebaseSDK(config=firebaseConfig).auth()
 firebase = initialize_app(credentials)
 db = firestore.client(app=firebase)
 
-# Password Strength Checker
+# Application Configuration
+application: Flask = Flask(__name__)
+application.static_folder = "../Website/"
+application.template_folder = "../Website/Pages/"
+application.config["CORS_HEADERS"] = "Content-Type"
+Compress(app=application)
+cache: Cache = Cache(app=application, config={
+    "CACHE_TYPE": "simple",
+    "CACHE_DEFAULT_TIMEOUT": 300
+})
+_ = CORS(
+    app=application,
+    origins=["http://192.168.143.177:3000"]
+)
+
+# User Password Strength Checker
 def isStrongPassword(password: str) -> bool:
     if (len(password) < 8):
         return False
@@ -75,19 +85,18 @@ def isStrongPassword(password: str) -> bool:
         return False
     return True
 
-# Device Authorization
+# Device Authorization Checker Function
 def checkDeviceAuthorization(uid: str, email: str) -> bool:
     try:
         document = db.collection("Devices").document(uid).get()
-        if (document.exists):
-            try:
-                if (document.to_dict().get("User Email") == email):
-                    return True
-                else:
-                    return False
-            except Exception:
+        if not document.exists:
+            return False
+        try:
+            if (document.to_dict().get("User Email") == email):
+                return True
+            else:
                 return False
-        else:
+        except Exception:
             return False
     except Exception:
         return False
@@ -98,9 +107,9 @@ def checkDeviceAuthorization(uid: str, email: str) -> bool:
 def serveHomePage():
     return render_template("HomePage.html")
 
-# Create Account : Consumer
+# Consumer Side Route : Create Account
 @application.route("/account/create", methods = ["GET", "POST"])
-def createNewSwiftAccount():
+def createNewUserAccount():
     if (request.method == "GET"):
         return render_template("CreateAccount.html")
     else:
@@ -128,7 +137,7 @@ def createNewSwiftAccount():
             print(f"\n{e}", end="\n\n")
             return jsonify({"Response": "Something Went Wrong"})
 
-# Account Login : Consumer        
+# Consumer Side Routes : Account Login
 @application.route("/account/login", methods = ["GET", "POST"])
 def initiateLoginProcess():
     if request.method == "GET":
@@ -162,19 +171,19 @@ def initiateLoginProcess():
             return jsonify({"Response": "Invalid Credentials"})
         except Exception:
             return jsonify({"Response": "Try Again Later"})
-
+        
 # Device UID API : POST
 @application.route("/api/device", methods = ["POST"])
 def generateNewUUIDForDevice():
     return jsonify({"Response": str(uuid4())})
 
-# Dashboard Page Serving
+# Consumer Side Routes : Dashboard Page
 @application.route("/user/dashboard", methods = ["GET"])
-@cache.cached(timeout=3600)
+@cache.cached(timeout=None)
 def serveDashboardPage():
     return render_template("DashboardPage.html")
 
-# Consumer Cards Render API    
+# Cards Data For CSR : API
 @application.route("/api/cards", methods = ["POST"])
 def cardsJSONDataServe():
     try:
@@ -189,7 +198,7 @@ def cardsJSONDataServe():
     except Exception:
         return jsonify({"Response": {}})
 
-# Consumer Routes : Account Management Page    
+# Consumer Routes : Account Management Page
 @application.route("/user/manage", methods = ["GET", "POST"])
 def serveAccountManagementPage():
     if (request.method == "GET"):
@@ -228,7 +237,7 @@ def serveAccountManagementPage():
 
 # Consumer APIs : Logout
 @application.route("/api/logout", methods = ["POST"])
-def logOutUser():
+def logOutUserBinary():
     try:
         data: dict = request.json
         reference = db.collection("Devices").document(data.get("uid"))
@@ -241,7 +250,7 @@ def logOutUser():
     except Exception:
         return jsonify({"Response": "F"})
 
-# Consumer Routes : Share Card    
+# Consumer Routes : Share Card
 @application.route("/cards/share", methods = ["GET", "POST"])
 def shareCardUIAndEndpoint():
     if request.method == "GET":
@@ -251,29 +260,27 @@ def shareCardUIAndEndpoint():
             get_user_by_email(request.json.get("party"))
             if not (checkDeviceAuthorization(request.json.get("uid"), request.json.get("email"))):
                 return jsonify({"Response": "Unauthorized Device"})
-            db.collection("Cards").document(request.json.get("card")).update({
-                "Owners": firestore.ArrayUnion([request.json.get("party")])
-            })
+            docRef = db.collection("Cards").document(request.json.get("card"))
+            if (docRef.get().exists):
+                flags: dict = docRef.get().to_dict().get("Flags")
+                if (docRef.get().to_dict().get("Main Owner") != request.json.get("email")):
+                    return jsonify({"Response": "Sharing Not Permitted"})
+                elif (flags.get("Encrypt")):
+                    return jsonify({"Response": "Card Cannot Be Shared"})
+                else:
+                    docRef.update({
+                        "Owners": firestore.ArrayUnion([request.json.get("party")])
+                    })
+            else:
+                return jsonify({"Response": "Card Not Enrolled"})
             return jsonify({"Response": "Added"})
         except UserNotFoundError:
             return jsonify({"Response": "User Not Found"})
         except Exception:
             return jsonify({"Response": "Card Share Failed"})
 
-# Server Side CPU Usage API        
-@application.route("/api/cpu", methods = ["POST"])
-def returnSystemWideCPUUsage():
-    return jsonify({
-        "Response": {
-            "CPU Usage": int(cpu_percent(
-                interval=0.5,
-                percpu=False
-            )),
-            "Cores Usage": [(int(x)) for x in cpu_percent(interval=0.5, percpu=True)]
-        }
-    })
-    
 # 404 Error Handler
+@cache.cached(timeout=None)
 @application.errorhandler(404)
 def serve404ErrorPage(_):
     return render_template("PageNotFound.html")
@@ -342,7 +349,7 @@ def handleNodeEnrollment():
             return jsonify({"Response": "Node Activated"})
         except Exception:
             return jsonify({"Response": "Something Went Wrong"})
-
+        
 # Node Deletion Route
 @application.route("/user/nodes/remove", methods = ['POST'])
 def deleteExistingNodeBinary():
@@ -364,9 +371,22 @@ def serveNodeRenamingPage():
         try:
             data: dict = request.json
             if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
-                raise Exception
+                return jsonify({"Response": "Unauthorized Device"})
             reference = db.collection("Nodes").document(data.get("node"))
             reference.update({"`Common Name`": data.get("common")})
             return jsonify({"Response": "Renamed Successfully"})
         except Exception:
             return jsonify({"Response": "Something Went Wrong"})
+
+# System Wide CPU Usage
+@application.route("/api/cpu", methods = ["POST"])
+def returnSystemWideCPUUsage():
+    return jsonify({
+        "Response": {
+            "CPU Usage": int(cpu_percent(
+                interval=0.5,
+                percpu=False
+            )),
+            "Cores Usage": [(int(x)) for x in cpu_percent(interval=0.5, percpu=True)]
+        }
+    })

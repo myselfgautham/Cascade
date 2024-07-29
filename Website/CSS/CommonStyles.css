@@ -40,7 +40,8 @@ body {
   color: white;
   font-size: 24px;
   letter-spacing: 0.09rem;
-  margin-left: 8px;
+  margin-left: 12px;
+  margin-top: 2px;
   font-family: sans-serif;
 }
 
@@ -230,4 +231,9 @@ body {
 @keyframes spin {
   from {rotate: 0deg;}
   to {rotate: 360deg;}
+}
+
+/* Logo Special Spin */
+#logo > img:hover {
+  animation: spin 1s ease-in-out forwards;
 }

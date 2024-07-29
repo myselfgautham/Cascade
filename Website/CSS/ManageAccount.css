@@ -1,9 +1,11 @@
 /* User Account Division */
 .userAccount {
-    padding: 8px;
+    padding: 16px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 13px;
     flex-direction: column;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    transition: all ease-in-out 0.3s;
 }
 
 /* User Name */
@@ -42,12 +44,7 @@
 }
 
 /* Controls Of Account */
-.controls {
-    margin-top: 8px;
-    padding: 4px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 13px;
-}
+.controls { margin-top: 8px; }
 
 /* Control Option Class */
 .option {
@@ -71,4 +68,28 @@
 #logout:hover {
     color: #FF204E;
     transition: 0.4s ease-in-out;
+}
+
+/* Controls Separator */
+hr {
+    margin-top: 8px;
+    width: 0;
+    border-color: #03346E;
+    animation: swipe-in 0.76s linear forwards;
+    animation-delay: 0.2s;
+}
+
+/* Swipe In Animation */
+@keyframes swipe-in {
+    from {
+        width: 0;
+    } to {
+        width: 100%;
+    }
+}
+
+/* User Account Hover Effect */
+.userAccount:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }

@@ -1,10 +1,19 @@
+# Firebase Admin Python SDK Imports
 from firebase_admin import initialize_app
 from firebase_admin.credentials import Certificate
 from firebase_admin import firestore
+
+# Python UUID Generator Import
 from uuid import uuid4
+
+# Python Sockets Dependencies Imports
 from socket import gethostbyname
 from socket import gethostname
+
+# JSON Module ( Server Metadata Editing ) Importing
 import json
+
+# Platform And System Modules
 from platform import (
     system,
     release,
@@ -13,11 +22,13 @@ from platform import (
 )
 from sys import argv
 
+# Firebase Initialization With Firestore
 credentials = Certificate("../Certificates/Firebase.json")
 firebase = initialize_app(credentials)
 db = firestore.client(app=firebase)
 print("\033[92mFirebase Initialized\033[0m", end="")
 
+# Server Class For Code Organization
 class Server(object):
     def __init__(self, NAME: str, PORT: int, HOST: str = "") -> None:
         self.name: str = NAME
@@ -32,37 +43,55 @@ class Server(object):
                 json.dump(jsonData, file, ensure_ascii=False, indent=4)
             return False
         else:
-            data: dict = {
-                "`Host Address`": self.host,
-                "`Server Identifier`": jsonData.get("UID"),
-                "`Server Name`": self.name,
-                "`Server Port`": self.port,
-                "`Server Location`": jsonData.get("Location"),
-                "`Server Program Version`": jsonData.get("Version"),
-                "`Network Address`": jsonData.get("Network Address"),
-                "`Server Type`": jsonData.get("Type"),
-                "`Operating System`": system().title(),
-                "`System Release`": release(),
-                "`System Version`": version(),
-                "`Python Version`": python_version(),
-                "`Server Owner`": jsonData.get("Owner"),
-                "`Server Owner Email`": jsonData.get("Owner Email"),
-                "`Server Available`": jsonData.get("Available")
-            }
-            documentReference = db.collection("Servers").document(data["`Server Identifier`"])
+            documentReference = db.collection("Servers").document(jsonData.get("UID"))
             if (documentReference.get().exists):
                 try:
+                    data: dict = {
+                        "`Host Address`": self.host,
+                        "`Server Identifier`": jsonData.get("UID"),
+                        "`Server Name`": self.name,
+                        "`Server Port`": self.port,
+                        "`Server Location`": jsonData.get("Location"),
+                        "`Server Program Version`": jsonData.get("Version"),
+                        "`Network Address`": jsonData.get("Network Address"),
+                        "`Server Type`": jsonData.get("Type"),
+                        "`Operating System`": system().title(),
+                        "`System Release`": release(),
+                        "`System Version`": version(),
+                        "`Python Version`": python_version(),
+                        "`Server Owner`": jsonData.get("Owner"),
+                        "`Server Owner Email`": jsonData.get("Owner Email"),
+                        "`Server Available`": jsonData.get("Available")
+                    }
                     documentReference.update(field_updates=data)
                     return True
                 except Exception:
                     return False
             else:
                 try:
+                    data: dict = {
+                        "Host Address": self.host,
+                        "Server Identifier": jsonData.get("UID"),
+                        "Server Name": self.name,
+                        "Server Port": self.port,
+                        "Server Location": jsonData.get("Location"),
+                        "Server Program Version": jsonData.get("Version"),
+                        "Network Address": jsonData.get("Network Address"),
+                        "Server Type": jsonData.get("Type"),
+                        "Operating System": system().title(),
+                        "System Release": release(),
+                        "System Version": version(),
+                        "Python Version": python_version(),
+                        "Server Owner": jsonData.get("Owner"),
+                        "Server Owner Email": jsonData.get("Owner Email"),
+                        "Server Available": jsonData.get("Available")
+                    }
                     documentReference.set(document_data=data)
                     return True
                 except Exception:
                     return False
 
+# Driver Code For Running In Terminal
 if (__name__ == "__main__"):
     SERVER: Server = Server(
         NAME=argv[1],

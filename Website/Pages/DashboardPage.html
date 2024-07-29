@@ -1,6 +1,6 @@
 {% extends 'HomePage.html' %}
 {% block title %}
-<title>Swift | Dashboard</title>
+<title>Cascade | Dashboard</title>
 {% endblock %}
 {% block styles %}
 <link rel="stylesheet" href="/static/CSS/DashboardPage.css">
@@ -55,8 +55,8 @@
     </div>
 </div>
 <footer class="specialFlexBox">
-    <ion-icon name="remove-outline" title="Remove This Card" onclick="removeCard()"></ion-icon>
-    <ion-icon name="share-outline" title="Share This Card" onclick="sharePage()"></ion-icon>
+    <ion-icon name="remove-outline" title="Remove This Card" id="removeCard"></ion-icon>
+    <ion-icon name="share-outline" title="Share This Card" onclick="window.location.href = `/cards/share?card=${document.getElementById('cardNumber').innerText}`"></ion-icon>
 </footer>
 <div id="nothing" class="container specialFlexBox" style="display: none;">
     <ion-icon name="logo-apple-ar"></ion-icon>
