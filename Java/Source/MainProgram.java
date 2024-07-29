@@ -13,7 +13,7 @@ import java.util.Date;
 public class MainProgram {
     private static Integer MAX_IMAGE_W = 640;
     private static Integer MAX_IMAGE_H = 480;
-    private static final String WINDOW_TITLE = "Swift Framework Reader Image Capture Program";
+    private static final String WINDOW_TITLE = "Cascade Framework Reader Image Capture Program";
     private static final String BUTTON_NAME_LISTEN = "Listen";
     private static final String BUTTON_NAME_STOP = "Stop";
     private static final String BUTTON_NAME_SELECT_SAVE_FOLDER = "Select Save Folder";
