@@ -1,0 +1,72 @@
+{% extends 'HomePage.html' %}
+{% block title %}
+<title>Cascade | Dashboard</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/CSS/DashboardPage.css">
+{% endblock %}
+{% block icons %}
+<ion-icon class="icon" name="person-circle-outline" title="Manage Account" id="acc"></ion-icon>
+<ion-icon class="icon" name="analytics-outline" title="Manage Nodes" id="nodes"></ion-icon>
+<ion-icon class="icon" name="card-outline" title="Manage Cards" id="cards"></ion-icon>
+{% endblock %}
+{% block content %}
+<div class="container specialFlexBox" id="container" style="display: none;">
+    <div class="current">
+        <div class="company specialFlexBox">
+            <img src="/static/Assets/Favicon.svg" id="vendorLogo" alt="Card Vendor Logo">
+            <h3 id="vendorName"></h3>
+        </div>
+        <div class="details">
+            <div class="numbers specialFlexBox">
+                <label for="cardNumber">Card Number</label>
+                <span id="cardNumber"></span>
+            </div>
+            <div class="validity specialFlexBox">
+                <div class="from specialFlexBox">
+                    <label for="from">From</label>
+                    <span id="from"></span>
+                </div>
+                <ion-icon name="arrow-forward-outline" class="arrow"></ion-icon>
+                <div class="till specialFlexBox">
+                    <label for="till">Till</label>
+                    <span id="till"></span>
+                </div>
+            </div>
+        </div>
+        <div class="flags specialFlexBox">
+            <span class="flag specialFlexBox" id="encrypted" title="Heavily Encrypted">
+                <ion-icon name="timer-outline"></ion-icon>
+            </span>
+            <span class="flag specialFlexBox" id="verification" title="Requires Verification">
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </span>
+            <span class="flag specialFlexBox" id="cvv" title="CVV Protected Card">
+                <ion-icon name="aperture-outline"></ion-icon>
+            </span>
+            <span class="flag specialFlexBox" id="shared" title="Shared Card">
+                <ion-icon name="people-circle-outline"></ion-icon>
+            </span>
+        </div>
+    </div>
+    <div class="controls specialFlexBox" id="controls">
+        <ion-icon name="arrow-back-circle-outline" id="prev"></ion-icon>
+        <ion-icon name="arrow-forward-circle-outline" id="next"></ion-icon>
+    </div>
+</div>
+<footer class="specialFlexBox">
+    <ion-icon name="remove-outline" title="Remove This Card" id="removeCard"></ion-icon>
+    <ion-icon name="share-outline" title="Share This Card" onclick="window.location.href = `/cards/share?card=${document.getElementById('cardNumber').innerText}`"></ion-icon>
+</footer>
+<div id="nothing" class="container specialFlexBox" style="display: none;">
+    <ion-icon name="logo-apple-ar"></ion-icon>
+    <h2>Nothing Here</h2>
+</div>
+<div id="loaderWrapper" class="container specialFlexBox">
+    <div class="loader"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script type="module" src="/static/JavaScript/CardsPage.js"></script>
+<script src="/static/JavaScript/CustomButtons.js"></script>
+{% endblock %}

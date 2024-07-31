@@ -1,6 +1,7 @@
 <h1 align="center"> :sparkles: Introducing Cascade :earth_asia: <br> Simplify Cards Instantly</h1>
 
 ### :milky_way: Project Badges :octocat:
+![Version Badge](https://img.shields.io/badge/Version-v1.0_Beta-red?logo=lighthouse)
 ![Firebase Badge](https://img.shields.io/badge/Powered_By-Firebase-577B8D?logo=firebase&logoColor=ffa611&logoSize=auto)
 ![Python Badge](https://img.shields.io/badge/Built_Using-Python-yellow?logo=python)
 ![Arduino Badge](https://img.shields.io/badge/Hardware_Using-Arduino-blue?logo=arduino)
@@ -13,7 +14,7 @@
 ![Flask Badge](https://img.shields.io/badge/Server_Using-Flask-blue?logo=flask)
 ![Icons8 Badge](https://img.shields.io/badge/Logos_From-Icons8-lightgreen?logo=icons8)
 ![License Badge](https://img.shields.io/badge/Licence-GNU_GPL_Revision_3-red?logo=Gnu)
-![Maintainer Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmyselfgautham%2FCascade%2FRelease%2F.github%2FprojectBadges.json%3Ftoken%3DGHSAT0AAAAAACU3ZPKP4VRGJHTTSJICTMGMZVKFFMA&query=%24.Maintainer&logo=github&label=Maintainer)
+![Maintainer Badge](https://img.shields.io/badge/Maintainer-Gautham_Krishna-blue?logo=github)
 
 ### :octocat: Releases History : Production :fire:
 | *Release ID* | *Date Of Release* | *Authorized By* | **Status** |

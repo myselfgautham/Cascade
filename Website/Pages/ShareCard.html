@@ -1,0 +1,36 @@
+{% extends 'HomePage.html' %}
+{% block title %}
+<title>Cascade | Share Card</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/CSS/CreateAccount.css">
+<style>
+    .iax {width: 100%;}
+</style>
+{% endblock %}
+{% block content %}
+<div class="container specialFlexBox">
+    <h1 class="mov">Share Card</h1>
+    <form id="form" class="specialFlexBox">
+        <div class="TextBox specialFlexBox">
+            <span class="icon specialFlexBox">
+                <ion-icon class="esx" name="person-circle-outline"></ion-icon>
+                <input id="number" type="text" name="card" placeholder="Enrolled Card Number"/>
+            </span>
+        </div>
+        <div class="TextBox specialFlexBox">
+            <span class="icon specialFlexBox">
+                <ion-icon class="esx" name="mail-outline"></ion-icon>
+                <input id="mail" type="email" name="mail" placeholder="Party Email Address"/>
+            </span>
+        </div>
+        <div class="notifier specialFlexBox">
+            <h3 id="note"></h3>
+        </div>
+        <button class="iax" type="button" id="submit">Share Card</button>
+    </form>
+</div>
+{% endblock %}
+{% block scripts %}
+<script type="module" src="/static/JavaScript/ShareCard.js" defer></script>
+{% endblock %}

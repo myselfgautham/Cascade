@@ -8,7 +8,47 @@ on:
     branches: ["Production"]
 
 jobs:
+  Server-Program-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Server Test Pipeline Triggered"
+      - run: echo "🐧 Running On A Linux Server"
+
+      - uses: actions/checkout@v4
+      - name: Initialize Python Environment
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install setuptools
+          python -m pip install Flask
+          python -m pip install Flask-Caching
+          python -m pip install Flask-Compress
+          python -m pip install pyrebase4
+          python -m pip install firebase-admin
+          python -m pip install uuid
+          python -m pip install psutil
+          python -m pip install flask_cors
+
+      - name: Test Server Application
+        run: |
+          cd "${{ github.workspace }}/Server/"
+          python "Server Program.py"
+
+      - name: Test Server Registrar
+        run: |
+          cd "${{ github.workspace }}/Server/"
+          python "Register Server.py" "GitHub Actions Server" "3000"
+
+      - name: Print Test Result
+        run: |
+          echo "👨‍💻 Test Result : ${{ job.status }}"
+  
   Image-Capture-Program-Test:
+    needs: Server-Program-Test
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Testing Image Capture Program"
