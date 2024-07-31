@@ -1,8 +1,0 @@
-Flask
-Flask-Caching
-Flask-Compress
-pyrebase4
-firebase-admin
-uuid
-psutil
-flask_cors

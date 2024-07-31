@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Image Capture Program:jar">
-    <output-path>$PROJECT_DIR$/Output/artifacts/Image_Capture_Program_jar</output-path>
-    <root id="archive" name="Image Capture Program.jar">
-      <element id="module-output" name="Image Capture Program" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/Libraries/JavaSerialCommunications.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
