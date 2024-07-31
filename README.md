@@ -12,6 +12,7 @@
 ![ESP32 Badge](https://img.shields.io/badge/Hardware_Using-ESP32-blue?logo=espressif)
 ![Flask Badge](https://img.shields.io/badge/Server_Using-Flask-blue?logo=flask)
 ![Icons8 Badge](https://img.shields.io/badge/Logos_From-Icons8-lightgreen?logo=icons8)
+![License Badge](https://img.shields.io/badge/Licence-GNU_GPL_Revision_3-red?logo=Gnu)
 
 ### :octocat: Releases History : Production :fire:
 | *Release ID* | *Date Of Release* | *Authorized By* | **Status** |
