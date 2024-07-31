@@ -1,0 +1,77 @@
+{% extends 'HomePage.html' %}
+{% block title %}
+<title>Cascade | Page Not Found</title>
+{% endblock %}
+{% block styles %}
+<style>
+    :root {
+        --shadow: #940B92;
+    }
+    .container {
+        flex-direction: column;
+        padding: 8px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .errorHeading {
+        color: white;
+        letter-spacing: 0.06rem;
+        font-family: sans-serif;
+        font-size: calc(18px + 0.6vw);
+        white-space: nowrap;
+    }
+    .text {
+        text-align: center;
+        color: white;
+        letter-spacing: 0.06rem;
+        font-size: calc(12px + 0.4vw);
+        padding-top: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #back {
+        border: 2px solid silver;
+        padding: 6px;
+        border-radius: 50%;
+        margin-top: 8px;
+    }
+    #back:hover {
+        color: #F6B17A;
+        border-color: #9B3922;
+    }
+    .container:hover {
+        box-shadow: 5px 5px 5px var(--shadow), inset 5px 5px 5px var(--shadow);
+        padding: 8px 8px 8px 13px;
+    }
+    hr {
+        width: 100%;
+        position: relative;
+        margin-top: 8px;
+        border: 2px dashed #435585;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container specialFlexBox">
+    <img src="/static/Assets/Cloud.svg" alt="404 Error Image">
+    <h4 class="errorHeading">Page Not Found</h4>
+    <hr>
+    <p class="text"><strong>Legends Say That</strong><br><em>It Left For The Cloud</em></p>
+    <ion-icon name="arrow-back-outline" class="icon" title="Go Back Home" id="back"></ion-icon>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+    let back = document.getElementById("back");
+    back.addEventListener("click", () => {
+        setTimeout(() => {
+            if (window.history.length >= 5) {
+                window.history.back()
+            } else {
+                window.location.href = "/";
+            }
+        }, 100);
+    })
+</script>
+{% endblock %}
