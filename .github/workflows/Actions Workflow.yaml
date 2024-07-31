@@ -27,6 +27,7 @@ jobs:
         run: |
           cd "${{ github.workspace }}/Capture/Java/"
           chmod +x gradlew
+          ./gradlew build
           ./gradlew check
       - name: Print Test Result
         run: |
