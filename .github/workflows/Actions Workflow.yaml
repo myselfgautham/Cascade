@@ -1,0 +1,34 @@
+name: GitHub Actions Tests
+run-name: Programs Are Being Tested On GitHub Actions 🚀
+
+on:
+  pull_request:
+    branches: ["Production"]
+  push:
+    branches: ["Production"]
+
+jobs:
+  Image-Capture-Program-Test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Testing Image Capture Program"
+      - run: echo "🐧 Running On A Linux Server"
+      - name: Checkout The Repository
+        uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: gradle
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: Running Tests
+        run: |
+          cd "${{ github.workspace }}/Capture/Java/"
+          chmod +x gradlew
+          ./gradlew build
+          ./gradlew check
+      - name: Print Test Result
+        run: |
+          echo "👨‍💻 Test Result : ${{ job.status }}"
