@@ -8,7 +8,7 @@ on:
     branches: ["Production"]
 
 jobs:
-  Client-Server-Program:
+  Client-Server-Program-Test:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Server Test Pipeline Triggered"
@@ -48,7 +48,7 @@ jobs:
           echo "👨‍💻 Test Result : ${{ job.status }}"
   
   Image-Capture-Program-Test:
-    needs: Server-Program-Test
+    needs: Client-Server-Program-Test
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Testing Image Capture Program"
@@ -74,7 +74,7 @@ jobs:
           echo "👨‍💻 Test Result : ${{ job.status }}"
   
   Functions-Tests:
-    needs: Server-Program-Test
+    needs: Client-Server-Program-Test
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Testing Python Functions"
