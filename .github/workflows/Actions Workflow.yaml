@@ -8,7 +8,7 @@ on:
     branches: ["Production"]
 
 jobs:
-  Server-Program-Test:
+  Client-Server-Program:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Server Test Pipeline Triggered"
@@ -69,6 +69,29 @@ jobs:
           chmod +x gradlew
           ./gradlew build
           ./gradlew check
+      - name: Print Test Result
+        run: |
+          echo "👨‍💻 Test Result : ${{ job.status }}"
+  
+  Functions-Tests:
+    needs: Server-Program-Test
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Testing Python Functions"
+      - run: echo "🐧 Running On A Linux Server"
+      - name: Checkout The Repository
+        uses: actions/checkout@v2
+      - name: Initialize Python Environment
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+      - name: Install Dependencies
+        run: |
+          python3.12 -m pip install firebase_admin
+      - name: Test Card Maintenance Function
+        run: |
+          cd "${{ github.workspace }}/Functions/"
+          python3.12 "CardMaintenance.py"
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"
