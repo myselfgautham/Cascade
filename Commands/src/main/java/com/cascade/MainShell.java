@@ -6,19 +6,37 @@ import com.cascade.Helpers.ASCIIArt;
 import com.cascade.Helpers.OperatingSystems;
 import com.cascade.Helpers.ShellCommands;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class MainShell {
+    public static HashMap<String, Boolean> flags;
     public static void main(String[] args) throws Exception {
-        Scanner reader = new Scanner(System.in);
-        ShellCommands.ClearTerminal();
-        try {
-            if (OperatingSystem.getOperatingSystemType().equals(OperatingSystems.Other)) {
+        flags = new HashMap<>();
+        try (Scanner reader = new Scanner(System.in)) {
+            if (
+                    OperatingSystem.getOperatingSystemType().equals(OperatingSystems.MacOS) ||
+                    OperatingSystem.getOperatingSystemType().equals(OperatingSystems.Other)
+            ) {
                 throw new UnsupportedOperatingSystemException();
             }
-            ASCIIArt.PrintASCIIArtOnTerminal();
+            for (String argument : args) {
+                switch (argument) {
+                    case "-verbose" -> {
+                        flags.put("Verbose", true);
+                    }
+                    case "-noAsciiArt" -> {
+                        flags.put("ASCIIART", false);
+                    }
+                    default -> {}
+                }
+            }
+            ShellCommands.ClearTerminal();
+            if (flags.get("ASCIIART") == null) {
+                ASCIIArt.PrintASCIIArtOnTerminal();
+            }
             while (true) {
-                System.out.print("\u001B[32m" + OperatingSystem.getOperatingSystemType() +"\u001B[0m" + " \u001B[34m@\u001B[0m ");
+                System.out.print("\u001B[32m" + OperatingSystem.getOperatingSystemType() + "\u001B[0m" + " \u001B[34m@\u001B[0m ");
                 System.out.print(System.getProperty("user.dir"));
                 System.out.print(" \u001B[31m$\u001B[0m ");
                 String command = reader.nextLine();
@@ -26,15 +44,10 @@ public class MainShell {
             }
         } catch (Exception e) {
             System.out.println();
-            for (String arg : args) {
-                if (arg.equals("-verbose")) {
-                    e.printStackTrace();
-                    break;
-                }
-            }
-            System.out.println("\u001B[31m"+e.getMessage()+"\u001B[0m");
+            if (flags.get("Verbose") != null)
+                e.printStackTrace();
+            System.out.println("\u001B[31m" + e.getMessage() + "\u001B[0m");
             System.out.println();
         }
-        reader.close();
     }
 }
