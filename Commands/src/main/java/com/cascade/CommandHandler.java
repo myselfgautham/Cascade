@@ -20,7 +20,9 @@ public class CommandHandler {
             case "exit" -> throw new ShellExitException("Exit Command");
             case "clear" -> {
                 ShellCommands.ClearTerminal();
-                ASCIIArt.PrintASCIIArtOnTerminal();
+                if (MainShell.flags.get("ASCIIART") == null) {
+                    ASCIIArt.PrintASCIIArtOnTerminal();
+                }
             }
             case "test dependencies" -> {
                 try {

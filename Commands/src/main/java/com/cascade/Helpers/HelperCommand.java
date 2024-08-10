@@ -15,6 +15,7 @@ public class HelperCommand {
 
     private static void RegisterFlags() {
         FlagsDocumentation.put("-verbose", "Added Stack Trace Logging");
+        FlagsDocumentation.put("-noAsciiArt", "Disables ASCII Art Printing");
     }
 
     public static void PrintHelpCommandsData() {

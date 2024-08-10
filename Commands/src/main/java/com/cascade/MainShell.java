@@ -10,21 +10,29 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class MainShell {
+    public static HashMap<String, Boolean> flags;
     public static void main(String[] args) throws Exception {
-        HashMap<String, Boolean> flags = new HashMap<>();
+        flags = new HashMap<>();
         try (Scanner reader = new Scanner(System.in)) {
-            if (OperatingSystem.getOperatingSystemType().equals(OperatingSystems.Other)) {
+            if (
+                    OperatingSystem.getOperatingSystemType().equals(OperatingSystems.MacOS) ||
+                    OperatingSystem.getOperatingSystemType().equals(OperatingSystems.Other)
+            ) {
                 throw new UnsupportedOperatingSystemException();
             }
             for (String argument : args) {
                 switch (argument) {
                     case ("-verbose"):
                         flags.put("Verbose", true);
+                    case ("-noAsciiArt"):
+                        flags.put("ASCIIART", false);
                     default:
                 }
             }
             ShellCommands.ClearTerminal();
-            ASCIIArt.PrintASCIIArtOnTerminal();
+            if (flags.get("ASCIIART") == null) {
+                ASCIIArt.PrintASCIIArtOnTerminal();
+            }
             while (true) {
                 System.out.print("\u001B[32m" + OperatingSystem.getOperatingSystemType() + "\u001B[0m" + " \u001B[34m@\u001B[0m ");
                 System.out.print(System.getProperty("user.dir"));
