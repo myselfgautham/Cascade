@@ -22,11 +22,13 @@ public class MainShell {
             }
             for (String argument : args) {
                 switch (argument) {
-                    case ("-verbose"):
+                    case "-verbose" -> {
                         flags.put("Verbose", true);
-                    case ("-noAsciiArt"):
+                    }
+                    case "-noAsciiArt" -> {
                         flags.put("ASCIIART", false);
-                    default:
+                    }
+                    default -> {}
                 }
             }
             ShellCommands.ClearTerminal();
