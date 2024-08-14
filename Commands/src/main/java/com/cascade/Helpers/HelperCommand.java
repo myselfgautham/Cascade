@@ -11,12 +11,14 @@ public class HelperCommand {
         CommandsDocumentation.put("exit", "Exits The Shell Session");
         CommandsDocumentation.put("help", "Prints The Documentation Of Available Commands");
         CommandsDocumentation.put("test dependencies", "Tests The Required Python Dependencies");
+        CommandsDocumentation.put("version", "Print Version Information");
         RegisterFlags();
     }
 
     private static void RegisterFlags() {
         FlagsDocumentation.put("-verbose", "Added Stack Trace Logging");
         FlagsDocumentation.put("-noAsciiArt", "Disables ASCII Art Printing");
+        FlagsDocumentation.put("--version", "Prints The Version And Exits");
     }
 
     public static void PrintHelpCommandsData() {

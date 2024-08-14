@@ -1,12 +1,11 @@
 package com.cascade;
 
+import com.cascade.Exceptions.ShellExitException;
 import com.cascade.Exceptions.UnsupportedOperatingSystemException;
-import com.cascade.Helpers.OperatingSystem;
-import com.cascade.Helpers.ASCIIArt;
-import com.cascade.Helpers.OperatingSystems;
-import com.cascade.Helpers.ShellCommands;
+import com.cascade.Helpers.*;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MainShell {
@@ -20,8 +19,13 @@ public class MainShell {
             ) {
                 throw new UnsupportedOperatingSystemException();
             }
+            reader.useLocale(Locale.ENGLISH);
             for (String argument : args) {
                 switch (argument) {
+                    case "--version" -> {
+                        PrintVersionStyled.PrintVersion();
+                        throw new ShellExitException("Version Flag");
+                    }
                     case "-verbose" -> {
                         flags.put("Verbose", true);
                     }

@@ -57,6 +57,10 @@ public class CommandHandler {
                     System.out.println();
                 }
             }
+            case "version" -> {
+                PrintVersionStyled.PrintVersion();
+                System.out.println();
+            }
             default -> throw new InvalidCommandException();
         }
     }
