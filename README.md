@@ -15,6 +15,7 @@
 ![Icons8 Badge](https://img.shields.io/badge/Logos_From-Icons8-lightgreen?logo=icons8)
 ![License Badge](https://img.shields.io/badge/Licence-GNU_GPL_Revision_3-red?logo=Gnu)
 ![Maintainer Badge](https://img.shields.io/badge/Maintainer-Gautham_Krishna-blue?logo=github)
+![Java Badge](https://img.shields.io/badge/Built_Using-Java-purple?logo=gradle)
 
 ### :octocat: Releases History : Production :fire:
 | *Release ID* | *Date Of Release* | *Authorized By* | **Status** |
