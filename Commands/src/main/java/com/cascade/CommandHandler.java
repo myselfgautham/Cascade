@@ -61,6 +61,12 @@ public class CommandHandler {
                 PrintVersionStyled.PrintVersion();
                 System.out.println();
             }
+            case "run server" -> {
+                Scanner reader = new Scanner(System.in);
+                System.out.print("Enter Server Program Path : ");
+                String path = reader.nextLine();
+                ExecuteBashScriptHelper.Run("Run Server.sh", path);
+            }
             default -> throw new InvalidCommandException();
         }
     }

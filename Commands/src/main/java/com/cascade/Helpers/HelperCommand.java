@@ -12,6 +12,7 @@ public class HelperCommand {
         CommandsDocumentation.put("help", "Prints The Documentation Of Available Commands");
         CommandsDocumentation.put("test dependencies", "Tests The Required Python Dependencies");
         CommandsDocumentation.put("version", "Print Version Information");
+        CommandsDocumentation.put("run server", "Executes The Server Program");
         RegisterFlags();
     }
 
