@@ -51,10 +51,10 @@ public class ExecuteBashScriptHelper {
         processThread.start();
         try {
             int exitCode = process.waitFor();
-            processThread.join(); // Ensure the thread finishes
-            System.out.println("Script exited with code " + exitCode);
+            processThread.join();
+            System.out.println("Script Exited With Code " + exitCode);
         } catch (InterruptedException e) {
-            System.out.println("Process interrupted");
+            System.out.println("Process Interrupted");
             process.destroy();
             try {
                 process.waitFor();
