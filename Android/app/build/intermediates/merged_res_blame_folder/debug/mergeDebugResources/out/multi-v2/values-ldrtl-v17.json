@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.cascade.cascadeproject.app-mergeDebugResources-29:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "outputFile": "com.cascade.cascadeproject.app-mergeDebugResources-41:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
-                    "source": "/home/gauthamkrishna/.gradle/caches/transforms-4/24c04846bc4d0035c76dbc86c823ba27/transformed/material-1.10.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "source": "/home/gauthamkrishna/.gradle/caches/transforms-4/046a89e2483d1d02a81a593c38dfdfef/transformed/material-1.10.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
