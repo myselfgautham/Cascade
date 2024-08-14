@@ -16,7 +16,7 @@ public class ExecuteBashScriptHelper {
             File scriptFile = extractScript(name);
             scriptFile.setExecutable(true);
             runScriptWithInterruptHandling(scriptFile, arg);
-        } catch (IOException _) {
+        } catch (IOException e) {
             throw new BashExecutionFailedException();
         }
     }
