@@ -25,7 +25,7 @@ public class ExecuteBashScriptHelper {
         ClassLoader classLoader = ExecuteBashScriptHelper.class.getClassLoader();
         try (InputStream inputStream = classLoader.getResourceAsStream(resourcePath)) {
             if (inputStream == null) {
-                throw new IOException("Resource not found: " + resourcePath);
+                throw new IOException("Resource Not Found: " + resourcePath);
             }
             Path tempFilePath = Files.createTempFile("script", ".sh");
             File tempFile = tempFilePath.toFile();

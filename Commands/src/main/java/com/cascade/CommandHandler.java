@@ -1,8 +1,6 @@
 package com.cascade;
 
-import com.cascade.Exceptions.InvalidCommandException;
-import com.cascade.Exceptions.PythonTestsFailedException;
-import com.cascade.Exceptions.ShellExitException;
+import com.cascade.Exceptions.*;
 import com.cascade.Helpers.*;
 
 import java.io.*;
@@ -65,7 +63,15 @@ public class CommandHandler {
                 Scanner reader = new Scanner(System.in);
                 System.out.print("Enter Server Program Path : ");
                 String path = reader.nextLine();
-                ExecuteBashScriptHelper.Run("Run Server.sh", path);
+                switch (OperatingSystem.getOperatingSystemType()) {
+                    case Linux -> {
+                        ExecuteBashScriptHelper.Run("Run Server.sh", path);
+                    }
+                    case Windows, MacOS -> {
+                        throw new FeatureNotAvailableException();
+                    }
+                    default -> throw new UnsupportedOperatingSystemException();
+                }
             }
             default -> throw new InvalidCommandException();
         }
