@@ -3,7 +3,7 @@ package com.cascade.Helpers;
 public class PythonTest {
     public static String pythonTest = """
             if (__name__ == "__main__"):
-                print("\\033[34mCascade Server\\nDependencies Tester\\033[0m", end="\\n\\n")
+                print("\\033[34mCascade Server\\nDependencies Tester\\033[0m\\n")
                 try:
                     from flask import *
                     print("\\033[32m:) Flask Dependency Resolved\\033[0m")

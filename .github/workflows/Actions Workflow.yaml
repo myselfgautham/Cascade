@@ -46,7 +46,7 @@ jobs:
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"
-  
+
   Image-Capture-Program-Test:
     needs: Client-Server-Program-Test
     runs-on: ubuntu-latest
@@ -72,7 +72,7 @@ jobs:
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"
-  
+
   Functions-Tests:
     needs: Client-Server-Program-Test
     runs-on: ubuntu-latest
@@ -95,7 +95,7 @@ jobs:
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"
-  
+
   Shell-Program-Test:
     needs: Functions-Tests
     runs-on: ubuntu-latest
@@ -115,6 +115,32 @@ jobs:
       - name: Run Gradle Tests
         run: |
           cd "${{ github.workspace }}/Commands/"
+          chmod +x gradlew
+          ./gradlew build --stacktrace
+          ./gradlew check
+      - name: Print Test Result
+        run: |
+          echo "👨‍💻 Test Result : ${{ job.status }}"
+
+  Android-Application-Test:
+    needs: Client-Server-Program-Test
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Testing Python Functions"
+      - run: echo "🐧 Running On A Linux Server"
+      - name: Checkout The Repository
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: gradle
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: Run Gradle Tests
+        run: |
+          cd "${{ github.workspace }}/Android/"
           chmod +x gradlew
           ./gradlew build
           ./gradlew check

@@ -1,0 +1,6 @@
+com.cascade.cascadeproject.test.app-annotation-experimental-1.3.0-0 /home/gauthamkrishna/.gradle/caches/transforms-4/1beb063a818543f6663305aabb0e0455/transformed/annotation-experimental-1.3.0/res
+com.cascade.cascadeproject.test.app-core-1.5.0-1 /home/gauthamkrishna/.gradle/caches/transforms-4/e297c5bfbe4f7b75801c39f83f388e57/transformed/core-1.5.0/res
+com.cascade.cascadeproject.test.app-androidTest-2 /home/gauthamkrishna/Documents/GitHub/Cascade/Android/app/build/generated/res/resValues/androidTest/debug
+com.cascade.cascadeproject.test.app-mergeDebugAndroidTestResources-3 /home/gauthamkrishna/Documents/GitHub/Cascade/Android/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.cascade.cascadeproject.test.app-mergeDebugAndroidTestResources-4 /home/gauthamkrishna/Documents/GitHub/Cascade/Android/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.cascade.cascadeproject.test.app-debugAndroidTest-5 /home/gauthamkrishna/Documents/GitHub/Cascade/Android/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources

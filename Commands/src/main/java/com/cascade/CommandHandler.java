@@ -3,12 +3,10 @@ package com.cascade;
 import com.cascade.Exceptions.InvalidCommandException;
 import com.cascade.Exceptions.PythonTestsFailedException;
 import com.cascade.Exceptions.ShellExitException;
-import com.cascade.Helpers.ASCIIArt;
-import com.cascade.Helpers.HelperCommand;
-import com.cascade.Helpers.PythonTest;
-import com.cascade.Helpers.ShellCommands;
+import com.cascade.Helpers.*;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class CommandHandler {
     public static void HandleCommand(String command) throws Exception {
@@ -26,13 +24,24 @@ public class CommandHandler {
             }
             case "test dependencies" -> {
                 try {
-                    System.out.println();
+                    String interpreter = "";
+                    if (OperatingSystem.getOperatingSystemType() == OperatingSystems.Linux) {
+                        Scanner reader = new Scanner(System.in);
+                        System.out.println();
+                        System.out.print("\u001B[34mEnter Python Version : \u001B[0m");
+                        interpreter = "python" + reader.nextLine();
+                    } else {
+                        interpreter = "python";
+                    }
+                    if (OperatingSystem.getOperatingSystemType() != OperatingSystems.Linux) {
+                        System.out.println();
+                    }
                     File tempFile = File.createTempFile("Tests", ".py");
                     tempFile.deleteOnExit();
                     try (PrintWriter writer = new PrintWriter(new FileWriter(tempFile))) {
                         writer.println(PythonTest.pythonTest);
                     }
-                    ProcessBuilder processBuilder = new ProcessBuilder("python", tempFile.getAbsolutePath());
+                    ProcessBuilder processBuilder = new ProcessBuilder(interpreter, tempFile.getAbsolutePath());
                     processBuilder.redirectErrorStream(true);
                     Process process = processBuilder.start();
                     try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
@@ -47,6 +56,16 @@ public class CommandHandler {
                 } finally {
                     System.out.println();
                 }
+            }
+            case "version" -> {
+                PrintVersionStyled.PrintVersion();
+                System.out.println();
+            }
+            case "run server" -> {
+                Scanner reader = new Scanner(System.in);
+                System.out.print("Enter Server Program Path : ");
+                String path = reader.nextLine();
+                ExecuteBashScriptHelper.Run("Run Server.sh", path);
             }
             default -> throw new InvalidCommandException();
         }
