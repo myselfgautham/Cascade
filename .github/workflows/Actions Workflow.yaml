@@ -117,6 +117,7 @@ jobs:
           cd "${{ github.workspace }}/Commands/"
           chmod +x gradlew
           ./gradlew build --stacktrace
+          ./gradlew check
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"

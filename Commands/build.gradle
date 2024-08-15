@@ -18,27 +18,14 @@ test {
     useJUnitPlatform()
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir "src/main/java"
-        }
-        resources {
-            srcDir "src/main/resources"
-        }
-    }
-}
-
 jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes "Main-Class": "com.cascade.MainShell"
     }
-
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
-
     from('src/main/resources') {
         into 'resources'
     }
