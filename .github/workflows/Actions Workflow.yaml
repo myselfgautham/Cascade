@@ -107,7 +107,7 @@ jobs:
     needs: Functions-Tests
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 Testing Python Functions"
+      - run: echo "🎉 Testing Shell Program"
       - run: echo "🐧 Running On A Linux Server"
       - name: Checkout The Repository
         uses: actions/checkout@v4
@@ -133,7 +133,7 @@ jobs:
     needs: Client-Server-Program-Test
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 Testing Python Functions"
+      - run: echo "🎉 Testing Android Application"
       - run: echo "🐧 Running On A Linux Server"
       - name: Checkout The Repository
         uses: actions/checkout@v4
@@ -151,6 +151,33 @@ jobs:
           chmod +x gradlew
           ./gradlew build
           ./gradlew check
+      - name: Print Test Result
+        run: |
+          echo "👨‍💻 Test Result : ${{ job.status }}"
+  
+  Enterprise-Server-Test:
+    needs: Functions-Tests
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Testing Enterprise Server"
+      - run: echo "🐧 Running On A Linux Server"
+      - name: Checkout The Repository
+        uses: actions/checkout@v4
+      - name: Initialize Python Environment
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+      - name: Install Dependencies
+        run: |
+          python3.12 -m pip install flask
+          python3.12 -m pip install flask_compress
+          python3.12 -m pip install flask_caching
+          python3.12 -m pip install firebase_admin
+          python3.12 -m pip install uuid
+      - name: Test Enterprise Server Program
+        run: |
+          cd "${{ github.workspace }}/Provider/Server/"
+          python3.12 "Server Program.py"
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"
