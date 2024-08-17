@@ -7,6 +7,7 @@ from firebase_admin.auth import get_user_by_email
 from firebase_admin._user_mgt import UserRecord
 from datetime import datetime
 from datetime import UTC
+from sys import exit
 
 credentials: Certificate = Certificate("../Certificates/Firebase.json")
 firebase = initialize_app(credentials)
@@ -19,6 +20,7 @@ try:
     )
 except Exception:
     print("Serial Ports Are Not Available")
+    exit(0)
 
 def issueCardToUser(Email: str, ActivationCode: str, CardUid: str) -> None:
     try:
