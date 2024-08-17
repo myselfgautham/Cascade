@@ -87,17 +87,17 @@ jobs:
         run: |
           python3.12 -m pip install firebase_admin
           python3.12 -m pip install pyserial
-      - name: Change Working Directory
-        run: |
-          cd "${{ github.workspace }}/Functions/"
       - name: Test Card Maintenance Function
         run: |
+          cd "${{ github.workspace }}/Functions/"
           python3.12 "CardMaintenance.py"
       - name: Test Node Issuing Function
         run: |
+          cd "${{ github.workspace }}/Functions/"
           python3.12 "RegisterNodeFactory.py"
       - name: Test Cloud Messaging Function
         run: |
+          cd "${{ github.workspace }}/Functions/"
           python3.12 "CloudMessaging.py"
       - name: Print Test Result
         run: |
