@@ -1,0 +1,30 @@
+{% extends 'HomePage.jinja2' %}
+{% block title %}
+<title>Cascade Enterprise | Dashboard</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/Styles/EnterpriseDashboard.css">
+{% endblock %}
+{% block content %}
+<footer>
+    <ion-icon name="add-outline" class="icon" title="Issue A New Card" onclick="window.location.href='/cards/new'"></ion-icon>
+    <ion-icon name="log-out-outline" class="icon" title="Log Out" onclick="logOutUserSession()"></ion-icon>
+</footer>
+<div class="container specialFlexBox" style="flex-direction: column; top: 50%;">
+    <h1 class="text">
+        Simplifying Cards For <br>
+        <span class="inner">Everyone</span>
+    </h1>
+    <div class="supports">
+        <ion-icon class="support" id="python" name="logo-python" title="Python Package Index"></ion-icon>
+        <ion-icon class="support" id="nodejs" name="logo-nodejs" title="Node Package Manager"></ion-icon>
+        <ion-icon class="support" id="javascript" name="logo-javascript" title="Content Delivery Network"></ion-icon>
+        <ion-icon class="support" id="server" name="server-outline" title="Custom Server"></ion-icon>
+        <ion-icon class="support" id="docker" name="logo-docker" title="Docker Container"></ion-icon>
+        <ion-icon class="support" name="logo-android" id="android" title="Android Application"></ion-icon>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/JavaScript/DashboardPage.js"></script>
+{% endblock %}
