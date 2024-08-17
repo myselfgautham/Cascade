@@ -11,11 +11,14 @@ from datetime import UTC
 credentials: Certificate = Certificate("../Certificates/Firebase.json")
 firebase = initialize_app(credentials)
 db = firestore.client(firebase)
-serial = pyserial.Serial(
-    port="/dev/ttyUSB0",
-    baudrate=115200,
-    timeout=0.1
-)
+try:
+    serial = pyserial.Serial(
+        port="/dev/ttyUSB0",
+        baudrate=115200,
+        timeout=0.1
+    )
+except Exception:
+    print("Serial Ports Are Not Available")
 
 def issueCardToUser(Email: str, ActivationCode: str, CardUid: str) -> None:
     try:

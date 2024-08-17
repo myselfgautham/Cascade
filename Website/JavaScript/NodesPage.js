@@ -145,3 +145,7 @@ function removeNode() {
         }
     }
 }
+
+document.getElementById("remove-outline").addEventListener("click", () => {
+    removeNode()
+})

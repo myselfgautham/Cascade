@@ -88,10 +88,19 @@ jobs:
       - name: Install Dependencies
         run: |
           python3.12 -m pip install firebase_admin
-      - name: Test Card Maintenance Function
+          python3.12 -m pip install pyserial
+      - name: Change Working Directory
         run: |
           cd "${{ github.workspace }}/Functions/"
+      - name: Test Card Maintenance Function
+        run: |
           python3.12 "CardMaintenance.py"
+      - name: Test Node Issuing Function
+        run: |
+          python3.12 "RegisterNodeFactory.py"
+      - name: Test Cloud Messaging Function
+        run: |
+          python3.12 "CloudMessaging.py"
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"
