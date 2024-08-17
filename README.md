@@ -18,7 +18,7 @@
 ![Java Badge](https://img.shields.io/badge/Built_Using-Java-purple?logo=gradle)
 ![Printables Badge](https://img.shields.io/badge/Stencils_From-Printables-orange?logo=printables)
 ![JetBrains Badge](https://img.shields.io/badge/Software_Solutions_By-JetBrains-red?logo=jetbrains)
-
+![MacOS Badge](https://img.shields.io/badge/Support_For-MacOS-blue?logo=apple)
 
 
 ### :octocat: Releases History : Production :fire:
