@@ -98,7 +98,7 @@ jobs:
       - name: Test Cloud Messaging Function
         run: |
           cd "${{ github.workspace }}/Functions/"
-          python3.12 "CloudMessaging.py"
+          python3.12 "CloudMessaging.py" -test
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"
