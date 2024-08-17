@@ -17,6 +17,8 @@
 ![Maintainer Badge](https://img.shields.io/badge/Maintainer-Gautham_Krishna-blue?logo=github)
 ![Java Badge](https://img.shields.io/badge/Built_Using-Java-purple?logo=gradle)
 ![Printables Badge](https://img.shields.io/badge/Stencils_From-Printables-orange?logo=printables)
+![JetBrains Badge](https://img.shields.io/badge/Software_Solutions_By-JetBrains-red?logo=jetbrains)
+
 
 
 ### :octocat: Releases History : Production :fire:
