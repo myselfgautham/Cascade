@@ -38,5 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "/account/login";
             }
         })
+        let github = document.getElementById("github");
+        github.addEventListener("click", () => {
+            window.open("https://github.com/myselfgautham/Cascade", '_blank').focus()
+        })
     }
 })

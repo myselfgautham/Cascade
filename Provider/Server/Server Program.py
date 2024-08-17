@@ -170,3 +170,8 @@ def issueNewCardInterface():
             return jsonify({"Response": "User Does Not Exist"})
         except Exception:
             return jsonify({"Response": "Something Went Wrong"})
+
+# Business Analytics Route
+@application.route("/analytics", methods = ["GET", "POST"])
+def serveAnalyticsPageEnterprise():
+    pass
