@@ -14,12 +14,12 @@ firebase = initialize_app(credentials)
 db = firestore.client(firebase)
 try:
     serial = pyserial.Serial(
-        port="/dev/ttyUSB0",
+        port="/dev/ttyUSB1",
         baudrate=115200,
         timeout=0.1
     )
 except Exception:
-    print("Serial Ports Are Not Available")
+    print("Serial Ports Exception Encountered")
     exit(0)
 
 def issueCardToUser(Email: str, ActivationCode: str, CardUid: str) -> None:
