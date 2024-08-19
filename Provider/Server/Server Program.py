@@ -90,13 +90,15 @@ def serveEnterpriseRegistrationPage():
                 counter += 1
             if (counter != 0):
                 return jsonify({"Response": "Phone Number Already Exists"})
-            database.collection("Enterprises").document(uuid4().hex).set({
+            identifier: str = uuid4().hex
+            database.collection("Enterprises").document(identifier).set({
                 "Business Name": data.get("business"),
                 "Business Owner": data.get("owner"),
                 "Email Address": data.get("email"),
                 "Phone Number": data.get("phone"),
                 "Password Hash": hashUserPassword(password=data.get("password")),
-                "Verified": False
+                "Verified": False,
+                "Identifier": identifier
             })
             return jsonify({"Response": "Account Created"})
         except Exception:
@@ -158,12 +160,15 @@ def issueNewCardInterface():
             }
             if (data.get("flags")["CVV"]):
                 format["CVV"] = data.get("cvv")
-            vendorName: str = database.collection("Enterprises").where(filter=FieldFilter(
+            vendor = database.collection("Enterprises").where(filter=FieldFilter(
                 field_path="`Email Address`",
                 op_string="==",
                 value=data.get("vendor")
-            )).get()[0].to_dict().get("Business Name")
-            format["Vendor"] = vendorName.title()
+            )).get()[0].to_dict()
+            format["Vendor"] = vendor.get("Business Name").title()
+            format["Vendor Identifier"] = vendor.get("Identifier")
+            if (vendor.get("Logo", None) is not None):
+                format["Logo"] = vendor.get("Logo")
             database.collection("Cards").document(uuid4().hex).set(format)
             return jsonify({"Response": "Card Created Successfully"})
         except UserNotFoundError:
@@ -174,4 +179,29 @@ def issueNewCardInterface():
 # Business Analytics Route
 @application.route("/analytics", methods = ["GET", "POST"])
 def serveAnalyticsPageEnterprise():
-    pass
+    if (request.method == "GET"):
+        return Serve("AnalyticsPage.jinja2")
+    else:
+        try:
+            data: dict = request.json
+            dataStream = database.collection("Enterprises").where(filter=FieldFilter(
+                field_path="`Email Address`",
+                op_string="==",
+                value=data.get("email")
+            )).stream()
+            for company in dataStream:
+                enterpriseID: str = company.to_dict().get("Identifier")
+                break
+            cardQuery = database.collection("Cards").where(filter=FieldFilter(
+                field_path='`Vendor Identifier`',
+                op_string="==",
+                value=enterpriseID
+            )).stream()
+            length: int = 0
+            for _ in cardQuery:
+                length += 1
+            return jsonify({"Response": {
+                "Cards Issued": length
+            }})
+        except Exception:
+            return jsonify({"Response": "Something Went Wrong"})

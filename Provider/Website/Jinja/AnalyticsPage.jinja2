@@ -1,0 +1,30 @@
+{% extends 'HomePage.jinja2' %}
+{% block title %}
+<title>Cascade Enterprise | Analytics</title>
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="/static/Styles/AnalyticsPage.css">
+{% endblock styles %}
+{% block content %}
+<div class="container specialFlexBox" id="root" style="display: none;">
+    <h1 class="heading1">Business Analytics</h1>
+    <div class="fields">
+        <div class="field spcialFlexBox">
+            <span class="specialFlexBox">
+                <img width="48" height="48" src="https://img.icons8.com/fluency/48/battle-net.png" alt="battle-net"/>
+                <a class="identifier">Cards</a>
+                <div class="specialFlexBox" style="flex-direction: column;">
+                    <a class="value" id="cards">42</a>
+                    <a class="placeholder">Issued</a>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="container specialFlexBox" id="loader">
+    <div class="loader"></div>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script src="/static/JavaScript/AnalyticsPage.js" async></script>
+{% endblock %}

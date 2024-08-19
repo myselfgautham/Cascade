@@ -1,0 +1,70 @@
+h1.heading1 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 8px;
+    letter-spacing: 0.15rem;
+    font-size: calc(18px + 2vw);
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+div.fields {
+    box-sizing: border-box;
+    padding: 8px;
+    border: 2px solid goldenrod;
+    border-radius: 16px;
+}
+
+.container {
+    flex-direction: column;
+    top: 50% !important;
+}
+
+div.field { min-width: 160px; }
+
+div.field > span {
+    flex-direction: column;
+    gap: 8px;
+}
+
+a.identifier {
+    color: white;
+    font-family: sans-serif;
+    letter-spacing: 0.04rem;
+    font-weight: 500;
+    font-size: calc(22px + 0.3vw);
+}
+
+a.value {
+    color: white;
+    font-family: sans-serif;
+    letter-spacing: 0.03rem;
+    font-size: calc(20px + 0.3vw);   
+}
+
+a.placeholder {
+    padding-top: 2px;
+    color: white;
+    font-family: sans-serif;
+    letter-spacing: 0.04rem;
+    font-size: calc(13px + 0.2vw);
+}
+
+div.loader {
+    height: 48px;
+    width: 48px;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 4px solid white;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite forwards;
+}
+
+@keyframes spin {
+    from {
+        rotate: 0deg;
+    } to {
+        rotate: 360deg;
+    }
+}
