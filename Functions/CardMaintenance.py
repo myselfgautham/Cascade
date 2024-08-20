@@ -3,8 +3,10 @@ from firebase_admin.credentials import Certificate
 from firebase_admin import firestore
 from google.cloud.firestore_v1 import FieldFilter
 from sys import argv
+from json import loads
+from os import environ
 
-credentials: Certificate = Certificate("../Certificates/Firebase.json")
+credentials: Certificate = Certificate(loads(environ.get("FIREBASE")))
 firebase = initialize_app(credentials)
 db = firestore.client(firebase)
 

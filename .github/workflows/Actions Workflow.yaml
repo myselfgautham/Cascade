@@ -5,6 +5,10 @@ on:
   pull_request:
     branches: ["Production"]
 
+env:
+  FIREBASE: '${{ secrets.FIREBASE }}'
+  PYREBASE: '${{ secrets.PYREBASE }}'
+
 jobs:
   Client-Server-Program-Test:
     runs-on: ubuntu-latest

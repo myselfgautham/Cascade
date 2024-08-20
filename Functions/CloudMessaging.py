@@ -3,8 +3,10 @@ from firebase_admin.credentials import Certificate
 from firebase_admin import messaging
 from sys import argv
 from sys import exit
+from os import environ
+from json import loads
 
-credentials: Certificate = Certificate("../Certificates/Firebase.json")
+credentials: Certificate = Certificate(loads(environ.get("FIREBASE")))
 initialize_app(credentials)
 
 if (argv[1] == "-test"):

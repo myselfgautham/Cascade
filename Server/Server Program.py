@@ -39,19 +39,12 @@ from datetime import UTC
 # Miscellaneous Imports
 from re import search
 from psutil import cpu_percent
+from os import environ
+from json import loads
 
 # Firebase Admin SDK & Pyrebase Setup
-credentials = Certificate("../Certificates/Firebase.json")
-firebaseConfig = {
-  "apiKey": "AIzaSyCDyvXeVLxNr3g8oYHu9EU1BU5pSofbpt8",
-  "authDomain": "swiftjs-development.firebaseapp.com",
-  "projectId": "swiftjs-development",
-  "storageBucket": "swiftjs-development.appspot.com",
-  "messagingSenderId": "396909879457",
-  "appId": "1:396909879457:web:47e323aa1ca83f686fd0e0",
-  "measurementId": "G-REWZSYLBHN",
-  "databaseURL": ""
-}
+credentials = Certificate(loads(environ.get("FIREBASE")))
+firebaseConfig = loads(environ.get("PYREBASE"))
 authentication = pyrebaseSDK(config=firebaseConfig).auth()
 firebase = initialize_app(credentials)
 db = firestore.client(app=firebase)
