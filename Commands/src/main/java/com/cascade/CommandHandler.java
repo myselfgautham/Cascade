@@ -91,6 +91,24 @@ public class CommandHandler {
                     ASCIIArt.PrintASCIIArtOnTerminal();
                 }
             }
+            case "install dependencies --enterprise" -> {
+                System.out.println();
+                switch (OperatingSystem.getOperatingSystemType()) {
+                    case Linux -> {
+                        ExecuteBashScriptHelper.Run("Linux/Install Dependencies Enterprise.sh", "");
+                    }
+                    case Windows, MacOS -> {
+                        throw new FeatureNotAvailableException();
+                    }
+                    default -> throw new UnsupportedOperatingSystemException();
+                }
+                System.out.println();
+                Thread.sleep(1000);
+                ShellCommands.ClearTerminal();
+                if (MainShell.flags.get("ASCIIART") == null) {
+                    ASCIIArt.PrintASCIIArtOnTerminal();
+                }
+            }
             default -> {
                 if (MainShell.flags.get("Safe Mode") == null) {
                     throw new InvalidCommandException();

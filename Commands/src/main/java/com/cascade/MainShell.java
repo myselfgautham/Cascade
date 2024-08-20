@@ -23,6 +23,38 @@ public class MainShell {
             reader.useLocale(Locale.ENGLISH);
             for (String argument : args) {
                 switch (argument) {
+                    case "--setupFunctions" -> {
+                        System.out.println();
+                        switch (OperatingSystem.getOperatingSystemType()) {
+                            case Linux -> {
+                                ExecuteBashScriptHelper.Run("Linux/Setup Functions.sh", "");
+                            }
+                            case Windows, MacOS -> {
+                                throw new FeatureNotAvailableException();
+                            }
+                            default -> throw new UnsupportedOperatingSystemException();
+                        }
+                        System.out.println();
+                        Thread.sleep(1000);
+                        ShellCommands.ClearTerminal();
+                        throw new ShellExitException("Functions Installer Wizard");
+                    }
+                    case "--installDependenciesEnterprise" -> {
+                        System.out.println();
+                        switch (OperatingSystem.getOperatingSystemType()) {
+                            case Linux -> {
+                                ExecuteBashScriptHelper.Run("Linux/Install Dependencies Enterprise.sh", "");
+                            }
+                            case Windows, MacOS -> {
+                                throw new FeatureNotAvailableException();
+                            }
+                            default -> throw new UnsupportedOperatingSystemException();
+                        }
+                        System.out.println();
+                        Thread.sleep(1000);
+                        ShellCommands.ClearTerminal();
+                        throw new ShellExitException("Dependencies Installer");
+                    }
                     case "--installDependenciesClient" -> {
                         System.out.println();
                         switch (OperatingSystem.getOperatingSystemType()) {
