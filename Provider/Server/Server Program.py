@@ -23,6 +23,8 @@ from firebase_admin.auth import UserNotFoundError
 # Miscellaneous Imports
 from hashlib import sha384
 from uuid import uuid4
+from os import environ
+from json import loads
 
 # Application Configuration
 application: Flask = Flask(__name__)
@@ -38,7 +40,7 @@ cache: Cache = Cache(
 )
 
 # Firebase Configuration
-credentials: Certificate = Certificate("../../Certificates/Firebase.json")
+credentials: Certificate = Certificate(loads(environ.get("FIREBASE")))
 firebase: App = initialize_app(credential=credentials)
 database: Client = Firestore(app=firebase)
 

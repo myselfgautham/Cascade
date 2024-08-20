@@ -21,9 +21,10 @@ from platform import (
     python_version
 )
 from sys import argv
+from os import environ
 
 # Firebase Initialization With Firestore
-credentials = Certificate("../Certificates/Firebase.json")
+credentials = Certificate(json.loads(environ.get("FIREBASE", None)))
 firebase = initialize_app(credentials)
 db = firestore.client(app=firebase)
 print("\033[92mFirebase Initialized\033[0m", end="")

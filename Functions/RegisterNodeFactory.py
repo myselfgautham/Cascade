@@ -8,8 +8,10 @@ from firebase_admin._user_mgt import UserRecord
 from datetime import datetime
 from datetime import UTC
 from sys import exit
+from json import loads
+from os import environ
 
-credentials: Certificate = Certificate("../Certificates/Firebase.json")
+credentials: Certificate = Certificate(loads(environ.get("FIREBASE")))
 firebase = initialize_app(credentials)
 db = firestore.client(firebase)
 try:
