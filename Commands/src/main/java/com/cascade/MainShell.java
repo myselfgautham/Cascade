@@ -1,5 +1,6 @@
 package com.cascade;
 
+import com.cascade.Exceptions.FeatureNotAvailableException;
 import com.cascade.Exceptions.ShellExitException;
 import com.cascade.Exceptions.UnsupportedOperatingSystemException;
 import com.cascade.Helpers.*;
@@ -22,6 +23,22 @@ public class MainShell {
             reader.useLocale(Locale.ENGLISH);
             for (String argument : args) {
                 switch (argument) {
+                    case "--installDependenciesClient" -> {
+                        System.out.println();
+                        switch (OperatingSystem.getOperatingSystemType()) {
+                            case Linux -> {
+                                ExecuteBashScriptHelper.Run("Linux/Install Dependencies Client.sh", "");
+                            }
+                            case Windows, MacOS -> {
+                                throw new FeatureNotAvailableException();
+                            }
+                            default -> throw new UnsupportedOperatingSystemException();
+                        }
+                        System.out.println();
+                        Thread.sleep(1000);
+                        ShellCommands.ClearTerminal();
+                        throw new ShellExitException("Dependencies Installer");
+                    }
                     case "--version" -> {
                         PrintVersionStyled.PrintVersion();
                         throw new ShellExitException("Version Flag");
@@ -31,6 +48,9 @@ public class MainShell {
                     }
                     case "-noAsciiArt" -> {
                         flags.put("ASCIIART", false);
+                    }
+                    case "-safe" -> {
+                        flags.put("Safe Mode", true);
                     }
                     default -> {}
                 }
