@@ -13,6 +13,8 @@ public class HelperCommand {
         CommandsDocumentation.put("test dependencies", "Tests The Required Python Dependencies");
         CommandsDocumentation.put("version", "Print Version Information");
         CommandsDocumentation.put("run server", "Executes The Server Program");
+        CommandsDocumentation.put("install dependencies --client", "Install Dependencies For Client Server Program");
+        CommandsDocumentation.put("install dependencies --enterprise", "Install Dependencies For Enterprise Server Program");
         RegisterFlags();
     }
 
@@ -20,6 +22,10 @@ public class HelperCommand {
         FlagsDocumentation.put("-verbose", "Added Stack Trace Logging");
         FlagsDocumentation.put("-noAsciiArt", "Disables ASCII Art Printing");
         FlagsDocumentation.put("--version", "Prints The Version And Exits");
+        FlagsDocumentation.put("-safe", "Toggle Safe Mode For The Shell");
+        FlagsDocumentation.put("--installDependenciesClient", "Installs Client Server Dependencies And Exits");
+        FlagsDocumentation.put("--installDependenciesEnterprise", "Installs Enterprise Server Dependencies And Exits");
+        FlagsDocumentation.put("--setupFunctions", "Installs Dependencies For The Python Functions");
     }
 
     public static void PrintHelpCommandsData() {

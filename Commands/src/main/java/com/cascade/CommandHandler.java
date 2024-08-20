@@ -65,7 +65,7 @@ public class CommandHandler {
                 String path = reader.nextLine();
                 switch (OperatingSystem.getOperatingSystemType()) {
                     case Linux -> {
-                        ExecuteBashScriptHelper.Run("Run Server.sh", path);
+                        ExecuteBashScriptHelper.Run("Linux/Run Server.sh", path);
                     }
                     case Windows, MacOS -> {
                         throw new FeatureNotAvailableException();
@@ -73,7 +73,51 @@ public class CommandHandler {
                     default -> throw new UnsupportedOperatingSystemException();
                 }
             }
-            default -> throw new InvalidCommandException();
+            case "install dependencies --client" -> {
+                System.out.println();
+                switch (OperatingSystem.getOperatingSystemType()) {
+                    case Linux -> {
+                        ExecuteBashScriptHelper.Run("Linux/Install Dependencies Client.sh", "");
+                    }
+                    case Windows, MacOS -> {
+                        throw new FeatureNotAvailableException();
+                    }
+                    default -> throw new UnsupportedOperatingSystemException();
+                }
+                System.out.println();
+                Thread.sleep(1000);
+                ShellCommands.ClearTerminal();
+                if (MainShell.flags.get("ASCIIART") == null) {
+                    ASCIIArt.PrintASCIIArtOnTerminal();
+                }
+            }
+            case "install dependencies --enterprise" -> {
+                System.out.println();
+                switch (OperatingSystem.getOperatingSystemType()) {
+                    case Linux -> {
+                        ExecuteBashScriptHelper.Run("Linux/Install Dependencies Enterprise.sh", "");
+                    }
+                    case Windows, MacOS -> {
+                        throw new FeatureNotAvailableException();
+                    }
+                    default -> throw new UnsupportedOperatingSystemException();
+                }
+                System.out.println();
+                Thread.sleep(1000);
+                ShellCommands.ClearTerminal();
+                if (MainShell.flags.get("ASCIIART") == null) {
+                    ASCIIArt.PrintASCIIArtOnTerminal();
+                }
+            }
+            default -> {
+                if (MainShell.flags.get("Safe Mode") == null) {
+                    throw new InvalidCommandException();
+                } else {
+                    System.out.println();
+                    System.out.println("\u001B[31m" + "Invalid Command Entered" + "\u001B[0m");
+                    System.out.println();
+                }
+            }
         }
     }
 }
