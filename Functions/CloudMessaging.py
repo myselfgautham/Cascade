@@ -9,7 +9,7 @@ from json import loads
 credentials: Certificate = Certificate(loads(environ.get("FIREBASE")))
 initialize_app(credentials)
 
-if (argv[1] == "-test"):
+if len(argv) >= 2:
     exit(0)
 
 TITLE: str = input("Enter Notification Title : ")
