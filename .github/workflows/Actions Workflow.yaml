@@ -97,6 +97,10 @@ jobs:
         run: |
           cd "${{ github.workspace }}/Functions/"
           python3.12 "CloudMessaging.py" -test
+      - name: Test Node Reading Function
+        run: |
+          cd "${{ github.workspace }}/Functions/"
+          python3.12 "ReadNodes.py"
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"
