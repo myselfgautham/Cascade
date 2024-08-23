@@ -129,6 +129,25 @@ public class CommandHandler {
                     ASCIIArt.PrintASCIIArtOnTerminal();
                 }
             }
+            case "install python3.12" -> {
+                System.out.println();
+                switch (OperatingSystem.getOperatingSystemType()) {
+                    case Linux -> {
+                        ExecuteBashScriptHelper.Run("Linux/Install Python.sh", "");
+                    }
+                    case MacOS, Windows -> {
+                        throw new FeatureNotAvailableException();
+                    }
+                    default -> {
+                        throw new UnsupportedOperatingSystemException();
+                    }
+                }
+                System.out.println();
+                Thread.sleep(1000);
+                if (MainShell.flags.get("ASCIIART") == null) {
+                    ASCIIArt.PrintASCIIArtOnTerminal();
+                }
+            }
             default -> {
                 if (MainShell.flags.get("Safe Mode") == null) {
                     throw new InvalidCommandException();
