@@ -27,7 +27,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 public class WebsiteActivity extends AppCompatActivity {
     WebView view;
-    protected static final String url = "https://neal.fun/";
+    protected static final String url = "https://192.168.155.200:1920/";
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -311,7 +311,13 @@ def deleteCards():
         data: dict = request.json
         if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
             return jsonify({"Response": "Unauthorized Device"})
-        db.collection("Cards").document(data.get("card")).delete()
+        reference = db.collection("Cards").document(data.get("card"))
+        if (reference.get().to_dict().get("Main Owner") == data.get("email")):
+            reference.delete()
+        else:
+            reference.update({
+                "Owners": firestore.ArrayRemove([data.get("email")])
+            })
         return jsonify({"Response": "Card Deleted"})
     except Exception:
         return jsonify({"Response": "Something Went Wrong"})
