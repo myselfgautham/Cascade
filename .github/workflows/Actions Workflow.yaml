@@ -4,6 +4,8 @@ run-name: Programs Are Being Tested On GitHub Actions 🚀
 on:
   pull_request:
     branches: ["Production"]
+  push:
+    branches: ["Production"]
 
 env:
   FIREBASE: '${{ secrets.FIREBASE }}'
