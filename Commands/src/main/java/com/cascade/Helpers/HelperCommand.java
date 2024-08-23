@@ -15,6 +15,7 @@ public class HelperCommand {
         CommandsDocumentation.put("run server", "Executes The Server Program");
         CommandsDocumentation.put("install dependencies --client", "Install Dependencies For Client Server Program");
         CommandsDocumentation.put("install dependencies --enterprise", "Install Dependencies For Enterprise Server Program");
+        CommandsDocumentation.put("install docker", "Installs Docker On Local Machine");
         RegisterFlags();
     }
 
