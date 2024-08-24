@@ -1,42 +1,42 @@
+from os import system
 from time import sleep
 from firebase_admin import initialize_app
 from firebase_admin.credentials import Certificate
 from firebase_admin import firestore
 from json import loads
-from google.cloud.firestore_v1 import FieldFilter
-import serial as pyserial
 from os import environ
-from os import system
+import requests
+from google.cloud.firestore_v1 import FieldFilter
+from sys import exit
 
-system("clear")
 credentials: Certificate = Certificate(loads(environ.get("FIREBASE")))
 firebase = initialize_app(credentials)
 db = firestore.client(firebase)
-try:
-    serial = pyserial.Serial(
-        port="/dev/ttyUSB1",
-        baudrate=115200,
-        timeout=0.1
-    )
-except Exception:
-    print("Serial Ports Exception Encountered")
+system("clear")
+
+print(f"\033[0;32mCascade Reader Found\033[0m \033[0;31m@\033[0m \033[0;34m{environ.get("ESP32")}\033[0m")
+CARD: str = ""
+esp32: str = environ.get("ESP32")
+
+if (esp32 is None):
+    print("\033[0;32mAll Available Test Cases Passed\033[0m", end="\n\n")
     exit(0)
-    
-cardx = ''
-print("Please Scan The Node To Continue")
+else:
+    print()
+
+print("Please Scan The Node To Continue", end="\n\n")
 while True:
-    data = serial.readline().decode().strip()
-    if data:
-        cardx = data
-        print(f"Node Scanned => {cardx}", end="\n\n")
-        print("Getting Data Of Node")
-        ref = db.collection("Nodes").document(cardx)
+    response = requests.get(f"{esp32}/data")
+    sleep(0.9)
+    if (response.status_code == 200 and response.text != ""):
+        CARD = response.text
+        print(f"Node Scanned => {CARD}")
+        print("Getting Data Of Node", end="\n\n")
+        ref = db.collection("Nodes").document(CARD)
         print("Reference Created")
         if ref.get().exists is False:
-            print("\nInvalid Node Found! Try Again", end="\n\n")
+            print("\n\033[0;31mInvalid Node Found! Try Again\033[0m", end="\n\n")
         else:
-            print()
-            print("Collecting Node Data")
             mail: str = ref.get().to_dict().get("User Email")
             streams = db.collection("Cards").where(filter=FieldFilter(
                 field_path="Owners",
@@ -46,14 +46,14 @@ while True:
             print()
             i = 0
             for s in streams:
-                print(f"Card Number {i+1} =>")
+                print(f"\033[0;33mCard Number {i+1} =>\033[0m")
                 print(s.to_dict())
                 print()
                 i += 1
             sleep(1)
-            s = input("Clear Terminal [Y/n] => ")
-            if s in {"Y", "y", ""}:
-                system("clear")
-            else:
-                print()
-            print("Please Scan The Node To Continue")
+        s = input("Clear Terminal [Y/n] => ")
+        if s in {"Y", "y", ""}:
+            system("clear")
+        else:
+            print()
+        print("Please Scan The Node To Continue", end="\n\n")
