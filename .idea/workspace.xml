@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef059d92-ea90-4e65-92e1-a469879e5274" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Cascade.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/README.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/UNLICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/changes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/PICCMemoryLayout.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/fritzing/Arduino-Uno-r3-with-RFID-RC522.fzz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/fritzing/Arduino-Uno-r3-with-RFID-RC522.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/fritzing/RFID-RC522 - Pin Layout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/fritzing/RFID-RC522-v2.fzpz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/fritzing/RFID-RC522-v2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/fritzing/RFID-RC522-v3.fzpz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/fritzing/RFID-RC522-v3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/doc/rfidmifare.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/ChangeUID/ChangeUID.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/DumpInfo/DumpInfo.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/FixBrickedUID/FixBrickedUID.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/MifareClassicValueBlock/MifareClassicValueBlock.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/MinimalInterrupt/MinimalInterrupt.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/Ntag216_AUTH/Ntag216_AUTH.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/RFID-Cloner/RFID-Cloner.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/ReadAndWrite/ReadAndWrite.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/ReadNUID/ReadNUID.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/ReadUidMultiReader/ReadUidMultiReader.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/firmware_check/firmware_check.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/rfid_default_keys/rfid_default_keys.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/rfid_read_personal_data/rfid_read_personal_data.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/examples/rfid_write_personal_data/rfid_write_personal_data.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/keywords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/library.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/src/MFRC522.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/src/MFRC522.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/src/MFRC522Extended.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/src/MFRC522Extended.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/src/deprecated.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Libraries/src/require_cpp11.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Delta/Upload/ReaderProgram.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/notes/Directories.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/notes/Directories.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Android/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/Android/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/bin/main/com/cascade/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/bin/main/com/cascade/CommandHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Commands/bin/main/com/cascade/Helpers/HelperCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/Commands/bin/main/com/cascade/Helpers/HelperCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/ReadNodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/ReadNodes.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2l58c458iAvORzbB4VXUReEixQz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Release&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gauthamkrishna/Documents/GitHub/Cascade&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: []
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
