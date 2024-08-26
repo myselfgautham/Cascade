@@ -17,6 +17,8 @@ system("clear")
 print(f"\033[0;32mCascade Reader Found\033[0m \033[0;31m@\033[0m \033[0;34m{environ.get("ESP32")}\033[0m")
 CARD: str = ""
 esp32: str = environ.get("ESP32")
+INVALID_SEEN: set = set()
+PREVIOUS: str = str()
 
 if (esp32 is None):
     print("\033[0;32mAll Available Test Cases Passed\033[0m", end="\n\n")
@@ -28,13 +30,20 @@ print("Please Scan The Node To Continue", end="\n\n")
 while True:
     response = requests.get(f"{esp32}/data")
     sleep(0.9)
-    if (response.status_code == 200 and response.text != ""):
-        CARD = response.text
+    if (
+        (response.status_code == 200) and
+        (response.text) != "" and
+        (response.text not in INVALID_SEEN) and
+        (str(response.text)[:-2] != PREVIOUS)
+    ):
+        CARD = str(response.text)[:-2]
         print(f"Node Scanned => {CARD}")
         print("Getting Data Of Node", end="\n\n")
         ref = db.collection("Nodes").document(CARD)
         print("Reference Created")
+        PREVIOUS = CARD
         if ref.get().exists is False:
+            INVALID_SEEN.add(CARD)
             print("\n\033[0;31mInvalid Node Found! Try Again\033[0m", end="\n\n")
         else:
             mail: str = ref.get().to_dict().get("User Email")

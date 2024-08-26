@@ -5,13 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf25da4-ce1e-4d25-b594-6e51edf39d45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/main/Linux/Install Python.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/com/cascade/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/cascade/CommandHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cascade/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cascade/CommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Functions/ReadNodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Functions/ReadNodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/CSS/ManageAccount.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/CSS/ManageAccount.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/CardsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/CardsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/CreateAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/CreateAccount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/DeviceIdentification.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/DeviceIdentification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/EnrollNode.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/EnrollNode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/Firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/Firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/Globals.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/Globals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/ManageAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/ManageAccount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/NodesPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/NodesPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/RenameNode.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/RenameNode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/JavaScript/ShareCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/JavaScript/ShareCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Website/Pages/ManageAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Website/Pages/ManageAccount.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

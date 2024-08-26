@@ -35,3 +35,10 @@ export function isStrongPassword(password) {
 
 // Global Fetch Location
 export let fetchLocation = "/";
+
+// Local Storage Permissions Manager
+export function checkLocalStoragePermission() {
+    if (localStorage.getItem("cookiesAccepted") === null) {
+        throw new Error("LocalStorage Permissions Not Granted");
+    }
+}

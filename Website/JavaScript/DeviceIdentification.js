@@ -1,6 +1,7 @@
-import {fetchLocation} from "/static/JavaScript/Globals.js"
+import {fetchLocation, checkLocalStoragePermission} from "/static/JavaScript/Globals.js"
 
 // Device UID Check
+checkLocalStoragePermission()
 const negatives = new Set([null, undefined, "null", false, "false", "undefined", ""]);
 if (negatives.has(localStorage.getItem("DeviceUID")))
 {

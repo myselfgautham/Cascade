@@ -1,5 +1,6 @@
-import {fetchLocation} from "/static/JavaScript/Globals.js";
+import {fetchLocation, checkLocalStoragePermission} from "/static/JavaScript/Globals.js";
 
+checkLocalStoragePermission()
 document.addEventListener("DOMContentLoaded", () => {
     fetch(fetchLocation + "user/manage", {
         method: "POST",
@@ -81,6 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch(error => console.error("Error : ", error))
             }
         })
+        // Clear LocalStorage
+        let clearLS = document.getElementById("clearLocalStorage");
+        clearLS.addEventListener("click", () => {
+            if (confirm("Are You Sure That You Want To Clear LocalStorage\nYou Will Have To Login Again")) {
+                localStorage.clear()
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 200)
+            }
+        });
     })
     .catch(error => {
         console.error("Error : ", error);

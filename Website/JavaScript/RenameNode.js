@@ -1,6 +1,7 @@
-import { inputFilterCheck, fetchLocation } from "/static/JavaScript/Globals.js";
+import { inputFilterCheck, fetchLocation, checkLocalStoragePermission } from "/static/JavaScript/Globals.js";
 
 // Unauthorized Device ( Load Check I )
+checkLocalStoragePermission()
 if (localStorage.getItem("Data") === "\"Unauthorized Device\"") {
     alert("Unauthorized Device Found\nPlease Clear Browser Data\nIf Issue Persists\nPlease Contact Support");
     setTimeout(() => {
