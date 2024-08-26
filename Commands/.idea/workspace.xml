@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf25da4-ce1e-4d25-b594-6e51edf39d45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/Cascade.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.github/notes/Directories.md" beforeDir="false" afterPath="$PROJECT_DIR$/../.github/notes/Directories.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/main/Linux/Install Python.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/cascade/CommandHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/cascade/CommandHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/com/cascade/Helpers/HelperCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/com/cascade/Helpers/HelperCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Functions/ReadNodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Functions/ReadNodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +106,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/Linux" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.Commands-1.0-SNAPSHOT.jar">
+  <component name="RunManager" selected="Gradle.Commands [jar]">
     <configuration name="Commands [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -138,8 +135,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.Commands-1.0-SNAPSHOT.jar" />
         <item itemvalue="Gradle.Commands [jar]" />
+        <item itemvalue="JAR Application.Commands-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
   </component>
