@@ -2,10 +2,12 @@
 import {
     inputFilterCheck,
     plausibleEmail,
-    fetchLocation
+    fetchLocation,
+    checkLocalStoragePermission
 } from "/static/JavaScript/Globals.js";
 
 // Document Load Event Fired
+checkLocalStoragePermission()
 document.addEventListener("DOMContentLoaded", () => {
     // Unauthorized Device ( Load Check I )
     if (localStorage.getItem("Data") === "\"Unauthorized Device\"") {

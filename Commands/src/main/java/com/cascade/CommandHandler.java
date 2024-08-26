@@ -60,9 +60,14 @@ public class CommandHandler {
                 System.out.println();
             }
             case "run server" -> {
-                Scanner reader = new Scanner(System.in);
-                System.out.print("Enter Server Program Path : ");
-                String path = reader.nextLine();
+                String path;
+                if (System.getenv("CASCADE_SERVER") ==  null) {
+                    Scanner reader = new Scanner(System.in);
+                    System.out.print("Enter Server Program Path : ");
+                    path = reader.nextLine();
+                } else {
+                    path = System.getenv("CASCADE_SERVER");
+                }
                 switch (OperatingSystem.getOperatingSystemType()) {
                     case Linux -> {
                         ExecuteBashScriptHelper.Run("Linux/Run Server.sh", path);

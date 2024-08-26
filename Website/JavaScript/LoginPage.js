@@ -2,10 +2,12 @@
 import {
     inputFilterCheck,
     plausibleEmail,
-    fetchLocation
+    fetchLocation,
+    checkLocalStoragePermission
 } from "/static/JavaScript/Globals.js";
 
 // DOM Content Loaded
+checkLocalStoragePermission()
 document.addEventListener("DOMContentLoaded", () => {
     // Input Fields
     let input = document.querySelectorAll("input");

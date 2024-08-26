@@ -1,4 +1,10 @@
-import {inputFilterCheck, fetchLocation} from "/static/JavaScript/Globals.js";
+import {
+    inputFilterCheck,
+    fetchLocation,
+    checkLocalStoragePermission
+} from "/static/JavaScript/Globals.js";
+
+checkLocalStoragePermission()
 let note = document.getElementById("note");
 document.getElementById("activate").addEventListener("click", () => {
     if (!inputFilterCheck()) {

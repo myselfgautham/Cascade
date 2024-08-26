@@ -1,6 +1,7 @@
-import {fetchLocation} from "/static/JavaScript/Globals.js"
+import {fetchLocation, checkLocalStoragePermission} from "/static/JavaScript/Globals.js"
 
 // Fetch Nodes POST API
+checkLocalStoragePermission()
 fetch(fetchLocation + "user/nodes", {
     method: 'POST',
     headers: {

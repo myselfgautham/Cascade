@@ -1,9 +1,10 @@
-import {fetchLocation} from "/static/JavaScript/Globals.js"
+import {fetchLocation, checkLocalStoragePermission} from "/static/JavaScript/Globals.js"
 
 // Global Scope Index
 let index = 0;
 
 // DOM Loaded Event
+checkLocalStoragePermission()
 document.addEventListener("DOMContentLoaded", () => {
     // Fetch Cards API
     fetch(fetchLocation + "api/cards", {

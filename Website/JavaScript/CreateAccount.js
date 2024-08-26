@@ -4,10 +4,12 @@ import {
     plausibleEmail,
     isValidE164PhoneNumber,
     isStrongPassword,
-    fetchLocation
+    fetchLocation,
+    checkLocalStoragePermission
 } from "/static/JavaScript/Globals.js";
 
 // Input Fields Of The Form
+checkLocalStoragePermission()
 let user = document.getElementById("name");
 let email = document.getElementById("mail");
 let phone = document.getElementById("phone");
