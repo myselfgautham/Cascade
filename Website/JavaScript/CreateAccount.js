@@ -1,4 +1,3 @@
-// Imports From Scripts
 import {
     inputFilterCheck,
     plausibleEmail,
@@ -8,44 +7,33 @@ import {
     checkLocalStoragePermission
 } from "/static/JavaScript/Globals.js";
 
-// Input Fields Of The Form
-checkLocalStoragePermission()
-let user = document.getElementById("name");
-let email = document.getElementById("mail");
-let phone = document.getElementById("phone");
-let password = document.getElementById("password");
-let submit = document.getElementById("submit")
-let span = document.getElementById("note");
+checkLocalStoragePermission();
 
-// Submit Clicked
+const user = document.getElementById("name");
+const email = document.getElementById("mail");
+const phone = document.getElementById("phone");
+const password = document.getElementById("password");
+const submit = document.getElementById("submit");
+const span = document.getElementById("note");
+
 submit.addEventListener("click", () => {
-    // Null Safety Check
     if (!inputFilterCheck()) {
-        span.innerHTML = "Please Fill In All Fields"
+        span.innerText = "Please Fill In All Fields";
         span.style.display = "block";
-    }
-    // Strong Password Check
-    else if (!isStrongPassword(password.value)) {
+    } else if (!isStrongPassword(password.value)) {
         span.innerText = "Choose A Stronger Password";
         span.style.display = "block";
-    }
-    // Email Check
-    else if(email.value.includes(" ") || !plausibleEmail(email.value))
-    {
+    } else if (email.value.includes(" ") || !plausibleEmail(email.value)) {
         span.innerText = "Invalid Email Address";
         span.style.display = "block";
-    }
-    // Phone Number Regex Check
-    else if (!isValidE164PhoneNumber(phone.value)) {
+    } else if (!isValidE164PhoneNumber(phone.value)) {
         span.innerText = "Incomplete Phone Number";
         span.style.display = "block";
-    }
-    // Stage I - Initialized
-    else {
+    } else {
         span.style.color = "#34A853";
-        span.innerHTML = "Creating Account";
+        span.innerText = "Creating Account";
         span.style.display = "block";
-        // Fetch Endpoint - Stage II
+
         fetch(fetchLocation + "account/create", {
             method: "POST",
             headers: {
@@ -60,30 +48,22 @@ submit.addEventListener("click", () => {
         })
         .then(response => response.json())
         .then(data => {
-            // Show Result To User - Stage III
-            span.innerText = data["Response"];
-            // Account Created
-            if (data["Response"] === "Account Created Successfully") {
+            span.innerText = data.Response;
+            if (data.Response === "Account Created Successfully") {
                 span.style.color = "#34A853";
-                setTimeout(() => {
-                    window.location.href = "/account/login"
-                }, 500)
+                setTimeout(() => window.location.href = "/account/login", 500);
             } else {
-                // Something Went Wrong
-                span.style.color = "#FF204E"
+                span.style.color = "#FF204E";
             }
             span.style.display = "block";
         })
         .catch(error => {
-            console.error("Error : ", error);
-            setTimeout(() => {
-                window.location.href = "/";
-            }, 200)
+            console.error("Error:", error);
+            setTimeout(() => window.location.href = "/", 200);
         });
     }
-})
+});
 
-// Login Forwarding
 document.getElementById("login").addEventListener("click", () => {
-    window.location.href = "/account/login"
-})
+    window.location.href = "/account/login";
+});
