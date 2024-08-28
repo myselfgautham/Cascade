@@ -1,18 +1,15 @@
-/* JavaScript Access */
 :root {
   --content: #FB2576;
   --icon: #03C988;
 }
 
-/* Universal Style For All Elements */
 * {
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   text-decoration: none;
 }
 
-/* Body Element For All Pages */
 body {
   height: 100vh;
   width: 100vw;
@@ -20,7 +17,6 @@ body {
   background: #020420;
 }
 
-/* Special Flex Element */
 .specialFlexBox {
   display: flex;
   justify-content: center;
@@ -28,14 +24,12 @@ body {
   flex-direction: row;
 }
 
-/* Header Element Styling */
 .header {
   justify-content: space-between;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   height: 50px;
 }
 
-/* Logo Span Element */
 .logo > span {
   color: white;
   font-size: 24px;
@@ -45,20 +39,17 @@ body {
   font-family: sans-serif;
 }
 
-/* Responsive Hiding */
 @media screen and (max-width: 702px) {
   .logo > span {
     display: none;
   }
 }
 
-/* Logo Element Styling */
 .logo {
   padding-left: 8px;
   cursor: pointer;
 }
 
-/* Centered Container */
 .container {
   position: absolute;
   top: 50%;
@@ -66,14 +57,12 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Icons Class */
 .icon {
   color: white;
   font-size: 24px;
   cursor: pointer;
 }
 
-/* Navigation Links Division Styling */
 .links {
   position: absolute;
   top: 0;
@@ -83,13 +72,11 @@ body {
   padding-right: 10px;
 }
 
-/* Icons Hover */
 .icon:hover {
   color: orange;
   transition: 0.9s;
 }
 
-/* Cookies Policy Agreement */
 .overlay {
   display: none;
   width: 100%;
@@ -102,7 +89,6 @@ body {
   animation: show 0.5s ease-in-out forwards;
 }
 
-/* Show Animation For The Cookies Overlay */
 @keyframes show {
   from {
     top: 100%;
@@ -112,7 +98,6 @@ body {
   }
 }
 
-/* Wrapper Class For Cookies Overlay */
 .wrapper {
   flex-direction: column;
   border: 2px solid rgba(255, 255, 255, 0.07);
@@ -123,7 +108,6 @@ body {
   gap: 8px;
 }
 
-/* Wrapper Heading */
 .wrapper > h3 {
   color: white;
   font-family: monospace;
@@ -131,21 +115,18 @@ body {
   letter-spacing: 0.06rem;
 }
 
-/* Wrapper Text */
 .wrapper > p {
   color: white;
   font-family: Arial, sans-serif;
   letter-spacing: 0.09rem;
 }
 
-/* Accept Cookies Button Division */
 .hex {
   padding-top: 8px;
   padding-bottom: 8px;
   width: 100%;
 }
 
-/* Accept Cookies Button */
 .hex > button {
   border: 2px solid #344C64;
   outline: none;
@@ -157,19 +138,16 @@ body {
   cursor: pointer;
 }
 
-/* Button Hover */
 .hex > button:hover {
   border-color: #34A853;
   transition: all 0.3s ease;
 }
 
-/* Orange Text Color */
 .rax {
   color: orange;
   font-weight: 500;
 }
 
-/* Notifier For Interactions */
 #notifierx {
   position: absolute;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -181,7 +159,6 @@ body {
   animation: appear 0.5s ease-in-out forwards;
 }
 
-/* Notifier Content Class */
 #notifierContent {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 0.08rem;
@@ -190,24 +167,19 @@ body {
   font-weight: 400;
 }
 
-/* Notifier Content Hover Selector */
 #notifierContent:hover {
   color: var(--content);
 }
 
-/* Icon For Display In Notifier */
 #cox:hover {
   color: var(--icon);
 }
 
-/* Whole Span Class Hover Selector */
 .wtf:hover {
   color: white;
 }
 
-/* Appear Animation For The Notification */
-@keyframes appear
-{
+@keyframes appear {
   from {
     left: -100%;
   }
@@ -216,7 +188,6 @@ body {
   }
 }
 
-/* Loading Screen */
 .loader {
   display: inline-block;
   box-sizing: border-box;
@@ -229,11 +200,14 @@ body {
 }
 
 @keyframes spin {
-  from {rotate: 0deg;}
-  to {rotate: 360deg;}
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
 }
 
-/* Logo Special Spin */
 #logo > img:hover {
   animation: spin 1s ease-in-out forwards;
 }
