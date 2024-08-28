@@ -23,6 +23,7 @@
 ![C++ Badge](https://img.shields.io/badge/Powered_By-C%2B%2B-blue?logo=cplusplus)
 ![JavaScript Badge](https://img.shields.io/badge/Frontend_Using-JavaScript-blue?logo=javascript)
 ![Android Studio Badge](https://img.shields.io/badge/Application_Built_Using-Android_Studio-blue?logo=androidstudio)
+![MFRC522 Badge](https://img.shields.io/badge/Powered_By-MFRC522_Library-red?logo=nfc)
 
 ### :octocat: Releases History : Production :fire:
 | *Release ID* | *Date Of Release* | *Authorized By* | **Status** |
