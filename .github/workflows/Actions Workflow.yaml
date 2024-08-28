@@ -101,6 +101,10 @@ jobs:
         run: |
           cd "${{ github.workspace }}/Functions/"
           python3.12 "ReadNodes.py"
+      - name: Test Device Revocation Function
+        run: |
+          cd "${{ github.workspace }}/Functions/"
+          python3.12 "RevokeDevices.py"
       - name: Print Test Result
         run: |
           echo "👨‍💻 Test Result : ${{ job.status }}"

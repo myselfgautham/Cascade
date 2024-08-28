@@ -1,11 +1,11 @@
-import {fetchLocation, checkLocalStoragePermission} from "/static/JavaScript/Globals.js"
+import { fetchLocation, checkLocalStoragePermission } from "/static/JavaScript/Globals.js";
 
-// Device UID Check
-checkLocalStoragePermission()
+checkLocalStoragePermission();
+
 const negatives = new Set([null, undefined, "null", false, "false", "undefined", ""]);
-if (negatives.has(localStorage.getItem("DeviceUID")))
-{
-    // Fetch New UID Endpoint
+const deviceUID = localStorage.getItem("DeviceUID");
+
+if (negatives.has(deviceUID)) {
     fetch(fetchLocation + "api/device", {
         method: "POST",
         headers: {
@@ -15,14 +15,11 @@ if (negatives.has(localStorage.getItem("DeviceUID")))
     })
     .then(res => res.json())
     .then(data => {
-        // Set UID To LocalStorage
-        localStorage.setItem("DeviceUID", data["Response"]);
+        localStorage.setItem("DeviceUID", data.Response);
         console.log("Device UID Created");
     })
     .catch(error => {
-        console.error("Error : ", error);
-        setTimeout(() => {
-            window.location.href = "/";
-        }, 200)
+        console.error("Error:", error);
+        setTimeout(() => window.location.href = "/", 200);
     });
 }

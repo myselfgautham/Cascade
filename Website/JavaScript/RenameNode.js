@@ -1,12 +1,11 @@
 import { inputFilterCheck, fetchLocation, checkLocalStoragePermission } from "/static/JavaScript/Globals.js";
 
-// Unauthorized Device ( Load Check I )
-checkLocalStoragePermission()
+checkLocalStoragePermission();
 if (localStorage.getItem("Data") === "\"Unauthorized Device\"") {
     alert("Unauthorized Device Found\nPlease Clear Browser Data\nIf Issue Persists\nPlease Contact Support");
     setTimeout(() => {
         window.location.href = "/";
-    }, 200)
+    }, 200);
 }
 
 let node = document.getElementById("nodeID");
@@ -27,7 +26,7 @@ submit.addEventListener("click", () => {
     }
     if (note.innerHTML === "") {
         let data = JSON.parse(localStorage.getItem("Nodes"));
-        if (Object.keys(data).includes(node.value) === false) {
+        if (!Object.keys(data).includes(node.value)) {
             note.innerHTML = "Please Enter A Valid Node";
             note.style.display = "block";
         } else {
@@ -52,11 +51,11 @@ submit.addEventListener("click", () => {
                     note.style.color = "green";
                     setTimeout(() => {
                         window.location.href = "/user/nodes";
-                    }, 600)
+                    }, 600);
                 }
                 note.style.display = "block";
             })
-            .catch(error => console.error("Error : ", error))
+            .catch(error => console.error("Error : ", error));
         }
     }
 });

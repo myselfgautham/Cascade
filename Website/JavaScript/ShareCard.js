@@ -1,4 +1,3 @@
-// Imports From Scripts
 import {
     inputFilterCheck,
     plausibleEmail,
@@ -6,30 +5,25 @@ import {
     checkLocalStoragePermission
 } from "/static/JavaScript/Globals.js";
 
-// Document Load Event Fired
-checkLocalStoragePermission()
+checkLocalStoragePermission();
 document.addEventListener("DOMContentLoaded", () => {
-    // Unauthorized Device ( Load Check I )
     if (localStorage.getItem("Data") === "\"Unauthorized Device\"") {
         alert("Unauthorized Device Found\nPlease Clear Browser Data\nIf Issue Persists\nPlease Contact Support");
         setTimeout(() => {
             window.location.href = "/";
-        }, 200)
+        }, 200);
     }
-})
-// Card Number Box And Autofill From URL Parameters
-let card = document.getElementById("number")
+});
+
+let card = document.getElementById("number");
 let search = new URLSearchParams(window.location.search);
-console.log(search);
-if (search.get("card") !== undefined)
-{
+if (search.get("card") !== undefined) {
     card.value = search.get("card");
 }
-// Submit Button Call
+
 document.getElementById("submit").addEventListener("click", () => {
     let note = document.getElementById("note");
     note.style.color = "red";
-    // Inputs Check
     if (!inputFilterCheck()) {
         note.innerHTML = "Please Fill All Fields";
         note.style.display = "block";
@@ -39,25 +33,19 @@ document.getElementById("submit").addEventListener("click", () => {
         note.innerHTML = ""; 
     }
     note.style.display = "block";
-    // Fetch Finalized
     if (note.innerHTML === "") {
-        // Parse JSON Data
         let x = JSON.parse(localStorage.getItem("Data"));
         let crx = document.getElementById("number").value;
-        // Card Check
         for (var key in x) {
             if (x[key]["Number"] === document.getElementById("number").value) {
                 crx = key;
             }
         }
-        // Invalid Card Case
-        if (crx === document.getElementById("number").value)
-        {
+        if (crx === document.getElementById("number").value) {
             note.innerHTML = "Invalid Card";
             note.style.display = "block";
             throw new Error();
         }
-        // Fetching Initialized
         note.innerHTML = "Loading";
         note.style.display = "block";
         fetch(fetchLocation + "cards/share", {
@@ -74,25 +62,22 @@ document.getElementById("submit").addEventListener("click", () => {
         })
         .then(res => res.json())
         .then(data => {
-            // Shared
             if (data["Response"] === "Added") {
                 note.innerHTML = "Card Shared Successfully";
                 note.style.color = "green";
                 setTimeout(() => {
                     window.location.href = "/user/dashboard";
-                }, 400)
-            }
-            // Share Failed
-            else {
+                }, 400);
+            } else {
                 note.innerHTML = data["Response"];
             }
-            note.style.display = "block"
+            note.style.display = "block";
         })
         .catch(error => {
             console.error("Error : ", error);
             setTimeout(() => {
                 window.location.href = "/";
-            }, 200)
+            }, 200);
         });
     }
-})
+});

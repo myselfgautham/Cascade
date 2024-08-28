@@ -153,6 +153,56 @@ public class CommandHandler {
                     ASCIIArt.PrintASCIIArtOnTerminal();
                 }
             }
+            case "functions" -> {
+                ShellCommands.ClearTerminal();
+                System.out.println("\u001B[33mWelcome To Cascade Functions Wizard\u001B[0m");
+                System.out.println();
+                Scanner reader = new Scanner(System.in);
+                System.out.print("\u001B[34mEnter Python Interpreter : \u001B[0m");
+                String interpreter = reader.nextLine();
+                if (!interpreter.contains("python")) {
+                    interpreter = "python" + interpreter;
+                }
+                System.out.print("\u001B[31mEnter Function Name : \u001B[0m");
+                String file = reader.nextLine();
+                if (file.equals("@help")) {
+                    ShellCommands.ClearTerminal();
+                    FunctionWizardPython.PrintHelp();
+                    System.out.println("\u001B[32mPress Enter To Continue\u001B[0m");
+                    reader.nextLine();
+                    ShellCommands.ClearTerminal();
+                    if (MainShell.flags.get("ASCIIART") == null) {
+                        ASCIIArt.PrintASCIIArtOnTerminal();
+                    }
+                    break;
+                }
+                switch (file) {
+                    case "revokeDevices" -> {
+                        file = "RevokeDevices.py";
+                    }
+                    case "cardMaintenance" -> {
+                        file = "CardMaintenance.py";
+                    }
+                    case "fcmAndroid" -> {
+                        file = "CloudMessaging.py";
+                    }
+                    case "readNodes" -> {
+                        file = "ReadNodes.py";
+                    }
+                    case "registerNode" -> {
+                        file = "RegisterNodeFactory.py";
+                    }
+                    default -> {}
+                }
+                ShellCommands.ClearTerminal();
+                FunctionWizardPython.ExecutePythonFunction(file, interpreter);
+                System.out.println("\u001B[32mPress Enter To Continue\u001B[0m");
+                reader.nextLine();
+                ShellCommands.ClearTerminal();
+                if (MainShell.flags.get("ASCIIART") == null) {
+                    ASCIIArt.PrintASCIIArtOnTerminal();
+                }
+            }
             default -> {
                 if (MainShell.flags.get("Safe Mode") == null) {
                     throw new InvalidCommandException();

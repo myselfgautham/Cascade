@@ -4,21 +4,25 @@ import {
     checkLocalStoragePermission
 } from "/static/JavaScript/Globals.js";
 
-checkLocalStoragePermission()
-let note = document.getElementById("note");
+checkLocalStoragePermission();
+
+const note = document.getElementById("note");
+const codeInput = document.getElementById("code");
+
 document.getElementById("activate").addEventListener("click", () => {
     if (!inputFilterCheck()) {
-        note.innerHTML = "Please Fill All Fields";
+        note.innerText = "Please Fill All Fields";
         note.style.color = "red";
         note.style.display = "block";
-    } else if (document.getElementById("code").value.length < 6) {
-        note.innerHTML = "Invalid Activation Code";
+    } else if (codeInput.value.length < 6) {
+        note.innerText = "Invalid Activation Code";
         note.style.color = "red";
         note.style.display = "block";
     } else {
-        note.innerHTML = "Activating Node";
+        note.innerText = "Activating Node";
         note.style.color = "green";
         note.style.display = "block";
+
         fetch(fetchLocation + "user/nodes/new", {
             method: "POST",
             headers: {
@@ -27,23 +31,21 @@ document.getElementById("activate").addEventListener("click", () => {
             body: JSON.stringify({
                 email: localStorage.getItem("Email"),
                 uid: localStorage.getItem("DeviceUID"),
-                code: document.getElementById("code").value
+                code: codeInput.value
             })
         })
         .then(res => res.json())
         .then(data => {
-            let res = data["Response"];
-            note.innerHTML = res;
+            const res = data.Response;
+            note.innerText = res;
             if (res === "Node Activated") {
                 note.style.color = "green";
-                setTimeout(() => {
-                    window.location.href = "/user/nodes";
-                }, 1000)
+                setTimeout(() => window.location.href = "/user/nodes", 1000);
             } else {
                 note.style.color = "red";
             }
             note.style.display = "block";
         })
-        .catch(error => console.error("Error : ", error))
+        .catch(error => console.error("Error:", error));
     }
-})
+});

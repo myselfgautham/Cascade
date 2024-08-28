@@ -17,6 +17,7 @@ public class HelperCommand {
         CommandsDocumentation.put("install dependencies --enterprise", "Install Dependencies For Enterprise Server Program");
         CommandsDocumentation.put("install docker", "Installs Docker On Local Machine");
         CommandsDocumentation.put("install python3.12", "Installs Python v3.12 On Local Machine");
+        CommandsDocumentation.put("functions", "Launches The Cascade Functions Wizard");
         RegisterFlags();
     }
 

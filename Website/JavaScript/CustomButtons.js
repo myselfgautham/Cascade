@@ -1,17 +1,7 @@
-// Accounts Page
-let acc = document.getElementById("acc");
-acc.addEventListener("click", () => {
-    window.location.href = "/user/manage"; 
-})
+const acc = document.getElementById("acc");
+const cards = document.getElementById("cards");
+const nodes = document.getElementById("nodes");
 
-// Cards Page
-let cards = document.getElementById("cards");
-cards.addEventListener('click', () => {
-    window.location.href = "/user/dashboard";
-})
-
-// Nodes Manager Page
-let Nodes = document.getElementById("nodes");
-Nodes.addEventListener("click", () => {
-    window.location.href = "/user/nodes";
-})
+acc.addEventListener("click", () => window.location.href = "/user/manage");
+cards.addEventListener("click", () => window.location.href = "/user/dashboard");
+nodes.addEventListener("click", () => window.location.href = "/user/nodes");
