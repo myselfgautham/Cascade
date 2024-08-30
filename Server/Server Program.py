@@ -389,3 +389,24 @@ def returnSystemWideCPUUsage():
             "Cores Usage": [(int(x)) for x in cpu_percent(interval=0.5, percpu=True)]
         }
     })
+
+# Revoke Cards Function
+@application.route("/cards/revoke", methods = ["POST"])
+def revokeCardSharing():
+    try:
+        data: dict = request.json
+        if not checkDeviceAuthorization(data.get("uid"), data.get("email")):
+            return jsonify({"Response": "Unauthorized Device"})
+        reference = db.collection("Cards").document(data.get("card"))
+        reference_get = reference.get()
+        if (reference_get.exists):
+            if data.get("party") not in reference_get.to_dict().get("Owners"):
+                return jsonify({"Response": "Card Not Shared Yet"})
+            reference.update({
+                "Owners": firestore.ArrayRemove([data.get("party")])
+            })
+            return jsonify({"Response": "Revoked"})
+        else:
+            raise Exception()
+    except Exception:
+        return jsonify({"Response": "Something Went Wrong"})
