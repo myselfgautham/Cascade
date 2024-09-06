@@ -17,7 +17,8 @@ from firebase_admin.auth import (
     PhoneNumberAlreadyExistsError,
     EmailAlreadyExistsError,
     get_user_by_email,
-    UserNotFoundError
+    UserNotFoundError,
+    generate_email_verification_link
 )
 from google.cloud.firestore import FieldFilter
 from firebase_admin._user_mgt import UserRecord
@@ -35,6 +36,10 @@ from uuid import uuid4
 # Date Time ( Python ) Imports
 from datetime import datetime
 from datetime import UTC
+
+# SendGrid Imports
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 # Miscellaneous Imports
 from re import search
@@ -62,6 +67,11 @@ cache: Cache = Cache(app=application, config={
 _ = CORS(
     app=application,
     origins=["http://192.168.143.177:3000"]
+)
+
+# SendGrid Configuration
+sendgrid: SendGridAPIClient = SendGridAPIClient(
+    api_key=environ.get("SENDGRID")
 )
 
 # User Password Strength Checker
@@ -112,10 +122,24 @@ def createNewUserAccount():
                 return jsonify({"Response": "Invalid Password"})
             elif not (isStrongPassword(data.get("password"))):
                 return jsonify({"Response": "Choose A Stronger Password"})
+            try:
+                message: Mail = Mail(
+                    from_email="gauthamkrishnav@icloud.com",
+                    to_emails=data.get("email")
+                )
+                message.template_id = "d-e57dd5ac3b2b423994c161d316b3dc0f"
+                link: str = generate_email_verification_link(data.get("email"))
+                message.dynamic_template_data = {
+                    "name": data.get("name"),
+                    "url": link
+                }
+                sendgrid.send(message)
+            except Exception:
+                raise Exception()
             create_user(
                 display_name=data.get("name"),
                 email=data.get("email"),
-                email_verified=True,
+                email_verified=False,
                 phone_number=data.get("phone"),
                 password=data.get("password"),
                 disabled=False,
@@ -126,8 +150,7 @@ def createNewUserAccount():
             return jsonify({"Response": "Phone Number Already Registered"})
         except EmailAlreadyExistsError:
             return jsonify({"Response": "Email Already Registered"})
-        except Exception as e:
-            print(f"\n{e}", end="\n\n")
+        except Exception:
             return jsonify({"Response": "Something Went Wrong"})
 
 # Consumer Side Routes : Account Login
