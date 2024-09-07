@@ -163,6 +163,7 @@ public class CommandHandler {
                 if (!interpreter.contains("python")) {
                     interpreter = "python" + interpreter;
                 }
+                System.out.println("\n\u001B[33mType In @help For Help\u001B[0m");
                 System.out.print("\u001B[31mEnter Function Name : \u001B[0m");
                 String file = reader.nextLine();
                 if (file.equals("@help")) {
@@ -201,6 +202,25 @@ public class CommandHandler {
                 ShellCommands.ClearTerminal();
                 if (MainShell.flags.get("ASCIIART") == null) {
                     ASCIIArt.PrintASCIIArtOnTerminal();
+                }
+            }
+            case "run server -enterprise" -> {
+                String path;
+                if (System.getenv("CASCADE_SERVER_ENTERPRISE") ==  null) {
+                    Scanner reader = new Scanner(System.in);
+                    System.out.print("Enter Server Program Path : ");
+                    path = reader.nextLine();
+                } else {
+                    path = System.getenv("CASCADE_SERVER_ENTERPRISE");
+                }
+                switch (OperatingSystem.getOperatingSystemType()) {
+                    case Linux -> {
+                        ExecuteBashScriptHelper.Run("Linux/Enterprise Server.sh", path);
+                    }
+                    case Windows, MacOS -> {
+                        throw new FeatureNotAvailableException();
+                    }
+                    default -> throw new UnsupportedOperatingSystemException();
                 }
             }
             default -> {

@@ -21,7 +21,7 @@ if (search.get("card") !== undefined) {
     card.value = search.get("card");
 }
 
-document.getElementById("submit").addEventListener("click", () => {
+function handleRequest(endpoint, successMessage, errorMessage) {
     let note = document.getElementById("note");
     note.style.color = "red";
     if (!inputFilterCheck()) {
@@ -48,7 +48,7 @@ document.getElementById("submit").addEventListener("click", () => {
         }
         note.innerHTML = "Loading";
         note.style.display = "block";
-        fetch(fetchLocation + "cards/share", {
+        fetch(fetchLocation + endpoint, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -62,8 +62,8 @@ document.getElementById("submit").addEventListener("click", () => {
         })
         .then(res => res.json())
         .then(data => {
-            if (data["Response"] === "Added") {
-                note.innerHTML = "Card Shared Successfully";
+            if (data["Response"] === successMessage) {
+                note.innerHTML = successMessage;
                 note.style.color = "green";
                 setTimeout(() => {
                     window.location.href = "/user/dashboard";
@@ -80,4 +80,12 @@ document.getElementById("submit").addEventListener("click", () => {
             }, 200);
         });
     }
+}
+
+document.getElementById("submit").addEventListener("click", () => {
+    handleRequest("cards/share", "Added", "Error Sharing Card");
+});
+
+document.getElementById("revoke").addEventListener("click", () => {
+    handleRequest("cards/revoke", "Revoked", "Error Revoking Card");
 });
