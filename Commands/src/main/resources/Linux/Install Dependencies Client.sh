@@ -11,6 +11,7 @@ packages=(
   uuid
   psutil
   flask_cors
+  sendgrid
 )
 
 for package in "${packages[@]}"; do
