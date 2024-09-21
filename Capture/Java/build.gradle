@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.cascade'
-version = '1.0-SNAPSHOT'
+version = 'v1.0-BETA'
 
 repositories {
     mavenCentral()
