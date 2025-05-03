@@ -1,3 +1,0 @@
-com.cascade.cascadeproject.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme
